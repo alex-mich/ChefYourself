@@ -11,8 +11,8 @@
 	
 	<bean id="RecipesController" class="controllers.RecipesController"/>
 	<bean id="recipeService" class="services.RecipesService"/>
-
-	
+	<bean id="recipeIngredientsService" class="services.RecipeIngredientsService"/>
+	<bean id="descriptionsService" class="services.DescriptionsService"/>
 	
 	<!-- View Resolver -->
 

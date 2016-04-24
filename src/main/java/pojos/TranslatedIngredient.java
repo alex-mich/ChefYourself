@@ -7,6 +7,12 @@ public class TranslatedIngredient {
 	private Ingredient ingredient;
 	private Locale locale;
 	private String iname;
+	
+	public TranslatedIngredient(){}
+	
+	public TranslatedIngredient(int tinid) {
+		this.tinid = tinid;
+	}
 
 	//Getters & Setters
 	public int getTinid() {

@@ -116,7 +116,7 @@ body {
 			table</font><br>
 	</h1>
 	<center>
-		<form action="./insertSpanishRecipeDescription">
+		<form action="./insertSpanishRecipeDescription.ds">
 			<table width="500">
 				<tr>
 					<td>Spanish Recipe Description ID:</td>

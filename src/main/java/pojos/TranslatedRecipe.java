@@ -10,10 +10,18 @@ public class TranslatedRecipe {
 	private Locale locale;
 	private String rname;
 	
+	//Constructor
+	public TranslatedRecipe(){}
+	
+	public TranslatedRecipe(int trid) {
+		this.trid = trid;
+	}
+	
 	//Getters & Setters
 	public void setTrid(int trid) {
 		this.trid = trid;
 	}
+	
 	public Recipe getRecipe() {
 		return recipe;
 	}

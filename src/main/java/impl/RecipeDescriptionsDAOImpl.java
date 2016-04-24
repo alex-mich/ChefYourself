@@ -60,7 +60,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 
 	@Override
 	public int insertGreekRecipeDescription(RecipeDescription rd) throws Exception {
-		final String grSQL = "INSERT INTO app_greek_description (grrdid,tgrrid,grrdesc) VALUES (?,?,?)";
+		final String grSQL = "INSERT INTO app_greek_recipes_description (grrdid,tgrrid,grrdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -91,7 +91,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 
 	@Override
 	public int insertGlobalRecipeDescription(RecipeDescription rd) throws Exception {
-		final String glSQL = "INSERT INTO app_global_description (glrdid,tglrid,glrdesc) VALUES (?,?,?)";
+		final String glSQL = "INSERT INTO app_global_recipes_description (glrdid,tglrid,glrdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -122,7 +122,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 
 	@Override
 	public int insertSpanishRecipeDescription(RecipeDescription rd) throws Exception {
-		final String spSQL = "INSERT INTO app_spanish_description (sprdid,tsprid,sprdesc) VALUES (?,?,?)";
+		final String spSQL = "INSERT INTO app_spanish_recipes_description (sprdid,tsprid,sprdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;

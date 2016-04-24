@@ -97,7 +97,7 @@ body {
 				</tr>
 				<tr>
 					<td>Greek Recipe Ingredient Quantity:</td>
-					<td><input type="text" id="grriquan"></td>
+					<td><input type="text" name="grriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertGreekRecipesIngredients"
