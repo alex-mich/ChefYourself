@@ -18,7 +18,6 @@ body {
 	<br>
 	<br>
 	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_ingredients table</font><br>
@@ -39,8 +38,8 @@ body {
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewAppIngredientsTable.ds">
-			<br>
-			<input type="submit" id="viewAppIngredientsTable" value="VIEW TABLE"
+			<br> <input type="submit" id="viewAppIngredientsTable"
+				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
 	</center>

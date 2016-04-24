@@ -17,66 +17,101 @@ body {
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Delete from app_global recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_global recipes table</font><br>
 	</h1>
 	<center>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Global Recipe ID:</td>
-				<td><input type="text" id="glrid1"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGlobalRecipe" value="DELETE"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppGlobalRecipesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;">
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_global_recipes_trans table</font><br>
-		</h1>
-		<table width="350">
-			<tr>
-				<td style="background-color: buttonface;">Translated Global Recipe ID:</td>
-				<td><input type="text" id="tglrid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGlobalRecipesTrans"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGlobalRecipesTransTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_global_recipes_ingredients
-				table</font><br>
-		</h1>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Global Ingredient ID:</td>
-				<td><input type="text" id="gliid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGlobalRecipesIngredient"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGlobalRecipesIngredientsTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_global_recipes_description
-				table</font><br>
-		</h1>
-		<table width="350">
-			<tr>
-				<td style="background-color: buttonface;">Global Recipe Description ID:</td>
-				<td><input type="text" id="glrdid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGlobalRecipesDescription"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGlobalRecipesDescriptionTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<br> <input type="button" id="backButton" value="BACK"
+		<form action="./deleteGlobalRecipe.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Global Recipe ID:</td>
+					<td><input type="text" id="glrid1"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGlobalRecipe" value="DELETE"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGlobalRecipesTable.ds">
+			<br> <input type="submit" id="viewAppGlobalRecipesTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_global_recipes_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./deleteGlobalRecipeTrans.ds">
+			<table width="350">
+				<tr>
+					<td style="background-color: buttonface;">Translated Global
+						Recipe ID:</td>
+					<td><input type="text" id="tglrid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGlobalRecipesTrans"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGlobalRecipesTransTable.ds">
+			<br> <input type="submit" id="viewAppGlobalRecipesTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_global_recipes_ingredients table</font><br>
+	</h1>
+	<center>
+		<form action="./deleteGlobalRecipeIngredients.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Global Ingredient
+						ID:</td>
+					<td><input type="text" id="gliid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGlobalRecipesIngredient"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGlobalRecipesIngredients.ds">
+			<br> <input type="submit"
+				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_global_recipes_description table</font><br>
+	</h1>
+	<center>
+		<form action="./deleteGlobalRecipeDescription.ds">
+			<table width="350">
+				<tr>
+					<td style="background-color: buttonface;">Global Recipe
+						Description ID:</td>
+					<td><input type="text" id="glrdid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGlobalRecipesDescription"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGlobalRecipesDescriptions.ds">
+			<br> <input type="submit"
+				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>
+	<br>
 </body>
 </html>

@@ -10,71 +10,107 @@ body {
 	background:
 		url(http://foodwineclick.files.wordpress.com/2012/05/02-black-bean-cucumber-tomato-salsa-ingredients-01_640.jpg)
 		no-repeat;
-	background-size: 100%;
+	background-size: cover;
 }
 </style>
 </head>
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Delete from app_greek recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Greek Recipe ID:</td>
-				<td><input type="text" id="grrid1"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGreekRecipe" value="DELETE"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppGreekRecipesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;">
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_greek_recipes_trans table</font><br>
-		</h1>
-		<table width="350">
-			<tr>
-				<td style="background-color: buttonface;">Translated Greek Recipe ID:</td>
-				<td><input type="text" id="tgrrid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGreekRecipesTrans"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGreekRecipesTransTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_greek_recipes_ingredients table</font><br>
-		</h1>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Greek Ingredient ID:</td>
-				<td><input type="text" id="griid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGreekRecipesIngredient"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGreekRecipesIngredientsTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Delete from app_greek_recipes_description table</font><br>
-		</h1>
-		<table width="350">
-			<tr>
-				<td style="background-color: buttonface;">Greek Recipe Description ID:</td>
-				<td><input type="text" id="grrdid"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteGreekRecipesDescription"
-			value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppGreekRecipesDescriptionTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<br> <input type="button" id="backButton" value="BACK"
+		<form action="./deleteGreekRecipe.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Greek Recipe ID:</td>
+					<td><input type="text" id="grrid1"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGreekRecipe" value="DELETE"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGreekRecipesTable.ds">
+			<br> <input type="submit" id="viewAppGreekRecipesTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_greek_recipes_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./deleteGreekRecipeTrans.ds">
+			<table width="350">
+				<tr>
+					<td style="background-color: buttonface;">Translated Greek
+						Recipe ID:</td>
+					<td><input type="text" id="tgrrid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGreekRecipesTrans"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGreekRecipesTransTable.ds">
+			<br> <input type="submit" id="viewAppGreekRecipesTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_greek_recipes_ingredients table</font><br>
+	</h1>
+	<center>
+		<form action="./deleteGreekRecipeIngredients.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Greek Ingredient ID:</td>
+					<td><input type="text" id="griid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGreekRecipesIngredient"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGreekRecipesIngredients.ds">
+			<br> <input type="submit"
+				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_greek_recipes_description table</font><br>
+	</h1>
+	<center>
+		<form action="./insertGreekRecipeDescription.ds">
+			<table width="350">
+				<tr>
+					<td style="background-color: buttonface;">Greek Recipe
+						Description ID:</td>
+					<td><input type="text" id="grrdid"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteGreekRecipesDescription"
+				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppGreekRecipesDescriptions.ds">
+			<br> <input type="submit"
+				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>
+	<br>
 </body>
 </html>

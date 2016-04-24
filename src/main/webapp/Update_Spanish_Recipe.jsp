@@ -8,7 +8,7 @@
 <style>
 body {
 	background:
-		url(http://whatfoodlookslike.com/img/chinese.jpg)
+		url(http://informedexplorer.com/wp-content/uploads/2014/05/assorteddishesrangdebasantidhaba_sandhira_13867531372390.jpg)
 		no-repeat;
 	background-size: cover;
 }
@@ -20,103 +20,130 @@ body {
 		<font size="5">Update on app_spanish recipes table</font><br>
 	</h1>
 	<center>
-		<table width="280">
-			<tr>
-				<td>Spanish Recipe ID:</td>
-				<td><input type="text" id="sprid1"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="updateSpanishRecipes"
-			value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppSpanishRecipesTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;">
-		<h1 align="center">
-			<font size="5">Update on app_spanish_recipes_trans table</font><br>
-		</h1>
-		<table width="350">
-			<tr>
-				<td>Translated Spanish Recipe ID:</td>
-				<td><input type="text" id="tsprid"></td>
-			</tr>
-			<tr>
-				<td>Spanish Recipe ID:</td>
-				<td><input type="text" id="sprid2"></td>
-			</tr>
-			<tr>
-				<td>Translated Cuisine ID:</td>
-				<td><input type="text" id="tcid"></td>
-			</tr>
-			<tr>
-				<td>Locale:</td>
-				<td><input type="text" id="loc"></td>
-			</tr>
-			<tr>
-				<td>Translated Method ID:</td>
-				<td><input type="text" id="tmid"></td>
-			</tr>
-			<tr>
-				<td>Spanish Recipe Name:</td>
-				<td><input type="text" id="sprname"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="updateSpanishRecipesTrans"
-			value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppSpanishRecipesTransTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5">Update on app_spanish_recipes_ingredients table</font><br>
-		</h1>
-		<table width="400">
-			<tr>
-				<td>Spanish Ingredient ID:</td>
-				<td><input type="text" id="spiid"></td>
-			</tr>
-			<tr>
-				<td>Translated Spanish Recipe ID:</td>
-				<td><input type="text" id="tsprid2"></td>
-			</tr>
-			<tr>
-				<td>Translated Ingredient ID:</td>
-				<td><input type="text" id="tinid"></td>
-			</tr>
-			<tr>
-				<td>Spanish Recipe Ingredient Quantity:</td>
-				<td><input type="text" id="spriquan"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="updateSpanishRecipesIngredient"
-			value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppSpanishRecipesIngredientsTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<h1 align="center">
-			<font size="5">Update into app_spanish_recipes_description
-				table</font><br>
-		</h1>
-		<table width="500">
-			<tr>
-				<td>Spanish Recipe Description ID:</td>
-				<td><input type="text" id="sprdid"></td>
-			</tr>
-			<tr>
-				<td>Translated Spanish Recipe ID:</td>
-				<td><input type="text" id="tsprid3"></td>
-			</tr>
-			<tr>
-				<td>Spanish Recipe Description:</td>
-				<td><textarea id="sprdesc" rows="10" cols="30"></textarea></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="updateSpanishRecipesDescription"
-			value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppSpanishRecipesDescriptionTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<br> <input type="button" id="backButton" value="BACK"
+		<form action="./updateSpanishRecipe.ds" method="get">
+			<table width="280">
+				<tr>
+					<td>Spanish Recipe ID:</td>
+					<td><input type="text" name="sprid1"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="updateSpanishRecipes"
+				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppSpanishRecipes">
+			<br> <input type="submit" id="viewAppSpanishRecipesTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<h1 align="center">
+		<font size="5">Update on app_spanish_recipes_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./updateSpanishRecipeTrans.ds">
+			<table width="350">
+				<tr>
+					<td>Translated Spanish Recipe ID:</td>
+					<td><input type="text" id="tsprid"></td>
+				</tr>
+				<tr>
+					<td>Spanish Recipe ID:</td>
+					<td><input type="text" id="sprid2"></td>
+				</tr>
+				<tr>
+					<td>Translated Cuisine ID:</td>
+					<td><input type="text" id="tcid"></td>
+				</tr>
+				<tr>
+					<td>Translated Method ID:</td>
+					<td><input type="text" id="tmid"></td>
+				</tr>
+				<tr>
+					<td>Locale:</td>
+					<td><input type="text" id="loc"></td>
+				</tr>
+				<tr>
+					<td>Spanish Recipe Name:</td>
+					<td><input type="text" id="sprname"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="updateSpanishRecipesTrans"
+				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppSpanishRecipesTransTable.ds">
+			<br> <input type="submit" id="viewAppSpanishRecipesTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5">Update on app_spanish_recipes_ingredients table</font><br>
+	</h1>
+	<center>
+		<form action="./updateSpanishRecipeIngredients.ds">
+			<table width="400">
+				<tr>
+					<td>Spanish Ingredient ID:</td>
+					<td><input type="text" id="spiid"></td>
+				</tr>
+				<tr>
+					<td>Translated Spanish Recipe ID:</td>
+					<td><input type="text" id="tsprid2"></td>
+				</tr>
+				<tr>
+					<td>Translated Ingredient ID:</td>
+					<td><input type="text" id="tinid"></td>
+				</tr>
+				<tr>
+					<td>Spanish Recipe Ingredient Quantity:</td>
+					<td><input type="text" id="spriquan"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="updateSpanishRecipesIngredients"
+				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppSpanishRecipesIngredients.ds">
+			<br> <input type="submit"
+				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5">Update on app_spanish_recipes_description table</font><br>
+	</h1>
+	<center>
+		<form action="./updateSpanishRecipeDescription">
+			<table width="500">
+				<tr>
+					<td>Spanish Recipe Description ID:</td>
+					<td><input type="text" id="sprdid"></td>
+				</tr>
+				<tr>
+					<td>Translated Spanish Recipe ID:</td>
+					<td><input type="text" id="tsprid3"></td>
+				</tr>
+				<tr>
+					<td>Spanish Recipe Description:</td>
+					<td><textarea id="sprdesc" rows="10" cols="30"></textarea></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="updateSpanishRecipesDescription"
+				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppSpanishRecipesDescriptions.ds">
+			<br> <input type="submit"
+				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>
+	<br>
 </body>
 </html>

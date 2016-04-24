@@ -7,8 +7,7 @@
 <title>Delete Locale</title>
 <style>
 body {
-	background:
-		url(http://shaakinternational.com/images/image2.jpg)
+	background: url(http://shaakinternational.com/images/image2.jpg)
 		no-repeat;
 	background-size: 100%;
 }
@@ -21,20 +20,29 @@ body {
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Delete from app_locale table</font><br>
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_locale table</font><br>
 	</h1>
 	<center>
-		<table width="200">
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="locale"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="deleteAppLocale" value="DELETE"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		<form action="./deleteLocale.ds">
+			<table width="200">
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="locale"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="deleteAppLocale" value="DELETE"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppLocalesTable.ds">
+			<br>
+			<input type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		</form>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">

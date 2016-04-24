@@ -146,5 +146,6 @@ body {
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>
+	<br>
 </body>
 </html>

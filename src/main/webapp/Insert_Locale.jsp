@@ -21,6 +21,7 @@ body {
 	<br>
 	<br>
 	<br>
+	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_locale table</font><br>
@@ -45,8 +46,8 @@ body {
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewAppLocalesTable.ds">
-			<br>
-			<input type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
+			<br> <input type="submit" id="viewAppLocalesTable"
+				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
 		<br> <input type="button" id="backButton" value="BACK"

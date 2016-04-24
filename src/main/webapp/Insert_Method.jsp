@@ -18,7 +18,6 @@ body {
 	<br>
 	<br>
 	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_methods table</font><br>

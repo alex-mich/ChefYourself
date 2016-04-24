@@ -21,28 +21,35 @@ body {
 	<br>
 	<br>
 	<br>
+	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Update on app_locale table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_locale table</font><br>
 	</h1>
 	<center>
-		<table width="250">
-			<tr>
-				<td style="background-color: buttonface;">Locale ID:</td>
-				<td><input type="text" id="lid"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="locale"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Language:</td>
-				<td><input type="text" id="lang"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="updateAppLocales" value="UPDATE"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		<form action="./updateLocale.ds">
+			<table width="250">
+				<tr>
+					<td style="background-color: buttonface;">Locale ID:</td>
+					<td><input type="text" id="lid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="locale"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Language:</td>
+					<td><input type="text" id="lang"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="updateAppLocales" value="UPDATE"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppLocalesTable.ds">
+			<br> <input type="submit" id="viewAppLocalesTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		</form>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
