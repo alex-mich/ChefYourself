@@ -30,7 +30,7 @@ body {
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" id="mid1"></td>
+					<td><input type="text" name="mid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppMethods" value="DELETE"
@@ -53,7 +53,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Method
 						ID:</td>
-					<td><input type="text" id="tmid"></td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppMethodsTrans"

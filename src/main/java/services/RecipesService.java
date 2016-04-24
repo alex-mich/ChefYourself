@@ -14,40 +14,40 @@ public class RecipesService {
 
 	public RecipesService(){}
 	
-	public int insertGrRecipe(Recipe recipe) throws Exception{
+	public int insertGreekRecipe(Recipe recipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertGrRecipe(recipe);
+		return recipesDAOImpl.insertGreekRecipe(recipe);
 	}
 	
-	public int insertGlRecipe(Recipe recipe) throws Exception{
+	public int insertGlobalRecipe(Recipe recipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertGlRecipe(recipe);
+		return recipesDAOImpl.insertGlobalRecipe(recipe);
 	}
 	
-	public int insertSpRecipe(Recipe recipe) throws Exception{
+	public int insertSpanishRecipe(Recipe recipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertSpRecipe(recipe);
+		return recipesDAOImpl.insertSpanishRecipe(recipe);
 	}
 	
-	public int insertGreekRecipe(TranslatedRecipe trRecipe) throws Exception{
+	public int insertGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertGreekRecipe(trRecipe);
+		return recipesDAOImpl.insertGreekTranslatedRecipe(trRecipe);
 	}
 	
-	public int insertGlobalRecipe(TranslatedRecipe trRecipe) throws Exception{
+	public int insertGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertGlobalRecipe(trRecipe);
+		return recipesDAOImpl.insertGlobalTranslatedRecipe(trRecipe);
 	}
 	
-	public int insertSpanishRecipe(TranslatedRecipe trRecipe) throws Exception{
+	public int insertSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
-		return recipesDAOImpl.insertSpanishRecipe(trRecipe);
+		return recipesDAOImpl.insertSpanishTranslatedRecipe(trRecipe);
 	}
 
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception{

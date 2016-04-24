@@ -32,7 +32,7 @@ body {
 			<table width="200">
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" id="locale"></td>
+					<td><input type="text" name="locale"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppLocale" value="DELETE"

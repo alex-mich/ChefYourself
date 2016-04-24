@@ -28,7 +28,7 @@ body {
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" id="inid1"></td>
+					<td><input type="text" name="inid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppIngredient"
@@ -51,11 +51,11 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated
 						Ingredient ID:</td>
-					<td><input type="text" id="tinid"></td>
+					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" id="inid2"></td>
+					<td><input type="text" name="inid2"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppIngredientsTrans"

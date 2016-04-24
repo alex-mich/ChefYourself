@@ -57,7 +57,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertGrRecipe(Recipe recipe) throws Exception {
+	public int insertGreekRecipe(Recipe recipe) throws Exception {
 		final String grrSQL = "INSERT INTO app_greek_recipes (grrid) VALUES (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -86,7 +86,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertGlRecipe(Recipe recipe) throws Exception {
+	public int insertGlobalRecipe(Recipe recipe) throws Exception {
 		final String glrSQL = "INSERT INTO app_global_recipes (glrid) VALUES (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -115,7 +115,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertSpRecipe(Recipe recipe) throws Exception {
+	public int insertSpanishRecipe(Recipe recipe) throws Exception {
 		final String sprSQL = "INSERT INTO app_spanish_recipes (sprid) VALUES (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -144,7 +144,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertGreekRecipe(TranslatedRecipe trRecipe) throws Exception {
+	public int insertGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 		final String grSQL = "INSERT INTO app_greek_recipes_trans (tgrrid,grrid,tcid,tmid,locale,grrname) VALUES (?,?,?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -178,7 +178,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertGlobalRecipe(TranslatedRecipe trRecipe) throws Exception {
+	public int insertGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 		final String glSQL = "INSERT INTO app_global_recipes_trans (tglrid,glrid,tcid,tmid,locale,glrname) VALUES (?,?,?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -190,8 +190,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 			pstmt = con.prepareStatement(glSQL);
 			pstmt.setInt(1, trRecipe.getTrid());
 			pstmt.setInt(2, trRecipe.getRecipe().getRid());
-			pstmt.setInt(3, trRecipe.getTransCuisine().getCuisine().getCid());
-			pstmt.setInt(4, trRecipe.getTransMethod().getMethod().getMid());
+			pstmt.setInt(3, trRecipe.getTransCuisine().getTcid());
+			pstmt.setInt(4, trRecipe.getTransMethod().getTmid());
 			pstmt.setString(5, trRecipe.getLocale().getLoc());
 			pstmt.setString(6, trRecipe.getRname());
 			i = pstmt.executeUpdate();
@@ -212,7 +212,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertSpanishRecipe(TranslatedRecipe trRecipe) throws Exception {
+	public int insertSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 		final String spSQL = "INSERT INTO app_spanish_recipes_trans (tsprid,sprid,tcid,tmid,locale,sprname) VALUES (?,?,?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -224,8 +224,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 			pstmt = con.prepareStatement(spSQL);
 			pstmt.setInt(1, trRecipe.getTrid());
 			pstmt.setInt(2, trRecipe.getRecipe().getRid());
-			pstmt.setInt(3, trRecipe.getTransCuisine().getCuisine().getCid());
-			pstmt.setInt(4, trRecipe.getTransMethod().getMethod().getMid());
+			pstmt.setInt(3, trRecipe.getTransCuisine().getTcid());
+			pstmt.setInt(4, trRecipe.getTransMethod().getTmid());
 			pstmt.setString(5, trRecipe.getLocale().getLoc());
 			pstmt.setString(6, trRecipe.getRname());
 			i = pstmt.executeUpdate();

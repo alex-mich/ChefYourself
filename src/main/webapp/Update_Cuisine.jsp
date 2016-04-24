@@ -27,7 +27,7 @@ body {
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" id="cid1"></td>
+					<td><input type="text" name="cid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppCuisines" value="UPDATE"
@@ -50,19 +50,19 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
 						ID:</td>
-					<td><input type="text" id="tcid"></td>
+					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" id="cid2"></td>
+					<td><input type="text" name="cid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Cuisine Name:</td>
-					<td><input type="text" id="cname"></td>
+					<td><input type="text" name="cname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppCuisinesTrans"

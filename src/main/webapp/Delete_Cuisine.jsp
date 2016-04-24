@@ -27,7 +27,7 @@ body {
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" id="cid1"></td>
+					<td><input type="text" name="cid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppCuisines" value="DELETE"
@@ -50,15 +50,14 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
 						ID:</td>
-					<td><input type="text" id="tcid"></td>
+					<td><input type="text" name="tcid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppCuisinesTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewAppCuisinesTransTable.ds">
-			<br>
-			<input type="submit" id="viewAppCuisinesTransTable"
+			<br> <input type="submit" id="viewAppCuisinesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>

@@ -22,7 +22,7 @@ body {
 			<table width="280">
 				<tr>
 					<td>Greek Recipe ID:</td>
-					<td><input type="text" id="grrid1"></td>
+					<td><input type="text" name="grrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipe" value="UPDATE"
@@ -42,27 +42,27 @@ body {
 			<table width="350">
 				<tr>
 					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" id="tgrrid"></td>
+					<td><input type="text" name="tgrrid"></td>
 				</tr>
 				<tr>
 					<td>Greek Recipe ID:</td>
-					<td><input type="text" id="grrid2"></td>
+					<td><input type="text" name="grrid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Cuisine ID:</td>
-					<td><input type="text" id="tcid"></td>
+					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
 					<td>Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td>Translated Method ID:</td>
-					<td><input type="text" id="tmid"></td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
 					<td>Greek Recipe Name:</td>
-					<td><input type="text" id="grrname"></td>
+					<td><input type="text" name="grrname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesTrans"
@@ -83,19 +83,19 @@ body {
 			<table width="400">
 				<tr>
 					<td>Greek Ingredient ID:</td>
-					<td><input type="text" id="griid"></td>
+					<td><input type="text" name="griid"></td>
 				</tr>
 				<tr>
 					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" id="tgrrid2"></td>
+					<td><input type="text" name="tgrrid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Ingredient ID:</td>
-					<td><input type="text" id="tinid"></td>
+					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
 					<td>Greek Recipe Ingredient Quantity:</td>
-					<td><input type="text" id="grriquan"></td>
+					<td><input type="text" name="grriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesIngredient"
@@ -116,15 +116,15 @@ body {
 			<table width="500">
 				<tr>
 					<td>Greek Recipe Description ID:</td>
-					<td><input type="text" id="grrdid"></td>
+					<td><input type="text" name="grrdid"></td>
 				</tr>
 				<tr>
 					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" id="tgrrid3"></td>
+					<td><input type="text" name="tgrrid3"></td>
 				</tr>
 				<tr>
 					<td>Greek Recipe Description:</td>
-					<td><textarea id="grrdesc" rows="10" cols="30"></textarea></td>
+					<td><textarea name="grrdesc" rows="10" cols="30"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesDescription"

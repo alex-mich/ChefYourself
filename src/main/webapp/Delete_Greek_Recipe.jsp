@@ -25,7 +25,7 @@ body {
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe ID:</td>
-					<td><input type="text" id="grrid1"></td>
+					<td><input type="text" name="grrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipe" value="DELETE"
@@ -48,7 +48,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Greek
 						Recipe ID:</td>
-					<td><input type="text" id="tgrrid"></td>
+					<td><input type="text" name="tgrrid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesTrans"
@@ -70,7 +70,7 @@ body {
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Ingredient ID:</td>
-					<td><input type="text" id="griid"></td>
+					<td><input type="text" name="griid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesIngredient"
@@ -93,7 +93,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe
 						Description ID:</td>
-					<td><input type="text" id="grrdid"></td>
+					<td><input type="text" name="grrdid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesDescription"

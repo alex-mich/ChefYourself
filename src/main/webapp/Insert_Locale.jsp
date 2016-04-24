@@ -31,15 +31,15 @@ body {
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
-					<td><input type="text" id="lid"></td>
+					<td><input type="text" name="lid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" id="locale"></td>
+					<td><input type="text" name="locale"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Language:</td>
-					<td><input type="text" id="lang"></td>
+					<td><input type="text" name="lang"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppLocales" value="INSERT"

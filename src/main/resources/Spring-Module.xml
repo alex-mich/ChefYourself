@@ -3,6 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<import resource="Spring-Ingredient.xml" />
+	<import resource="Spring-Ingredients.xml"/>
+	<import resource="Spring-Cuisines.xml"/>
+	<import resource="Spring-Methods.xml"/>
+	<import resource="Spring-Locale.xml"/>
+	<import resource="Spring-Recipes.xml"/>
+	<import resource="Spring-RecipeIngredients.xml"/>
+	<import resource="Spring-Descriptions.xml"/>
 	
 </beans>

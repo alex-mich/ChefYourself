@@ -44,27 +44,27 @@ body {
 			<table width="350">
 				<tr>
 					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" id="tsprid"></td>
+					<td><input type="text" name="tsprid"></td>
 				</tr>
 				<tr>
 					<td>Spanish Recipe ID:</td>
-					<td><input type="text" id="sprid2"></td>
+					<td><input type="text" name="sprid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Cuisine ID:</td>
-					<td><input type="text" id="tcid"></td>
+					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
 					<td>Translated Method ID:</td>
-					<td><input type="text" id="tmid"></td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
 					<td>Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td>Spanish Recipe Name:</td>
-					<td><input type="text" id="sprname"></td>
+					<td><input type="text" name="sprname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertSpanishRecipesTrans"
@@ -86,19 +86,19 @@ body {
 			<table width="400">
 				<tr>
 					<td>Spanish Ingredient ID:</td>
-					<td><input type="text" id="spiid"></td>
+					<td><input type="text" name="spiid"></td>
 				</tr>
 				<tr>
 					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" id="tsprid2"></td>
+					<td><input type="text" name="tsprid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Ingredient ID:</td>
-					<td><input type="text" id="tinid"></td>
+					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
 					<td>Spanish Recipe Ingredient Quantity:</td>
-					<td><input type="text" id="spriquan"></td>
+					<td><input type="text" name="spriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertSpanishRecipesIngredients"
@@ -120,15 +120,15 @@ body {
 			<table width="500">
 				<tr>
 					<td>Spanish Recipe Description ID:</td>
-					<td><input type="text" id="sprdid"></td>
+					<td><input type="text" name="sprdid"></td>
 				</tr>
 				<tr>
 					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" id="tsprid3"></td>
+					<td><input type="text" name="tsprid3"></td>
 				</tr>
 				<tr>
 					<td>Spanish Recipe Description:</td>
-					<td><textarea id="sprdesc" rows="10" cols="30"></textarea></td>
+					<td><textarea name="sprdesc" rows="10" cols="30"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertSpanishRecipesDescription"

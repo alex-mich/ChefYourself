@@ -1,0 +1,14 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="methodsDAOImpl" class="impl.MethodsDAOImpl">
+		<property name="driver" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/ChefYourself" />
+		<property name="username" value="postgres" />
+		<property name="password" value="chefyourself" />
+		<property name="ldi" ref="localeDAOImpl" />
+	</bean>
+
+</beans>

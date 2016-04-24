@@ -25,7 +25,7 @@ body {
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe ID:</td>
-					<td><input type="text" id="glrid1"></td>
+					<td><input type="text" name="glrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipe" value="DELETE"
@@ -48,7 +48,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Global
 						Recipe ID:</td>
-					<td><input type="text" id="tglrid"></td>
+					<td><input type="text" name="tglrid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesTrans"
@@ -71,7 +71,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Global Ingredient
 						ID:</td>
-					<td><input type="text" id="gliid"></td>
+					<td><input type="text" name="gliid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesIngredient"
@@ -94,7 +94,7 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe
 						Description ID:</td>
-					<td><input type="text" id="glrdid"></td>
+					<td><input type="text" name="glrdid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesDescription"

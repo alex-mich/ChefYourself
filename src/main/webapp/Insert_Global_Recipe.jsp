@@ -44,27 +44,27 @@ body {
 			<table width="350">
 				<tr>
 					<td>Translated Global Recipe ID:</td>
-					<td><input type="text" id="tglrid"></td>
+					<td><input type="text" name="tglrid"></td>
 				</tr>
 				<tr>
 					<td>Global Recipe ID:</td>
-					<td><input type="text" id="glrid2"></td>
+					<td><input type="text" name="glrid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Cuisine ID:</td>
-					<td><input type="text" id="tcid"></td>
+					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
 					<td>Translated Method ID:</td>
-					<td><input type="text" id="tmid"></td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
 					<td>Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td>Global Recipe Name:</td>
-					<td><input type="text" id="glrname"></td>
+					<td><input type="text" name="glrname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertGlobalRecipesTrans"
@@ -85,19 +85,19 @@ body {
 			<table width="400">
 				<tr>
 					<td>Global Ingredient ID:</td>
-					<td><input type="text" id="gliid"></td>
+					<td><input type="text" name="gliid"></td>
 				</tr>
 				<tr>
 					<td>Translated Global Recipe ID:</td>
-					<td><input type="text" id="tglrid2"></td>
+					<td><input type="text" name="tglrid2"></td>
 				</tr>
 				<tr>
 					<td>Translated Ingredient ID:</td>
-					<td><input type="text" id="tinid"></td>
+					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
 					<td>Global Recipe Ingredient Quantity:</td>
-					<td><input type="text" id="glriquan"></td>
+					<td><input type="text" name="glriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertGlobalRecipesIngredients"
@@ -118,15 +118,15 @@ body {
 			<table width="500">
 				<tr>
 					<td>Global Recipe Description ID:</td>
-					<td><input type="text" id="glrdid"></td>
+					<td><input type="text" name="glrdid"></td>
 				</tr>
 				<tr>
 					<td>Translated Global Recipe ID:</td>
-					<td><input type="text" id="tglrid3"></td>
+					<td><input type="text" name="tglrid3"></td>
 				</tr>
 				<tr>
 					<td>Global Recipe Description:</td>
-					<td><textarea id="glrdesc" rows="10" cols="30"></textarea></td>
+					<td><textarea name="glrdesc" rows="10" cols="30"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertGlobalRecipesDescription"

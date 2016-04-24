@@ -27,7 +27,7 @@ body {
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" id="mid1"></td>
+					<td><input type="text" name="mid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppMethods" value="INSERT"
@@ -50,19 +50,19 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated Method
 						ID:</td>
-					<td><input type="text" id="tmid"></td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" id="mid2"></td>
+					<td><input type="text" name="mid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Method Name:</td>
-					<td><input type="text" id="mname"></td>
+					<td><input type="text" name="mname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppMethodsTrans"

@@ -7,17 +7,17 @@ import pojos.TranslatedRecipe;
 
 public interface RecipesDAO {
 	
-	public int insertGrRecipe(Recipe recipe) throws Exception;
+	public int insertGreekRecipe(Recipe recipe) throws Exception;
 	
-	public int insertGlRecipe(Recipe recipe) throws Exception;
+	public int insertGlobalRecipe(Recipe recipe) throws Exception;
 	
-	public int insertSpRecipe(Recipe recipe) throws Exception;
+	public int insertSpanishRecipe(Recipe recipe) throws Exception;
 	
-	public int insertGreekRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
 	
-	public int insertGlobalRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
 	
-	public int insertSpanishRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
 
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception;
 	

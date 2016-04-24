@@ -27,11 +27,11 @@ body {
 			<table width="280">
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" id="inid1"></td>
+					<td><input type="text" name="inid1"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Ingredient Type:</td>
-					<td><input type="text" id="itype"></td>
+					<td><input type="text" name="itype"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppIngredients"
@@ -54,19 +54,19 @@ body {
 				<tr>
 					<td style="background-color: buttonface;">Translated
 						Ingredient ID:</td>
-					<td><input type="text" id="tinid"></td>
+					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" id="inid2"></td>
+					<td><input type="text" name="inid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" id="loc"></td>
+					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Ingredient Name:</td>
-					<td><input type="text" id="iname"></td>
+					<td><input type="text" name="iname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppIngredientsTrans"

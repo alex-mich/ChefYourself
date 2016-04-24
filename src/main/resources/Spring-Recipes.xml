@@ -1,0 +1,16 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="recipesDAOImpl" class="impl.RecipesDAOImpl">
+		<property name="driver" value="org.postgresql.Driver"/>
+		<property name="url" value="jdbc:postgresql://localhost:5432/ChefYourself"/>
+		<property name="username" value="postgres"/>
+		<property name="password" value="chefyourself"/>
+		<property name="ldi" ref="localeDAOImpl"/>
+		<property name="tcdi" ref="cuisinesDAOImpl"/>
+		<property name="tmdi" ref="methodsDAOImpl"/>
+	</bean>
+    
+</beans>

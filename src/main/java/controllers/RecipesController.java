@@ -29,7 +29,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(rid);
-			success = recipeService.insertGrRecipe(recipe);
+			success = recipeService.insertGreekRecipe(recipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,7 +47,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(rid);
-			success = recipeService.insertGlRecipe(recipe);
+			success = recipeService.insertGlobalRecipe(recipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,7 +65,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(rid);
-			success = recipeService.insertSpRecipe(recipe);
+			success = recipeService.insertSpanishRecipe(recipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -105,7 +105,7 @@ public class RecipesController {
 			
 			transRecipe.setRname(grrname);
 			
-			success = recipeService.insertGreekRecipe(transRecipe);
+			success = recipeService.insertGreekTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -120,7 +120,7 @@ public class RecipesController {
 	@RequestMapping(value = "insertGlobalRecipeTrans.ds", method = RequestMethod.GET)
 	public ModelAndView insertGlobalRecipeTrans(@RequestParam("tglrid") int trid, @RequestParam("glrid2") int rid,
 			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
-			@RequestParam("glrname") String grrname) throws Exception {
+			@RequestParam("glrname") String glrname) throws Exception {
 
 		int success = 0;
 		try {
@@ -143,15 +143,15 @@ public class RecipesController {
 			locale.setLoc(loc);
 			transRecipe.setLocale(locale);
 			
-			transRecipe.setRname(grrname);
+			transRecipe.setRname(glrname);
 			
-			success = recipeService.insertGreekRecipe(transRecipe);
+			success = recipeService.insertGlobalTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + grrname);
+		m.put("msg", "Hello: " + glrname);
 		ModelAndView mav = new ModelAndView("fail", m);
 
 		return mav;
@@ -160,7 +160,7 @@ public class RecipesController {
 	@RequestMapping(value = "insertSpanishRecipeTrans.ds", method = RequestMethod.GET)
 	public ModelAndView insertSpanishRecipeTrans(@RequestParam("tsprid") int trid, @RequestParam("sprid2") int rid,
 			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
-			@RequestParam("sprname") String grrname) throws Exception {
+			@RequestParam("sprname") String sprname) throws Exception {
 
 		int success = 0;
 		try {
@@ -183,18 +183,19 @@ public class RecipesController {
 			locale.setLoc(loc);
 			transRecipe.setLocale(locale);
 			
-			transRecipe.setRname(grrname);
+			transRecipe.setRname(sprname);
 			
-			success = recipeService.insertGreekRecipe(transRecipe);
+			success = recipeService.insertSpanishTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + grrname);
+		m.put("msg", "Hello: " + sprname);
 		ModelAndView mav = new ModelAndView("fail", m);
 
 		return mav;
 	}
 
+	
 }
