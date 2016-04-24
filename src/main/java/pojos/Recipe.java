@@ -4,6 +4,15 @@ public class Recipe {
 
 	//Fields
 	private int rid;
+	
+	//Constructors
+	public Recipe(){
+		
+	}
+	
+	public Recipe(int rid){
+		this.rid = rid;
+	}
 
 	//Getters & Setters
 	public int getRid() {

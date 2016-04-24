@@ -61,10 +61,5 @@
 		<property name="tidi" ref="ingredientsDAOImpl"/>
 	</bean>
 	
-<!-- 	<bean id="algo" class="com.teithe.chefyourself.Algorithm"> -->
-<!-- 		<property name="trdi" ref="recipesDAOImpl"/> -->
-<!-- 	</bean> -->
-	
-	
 
 </beans>

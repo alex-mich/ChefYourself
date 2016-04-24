@@ -3,16 +3,20 @@
 	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
-	<display-name>SYS_Database_Handling</display-name>
+	<display-name>ChefYourself</display-name>
 	<welcome-file-list>
 		<welcome-file>Main.jsp</welcome-file>
 	</welcome-file-list>
 	<servlet>
-		<servlet-name>SYS_Database_Handling</servlet-name>
+		<servlet-name>ChefYourself</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/ChefYourself-servlet.xml</param-value>
+		</init-param>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>SYS_Database_Handling</servlet-name>
+		<servlet-name>ChefYourself</servlet-name>
 		<url-pattern>*.ds</url-pattern>
 	</servlet-mapping>
 </web-app>
