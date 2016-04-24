@@ -12,7 +12,9 @@
 	<bean id="RecipesController" class="controllers.RecipesController"/>
 	<bean id="recipeService" class="services.RecipesService"/>
 
-	<!-- view resolver -->
+	
+	
+	<!-- View Resolver -->
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

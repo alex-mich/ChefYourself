@@ -116,7 +116,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 
 	@Override
 	public int insertSpRecipe(Recipe recipe) throws Exception {
-		final String sprSQL = "INSERT INTO app_spanish_recipes (glrid) VALUES (?)";
+		final String sprSQL = "INSERT INTO app_spanish_recipes (sprid) VALUES (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -156,8 +156,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 			pstmt = con.prepareStatement(grSQL);
 			pstmt.setInt(1, trRecipe.getTrid());
 			pstmt.setInt(2, trRecipe.getRecipe().getRid());
-			pstmt.setInt(3, trRecipe.getTransCuisine().getCuisine().getCid());
-			pstmt.setInt(4, trRecipe.getTransMethod().getMethod().getMid());
+			pstmt.setInt(3, trRecipe.getTransCuisine().getTcid());
+			pstmt.setInt(4, trRecipe.getTransMethod().getTmid());
 			pstmt.setString(5, trRecipe.getLocale().getLoc());
 			pstmt.setString(6, trRecipe.getRname());
 			i = pstmt.executeUpdate();

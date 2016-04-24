@@ -36,35 +36,38 @@ body {
 	<h1 align="center">
 		<font size="5">Insert into app_greek_recipes_trans table</font><br>
 	</h1>
-	<table width="350">
-		<tr>
-			<td>Translated Greek Recipe ID:</td>
-			<td><input type="text" id="tgrrid"></td>
-		</tr>
-		<tr>
-			<td>Greek Recipe ID:</td>
-			<td><input type="text" id="grrid2"></td>
-		</tr>
-		<tr>
-			<td>Translated Cuisine ID:</td>
-			<td><input type="text" id="tcid"></td>
-		</tr>
-		<tr>
-			<td>Locale:</td>
-			<td><input type="text" id="loc"></td>
-		</tr>
-		<tr>
-			<td>Translated Method ID:</td>
-			<td><input type="text" id="tmid"></td>
-		</tr>
-		<tr>
-			<td>Greek Recipe Name:</td>
-			<td><input type="text" id="grrname"></td>
-		</tr>
-	</table>
-	<br>
-	<input type="submit" id="insertGreekRecipesTrans" value="INSERT"
-		style="height: 25px; width: 80px; font-size: 15px;">
+	<form action="./insertGreekRecipeTrans.ds" method="get">
+		<center>
+			<table width="350">
+				<tr>
+					<td>Translated Greek Recipe ID:</td>
+					<td><input type="text" name="tgrrid"></td>
+				</tr>
+				<tr>
+					<td>Greek Recipe ID:</td>
+					<td><input type="text" name="grrid2"></td>
+				</tr>
+				<tr>
+					<td>Translated Cuisine ID:</td>
+					<td><input type="text" name="tcid"></td>
+				</tr>
+				<tr>
+					<td>Translated Method ID:</td>
+					<td><input type="text" name="tmid"></td>
+				</tr>
+				<tr>
+					<td>Locale:</td>
+					<td><input type="text" name="loc" maxlength="5"></td>
+				</tr>
+				<tr>
+					<td>Greek Recipe Name:</td>
+					<td><input type="text" name="grrname" maxlength="40"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertGreekRecipesTrans"
+				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+		</center>
+	</form>
 	<input type="submit" id="viewAppGreekRecipesTransTable"
 		value="VIEW TABLE"
 		style="height: 25px; width: 100px; font-size: 15px;">
