@@ -50,7 +50,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 	
 	@Override
-	public int insertGrRecipeIngredient(RecipeIngredient ri) throws Exception {
+	public int insertGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
 		final String grSQL = "INSERT INTO app_greek_recipes_ingredients (griid,tgrrid,tinid,grquan) VALUES (?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -82,7 +82,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public int insertGlRecipeIngredient(RecipeIngredient ri) throws Exception {
+	public int insertGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
 		final String glSQL = "INSERT INTO app_global_recipes_ingredients (gliid,tglrid,tinid,glquan) VALUES (?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -114,7 +114,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public int insertSpRecipeIngredient(RecipeIngredient ri) throws Exception {
+	public int insertSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
 		final String spSQL = "INSERT INTO app_spanish_recipes_ingredients (spiid,tsprid,tinid,srquan) VALUES (?,?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -147,11 +147,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 
 	
 	@Override
-	public List<RecipeIngredient> findIngredientForGrRecipesGr() throws Exception {
+	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_greek_recipes_ingredients WHERE tgrrid % 2 = 1";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGreekRecipesGr();
-		transIngredientsList = tidi.returnAllGrIngredients();
+		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -192,11 +192,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public List<RecipeIngredient> findIngredientForGrRecipesEn() throws Exception {
+	public List<RecipeIngredient> findIngredientForGreekRecipesEn() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_greek_recipes_ingredients WHERE tgrrid % 2 = 0";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGreekRecipesEn();
-		transIngredientsList = tidi.returnAllEnIngredients();
+		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -237,11 +237,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public List<RecipeIngredient> findIngredientForGlRecipesGr() throws Exception {
+	public List<RecipeIngredient> findIngredientForGlobalRecipesGr() throws Exception {
 		final String allGlSQL = "SELECT * FROM app_global_recipes_ingredients WHERE tglrid % 2 = 1";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGlobalRecipesGr();
-		transIngredientsList = tidi.returnAllGrIngredients();
+		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -282,11 +282,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public List<RecipeIngredient> findIngredientForGlRecipesEn() throws Exception {
+	public List<RecipeIngredient> findIngredientForGlobalRecipesEn() throws Exception {
 		final String allGlSQL = "SELECT * FROM app_global_recipes_ingredients WHERE tglrid % 2 = 0";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGlobalRecipesEn();
-		transIngredientsList = tidi.returnAllEnIngredients();
+		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -327,11 +327,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public List<RecipeIngredient> findIngredientForSpRecipesGr() throws Exception {
+	public List<RecipeIngredient> findIngredientForSpanishRecipesGr() throws Exception {
 		final String allSpSQL = "SELECT * FROM app_spanish_recipes_ingredients WHERE tsprid % 2 = 1";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findSpanishRecipesGr();
-		transIngredientsList = tidi.returnAllGrIngredients();
+		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -372,11 +372,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public List<RecipeIngredient> findIngredientForSpRecipesEn() throws Exception {
+	public List<RecipeIngredient> findIngredientForSpanishRecipesEn() throws Exception {
 		final String allSpSQL = "SELECT * FROM app_spanish_recipes_ingredients WHERE tsprid % 2 = 0";
 		recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findSpanishRecipesEn();
-		transIngredientsList = tidi.returnAllEnIngredients();
+		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {

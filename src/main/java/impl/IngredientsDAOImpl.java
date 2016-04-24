@@ -107,6 +107,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 		return i;
 	}
 
+	@Override
 	public List<Ingredient> findAllIngredients() throws Exception {
 		final String allSQL = "SELECT * FROM app_ingredients ORDER BY inid";
 		ingredientsList = new ArrayList<Ingredient>();
@@ -141,7 +142,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	}
 
 	@Override
-	public List<TranslatedIngredient> returnAllGrIngredients() throws Exception {
+	public List<TranslatedIngredient> findGrIngredients() throws Exception {
 
 		final String allGrSQL = "SELECT * FROM app_ingredients_trans WHERE locale = 'el' ORDER BY tinid";
 		translatedIngredientsList = new ArrayList<TranslatedIngredient>();
@@ -188,7 +189,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	}
 
 	@Override
-	public List<TranslatedIngredient> returnAllEnIngredients() throws Exception {
+	public List<TranslatedIngredient> findEnIngredients() throws Exception {
 		final String allEnSQL = "SELECT * FROM app_ingredients_trans WHERE locale = 'en' ORDER BY tinid";
 		translatedIngredientsList = new ArrayList<TranslatedIngredient>();
 		ingredientsList = findAllIngredients();

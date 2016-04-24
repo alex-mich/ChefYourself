@@ -7,22 +7,22 @@ import pojos.RecipeIngredient;
 
 public interface RecipeIngredientsDAO {
 	
-	public int insertGrRecipeIngredient(RecipeIngredient ri) throws Exception;
+	public int insertGreekRecipeIngredient(RecipeIngredient ri) throws Exception;
 	
-	public int insertGlRecipeIngredient(RecipeIngredient ri) throws Exception;
+	public int insertGlobalRecipeIngredient(RecipeIngredient ri) throws Exception;
 	
-	public int insertSpRecipeIngredient(RecipeIngredient ri) throws Exception;
+	public int insertSpanishRecipeIngredient(RecipeIngredient ri) throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForGrRecipesGr() throws Exception;
+	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForGrRecipesEn() throws Exception;
+	public List<RecipeIngredient> findIngredientForGreekRecipesEn() throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForGlRecipesGr() throws Exception;
+	public List<RecipeIngredient> findIngredientForGlobalRecipesGr() throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForGlRecipesEn() throws Exception;
+	public List<RecipeIngredient> findIngredientForGlobalRecipesEn() throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForSpRecipesGr() throws Exception;
+	public List<RecipeIngredient> findIngredientForSpanishRecipesGr() throws Exception;
 	
-	public List<RecipeIngredient> findIngredientForSpRecipesEn() throws Exception;
+	public List<RecipeIngredient> findIngredientForSpanishRecipesEn() throws Exception;
 
 }

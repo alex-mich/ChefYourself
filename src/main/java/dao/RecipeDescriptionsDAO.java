@@ -6,11 +6,11 @@ import pojos.RecipeDescription;
 
 public interface RecipeDescriptionsDAO {
 
-	public int insertGrRecipeDescription(RecipeDescription rd) throws Exception;
+	public int insertGreekRecipeDescription(RecipeDescription rd) throws Exception;
 
-	public int insertGlRecipeDescription(RecipeDescription rd) throws Exception;
+	public int insertGlobalRecipeDescription(RecipeDescription rd) throws Exception;
 
-	public int insertSpRecipeDescription(RecipeDescription rd) throws Exception;
+	public int insertSpanishRecipeDescription(RecipeDescription rd) throws Exception;
 
 	public List<RecipeDescription> findGreekRecipesDescriptionGr() throws Exception;
 

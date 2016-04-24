@@ -13,8 +13,8 @@ public interface IngredientsDAO {
 	
 	public List<Ingredient> findAllIngredients() throws Exception;
 	
-	public List<TranslatedIngredient> returnAllGrIngredients() throws Exception;
+	public List<TranslatedIngredient> findGrIngredients() throws Exception;
 	
-	public List<TranslatedIngredient> returnAllEnIngredients() throws Exception;
+	public List<TranslatedIngredient> findEnIngredients() throws Exception;
 	
 }

@@ -59,7 +59,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 	}
 
 	@Override
-	public int insertGrRecipeDescription(RecipeDescription rd) throws Exception {
+	public int insertGreekRecipeDescription(RecipeDescription rd) throws Exception {
 		final String grSQL = "INSERT INTO app_greek_description (grrdid,tgrrid,grrdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -90,7 +90,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 	}
 
 	@Override
-	public int insertGlRecipeDescription(RecipeDescription rd) throws Exception {
+	public int insertGlobalRecipeDescription(RecipeDescription rd) throws Exception {
 		final String glSQL = "INSERT INTO app_global_description (glrdid,tglrid,glrdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -121,7 +121,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 	}
 
 	@Override
-	public int insertSpRecipeDescription(RecipeDescription rd) throws Exception {
+	public int insertSpanishRecipeDescription(RecipeDescription rd) throws Exception {
 		final String spSQL = "INSERT INTO app_spanish_description (sprdid,tsprid,sprdesc) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);

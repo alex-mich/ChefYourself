@@ -116,5 +116,85 @@ public class RecipesController {
 
 		return mav;
 	}
+	
+	@RequestMapping(value = "insertGlobalRecipeTrans.ds", method = RequestMethod.GET)
+	public ModelAndView insertGlobalRecipeTrans(@RequestParam("tglrid") int trid, @RequestParam("glrid2") int rid,
+			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
+			@RequestParam("glrname") String grrname) throws Exception {
+
+		int success = 0;
+		try {
+			TranslatedRecipe transRecipe = new TranslatedRecipe();
+			transRecipe.setTrid(trid);
+			
+			Recipe recipe = new Recipe();
+			recipe.setRid(rid);
+			transRecipe.setRecipe(recipe);
+			
+			TranslatedCuisine transCuisine = new TranslatedCuisine();
+			transCuisine.setTcid(tcid);
+			transRecipe.setTransCuisine(transCuisine);
+			
+			TranslatedMethod transMethod = new TranslatedMethod();
+			transMethod.setTmid(tmid);
+			transRecipe.setTransMethod(transMethod);
+			
+			Locale locale = new Locale();
+			locale.setLoc(loc);
+			transRecipe.setLocale(locale);
+			
+			transRecipe.setRname(grrname);
+			
+			success = recipeService.insertGreekRecipe(transRecipe);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Map<String, String> m = new HashMap<String, String>();
+		m.put("msg", "Hello: " + grrname);
+		ModelAndView mav = new ModelAndView("fail", m);
+
+		return mav;
+	}
+	
+	@RequestMapping(value = "insertSpanishRecipeTrans.ds", method = RequestMethod.GET)
+	public ModelAndView insertSpanishRecipeTrans(@RequestParam("tsprid") int trid, @RequestParam("sprid2") int rid,
+			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
+			@RequestParam("sprname") String grrname) throws Exception {
+
+		int success = 0;
+		try {
+			TranslatedRecipe transRecipe = new TranslatedRecipe();
+			transRecipe.setTrid(trid);
+			
+			Recipe recipe = new Recipe();
+			recipe.setRid(rid);
+			transRecipe.setRecipe(recipe);
+			
+			TranslatedCuisine transCuisine = new TranslatedCuisine();
+			transCuisine.setTcid(tcid);
+			transRecipe.setTransCuisine(transCuisine);
+			
+			TranslatedMethod transMethod = new TranslatedMethod();
+			transMethod.setTmid(tmid);
+			transRecipe.setTransMethod(transMethod);
+			
+			Locale locale = new Locale();
+			locale.setLoc(loc);
+			transRecipe.setLocale(locale);
+			
+			transRecipe.setRname(grrname);
+			
+			success = recipeService.insertGreekRecipe(transRecipe);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		Map<String, String> m = new HashMap<String, String>();
+		m.put("msg", "Hello: " + grrname);
+		ModelAndView mav = new ModelAndView("fail", m);
+
+		return mav;
+	}
 
 }
