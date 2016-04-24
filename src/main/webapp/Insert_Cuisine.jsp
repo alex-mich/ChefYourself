@@ -20,45 +20,61 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Insert into app_cuisines table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_cuisines table</font><br>
 	</h1>
 	<center>
-		<table width="250">
-			<tr>
-				<td style="background-color: buttonface;">Cuisine ID:</td>
-				<td><input type="text" id="cid1"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppCuisines" value="INSERT"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppCuisinesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"><br>
-		<br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Insert into app_cuisines_trans table</font><br>
-		</h1>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Translated Cuisine ID:</td>
-				<td><input type="text" id="tcid"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Cuisine ID:</td>
-				<td><input type="text" id="cid2"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="loc"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Cuisine Name:</td>
-				<td><input type="text" id="cname"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppCuisinesTrans"
-			value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppCuisinesTransTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		<form action="./insertCuisine.ds">
+			<table width="250">
+				<tr>
+					<td style="background-color: buttonface;">Cuisine ID:</td>
+					<td><input type="text" id="cid1"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppCuisines" value="INSERT"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppCuisinesTable.ds">
+			<br> <input type="submit" id="viewAppCuisinesTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"><br>
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_cuisines_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./insertCuisineTrans.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Translated Cuisine
+						ID:</td>
+					<td><input type="text" id="tcid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Cuisine ID:</td>
+					<td><input type="text" id="cid2"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="loc"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Cuisine Name:</td>
+					<td><input type="text" id="cname"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppCuisinesTrans"
+				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppCuisinesTransTable.ds">
+			<br>
+			<input type="submit" id="viewAppCuisinesTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">

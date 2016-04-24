@@ -20,51 +20,68 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Insert into app_ingredients table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_ingredients table</font><br>
 	</h1>
 	<center>
-		<table width="280">
-			<tr>
-				<td style="background-color: buttonface;">Ingredient ID:</td>
-				<td><input type="text" id="inid1"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Ingredient Type:</td>
-				<td><input type="text" id="itype"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppIngredients"
-			value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppIngredientsTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"><br>
-		<br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Insert into app_ingredients_trans table</font><br>
-		</h1>
-		<table width="320">
-			<tr>
-				<td style="background-color: buttonface;">Translated Ingredient ID:</td>
-				<td><input type="text" id="tinid"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Ingredient ID:</td>
-				<td><input type="text" id="inid2"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="loc"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Ingredient Name:</td>
-				<td><input type="text" id="iname"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppIngredientsTrans"
-			value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppIngredientsTransTable"
-			value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<br> <input type="button" id="backButton" value="BACK"
+		<form action="./insertIngredient.ds">
+			<table width="280">
+				<tr>
+					<td style="background-color: buttonface;">Ingredient ID:</td>
+					<td><input type="text" id="inid1"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Ingredient Type:</td>
+					<td><input type="text" id="itype"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppIngredients"
+				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppIngredientsTable.ds">
+			<br>
+			<input type="submit" id="viewAppIngredientsTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"><br>
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_ingredients_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./insertIngredientTrans.ds">
+			<table width="320">
+				<tr>
+					<td style="background-color: buttonface;">Translated
+						Ingredient ID:</td>
+					<td><input type="text" id="tinid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Ingredient ID:</td>
+					<td><input type="text" id="inid2"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="loc"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Ingredient Name:</td>
+					<td><input type="text" id="iname"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppIngredientsTrans"
+				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppIngredientsTransTable.ds">
+			<br> <input type="submit" id="viewAppIngredientsTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>

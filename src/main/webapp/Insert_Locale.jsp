@@ -11,6 +11,7 @@ body {
 		url(http://photo.elsoar.com/wp-content/images/Spices-and-herbs.-Food-and-cuisine-ingredients.jpg)
 		no-repeat;
 	background-size: 100%;
+}
 </style>
 </head>
 <body>
@@ -21,27 +22,33 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Insert into app_locale table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_locale table</font><br>
 	</h1>
 	<center>
-		<table width="230">
-			<tr>
-				<td style="background-color: buttonface;">Locale ID:</td>
-				<td><input type="text" id="lid"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="locale"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Language:</td>
-				<td><input type="text" id="lang"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppLocales" value="INSERT"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		<form action="./insertLocale.ds">
+			<table width="230">
+				<tr>
+					<td style="background-color: buttonface;">Locale ID:</td>
+					<td><input type="text" id="lid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="locale"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Language:</td>
+					<td><input type="text" id="lang"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppLocales" value="INSERT"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppLocalesTable.ds">
+			<br>
+			<input type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"> <br>
+		</form>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">

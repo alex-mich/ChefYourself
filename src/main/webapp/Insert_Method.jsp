@@ -20,46 +20,64 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Insert into app_methods table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_methods table</font><br>
 	</h1>
 	<center>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Method ID:</td>
-				<td><input type="text" id="mid1"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppMethods" value="INSERT"
-			style="height: 25px; width: 80px; font-size: 15px;"> <input
-			type="submit" id="viewAppMethodsTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"><br>
-		<br>
-		<h1 align="center">
-			<font size="5" style="background-color: buttonface;">Insert into app_methods_trans table</font><br>
-		</h1>
-		<table width="300">
-			<tr>
-				<td style="background-color: buttonface;">Translated Method ID:</td>
-				<td><input type="text" id="tmid"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Method ID:</td>
-				<td><input type="text" id="mid2"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Locale:</td>
-				<td><input type="text" id="loc"></td>
-			</tr>
-			<tr>
-				<td style="background-color: buttonface;">Method Name:</td>
-				<td><input type="text" id="mname"></td>
-			</tr>
-		</table>
-		<br> <input type="submit" id="insertAppMethodsTrans"
-			value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
-		<input type="submit" id="viewAppMethodsTransTable" value="VIEW TABLE"
-			style="height: 25px; width: 100px; font-size: 15px;"> <br>
-		<br> <input type="button" id="backButton" value="BACK"
+		<form action="./insertMethod.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Method ID:</td>
+					<td><input type="text" id="mid1"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppMethods" value="INSERT"
+				style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppMethodsTable">
+			<br> <input type="submit" id="viewAppMethodsTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;"><br>
+		</form>
+	</center>
+	<br>
+	<h1 align="center">
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_methods_trans table</font><br>
+	</h1>
+	<center>
+		<form action="./insertMethodTrans.ds">
+			<table width="300">
+				<tr>
+					<td style="background-color: buttonface;">Translated Method
+						ID:</td>
+					<td><input type="text" id="tmid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Method ID:</td>
+					<td><input type="text" id="mid2"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Locale:</td>
+					<td><input type="text" id="loc"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Method Name:</td>
+					<td><input type="text" id="mname"></td>
+				</tr>
+			</table>
+			<br> <input type="submit" id="insertAppMethodsTrans"
+				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+		</form>
+		<form action="./viewAppMethodsTransTable.ds">
+			<br> <input type="submit" id="viewAppMethodsTransTable"
+				value="VIEW TABLE"
+				style="height: 25px; width: 100px; font-size: 15px;">
+		</form>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>
