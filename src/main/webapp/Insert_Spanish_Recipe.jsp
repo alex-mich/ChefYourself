@@ -20,7 +20,7 @@ body {
 		<font size="5">Insert into app_spanish recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./insertSpanishRecipe.ds" method="get">
+		<form action="./insertSpanishRecipe.ds" method="post">
 			<table width="280">
 				<tr>
 					<td>Spanish Recipe ID:</td>
@@ -35,12 +35,13 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${spanishRecipesRowsAffected}</h4>
 	</center>
 	<h1 align="center">
 		<font size="5">Insert into app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertSpanishRecipeTrans.ds">
+		<form action="./insertSpanishRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td>Translated Spanish Recipe ID:</td>
@@ -75,6 +76,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${spanishTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -82,7 +84,7 @@ body {
 			table</font><br>
 	</h1>
 	<center>
-		<form action="./insertSpanishRecipeIngredients.ds">
+		<form action="./insertSpanishRecipeIngredients.ds" method="post">
 			<table width="400">
 				<tr>
 					<td>Spanish Ingredient ID:</td>
@@ -109,6 +111,7 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${spanishRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -116,7 +119,7 @@ body {
 			table</font><br>
 	</h1>
 	<center>
-		<form action="./insertSpanishRecipeDescription.ds">
+		<form action="./insertSpanishRecipeDescription.ds" method="post">
 			<table width="500">
 				<tr>
 					<td>Spanish Recipe Description ID:</td>
@@ -139,6 +142,7 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${spanishDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

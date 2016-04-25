@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,7 +21,7 @@ body {
 		<font size="5">Insert into app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGreekRecipe.ds" method="get">
+		<form action="./insertGreekRecipe.ds" method="post">
 			<table width="280">
 				<tr>
 					<td>Greek Recipe ID:</td>
@@ -35,12 +36,13 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;" />
 		</form>
+		<h4>Rows Affected: ${greekRecipesRowsAffected}</h4>
 	</center>
 	<h1 align="center">
 		<font size="5">Insert into app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGreekRecipeTrans.ds" method="get">
+		<form action="./insertGreekRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td>Translated Greek Recipe ID:</td>
@@ -75,13 +77,14 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${greekTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
 		<font size="5">Insert into app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGreekRecipeIngredients.ds">
+		<form action="./insertGreekRecipeIngredients.ds" method="post">
 			<table width="400">
 				<tr>
 					<td>Greek Ingredient ID:</td>
@@ -108,13 +111,14 @@ body {
 				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${greekRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
 		<font size="5">Insert into app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGreekRecipeDescription.ds">
+		<form action="./insertGreekRecipeDescription.ds" method="post">
 			<table width="500">
 				<tr>
 					<td>Greek Recipe Description ID:</td>
@@ -137,6 +141,7 @@ body {
 				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${greekDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

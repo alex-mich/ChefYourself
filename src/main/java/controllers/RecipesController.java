@@ -1,14 +1,11 @@
 package controllers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import pojos.Locale;
 import pojos.Recipe;
@@ -34,8 +31,8 @@ public class RecipesController {
 	@Autowired
 	DescriptionsService descriptionsService;
 
-	@RequestMapping(value = "insertGreekRecipe.ds", method = RequestMethod.GET)
-	public ModelAndView insertGreekRecipe(@RequestParam("grrid1") int grrid) throws Exception {
+	@RequestMapping(value = "insertGreekRecipe.ds", method = RequestMethod.POST)
+	public String insertGreekRecipe(@RequestParam("grrid1") int grrid, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -44,16 +41,12 @@ public class RecipesController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		Map<String, Integer> m = new HashMap<String, Integer>();
-		m.put("msg", success);
-		ModelAndView mav = new ModelAndView("returnRows1.ds", m);
-
-		return mav;
+		model.addAttribute("greekRecipesRowsAffected", success);
+		return "Insert_Greek_Recipe";
 	}
 
-	@RequestMapping(value = "insertGlobalRecipe.ds", method = RequestMethod.GET)
-	public ModelAndView insertGlobalRecipe(@RequestParam("glrid1") int glrid) throws Exception {
+	@RequestMapping(value = "insertGlobalRecipe.ds", method = RequestMethod.POST)
+	public String insertGlobalRecipe(@RequestParam("glrid1") int glrid, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -63,15 +56,12 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("globalRecipesRowsAffected", success);
+		return "Insert_Global_Recipe";
 	}
 
-	@RequestMapping(value = "insertSpanishRecipe.ds", method = RequestMethod.GET)
-	public ModelAndView insertSpanishRecipe(@RequestParam("sprid1") int sprid) throws Exception {
+	@RequestMapping(value = "insertSpanishRecipe.ds", method = RequestMethod.POST)
+	public String insertSpanishRecipe(@RequestParam("sprid1") int sprid, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -81,17 +71,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("spanishRecipesRowsAffected", success);
+		return "Insert_Spanish_Recipe";
 	}
 
-	@RequestMapping(value = "insertGreekRecipeTrans.ds", method = RequestMethod.GET)
-	public ModelAndView insertGreekRecipeTrans(@RequestParam("tgrrid") int tgrrid, @RequestParam("grrid2") int grrid,
+	@RequestMapping(value = "insertGreekRecipeTrans.ds", method = RequestMethod.POST)
+	public String insertGreekRecipeTrans(@RequestParam("tgrrid") int tgrrid, @RequestParam("grrid2") int grrid,
 			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
-			@RequestParam("grrname") String grrname) throws Exception {
+			@RequestParam("grrname") String grrname, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -121,17 +108,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("greekTranslatedRecipesRowsAffected", success);
+		return "Insert_Greek_Recipe";
 	}
 
-	@RequestMapping(value = "insertGlobalRecipeTrans.ds", method = RequestMethod.GET)
-	public ModelAndView insertGlobalRecipeTrans(@RequestParam("tglrid") int tglrid, @RequestParam("glrid2") int glrid,
+	@RequestMapping(value = "insertGlobalRecipeTrans.ds", method = RequestMethod.POST)
+	public String insertGlobalRecipeTrans(@RequestParam("tglrid") int tglrid, @RequestParam("glrid2") int glrid,
 			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
-			@RequestParam("glrname") String glrname) throws Exception {
+			@RequestParam("glrname") String glrname, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -161,17 +145,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("globalTranslatedRecipesRowsAffected", success);
+		return "Insert_Global_Recipe";
 	}
 
-	@RequestMapping(value = "insertSpanishRecipeTrans.ds", method = RequestMethod.GET)
-	public ModelAndView insertSpanishRecipeTrans(@RequestParam("tsprid") int tsprid, @RequestParam("sprid2") int sprid,
+	@RequestMapping(value = "insertSpanishRecipeTrans.ds", method = RequestMethod.POST)
+	public String insertSpanishRecipeTrans(@RequestParam("tsprid") int tsprid, @RequestParam("sprid2") int sprid,
 			@RequestParam("tcid") int tcid, @RequestParam("tmid") int tmid, @RequestParam("loc") String loc,
-			@RequestParam("sprname") String sprname) throws Exception {
+			@RequestParam("sprname") String sprname, Model model) throws Exception {
 
 		int success = 0;
 		try {
@@ -201,17 +182,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("spanishTranslatedRecipesRowsAffected", success);
+		return "Insert_Spanish_Recipe";
 	}
 
-	@RequestMapping(value = "insertGreekRecipeIngredients.ds", method = RequestMethod.GET)
-	public ModelAndView insertGreekRecipeIngredient(@RequestParam("griid") int griid,
+	@RequestMapping(value = "insertGreekRecipeIngredients.ds", method = RequestMethod.POST)
+	public String insertGreekRecipeIngredient(@RequestParam("griid") int griid,
 			@RequestParam("tgrrid2") int tgrrid, @RequestParam("tinid") int tinid,
-			@RequestParam("grriquan") String grriquan) {
+			@RequestParam("grriquan") String grriquan, Model model) {
 
 		int success = 0;
 
@@ -232,17 +210,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("greekRecipeIngredientsRowsAffected", success);
+		return "Insert_Greek_Recipe";
 	}
 
-	@RequestMapping(value = "insertGlobalRecipeIngredients.ds", method = RequestMethod.GET)
-	public ModelAndView insertGlobalRecipeIngredient(@RequestParam("gliid") int gliid,
+	@RequestMapping(value = "insertGlobalRecipeIngredients.ds", method = RequestMethod.POST)
+	public String insertGlobalRecipeIngredient(@RequestParam("gliid") int gliid,
 			@RequestParam("tglrid2") int tglrid, @RequestParam("tinid") int tinid,
-			@RequestParam("glriquan") String glriquan) {
+			@RequestParam("glriquan") String glriquan, Model model) {
 
 		int success = 0;
 
@@ -263,17 +238,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("globalRecipeIngredientsRowsAffected", success);
+		return "Insert_Global_Recipe";
 	}
 
-	@RequestMapping(value = "insertSpanishRecipeIngredients.ds", method = RequestMethod.GET)
-	public ModelAndView insertSpanishRecipeIngredient(@RequestParam("spiid") int spiid,
+	@RequestMapping(value = "insertSpanishRecipeIngredients.ds", method = RequestMethod.POST)
+	public String insertSpanishRecipeIngredient(@RequestParam("spiid") int spiid,
 			@RequestParam("tsprid2") int tsprid, @RequestParam("tinid") int tinid,
-			@RequestParam("spriquan") String spriquan) {
+			@RequestParam("spriquan") String spriquan, Model model) {
 
 		int success = 0;
 
@@ -294,17 +266,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("spanishRecipeIngredientsRowsAffected", success);
+		return "Insert_Spanish_Recipe";
 	}
 
-	@RequestMapping(value = "/insertGreekRecipeDescription.ds", method = RequestMethod.GET)
-	public ModelAndView insertGreekRecipeDescription(@RequestParam("grrdid") int grrdid,
-			@RequestParam("tgrrid3") int tgrrid, @RequestParam("grrdesc") String grrdesc) {
-		
+	@RequestMapping(value = "/insertGreekRecipeDescription.ds", method = RequestMethod.POST)
+	public String insertGreekRecipeDescription(@RequestParam("grrdid") int grrdid,
+			@RequestParam("tgrrid3") int tgrrid, @RequestParam("grrdesc") String grrdesc, Model model) {
+
 		int success = 0;
 
 		try {
@@ -321,17 +290,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("greekDescriptionRowsAffected", success);
+		return "Insert_Greek_Recipe";
 	}
 
-	@RequestMapping(value = "/insertGlobalRecipeDescription.ds", method = RequestMethod.GET)
-	public ModelAndView insertGlobalRecipeDescription(@RequestParam("glrdid") int glrdid,
-			@RequestParam("tglrid3") int tglrid, @RequestParam("glrdesc") String glrdesc) {
-		
+	@RequestMapping(value = "/insertGlobalRecipeDescription.ds", method = RequestMethod.POST)
+	public String insertGlobalRecipeDescription(@RequestParam("glrdid") int glrdid,
+			@RequestParam("tglrid3") int tglrid, @RequestParam("glrdesc") String glrdesc, Model model) {
+
 		int success = 0;
 
 		try {
@@ -348,17 +314,14 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("globalDescriptionRowsAffected", success);
+		return "Insert_Global_Recipe";
 	}
 
-	@RequestMapping(value = "/insertSpanishRecipeDescription.ds", method = RequestMethod.GET)
-	public ModelAndView insertSpanishRecipeDescription(@RequestParam("sprdid") int sprdid,
-			@RequestParam("tsprid3") int tsprid, @RequestParam("sprdesc") String sprdesc) {
-		
+	@RequestMapping(value = "/insertSpanishRecipeDescription.ds", method = RequestMethod.POST)
+	public String insertSpanishRecipeDescription(@RequestParam("sprdid") int sprdid,
+			@RequestParam("tsprid3") int tsprid, @RequestParam("sprdesc") String sprdesc, Model model) {
+
 		int success = 0;
 
 		try {
@@ -375,10 +338,7 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 
-		Map<String, String> m = new HashMap<String, String>();
-		m.put("msg", "Hello: " + success);
-		ModelAndView mav = new ModelAndView("fail", m);
-
-		return mav;
+		model.addAttribute("spanishDescriptionRowsAffected", success);
+		return "Insert_Spanish_Recipe";
 	}
 }

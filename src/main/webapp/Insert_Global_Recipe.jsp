@@ -20,7 +20,7 @@ body {
 		<font size="5">Insert into app_global recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipe.ds" method="get">
+		<form action="./insertGlobalRecipe.ds" method="post">
 			<table width="280">
 				<tr>
 					<td>Global Recipe ID:</td>
@@ -35,12 +35,13 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${globalRecipesRowsAffected}</h4>
 	</center>
 	<h1 align="center">
 		<font size="5">Insert into app_global_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeTrans.ds">
+		<form action="./insertGlobalRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td>Translated Global Recipe ID:</td>
@@ -75,13 +76,14 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${globalTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
 		<font size="5">Insert into app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeIngredients.ds">
+		<form action="./insertGlobalRecipeIngredients.ds" method="post"> 
 			<table width="400">
 				<tr>
 					<td>Global Ingredient ID:</td>
@@ -108,13 +110,14 @@ body {
 				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${globalRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
 		<font size="5">Insert into app_global_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeDescription.ds">
+		<form action="./insertGlobalRecipeDescription.ds" method="post">
 			<table width="500">
 				<tr>
 					<td>Global Recipe Description ID:</td>
@@ -137,6 +140,7 @@ body {
 				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${globalDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>
