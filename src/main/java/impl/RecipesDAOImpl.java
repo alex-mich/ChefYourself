@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.RandomAccess;
 
+import org.springframework.stereotype.Repository;
+
 import dao.RecipesDAO;
 import pojos.Locale;
 import pojos.Recipe;
@@ -17,6 +19,7 @@ import pojos.TranslatedCuisine;
 import pojos.TranslatedMethod;
 import pojos.TranslatedRecipe;
 
+@Repository
 public class RecipesDAOImpl implements RecipesDAO {
 
 	private LocaleDAOImpl ldi;
@@ -676,6 +679,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteGreekRecipe(Recipe recipe) throws Exception {
 
 		String sql = "DELETE FROM app_greek_recipes WHERE grrid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -694,6 +698,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteGlobalRecipe(Recipe recipe) throws Exception {
 
 		String sql = "DELETE FROM app_global_recipes WHERE glrid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -712,6 +717,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteSpanishRecipe(Recipe recipe) throws Exception {
 
 		String sql = "DELETE FROM app_spanish_recipes WHERE sprid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -730,6 +736,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 
 		String sql = "DELETE FROM app_greek_recipes_trans WHERE tgrrid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -748,6 +755,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 
 		String sql = "DELETE FROM app_global_recipes_trans WHERE tglrid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -766,6 +774,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public int deleteSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
 
 		String sql = "DELETE FROM app_spanish_recipes_trans WHERE tsprid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {

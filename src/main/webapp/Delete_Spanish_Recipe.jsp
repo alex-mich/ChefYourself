@@ -21,7 +21,7 @@ body {
 			from app_spanish recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipe.ds">
+		<form action="./deleteSpanishRecipe.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Recipe ID:</td>
@@ -36,6 +36,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedSpanishRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -43,7 +44,7 @@ body {
 			from app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeTrans.ds">
+		<form action="./deleteSpanishRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Spanish
@@ -59,6 +60,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteSpanishTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -66,7 +68,7 @@ body {
 			from app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeIngredients.ds">
+		<form action="./deleteSpanishRecipeIngredients.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Ingredient
@@ -82,6 +84,7 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteSpanishRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -89,7 +92,7 @@ body {
 			from app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeDescription">
+		<form action="./deleteSpanishRecipeDescription" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Recipe
@@ -105,6 +108,7 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteSpanishRecipeDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

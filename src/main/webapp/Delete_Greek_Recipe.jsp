@@ -21,7 +21,7 @@ body {
 			from app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipe.ds">
+		<form action="./deleteGreekRecipe.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe ID:</td>
@@ -36,6 +36,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedGreekRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -43,7 +44,7 @@ body {
 			from app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipeTrans.ds">
+		<form action="./deleteGreekRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Greek
@@ -59,6 +60,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${greekTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -66,7 +68,7 @@ body {
 			from app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipeIngredients.ds">
+		<form action="./deleteGreekRecipeIngredients.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Ingredient ID:</td>
@@ -81,6 +83,7 @@ body {
 				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteGreekRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -88,7 +91,7 @@ body {
 			from app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGreekRecipeDescription.ds">
+		<form action="./insertGreekRecipeDescription.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe
@@ -104,6 +107,7 @@ body {
 				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteGreekRecipeDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

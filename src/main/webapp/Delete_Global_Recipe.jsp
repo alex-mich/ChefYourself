@@ -21,7 +21,7 @@ body {
 			from app_global recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipe.ds">
+		<form action="./deleteGlobalRecipe.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe ID:</td>
@@ -36,6 +36,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedGlobalRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -43,7 +44,7 @@ body {
 			from app_global_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeTrans.ds">
+		<form action="./deleteGlobalRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Global
@@ -59,6 +60,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
+		<h4>Rows Affected: ${deleteGreekTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -66,7 +68,7 @@ body {
 			from app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeIngredients.ds">
+		<form action="./deleteGlobalRecipeIngredients.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Global Ingredient
@@ -82,6 +84,7 @@ body {
 				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteGlobalRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -89,7 +92,7 @@ body {
 			from app_global_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeDescription.ds">
+		<form action="./deleteGlobalRecipeDescription.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe
@@ -105,6 +108,7 @@ body {
 				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deleteGlobalRecipeDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

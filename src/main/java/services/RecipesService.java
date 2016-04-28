@@ -12,7 +12,9 @@ import pojos.TranslatedRecipe;
 @Service
 public class RecipesService {
 
+	
 	public RecipesService(){}
+	
 	
 	public int insertGreekRecipe(Recipe recipe) throws Exception{
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
@@ -98,4 +100,39 @@ public class RecipesService {
 		return recipesDAOImpl.findAllRecipesGr();
 	}
 	
+	public int deleteGreekRecipe(Recipe recipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteGreekRecipe(recipe);
+	}
+	
+	public int deleteGlobalRecipe(Recipe recipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteGlobalRecipe(recipe);
+	}
+	
+	public int deleteSpanishRecipe(Recipe recipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteSpanishRecipe(recipe);
+	}
+	
+	public int deleteGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteGreekTranslatedRecipe(trRecipe);
+	}
+	
+	public int deleteGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteGlobalTranslatedRecipe(trRecipe);
+	}
+	
+	public int deleteSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
+		return recipesDAOImpl.deleteSpanishTranslatedRecipe(trRecipe);
+	}
 }
