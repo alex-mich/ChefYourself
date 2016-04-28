@@ -391,4 +391,58 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 		return transDescriptionList;
 	}
 
+	@Override
+	public int deleteGreekRecipeDescription(RecipeDescription rd) throws Exception {
+
+		String sql = "DELETE FROM app_greek_recipes_description WHERE grrdid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, rd.getRdid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteGlobalRecipeDescription(RecipeDescription rd) throws Exception {
+
+		String sql = "DELETE FROM app_global_recipes_description WHERE glrdid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, rd.getRdid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteSpanishRecipeDescription(RecipeDescription rd) throws Exception {
+
+		String sql = "DELETE FROM app_spanish_recipes_description WHERE sprdid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, rd.getRdid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
 }

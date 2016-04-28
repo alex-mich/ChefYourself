@@ -12,7 +12,7 @@ import java.util.List;
 import dao.LocaleDAO;
 import pojos.Locale;
 
-public class LocaleDAOImpl implements LocaleDAO{
+public class LocaleDAOImpl implements LocaleDAO {
 
 	private String driver, url, username, password;
 
@@ -71,22 +71,22 @@ public class LocaleDAOImpl implements LocaleDAO{
 		List<Locale> localeList = new ArrayList<Locale>();
 		Statement stmt;
 		ResultSet rs;
-		
-		try {
-			
-		stmt = con.createStatement();
-		rs = stmt.executeQuery(locSQL);
 
-		while(rs.next()){
-			Locale locale = new Locale();
-			locale.setLoc(rs.getString(1));
-			locale.setLanguage(rs.getString(2));
-			locale.setLid(rs.getInt(3));
-			localeList.add(locale);
-		}
-		stmt.close();
-		rs.close();
-		
+		try {
+
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(locSQL);
+
+			while (rs.next()) {
+				Locale locale = new Locale();
+				locale.setLoc(rs.getString(1));
+				locale.setLanguage(rs.getString(2));
+				locale.setLid(rs.getInt(3));
+				localeList.add(locale);
+			}
+			stmt.close();
+			rs.close();
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -100,5 +100,23 @@ public class LocaleDAOImpl implements LocaleDAO{
 		}
 		return localeList;
 	}
-	
+
+	@Override
+	public int deleteLocale(Locale locale) throws Exception {
+
+		String sql = "DELETE FROM app_lang WHERE lid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, locale.getLid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
 }

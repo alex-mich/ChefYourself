@@ -8,13 +8,17 @@ import pojos.TranslatedIngredient;
 public interface IngredientsDAO {
 
 	public int insertIngredient(Ingredient ti) throws Exception;
-	
+
 	public int insertTranslatedIngredient(TranslatedIngredient tin) throws Exception;
-	
+
+	public int deleteIngredient(Ingredient in) throws Exception;
+
+	public int deleteTranslatedIngredient(TranslatedIngredient tin) throws Exception;
+
 	public List<Ingredient> findAllIngredients() throws Exception;
-	
+
 	public List<TranslatedIngredient> findGrIngredients() throws Exception;
-	
+
 	public List<TranslatedIngredient> findEnIngredients() throws Exception;
-	
+
 }

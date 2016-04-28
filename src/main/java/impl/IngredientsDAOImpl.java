@@ -18,7 +18,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 
 	private LocaleDAOImpl ldi;
 	private String driver, url, username, password;
-	
+
 	private List<Locale> localeList;
 	private List<Ingredient> ingredientsList;
 	private List<TranslatedIngredient> translatedIngredientsList;
@@ -163,7 +163,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 					if (rs.getInt(2) == ingredientsList.get(i).getInid()) {
 						tin.setIngredient(ingredientsList.get(i));
 					}
-				
+
 				for (int i = 0; i < localeList.size(); i++)
 					if (rs.getString(3).equals(localeList.get(i).getLoc())) {
 						tin.setLocale(localeList.get(i));
@@ -231,6 +231,42 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 			}
 		}
 		return translatedIngredientsList;
+	}
+
+	@Override
+	public int deleteIngredient(Ingredient in) throws Exception {
+
+		String sql = "DELETE FROM app_ingredients WHERE inid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, in.getInid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteTranslatedIngredient(TranslatedIngredient tin) throws Exception {
+
+		String sql = "DELETE FROM app_ingredients_trans WHERE tinid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, tin.getTinid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
 	}
 
 }

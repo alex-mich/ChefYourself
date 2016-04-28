@@ -12,6 +12,12 @@ public interface RecipeDescriptionsDAO {
 
 	public int insertSpanishRecipeDescription(RecipeDescription rd) throws Exception;
 
+	public int deleteGreekRecipeDescription(RecipeDescription rd) throws Exception;
+
+	public int deleteGlobalRecipeDescription(RecipeDescription rd) throws Exception;
+
+	public int deleteSpanishRecipeDescription(RecipeDescription rd) throws Exception;
+
 	public List<RecipeDescription> findGreekRecipesDescriptionGr() throws Exception;
 
 	public List<RecipeDescription> findGreekRecipesDescriptionEn() throws Exception;

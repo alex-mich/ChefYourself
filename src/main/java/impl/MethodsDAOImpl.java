@@ -18,11 +18,11 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	private LocaleDAOImpl ldi;
 	private String driver, url, username, password;
-	
+
 	private List<Locale> localesList;
 	private List<Method> methodsList;
 	private List<TranslatedMethod> translatedMethodsList;
-	
+
 	public void setLdi(LocaleDAOImpl ldi) {
 		this.ldi = ldi;
 	}
@@ -101,10 +101,9 @@ public class MethodsDAOImpl implements MethodsDAO {
 			}
 		}
 		return i;
-		
-		
+
 	}
-	
+
 	@Override
 	public List<Method> findAllMethods() throws Exception {
 		final String allSQL = "SELECT * FROM app_methods ORDER BY mid";
@@ -137,7 +136,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 		}
 		return methodsList;
 	}
-	
+
 	public List<TranslatedMethod> findGrMethods() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_methods_trans WHERE locale = 'el' ORDER BY tmid";
 		methodsList = findAllMethods();
@@ -157,7 +156,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 					if (rs.getInt(2) == methodsList.get(i).getMid()) {
 						tm.setMethod(methodsList.get(i));
 					}
-				
+
 				for (int i = 0; i < localesList.size(); i++)
 					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
 						tm.setLocale(localesList.get(i));
@@ -181,7 +180,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 		}
 		return translatedMethodsList;
 	}
-	
+
 	@Override
 	public List<TranslatedMethod> findEnMethods() throws Exception {
 		final String allEnSQL = "SELECT * FROM app_methods_trans WHERE locale = 'en' ORDER BY tmid";
@@ -202,7 +201,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 					if (rs.getInt(2) == methodsList.get(i).getMid()) {
 						tm.setMethod(methodsList.get(i));
 					}
-				
+
 				for (int i = 0; i < localesList.size(); i++)
 					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
 						tm.setLocale(localesList.get(i));
@@ -226,6 +225,42 @@ public class MethodsDAOImpl implements MethodsDAO {
 			}
 		}
 		return translatedMethodsList;
+	}
+
+	@Override
+	public int deleteMethod(Method method) throws Exception {
+
+		String sql = "DELETE FROM app_methods WHERE mid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, method.getMid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception {
+
+		String sql = "DELETE FROM app_methods_trans WHERE tmid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, tMethod.getTmid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
 	}
 
 }

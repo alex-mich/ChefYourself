@@ -16,13 +16,13 @@ import pojos.TranslatedCuisine;
 
 public class CuisinesDAOImpl implements CuisinesDAO {
 
-	private LocaleDAOImpl  ldi;
+	private LocaleDAOImpl ldi;
 	private String driver, url, username, password;
-	
+
 	private List<TranslatedCuisine> translatedCuisinesList;
 	private List<Cuisine> cuisinesList;
 	private List<Locale> localesList;
-	
+
 	public void setLdi(LocaleDAOImpl ldi) {
 		this.ldi = ldi;
 	}
@@ -103,7 +103,7 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		}
 		return i;
 	}
-	
+
 	@Override
 	public List<Cuisine> findAllCuisines() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_cuisines ORDER BY cid";
@@ -136,7 +136,7 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		}
 		return cuisinesList;
 	}
-	
+
 	public List<TranslatedCuisine> findGrCuisines() throws Exception {
 
 		final String allGrSQL = "SELECT * FROM app_cuisines_trans WHERE locale = 'el' ORDER BY tcid";
@@ -157,12 +157,12 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 					if (rs.getInt(2) == cuisinesList.get(i).getCid()) {
 						tc.setCuisine(cuisinesList.get(i));
 					}
-				
+
 				for (int i = 0; i < localesList.size(); i++)
 					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
 						tc.setLocale(localesList.get(i));
 					}
-				
+
 				tc.setCname(rs.getString(4));
 				translatedCuisinesList.add(tc);
 			}
@@ -233,5 +233,43 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		}
 		return translatedCuisinesList;
 	}
-	
+
+	@Override
+	public int deleteCuisine(Cuisine cui) throws Exception {
+
+		String sql = "DELETE FROM app_cuisines WHERE cid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, cui.getCid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+
+	}
+
+	@Override
+	public int deleteTranslatedCuisine(TranslatedCuisine tcui) throws Exception {
+
+		String sql = "DELETE FROM app_cuisines_trans WHERE tcid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, tcui.getTcid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+
+	}
+
 }

@@ -19,12 +19,12 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 
 	private RecipesDAOImpl trdi;
 	private IngredientsDAOImpl tidi;
-	
+
 	private String driver, url, username, password;
 	List<TranslatedRecipe> transRecipesList;
 	List<TranslatedIngredient> transIngredientsList;
 	List<RecipeIngredient> recipeIngredientsList;
-	
+
 	public void setTrdi(RecipesDAOImpl trdi) {
 		this.trdi = trdi;
 	}
@@ -48,7 +48,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
 	@Override
 	public int insertGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
 		final String grSQL = "INSERT INTO app_greek_recipes_ingredients (griid,tgrrid,tinid,grquan) VALUES (?,?,?,?)";
@@ -145,7 +145,6 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		return i;
 	}
 
-	
 	@Override
 	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_greek_recipes_ingredients WHERE tgrrid % 2 = 1";
@@ -415,7 +414,59 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		}
 		return recipeIngredientsList;
 	}
-	
-	
+
+	@Override
+	public int deleteGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
+
+		String sql = "DELETE FROM app_greek_recipes_ingredients WHERE griid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, ri.getRiid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
+
+		String sql = "DELETE FROM app_global_recipes_ingredients WHERE gliid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, ri.getRiid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+
+	@Override
+	public int deleteSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
+
+		String sql = "DELETE FROM app_spanish_recipes_ingredients WHERE spiid = (?)";
+		Connection conn = null;
+		int i = 0;
+		try {
+			conn = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm.setInt(1, ri.getRiid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
 
 }

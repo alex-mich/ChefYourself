@@ -2,12 +2,12 @@ package pojos;
 
 public class Locale {
 
-	//Fields
-	public int lid;
-	public String loc;
-	public String language;
+	// Fields
+	private int lid;
+	private String loc;
+	private String language;
 
-	//Getters & Setters
+	// Getters & Setters
 	public int getLid() {
 		return lid;
 	}
