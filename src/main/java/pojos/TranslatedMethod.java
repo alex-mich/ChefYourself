@@ -7,12 +7,27 @@ public class TranslatedMethod {
 	private Locale locale;
 	private String mname;
 	private Method method;
+	
+	//Constructors
+	public TranslatedMethod(){}
+	
+	public TranslatedMethod(int tmid){
+		this.tmid = tmid;
+	}
+	
+	public TranslatedMethod(int tmid, Locale locale, Method method, String mname) {
+		this.tmid = tmid;
+		this.locale = locale;
+		this.mname = mname;
+		this.method = method;
+	}
+
 
 	//Getters & Setters
 	public int getTmid() {
 		return tmid;
 	}
-
+	
 	public void setTmid(int tmid) {
 		this.tmid = tmid;
 	}

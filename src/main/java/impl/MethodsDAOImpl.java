@@ -111,6 +111,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 	public List<Method> findAllMethods() throws Exception {
 		final String allSQL = "SELECT * FROM app_methods ORDER BY mid";
 		methodsList = new ArrayList<Method>();
+		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 
 		try {
@@ -142,6 +143,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	public List<TranslatedMethod> findGrMethods() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_methods_trans WHERE locale = 'el' ORDER BY tmid";
+		Class.forName(driver);
 		methodsList = findAllMethods();
 		localesList = ldi.findLocales();
 		translatedMethodsList = new ArrayList<TranslatedMethod>();
@@ -187,6 +189,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 	@Override
 	public List<TranslatedMethod> findEnMethods() throws Exception {
 		final String allEnSQL = "SELECT * FROM app_methods_trans WHERE locale = 'en' ORDER BY tmid";
+		Class.forName(driver);
 		methodsList = findAllMethods();
 		localesList = ldi.findLocales();
 		translatedMethodsList = new ArrayList<TranslatedMethod>();
@@ -232,15 +235,20 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	@Override
 	public int deleteMethod(Method method) throws Exception {
-
-		String sql = "DELETE FROM app_methods WHERE mid = (?)";
+		String methodSQL = "DELETE FROM app_methods WHERE mid = (?)";
+		String translatedSQL = "DELETE FROM app_methods_trans WHERE mid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
+		PreparedStatement pstm;
 		int i = 0;
 		try {
 			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
+			pstm = conn.prepareStatement(translatedSQL);
 			pstm.setInt(1, method.getMid());
 			i = pstm.executeUpdate();
+			pstm = conn.prepareStatement(methodSQL);
+			pstm.setInt(1, method.getMid());
+			i += pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -250,13 +258,13 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	@Override
 	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception {
-
-		String sql = "DELETE FROM app_methods_trans WHERE tmid = (?)";
+		String translatedSQL = "DELETE FROM app_methods_trans WHERE tmid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
 			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
+			PreparedStatement pstm = conn.prepareStatement(translatedSQL);
 			pstm.setInt(1, tMethod.getTmid());
 			i = pstm.executeUpdate();
 			pstm.close();

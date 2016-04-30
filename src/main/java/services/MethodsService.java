@@ -11,36 +11,35 @@ import pojos.TranslatedMethod;
 
 @Service
 public class MethodsService {
-
-	public MethodsService(){}
+	
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+	MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 	
 	public int insertMethod(Method method) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 		return methodsDAOImpl.insertMethod(method);	
 	}
 	
 	public int insertTranslatedMethod(TranslatedMethod tMethod) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 		return methodsDAOImpl.insertTranslatedMethod(tMethod);
 	}
 	
 	public List<Method> findAllMethods() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 		return methodsDAOImpl.findAllMethods();
 	}
 	
 	public List<TranslatedMethod> findGrMethods() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 		return methodsDAOImpl.findGrMethods();
 	}
 	
 	public List<TranslatedMethod> findEnMethods() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		MethodsDAOImpl methodsDAOImpl = (MethodsDAOImpl) context.getBean("methodsDAOImpl");
 		return methodsDAOImpl.findEnMethods();
+	}
+	
+	public int deleteMethod(Method method) throws Exception {
+		return methodsDAOImpl.deleteMethod(method);	
+	}
+	
+	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception {
+		return methodsDAOImpl.deleteTranslatedMethod(tMethod);
 	}
 }

@@ -26,11 +26,11 @@ body {
 			from app_methods table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteMethod.ds">
+		<form action="./deleteMethod.ds" method="post">
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" name="mid1"></td>
+					<td><input type="text" name="mid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppMethods" value="DELETE"
@@ -41,6 +41,7 @@ body {
 			<input type="submit" id="viewAppMethodsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>Rows Affected: ${deletedMethodRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -48,7 +49,7 @@ body {
 			from app_methods_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteMethodTrans.ds">
+		<form action="./deleteTranslatedMethod.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Method
@@ -64,6 +65,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedTranslatedMethodRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

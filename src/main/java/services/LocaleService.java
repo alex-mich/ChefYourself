@@ -11,18 +11,14 @@ import pojos.Locale;
 @Service
 public class LocaleService {
 
-	public LocaleService() {
-	}
-
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+	LocaleDAOImpl localeDAOImpl = (LocaleDAOImpl) context.getBean("localeDAOImpl");
+	
 	public int insertLocale(Locale locale) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		LocaleDAOImpl localeDAOImpl = (LocaleDAOImpl) context.getBean("localeDAOImpl");
 		return localeDAOImpl.insertLocale(locale);
 	}
 
 	public List<Locale> findLocales() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		LocaleDAOImpl localeDAOImpl = (LocaleDAOImpl) context.getBean("localeDAOImpl");
 		return localeDAOImpl.findLocales();
 	}
 

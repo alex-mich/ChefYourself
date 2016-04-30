@@ -23,7 +23,7 @@ body {
 			into app_methods table</font><br>
 	</h1>
 	<center>
-		<form action="./insertMethod.ds">
+		<form action="./insertMethod.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
@@ -38,6 +38,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>Rows Affected: ${methodRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -45,7 +46,7 @@ body {
 			into app_methods_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertMethodTrans.ds">
+		<form action="./insertTranslatedMethod.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Method
@@ -73,6 +74,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${translatedMethodRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

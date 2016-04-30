@@ -7,6 +7,14 @@ public class Locale {
 	private String loc;
 	private String language;
 
+	//Constructors
+	
+	public Locale(){}
+	
+	public Locale(String loc){
+		this.loc = loc;
+	}
+	
 	// Getters & Setters
 	public int getLid() {
 		return lid;

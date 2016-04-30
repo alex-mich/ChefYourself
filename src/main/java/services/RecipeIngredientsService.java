@@ -6,86 +6,60 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import impl.RecipeIngredientsDAOImpl;
-import impl.RecipesDAOImpl;
 import pojos.RecipeIngredient;
-import pojos.TranslatedRecipe;
 
 @Service
 public class RecipeIngredientsService {
 
-	RecipeIngredientsService() {
-	}
+	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+	RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 
 	public int insertGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.insertGreekRecipeIngredient(ri);
 	}
 
 	public int insertGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.insertGlobalRecipeIngredient(ri);
 	}
 
 	public int insertSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.insertSpanishRecipeIngredient(ri);
 	}
 
 	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForGreekRecipesGr();
 	}
 
 	public List<RecipeIngredient> findIngredientForGreekRecipesEn() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForGreekRecipesEn();
 	}
 
 	public List<RecipeIngredient> findIngredientForGlobalRecipesGr() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForGlobalRecipesGr();
 	}
 
 	public List<RecipeIngredient> findIngredientForGlobalRecipesEn() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForGlobalRecipesEn();
 
 	}
 
 	public List<RecipeIngredient> findIngredientForSpanishRecipesGr() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForSpanishRecipesGr();
 	}
 
 	public List<RecipeIngredient> findIngredientForSpanishRecipesEn() throws Exception {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForSpanishRecipesEn();
 	}
 	
 	public int deleteGreekRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.deleteGreekRecipeIngredient(recipeIngredient);
 	}
 	
 	public int deleteGlobalRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.deleteGlobalRecipeIngredient(recipeIngredient);
 	}
 	
 	public int deleteSpanishRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
-		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.deleteSpanishRecipeIngredient(recipeIngredient);
 	}
 

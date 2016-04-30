@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ibm.db2.jcc.a.d;
-
 import pojos.Locale;
 import pojos.Recipe;
 import pojos.RecipeDescription;
@@ -296,7 +294,7 @@ public class RecipesController {
 		return "Insert_Greek_Recipe";
 	}
 
-	@RequestMapping(value = "/insertGlobalRecipeDescription.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "insertGlobalRecipeDescription.ds", method = RequestMethod.POST)
 	public String insertGlobalRecipeDescription(@RequestParam("glrdid") int glrdid,
 			@RequestParam("tglrid3") int tglrid, @RequestParam("glrdesc") String glrdesc, Model model) {
 
@@ -320,7 +318,7 @@ public class RecipesController {
 		return "Insert_Global_Recipe";
 	}
 
-	@RequestMapping(value = "/insertSpanishRecipeDescription.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "insertSpanishRecipeDescription.ds", method = RequestMethod.POST)
 	public String insertSpanishRecipeDescription(@RequestParam("sprdid") int sprdid,
 			@RequestParam("tsprid3") int tsprid, @RequestParam("sprdesc") String sprdesc, Model model) {
 
@@ -344,7 +342,7 @@ public class RecipesController {
 		return "Insert_Spanish_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGreekRecipe.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGreekRecipe.ds", method = RequestMethod.POST)
 	public String deleteGreekRecipe(@RequestParam("grrid1") int grrid, Model model){
 		
 		int success = 0;
@@ -360,7 +358,7 @@ public class RecipesController {
 		return "Delete_Greek_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGlobalRecipe.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGlobalRecipe.ds", method = RequestMethod.POST)
 	public String deleteGlobalRecipe(@RequestParam("glrid1") int glrid, Model model){
 		
 		int success = 0;
@@ -376,7 +374,7 @@ public class RecipesController {
 		return "Delete_Global_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteSpanishRecipe.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteSpanishRecipe.ds", method = RequestMethod.POST)
 	public String deleteSpanishRecipe(@RequestParam("sprid1") int sprid, Model model){
 		
 		int success = 0;
@@ -392,7 +390,7 @@ public class RecipesController {
 		return "Delete_Spanish_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGreekRecipeTrans.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGreekRecipeTrans.ds", method = RequestMethod.POST)
 	public String deleteGreekTranslatedRecipe(@RequestParam("tgrrid") int tgrrid, Model model){
 		
 		int success = 0;
@@ -404,11 +402,11 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 		
-		model.addAttribute("/deletedGreekTranslatedRecipesRowsAffected", success);
+		model.addAttribute("deletedGreekTranslatedRecipesRowsAffected", success);
 		return "Delete_Greek_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGlobalRecipeTrans.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGlobalRecipeTrans.ds", method = RequestMethod.POST)
 	public String deleteGlobalTranslatedRecipe(@RequestParam("tglrid") int tglrid, Model model){
 		
 		int success = 0;
@@ -420,7 +418,7 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 		
-		model.addAttribute("/deletedGlobalTranslatedRecipesRowsAffected", success);
+		model.addAttribute("deletedGlobalTranslatedRecipesRowsAffected", success);
 		return "Delete_Global_Recipe";
 	}
 	
@@ -440,7 +438,7 @@ public class RecipesController {
 		return "Delete_Spanish_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGreekRecipeIngredient.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGreekRecipeIngredient.ds", method = RequestMethod.POST)
 	public String deleteGreekRecipeIngredient(@RequestParam("griid") int griid, Model model){
 		
 		int success = 0;
@@ -456,7 +454,7 @@ public class RecipesController {
 		return "Delete_Greek_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGlobalRecipeIngredient.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGlobalRecipeIngredient.ds", method = RequestMethod.POST)
 	public String deleteGlobalRecipeIngredient(@RequestParam("gliid") int gliid, Model model){
 		
 		int success = 0;
@@ -472,7 +470,7 @@ public class RecipesController {
 		return "Delete_Global_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteSpanishRecipeIngredient.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteSpanishRecipeIngredient.ds", method = RequestMethod.POST)
 	public String deleteSpanishRecipeIngredient(@RequestParam("spiid") int spiid, Model model){
 		
 		int success = 0;
@@ -488,7 +486,7 @@ public class RecipesController {
 		return "Delete_Spanish_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGreekRecipeDescription.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGreekRecipeDescription.ds", method = RequestMethod.POST)
 	public String deleteGreekRecipeDescription(@RequestParam("grrdid") int grrdid, Model model){
 		
 		int success = 0;
@@ -504,7 +502,7 @@ public class RecipesController {
 		return "Delete_Greek_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteGlobalRecipeDescription.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteGlobalRecipeDescription.ds", method = RequestMethod.POST)
 	public String deleteGlobalRecipeDescription(@RequestParam("glrdid") int glrdid, Model model){
 		
 		int success = 0;
@@ -520,7 +518,7 @@ public class RecipesController {
 		return "Delete_Global_Recipe";
 	}
 	
-	@RequestMapping(value = "/deleteSpanishRecipeDescription.ds", method = RequestMethod.POST)
+	@RequestMapping(value = "deleteSpanishRecipeDescription.ds", method = RequestMethod.POST)
 	public String deleteSpanishRecipeDescription(@RequestParam("sprdid") int sprdid, Model model){
 		
 		int success = 0;
