@@ -60,7 +60,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deleteSpanishTranslatedRecipesRowsAffected}</h4>
+		<h4>Rows Affected: ${deletedSpanishTranslatedRecipesRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -68,7 +68,7 @@ body {
 			from app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeIngredients.ds" method="post">
+		<form action="./deleteSpanishRecipeIngredient.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Ingredient
@@ -84,7 +84,7 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deleteSpanishRecipeIngredientsRowsAffected}</h4>
+		<h4>Rows Affected: ${deletedSpanishRecipeIngredientsRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -92,7 +92,7 @@ body {
 			from app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeDescription" method="post">
+		<form action="./deleteSpanishRecipeDescription.ds" method="post">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Recipe
@@ -108,7 +108,7 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deleteSpanishRecipeDescriptionRowsAffected}</h4>
+		<h4>Rows Affected: ${deletedSpanishRecipeDescriptionRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

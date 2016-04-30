@@ -9,11 +9,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import dao.IngredientsDAO;
 import pojos.Ingredient;
 import pojos.Locale;
 import pojos.TranslatedIngredient;
 
+@Repository
 public class IngredientsDAOImpl implements IngredientsDAO {
 
 	private LocaleDAOImpl ldi;

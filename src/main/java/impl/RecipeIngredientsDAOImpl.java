@@ -9,12 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import dao.RecipeIngredientsDAO;
 import impl.RecipesDAOImpl;
 import pojos.RecipeIngredient;
 import pojos.TranslatedIngredient;
 import pojos.TranslatedRecipe;
 
+@Repository
 public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 
 	private RecipesDAOImpl trdi;
@@ -419,6 +422,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	public int deleteGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
 
 		String sql = "DELETE FROM app_greek_recipes_ingredients WHERE griid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -437,6 +441,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	public int deleteGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
 
 		String sql = "DELETE FROM app_global_recipes_ingredients WHERE gliid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {
@@ -455,6 +460,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	public int deleteSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
 
 		String sql = "DELETE FROM app_spanish_recipes_ingredients WHERE spiid = (?)";
+		Class.forName(driver);
 		Connection conn = null;
 		int i = 0;
 		try {

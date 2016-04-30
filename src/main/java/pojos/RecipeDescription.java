@@ -6,6 +6,13 @@ public class RecipeDescription {
 	private int rdid;
 	private TranslatedRecipe trRecipe;
 	private String desc;
+	
+	//Constructors
+	public RecipeDescription() {}
+	
+	public RecipeDescription(int rdid) {
+		this.rdid = rdid;
+	}
 
 	//Getters & Setters
 	public int getRdid() {

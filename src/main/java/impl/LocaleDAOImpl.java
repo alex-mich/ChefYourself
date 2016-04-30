@@ -9,9 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import dao.LocaleDAO;
 import pojos.Locale;
 
+@Repository
 public class LocaleDAOImpl implements LocaleDAO {
 
 	private String driver, url, username, password;

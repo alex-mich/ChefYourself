@@ -6,7 +6,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import impl.RecipeIngredientsDAOImpl;
+import impl.RecipesDAOImpl;
 import pojos.RecipeIngredient;
+import pojos.TranslatedRecipe;
 
 @Service
 public class RecipeIngredientsService {
@@ -67,6 +69,24 @@ public class RecipeIngredientsService {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
 		return recipeIngredientsDAOImpl.findIngredientForSpanishRecipesEn();
+	}
+	
+	public int deleteGreekRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
+		return recipeIngredientsDAOImpl.deleteGreekRecipeIngredient(recipeIngredient);
+	}
+	
+	public int deleteGlobalRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
+		return recipeIngredientsDAOImpl.deleteGlobalRecipeIngredient(recipeIngredient);
+	}
+	
+	public int deleteSpanishRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
+		RecipeIngredientsDAOImpl recipeIngredientsDAOImpl = (RecipeIngredientsDAOImpl) context.getBean("recipeIngredientsDAOImpl");
+		return recipeIngredientsDAOImpl.deleteSpanishRecipeIngredient(recipeIngredient);
 	}
 
 }

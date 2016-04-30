@@ -8,6 +8,12 @@ public class RecipeIngredient {
 	private TranslatedIngredient trIngredient;
 	private String quan;
 
+	//Constructors
+	public RecipeIngredient(){}
+	
+	public RecipeIngredient(int riid){this.riid = riid;}
+	
+	
 	//Getters & Setters
 	public int getRiid() {
 		return riid;

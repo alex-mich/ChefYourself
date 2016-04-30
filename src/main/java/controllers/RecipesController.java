@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ibm.db2.jcc.a.d;
+
 import pojos.Locale;
 import pojos.Recipe;
 import pojos.RecipeDescription;
@@ -387,6 +389,150 @@ public class RecipesController {
 		}
 		
 		model.addAttribute("deletedSpanishRecipesRowsAffected", success);
+		return "Delete_Spanish_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGreekRecipeTrans.ds", method = RequestMethod.POST)
+	public String deleteGreekTranslatedRecipe(@RequestParam("tgrrid") int tgrrid, Model model){
+		
+		int success = 0;
+		
+		try{
+			TranslatedRecipe trRecipe = new TranslatedRecipe(tgrrid);
+			success = recipeService.deleteGreekTranslatedRecipe(trRecipe);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("/deletedGreekTranslatedRecipesRowsAffected", success);
+		return "Delete_Greek_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGlobalRecipeTrans.ds", method = RequestMethod.POST)
+	public String deleteGlobalTranslatedRecipe(@RequestParam("tglrid") int tglrid, Model model){
+		
+		int success = 0;
+		
+		try{
+			TranslatedRecipe trRecipe = new TranslatedRecipe(tglrid);
+			success = recipeService.deleteGlobalTranslatedRecipe(trRecipe);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("/deletedGlobalTranslatedRecipesRowsAffected", success);
+		return "Delete_Global_Recipe";
+	}
+	
+	@RequestMapping(value = "deleteSpanishRecipeTrans.ds", method = RequestMethod.POST)
+	public String deleteSpanishTranslatedRecipe(@RequestParam("tsprid") int tsprid, Model model){
+		
+		int success = 0;
+		
+		try{
+			TranslatedRecipe trRecipe = new TranslatedRecipe(tsprid);
+			success = recipeService.deleteSpanishTranslatedRecipe(trRecipe);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedSpanishTranslatedRecipesRowsAffected", success);
+		return "Delete_Spanish_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGreekRecipeIngredient.ds", method = RequestMethod.POST)
+	public String deleteGreekRecipeIngredient(@RequestParam("griid") int griid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeIngredient recipeIngredient = new RecipeIngredient(griid);
+			success = recipeIngredientsService.deleteGreekRecipeIngredient(recipeIngredient);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedGreekRecipeIngredientsRowsAffected", success);
+		return "Delete_Greek_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGlobalRecipeIngredient.ds", method = RequestMethod.POST)
+	public String deleteGlobalRecipeIngredient(@RequestParam("gliid") int gliid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeIngredient recipeIngredient = new RecipeIngredient(gliid);
+			success = recipeIngredientsService.deleteGlobalRecipeIngredient(recipeIngredient);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedGlobalRecipeIngredientsRowsAffected", success);
+		return "Delete_Global_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteSpanishRecipeIngredient.ds", method = RequestMethod.POST)
+	public String deleteSpanishRecipeIngredient(@RequestParam("spiid") int spiid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeIngredient recipeIngredient = new RecipeIngredient(spiid);
+			success = recipeIngredientsService.deleteSpanishRecipeIngredient(recipeIngredient);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedSpanishRecipeIngredientsRowsAffected", success);
+		return "Delete_Spanish_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGreekRecipeDescription.ds", method = RequestMethod.POST)
+	public String deleteGreekRecipeDescription(@RequestParam("grrdid") int grrdid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeDescription recipeDescription = new RecipeDescription(grrdid);
+			success = descriptionsService.deleteGreekRecipeDescription(recipeDescription);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedGreekRecipeDescriptionRowsAffected", success);
+		return "Delete_Greek_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteGlobalRecipeDescription.ds", method = RequestMethod.POST)
+	public String deleteGlobalRecipeDescription(@RequestParam("glrdid") int glrdid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeDescription recipeDescription = new RecipeDescription(glrdid);
+			success = descriptionsService.deleteGlobalRecipeDescription(recipeDescription);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedGlobalRecipeDescriptionRowsAffected", success);
+		return "Delete_Global_Recipe";
+	}
+	
+	@RequestMapping(value = "/deleteSpanishRecipeDescription.ds", method = RequestMethod.POST)
+	public String deleteSpanishRecipeDescription(@RequestParam("sprdid") int sprdid, Model model){
+		
+		int success = 0;
+		
+		try{
+			RecipeDescription recipeDescription = new RecipeDescription(sprdid);
+			success = descriptionsService.deleteSpanishRecipeDescription(recipeDescription);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("deletedSpanishRecipeDescriptionRowsAffected", success);
 		return "Delete_Spanish_Recipe";
 	}
 	
