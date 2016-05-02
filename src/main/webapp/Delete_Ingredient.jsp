@@ -24,11 +24,11 @@ body {
 			from app_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteIngredient.ds">
+		<form action="./deleteIngredient.ds" method="post">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid1"></td>
+					<td><input type="text" name="inid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppIngredient"
@@ -39,6 +39,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>Rows Affected: ${deletedIngredientRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -46,17 +47,17 @@ body {
 			from app_ingredients_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteIngredientTrans.ds">
+		<form action="./deleteTranslatedIngredient.ds" method="post">
 			<table width="320">
 				<tr>
 					<td style="background-color: buttonface;">Translated
 						Ingredient ID:</td>
 					<td><input type="text" name="tinid"></td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
 					<td><input type="text" name="inid2"></td>
-				</tr>
+				</tr> -->
 			</table>
 			<br> <input type="submit" id="deleteAppIngredientsTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
@@ -66,6 +67,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedTranslatedIngredientRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

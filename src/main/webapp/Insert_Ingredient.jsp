@@ -23,7 +23,7 @@ body {
 			into app_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./insertIngredient.ds">
+		<form action="./insertIngredient.ds" method="post">
 			<table width="280">
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
@@ -42,6 +42,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>Rows Affected: ${ingredientRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -49,7 +50,7 @@ body {
 			into app_ingredients_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertIngredientTrans.ds">
+		<form action="./insertTranslatedIngredient.ds" method="post"> 
 			<table width="320">
 				<tr>
 					<td style="background-color: buttonface;">Translated
@@ -77,6 +78,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${translatedIngredientRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

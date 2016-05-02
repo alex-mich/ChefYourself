@@ -1,6 +1,6 @@
 package pojos;
 
-public class Locale {
+public class Language {
 
 	// Fields
 	private int lid;
@@ -8,13 +8,22 @@ public class Locale {
 	private String language;
 
 	//Constructors
+	public Language(){}
 	
-	public Locale(){}
-	
-	public Locale(String loc){
+	public Language(String loc){
 		this.loc = loc;
 	}
 	
+	public Language(int lid){
+		this.lid = lid;
+	}
+	
+	public Language(int lid, String loc, String language) {
+		this.lid = lid;
+		this.loc = loc;
+		this.language = language;
+	}
+
 	// Getters & Setters
 	public int getLid() {
 		return lid;

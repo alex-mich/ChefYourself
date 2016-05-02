@@ -4,7 +4,7 @@ public class TranslatedMethod {
 
 	//Fields
 	private int tmid;
-	private Locale locale;
+	private Language locale;
 	private String mname;
 	private Method method;
 	
@@ -15,7 +15,7 @@ public class TranslatedMethod {
 		this.tmid = tmid;
 	}
 	
-	public TranslatedMethod(int tmid, Locale locale, Method method, String mname) {
+	public TranslatedMethod(int tmid, Language locale, Method method, String mname) {
 		this.tmid = tmid;
 		this.locale = locale;
 		this.mname = mname;
@@ -40,11 +40,11 @@ public class TranslatedMethod {
 		this.mname = mname;
 	}
 
-	public Locale getLocale() {
+	public Language getLocale() {
 		return locale;
 	}
 
-	public void setLocale(Locale locale) {
+	public void setLocale(Language locale) {
 		this.locale = locale;
 	}
 

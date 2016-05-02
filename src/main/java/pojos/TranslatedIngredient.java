@@ -5,13 +5,21 @@ public class TranslatedIngredient {
 	//Fields
 	private int tinid;
 	private Ingredient ingredient;
-	private Locale locale;
+	private Language locale;
 	private String iname;
 	
+	//Constructors
 	public TranslatedIngredient(){}
 	
 	public TranslatedIngredient(int tinid) {
 		this.tinid = tinid;
+	}
+
+	public TranslatedIngredient(int tinid, Ingredient ingredient, Language locale, String iname) {
+		this.tinid = tinid;
+		this.ingredient = ingredient;
+		this.locale = locale;
+		this.iname = iname;
 	}
 
 	//Getters & Setters
@@ -31,11 +39,11 @@ public class TranslatedIngredient {
 		this.ingredient = ingredient;
 	}
 
-	public Locale getLocale() {
+	public Language getLocale() {
 		return locale;
 	}
 
-	public void setLocale(Locale locale) {
+	public void setLocale(Language locale) {
 		this.locale = locale;
 	}
 

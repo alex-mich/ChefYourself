@@ -13,6 +13,13 @@ public class RecipeDescription {
 	public RecipeDescription(int rdid) {
 		this.rdid = rdid;
 	}
+	
+	public RecipeDescription(int rdid, TranslatedRecipe trRecipe, String desc) {
+		super();
+		this.rdid = rdid;
+		this.trRecipe = trRecipe;
+		this.desc = desc;
+	}
 
 	//Getters & Setters
 	public int getRdid() {

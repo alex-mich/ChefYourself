@@ -12,7 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.RecipesDAO;
-import pojos.Locale;
+import pojos.Language;
 import pojos.Recipe;
 import pojos.TranslatedCuisine;
 import pojos.TranslatedMethod;
@@ -21,18 +21,18 @@ import pojos.TranslatedRecipe;
 @Repository
 public class RecipesDAOImpl implements RecipesDAO {
 
-	private LocaleDAOImpl ldi;
+	private LanguagesDAOImpl ldi;
 	private CuisinesDAOImpl tcdi;
 	private MethodsDAOImpl tmdi;
 
 	private String driver, url, username, password;
 
-	private List<Locale> localeList;
+	private List<Language> localeList;
 	private List<TranslatedMethod> transMethodsList;
 	private List<TranslatedCuisine> transCuisinesList;
 	private List<TranslatedRecipe> recipesList;
 
-	public void setLdi(LocaleDAOImpl ldi) {
+	public void setLdi(LanguagesDAOImpl ldi) {
 		this.ldi = ldi;
 	}
 

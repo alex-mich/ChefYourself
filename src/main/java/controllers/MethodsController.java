@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pojos.Locale;
+import pojos.Language;
 import pojos.Method;
 import pojos.TranslatedMethod;
 import services.MethodsService;
@@ -39,7 +39,7 @@ public class MethodsController {
 		int success = 0;
 		try {
 			Method method = new Method(mid);
-			Locale locale = new Locale(loc);
+			Language locale = new Language(loc);
 			TranslatedMethod translatedMethod = new TranslatedMethod(tmid,locale,method,mname);
 			success = methodsService.insertTranslatedMethod(translatedMethod);
 		} catch (Exception e) {
@@ -65,7 +65,7 @@ public class MethodsController {
 	}
 	
 	@RequestMapping(value = "deleteTranslatedMethod.ds", method = RequestMethod.POST)
-	public String insertGreekRecipe(@RequestParam("tmid") int tmid, Model model) throws Exception {
+	public String deleteTranslatedMethod(@RequestParam("tmid") int tmid, Model model) throws Exception {
 
 		int success = 0;
 		try {

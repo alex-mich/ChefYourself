@@ -7,7 +7,7 @@ public class TranslatedRecipe {
 	private Recipe recipe;
 	private TranslatedCuisine transCuisine;
 	private TranslatedMethod transMethod;
-	private Locale locale;
+	private Language locale;
 	private String rname;
 	
 	//Constructor
@@ -17,6 +17,16 @@ public class TranslatedRecipe {
 		this.trid = trid;
 	}
 	
+	public TranslatedRecipe(int trid, Recipe recipe, TranslatedCuisine transCuisine, TranslatedMethod transMethod,
+			Language locale, String rname) {
+		this.trid = trid;
+		this.recipe = recipe;
+		this.transCuisine = transCuisine;
+		this.transMethod = transMethod;
+		this.locale = locale;
+		this.rname = rname;
+	}
+
 	//Getters & Setters
 	public void setTrid(int trid) {
 		this.trid = trid;
@@ -41,10 +51,10 @@ public class TranslatedRecipe {
 	public void setTransMethod(TranslatedMethod transMethod) {
 		this.transMethod = transMethod;
 	}
-	public Locale getLocale() {
+	public Language getLocale() {
 		return locale;
 	}
-	public void setLocale(Locale locale) {
+	public void setLocale(Language locale) {
 		this.locale = locale;
 	}
 	public int getTrid() {

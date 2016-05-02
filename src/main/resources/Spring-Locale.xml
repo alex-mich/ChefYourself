@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	
-    <bean id="localeDAOImpl" class="impl.LocaleDAOImpl">
+    <bean id="localeDAOImpl" class="impl.LanguagesDAOImpl">
 		<property name="driver" value="org.postgresql.Driver"/>
 		<property name="url" value="jdbc:postgresql://localhost:5432/ChefYourself"/>
 		<property name="username" value="postgres"/>

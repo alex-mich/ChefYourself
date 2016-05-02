@@ -11,11 +11,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import dao.LocaleDAO;
-import pojos.Locale;
+import dao.LanguagesDAO;
+import pojos.Language;
 
 @Repository
-public class LocaleDAOImpl implements LocaleDAO {
+public class LanguagesDAOImpl implements LanguagesDAO {
 
 	private String driver, url, username, password;
 
@@ -36,8 +36,8 @@ public class LocaleDAOImpl implements LocaleDAO {
 	}
 
 	@Override
-	public int insertLocale(Locale locale) throws Exception {
-		final String locSQL = "INSERT INTO app_lang (locale,language,lod) VALUES (?,?,?)";
+	public int insertLocale(Language locale) throws Exception {
+		final String locSQL = "INSERT INTO app_lang (locale,language,lid) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -67,21 +67,20 @@ public class LocaleDAOImpl implements LocaleDAO {
 	}
 
 	@Override
-	public List<Locale> findLocales() throws Exception {
+	public List<Language> findLocales() throws Exception {
 		final String locSQL = "SELECT * FROM app_lang ORDER BY lid";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
-		List<Locale> localeList = new ArrayList<Locale>();
+		List<Language> localeList = new ArrayList<Language>();
 		Statement stmt;
 		ResultSet rs;
-
 		try {
 
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(locSQL);
 
 			while (rs.next()) {
-				Locale locale = new Locale();
+				Language locale = new Language();
 				locale.setLoc(rs.getString(1));
 				locale.setLanguage(rs.getString(2));
 				locale.setLid(rs.getInt(3));
@@ -105,15 +104,15 @@ public class LocaleDAOImpl implements LocaleDAO {
 	}
 
 	@Override
-	public int deleteLocale(Locale locale) throws Exception {
-
-		String sql = "DELETE FROM app_lang WHERE lid = (?)";
-		Connection conn = null;
+	public int deleteLocale(Language language) throws Exception {
+		String languageSQL = "DELETE FROM app_lang WHERE lid = (?)";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstm;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, locale.getLid());
+			pstm = con.prepareStatement(languageSQL);
+			pstm.setInt(1, language.getLid());
 			i = pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {

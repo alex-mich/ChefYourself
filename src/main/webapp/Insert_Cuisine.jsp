@@ -23,7 +23,7 @@ body {
 			into app_cuisines table</font><br>
 	</h1>
 	<center>
-		<form action="./insertCuisine.ds">
+		<form action="./insertCuisine.ds" method="post">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
@@ -38,6 +38,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>Rows Affected: ${cuisineRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -45,7 +46,7 @@ body {
 			into app_cuisines_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertCuisineTrans.ds">
+		<form action="./insertTranslatedCuisine.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
@@ -73,7 +74,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<br> <input type="button" id="backButton" value="BACK"
+		<h4>Rows Affected: ${translatedCuisineRowsAffected}</h4>
+	</center>
+	<br>
+	<center>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>

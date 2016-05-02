@@ -6,9 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
 import impl.RecipeDescriptionsDAOImpl;
-import impl.RecipeIngredientsDAOImpl;
 import pojos.RecipeDescription;
-import pojos.RecipeIngredient;
 
 @Service
 public class DescriptionsService {
@@ -30,18 +28,23 @@ public class DescriptionsService {
 	public List<RecipeDescription> findGreekRecipesDescriptionGr() throws Exception {
 		return recipeDescriptionsDAOImpl.findGreekRecipesDescriptionGr();
 	}
+	
 	public List<RecipeDescription> findGreekRecipesDescriptionEn() throws Exception {
 		return recipeDescriptionsDAOImpl.findGreekRecipesDescriptionEn();
 	}
+	
 	public List<RecipeDescription> findGlobalRecipesDescriptionGr() throws Exception {
 		return recipeDescriptionsDAOImpl.findGlobalRecipesDescriptionGr();
 	}
+	
 	public List<RecipeDescription> findGlobalRecipesDescriptionEn() throws Exception {
 		return recipeDescriptionsDAOImpl.findGlobalRecipesDescriptionEn();
 	}
+	
 	public List<RecipeDescription> findSpanishRecipesDescriptionGr() throws Exception {
 		return recipeDescriptionsDAOImpl.findSpanishRecipesDescriptionGr();
 	}
+	
 	public List<RecipeDescription> findSpanishRecipesDescriptionEn() throws Exception {
 		return recipeDescriptionsDAOImpl.findSpanishRecipesDescriptionEn();
 	}

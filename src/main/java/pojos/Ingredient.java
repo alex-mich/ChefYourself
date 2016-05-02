@@ -6,6 +6,18 @@ public class Ingredient {
 	private int inid;
 	private String itype;
 
+	//Constructors
+	public Ingredient(){}
+	
+	public Ingredient(int inid) {
+		this.inid = inid;
+	}
+
+	public Ingredient(int inid, String itype) {
+		this.inid = inid;
+		this.itype = itype;
+	}
+
 	//Getters & Setters
 	public int getInid() {
 		return inid;

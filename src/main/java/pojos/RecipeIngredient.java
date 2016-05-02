@@ -13,7 +13,13 @@ public class RecipeIngredient {
 	
 	public RecipeIngredient(int riid){this.riid = riid;}
 	
-	
+	public RecipeIngredient(int riid, TranslatedRecipe trRecipe, TranslatedIngredient trIngredient, String quan) {
+		this.riid = riid;
+		this.trRecipe = trRecipe;
+		this.trIngredient = trIngredient;
+		this.quan = quan;
+	}
+
 	//Getters & Setters
 	public int getRiid() {
 		return riid;

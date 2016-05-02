@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import pojos.Locale;
+import pojos.Language;
 import pojos.Recipe;
 import pojos.RecipeDescription;
 import pojos.RecipeIngredient;
@@ -82,27 +82,11 @@ public class RecipesController {
 
 		int success = 0;
 		try {
-			TranslatedRecipe transRecipe = new TranslatedRecipe();
-			transRecipe.setTrid(tgrrid);
-
-			Recipe recipe = new Recipe();
-			recipe.setRid(grrid);
-			transRecipe.setRecipe(recipe);
-
-			TranslatedCuisine transCuisine = new TranslatedCuisine();
-			transCuisine.setTcid(tcid);
-			transRecipe.setTransCuisine(transCuisine);
-
-			TranslatedMethod transMethod = new TranslatedMethod();
-			transMethod.setTmid(tmid);
-			transRecipe.setTransMethod(transMethod);
-
-			Locale locale = new Locale();
-			locale.setLoc(loc);
-			transRecipe.setLocale(locale);
-
-			transRecipe.setRname(grrname);
-
+			Recipe recipe = new Recipe(grrid);
+			TranslatedCuisine transCuisine = new TranslatedCuisine(tcid);
+			TranslatedMethod transMethod = new TranslatedMethod(tmid);
+			Language locale = new Language(loc);
+			TranslatedRecipe transRecipe = new TranslatedRecipe(tgrrid,recipe,transCuisine,transMethod,locale,grrname);
 			success = recipeService.insertGreekTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -119,27 +103,11 @@ public class RecipesController {
 
 		int success = 0;
 		try {
-			TranslatedRecipe transRecipe = new TranslatedRecipe();
-			transRecipe.setTrid(tglrid);
-
-			Recipe recipe = new Recipe();
-			recipe.setRid(glrid);
-			transRecipe.setRecipe(recipe);
-
-			TranslatedCuisine transCuisine = new TranslatedCuisine();
-			transCuisine.setTcid(tcid);
-			transRecipe.setTransCuisine(transCuisine);
-
-			TranslatedMethod transMethod = new TranslatedMethod();
-			transMethod.setTmid(tmid);
-			transRecipe.setTransMethod(transMethod);
-
-			Locale locale = new Locale();
-			locale.setLoc(loc);
-			transRecipe.setLocale(locale);
-
-			transRecipe.setRname(glrname);
-
+			Recipe recipe = new Recipe(glrid);
+			TranslatedCuisine transCuisine = new TranslatedCuisine(tcid);
+			TranslatedMethod transMethod = new TranslatedMethod(tmid);
+			Language locale = new Language(loc);
+			TranslatedRecipe transRecipe = new TranslatedRecipe(tglrid,recipe,transCuisine,transMethod,locale,glrname);
 			success = recipeService.insertGlobalTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -156,27 +124,11 @@ public class RecipesController {
 
 		int success = 0;
 		try {
-			TranslatedRecipe transRecipe = new TranslatedRecipe();
-			transRecipe.setTrid(tsprid);
-
-			Recipe recipe = new Recipe();
-			recipe.setRid(sprid);
-			transRecipe.setRecipe(recipe);
-
-			TranslatedCuisine transCuisine = new TranslatedCuisine();
-			transCuisine.setTcid(tcid);
-			transRecipe.setTransCuisine(transCuisine);
-
-			TranslatedMethod transMethod = new TranslatedMethod();
-			transMethod.setTmid(tmid);
-			transRecipe.setTransMethod(transMethod);
-
-			Locale locale = new Locale();
-			locale.setLoc(loc);
-			transRecipe.setLocale(locale);
-
-			transRecipe.setRname(sprname);
-
+			Recipe recipe = new Recipe(sprid);
+			TranslatedCuisine transCuisine = new TranslatedCuisine(tcid);
+			TranslatedMethod transMethod = new TranslatedMethod(tmid);
+			Language locale = new Language(loc);
+			TranslatedRecipe transRecipe = new TranslatedRecipe(tsprid,recipe,transCuisine,transMethod,locale,sprname);
 			success = recipeService.insertSpanishTranslatedRecipe(transRecipe);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -194,17 +146,9 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeIngredient recipeIngredient = new RecipeIngredient();
-			recipeIngredient.setRiid(griid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tgrrid);
-			recipeIngredient.setTrRecipe(translatedRecipe);
-
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
-			recipeIngredient.setTrIngredient(translatedIngredient);
-
-			recipeIngredient.setQuan(grriquan);
-
+			RecipeIngredient recipeIngredient = new RecipeIngredient(griid,translatedRecipe,translatedIngredient,grriquan);
 			success = recipeIngredientsService.insertGreekRecipeIngredient(recipeIngredient);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -222,17 +166,9 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeIngredient recipeIngredient = new RecipeIngredient();
-			recipeIngredient.setRiid(gliid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tglrid);
-			recipeIngredient.setTrRecipe(translatedRecipe);
-
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
-			recipeIngredient.setTrIngredient(translatedIngredient);
-
-			recipeIngredient.setQuan(glriquan);
-
+			RecipeIngredient recipeIngredient = new RecipeIngredient(gliid,translatedRecipe,translatedIngredient,glriquan);
 			success = recipeIngredientsService.insertGlobalRecipeIngredient(recipeIngredient);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -250,17 +186,9 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeIngredient recipeIngredient = new RecipeIngredient();
-			recipeIngredient.setRiid(spiid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tsprid);
-			recipeIngredient.setTrRecipe(translatedRecipe);
-
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
-			recipeIngredient.setTrIngredient(translatedIngredient);
-
-			recipeIngredient.setQuan(spriquan);
-
+			RecipeIngredient recipeIngredient = new RecipeIngredient(spiid,translatedRecipe,translatedIngredient,spriquan);
 			success = recipeIngredientsService.insertSpanishRecipeIngredient(recipeIngredient);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -277,14 +205,8 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeDescription recipeDescription = new RecipeDescription();
-			recipeDescription.setRdid(grrdid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tgrrid);
-			recipeDescription.setTrRecipe(translatedRecipe);
-
-			recipeDescription.setDesc(grrdesc);
-
+			RecipeDescription recipeDescription = new RecipeDescription(grrdid,translatedRecipe,grrdesc);
 			success = descriptionsService.insertGreekRecipeDescription(recipeDescription);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -301,14 +223,8 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeDescription recipeDescription = new RecipeDescription();
-			recipeDescription.setRdid(glrdid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tglrid);
-			recipeDescription.setTrRecipe(translatedRecipe);
-
-			recipeDescription.setDesc(glrdesc);
-
+			RecipeDescription recipeDescription = new RecipeDescription(glrdid,translatedRecipe,glrdesc);
 			success = descriptionsService.insertGlobalRecipeDescription(recipeDescription);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -325,14 +241,8 @@ public class RecipesController {
 		int success = 0;
 
 		try {
-			RecipeDescription recipeDescription = new RecipeDescription();
-			recipeDescription.setRdid(sprdid);
-
 			TranslatedRecipe translatedRecipe = new TranslatedRecipe(tsprid);
-			recipeDescription.setTrRecipe(translatedRecipe);
-
-			recipeDescription.setDesc(sprdesc);
-
+			RecipeDescription recipeDescription = new RecipeDescription(sprdid,translatedRecipe,sprdesc);
 			success = descriptionsService.insertSpanishRecipeDescription(recipeDescription);
 		} catch (Exception e) {
 			e.printStackTrace();

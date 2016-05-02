@@ -12,21 +12,21 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.MethodsDAO;
-import pojos.Locale;
+import pojos.Language;
 import pojos.Method;
 import pojos.TranslatedMethod;
 
 @Repository
 public class MethodsDAOImpl implements MethodsDAO {
 
-	private LocaleDAOImpl ldi;
+	private LanguagesDAOImpl ldi;
 	private String driver, url, username, password;
 
-	private List<Locale> localesList;
+	private List<Language> localesList;
 	private List<Method> methodsList;
 	private List<TranslatedMethod> translatedMethodsList;
 
-	public void setLdi(LocaleDAOImpl ldi) {
+	public void setLdi(LanguagesDAOImpl ldi) {
 		this.ldi = ldi;
 	}
 
@@ -238,15 +238,14 @@ public class MethodsDAOImpl implements MethodsDAO {
 		String methodSQL = "DELETE FROM app_methods WHERE mid = (?)";
 		String translatedSQL = "DELETE FROM app_methods_trans WHERE mid = (?)";
 		Class.forName(driver);
-		Connection conn = null;
+		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstm;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			pstm = conn.prepareStatement(translatedSQL);
+			pstm = con.prepareStatement(translatedSQL);
 			pstm.setInt(1, method.getMid());
 			i = pstm.executeUpdate();
-			pstm = conn.prepareStatement(methodSQL);
+			pstm = con.prepareStatement(methodSQL);
 			pstm.setInt(1, method.getMid());
 			i += pstm.executeUpdate();
 			pstm.close();
@@ -260,11 +259,10 @@ public class MethodsDAOImpl implements MethodsDAO {
 	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception {
 		String translatedSQL = "DELETE FROM app_methods_trans WHERE tmid = (?)";
 		Class.forName(driver);
-		Connection conn = null;
+		Connection con = DriverManager.getConnection(url, username, password);
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(translatedSQL);
+			PreparedStatement pstm = con.prepareStatement(translatedSQL);
 			pstm.setInt(1, tMethod.getTmid());
 			i = pstm.executeUpdate();
 			pstm.close();

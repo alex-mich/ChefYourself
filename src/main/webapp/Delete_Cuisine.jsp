@@ -23,11 +23,11 @@ body {
 			from app_cuisines table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteCuisine.ds">
+		<form action="./deleteCuisine.ds" method="post">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" name="cid1"></td>
+					<td><input type="text" name="cid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppCuisines" value="DELETE"
@@ -38,6 +38,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
+		<h4>Rows Affected: ${deletedCuisineRowsAffected}</h4>
 	</center>
 	<br>
 	<h1 align="center">
@@ -45,7 +46,7 @@ body {
 			from app_cuisines_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteCuisineTrans.ds">
+		<form action="./deleteTranslatedCuisine.ds" method="post">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
@@ -61,6 +62,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>Rows Affected: ${deletedTranslatedCuisineRowsAffected}</h4>
 	</center>
 	<br>
 	<center>

@@ -5,8 +5,21 @@ public class TranslatedCuisine {
 	//Fields
 	private int tcid;
 	private Cuisine cuisine;
-	private Locale locale;
+	private Language locale;
 	private String cname;
+	
+	//Constructors
+	public TranslatedCuisine() {}
+	
+	public TranslatedCuisine(int tcid) {
+		this.tcid = tcid;
+	}
+	public TranslatedCuisine(int tcid, Cuisine cuisine, Language locale, String cname) {
+		this.tcid = tcid;
+		this.cuisine = cuisine;
+		this.locale = locale;
+		this.cname = cname;
+	}
 
 	//Getters & Setters
 	public int getTcid() {
@@ -25,11 +38,11 @@ public class TranslatedCuisine {
 		this.tcid = tcid;
 	}
 
-	public Locale getLocale() {
+	public Language getLocale() {
 		return locale;
 	}
 
-	public void setLocale(Locale locale) {
+	public void setLocale(Language locale) {
 		this.locale = locale;
 	}
 

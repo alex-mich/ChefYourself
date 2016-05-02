@@ -27,7 +27,7 @@ body {
 			into app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./insertLocale.ds">
+		<form action="./insertLocale.ds" method="post">
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
@@ -50,6 +50,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
+		<h4>Rows Affected: ${languageRowsAffected}</h4>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">

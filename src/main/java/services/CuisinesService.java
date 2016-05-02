@@ -15,12 +15,12 @@ public class CuisinesService {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 	CuisinesDAOImpl cuisinesDAOImpl = (CuisinesDAOImpl) context.getBean("cuisinesDAOImpl");
 	
-	public int insertCuisine(Cuisine cui) throws Exception {
-		return cuisinesDAOImpl.insertCuisine(cui);	
+	public int insertCuisine(Cuisine cuisine) throws Exception {
+		return cuisinesDAOImpl.insertCuisine(cuisine);	
 	}
 	
-	public int insertTranslatedCuisine(TranslatedCuisine tcui) throws Exception {
-		return cuisinesDAOImpl.insertTranslatedCuisine(tcui);
+	public int insertTranslatedCuisine(TranslatedCuisine translatedCuisine) throws Exception {
+		return cuisinesDAOImpl.insertTranslatedCuisine(translatedCuisine);
 	}
 	
 	public List<Cuisine> findAllCuisines() throws Exception {
@@ -34,5 +34,12 @@ public class CuisinesService {
 	public List<TranslatedCuisine> findEnCuisines() throws Exception {
 		return cuisinesDAOImpl.findEnCuisines();
 	}
-
+	
+	public int deleteCuisine(Cuisine cuisine) throws Exception {
+		return cuisinesDAOImpl.deleteCuisine(cuisine);
+	}
+	
+	public int deleteTranslatedCuisine(TranslatedCuisine translatedCuisine) throws Exception {
+		return cuisinesDAOImpl.deleteTranslatedCuisine(translatedCuisine);
+	}
 }

@@ -13,20 +13,20 @@ import org.springframework.stereotype.Repository;
 
 import dao.IngredientsDAO;
 import pojos.Ingredient;
-import pojos.Locale;
+import pojos.Language;
 import pojos.TranslatedIngredient;
 
 @Repository
 public class IngredientsDAOImpl implements IngredientsDAO {
 
-	private LocaleDAOImpl ldi;
+	private LanguagesDAOImpl ldi;
 	private String driver, url, username, password;
 
-	private List<Locale> localeList;
+	private List<Language> localeList;
 	private List<Ingredient> ingredientsList;
 	private List<TranslatedIngredient> translatedIngredientsList;
 
-	public void setLdi(LocaleDAOImpl ldi) {
+	public void setLdi(LanguagesDAOImpl ldi) {
 		this.ldi = ldi;
 	}
 
@@ -49,7 +49,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	@Override
 	public int insertIngredient(Ingredient in) throws Exception {
 
-		final String ingrSQL = "INSERT INTO app_ingredients" + "(inid,itype) VALUES (?, ?)";
+		final String ingrSQL = "INSERT INTO app_ingredients (inid,itype) VALUES (?, ?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -80,7 +80,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	@Override
 	public int insertTranslatedIngredient(TranslatedIngredient tin) throws Exception {
 
-		final String tingrSQL = "INSERT INTO app_ingredients_trans" + "(tinid,inid,locale,itype) VALUES (?, ?, ?, ?)";
+		final String tingrSQL = "INSERT INTO app_ingredients_trans" + "(tinid,inid,locale,iname) VALUES (?, ?, ?, ?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -237,16 +237,20 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	}
 
 	@Override
-	public int deleteIngredient(Ingredient in) throws Exception {
-
-		String sql = "DELETE FROM app_ingredients WHERE inid = (?)";
-		Connection conn = null;
+	public int deleteIngredient(Ingredient ingredient) throws Exception {
+		String ingredientSQL = "DELETE FROM app_ingredients WHERE inid = (?)";
+		String translatedSQL = "DELETE FROM app_ingredients_trans WHERE inid = (?)";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstm;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, in.getInid());
+			pstm = con.prepareStatement(translatedSQL);
+			pstm.setInt(1, ingredient.getInid());
 			i = pstm.executeUpdate();
+			pstm = con.prepareStatement(ingredientSQL);
+			pstm.setInt(1, ingredient.getInid());
+			i += pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -255,15 +259,15 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	}
 
 	@Override
-	public int deleteTranslatedIngredient(TranslatedIngredient tin) throws Exception {
-
+	public int deleteTranslatedIngredient(TranslatedIngredient translatedIngredient) throws Exception {
 		String sql = "DELETE FROM app_ingredients_trans WHERE tinid = (?)";
-		Connection conn = null;
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstm;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, tin.getTinid());
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, translatedIngredient.getTinid());
 			i = pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {

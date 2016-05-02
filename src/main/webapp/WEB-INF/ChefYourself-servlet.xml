@@ -14,6 +14,13 @@
 	
 	<bean id="recipesController" class="controllers.RecipesController"/>
 	<bean id="methodsController" class="controllers.MethodsController"/>
+	<bean id="cuisinesController" class="controllers.CuisinesController"/>
+	<bean id="ingredientsController" class="controllers.IngredientsController"/>
+ 	<bean id="languagesController" class="controllers.LanguagesController"/>
+	
+	<bean id="ingredientsService" class="services.IngredientsService"/>
+	<bean id="languagesService" class="services.LanguagesService"/>
+	<bean id="cuisinesService" class="services.CuisinesService"/>
 	<bean id="methodsService" class="services.MethodsService"/>
 	<bean id="recipeService" class="services.RecipesService"/>
 	<bean id="recipeIngredientsService" class="services.RecipeIngredientsService"/>
