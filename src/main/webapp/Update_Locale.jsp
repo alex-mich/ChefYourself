@@ -28,18 +28,24 @@ body {
 	</h1>
 	<center>
 		<form action="./updateLocale.ds">
-			<table width="250">
+			<table width="650">
 				<tr>
-					<td style="background-color: buttonface;">Locale ID:</td>
-					<td><input type="text" name="lid"></td>
+					<td style="background-color: buttonface;">Curent Locale ID:</td>
+					<td><input type="text" name="curlid"></td>
+					<td style="background-color: buttonface;">New Locale ID:</td>
+					<td><input type="text" name="newlid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="locale"></td>
+					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td><input type="text" name="curlocale"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newlocale"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Language:</td>
-					<td><input type="text" name="lang"></td>
+					<td style="background-color: buttonface;">Curent Language:</td>
+					<td><input type="text" name="curlang"></td>
+					<td style="background-color: buttonface;">New Language:</td>
+					<td><input type="text" name="newlang"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppLocales" value="UPDATE"

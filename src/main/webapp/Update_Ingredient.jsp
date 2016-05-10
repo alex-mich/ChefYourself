@@ -24,14 +24,20 @@ body {
 	</h1>
 	<center>
 		<form action="./updateIngredient.ds">
-			<table width="280">
+			<table width="650">
 				<tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid1"></td>
+					<td style="background-color: buttonface;">Curent Ingredient
+						ID:</td>
+					<td><input type="text" name="curinid1"></td>
+					<td style="background-color: buttonface;">New Ingredient ID:</td>
+					<td><input type="text" name="newinid1"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Ingredient Type:</td>
-					<td><input type="text" name="itype"></td>
+					<td style="background-color: buttonface;">Curent Ingredient
+						Type:</td>
+					<td><input type="text" name="curitype"></td>
+					<td style="background-color: buttonface;">New Ingredient Type:</td>
+					<td><input type="text" name="newitype"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppIngredients"
@@ -50,23 +56,34 @@ body {
 	</h1>
 	<center>
 		<form action="./updateIngredientTrans.ds">
-			<table width="320">
+			<table width="750">
 				<tr>
-					<td style="background-color: buttonface;">Translated
+					<td style="background-color: buttonface;">Curent Translated
 						Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td><input type="text" name="curtinid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Ingredient ID:</td>
+					<td><input type="text" name="newtinid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid2"></td>
+					<td style="background-color: buttonface;">Curent Ingredient
+						ID:</td>
+					<td><input type="text" name="curinid2"></td>
+					<td style="background-color: buttonface;">New Ingredient ID:</td>
+					<td><input type="text" name="newinid2"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Ingredient Name:</td>
-					<td><input type="text" name="iname"></td>
+					<td style="background-color: buttonface;">Curent Ingredient
+						Name:</td>
+					<td><input type="text" name="curiname"></td>
+					<td style="background-color: buttonface;">New Ingredient Name:</td>
+					<td><input type="text" name="newiname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppIngredientsTrans"

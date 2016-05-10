@@ -24,10 +24,12 @@ body {
 	</h1>
 	<center>
 		<form action="./updateMethod.ds">
-			<table width="250">
+			<table width="600">
 				<tr>
-					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" name="mid1"></td>
+					<td style="background-color: buttonface;">Curent Method ID:</td>
+					<td><input type="text" name="curmid1"></td>
+					<td style="background-color: buttonface;">New Method ID:</td>
+					<td><input type="text" name="newmid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppMethods" value="UPDATE"
@@ -46,23 +48,32 @@ body {
 	</h1>
 	<center>
 		<form action="./updateMethodTrans.ds">
-			<table width="300">
+			<table width="750">
 				<tr>
-					<td style="background-color: buttonface;">Translated Method
-						ID:</td>
-					<td><input type="text" name="tmid"></td>
+					<td style="background-color: buttonface;">Curent Translated
+						Method ID:</td>
+					<td><input type="text" name="curtmid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Method ID:</td>
+					<td><input type="text" name="newtmid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" name="mid2"></td>
+					<td style="background-color: buttonface;">Curent Method ID:</td>
+					<td><input type="text" name="curmid2"></td>
+					<td style="background-color: buttonface;">New Method ID:</td>
+					<td><input type="text" name="newmid2"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Method Name:</td>
-					<td><input type="text" name="mname"></td>
+					<td style="background-color: buttonface;">Curent Method Name:</td>
+					<td><input type="text" name="curmname"></td>
+					<td style="background-color: buttonface;">New Method Name:</td>
+					<td><input type="text" name="newmname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppMethodsTrans"
