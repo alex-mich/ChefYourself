@@ -17,13 +17,14 @@ body {
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_global recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_global recipes table</font><br>
 	</h1>
 	<center>
 		<form action="./insertGlobalRecipe.ds" method="post">
 			<table width="280">
 				<tr>
-					<td>Global Recipe ID:</td>
+					<td style="background-color: buttonface;">Global Recipe ID:</td>
 					<td><input type="text" name="glrid1"></td>
 				</tr>
 			</table>
@@ -35,36 +36,43 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${globalRecipesRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${globalRecipesRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
-		<font size="5">Insert into app_global_recipes_trans table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_global_recipes_trans table</font><br>
 	</h1>
 	<center>
 		<form action="./insertGlobalRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
-					<td>Translated Global Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Global
+						Recipe ID:</td>
 					<td><input type="text" name="tglrid"></td>
 				</tr>
 				<tr>
-					<td>Global Recipe ID:</td>
+					<td style="background-color: buttonface;">Global Recipe ID:</td>
 					<td><input type="text" name="glrid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Cuisine ID:</td>
+					<td style="background-color: buttonface;">Translated Cuisine
+						ID:</td>
 					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
-					<td>Translated Method ID:</td>
+					<td style="background-color: buttonface;">Translated Method
+						ID:</td>
 					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
-					<td>Locale:</td>
+					<td style="background-color: buttonface;">Locale:</td>
 					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
-					<td>Global Recipe Name:</td>
+					<td style="background-color: buttonface;">Global Recipe Name:</td>
 					<td><input type="text" name="glrname"></td>
 				</tr>
 			</table>
@@ -78,27 +86,31 @@ body {
 		</form>
 		<h4>Rows Affected: ${globalTranslatedRecipesRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_global_recipes_ingredients table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeIngredients.ds" method="post"> 
+		<form action="./insertGlobalRecipeIngredients.ds" method="post">
 			<table width="400">
 				<tr>
-					<td>Global Ingredient ID:</td>
+					<td style="background-color: buttonface;">Global Ingredient
+						ID:</td>
 					<td><input type="text" name="gliid"></td>
 				</tr>
 				<tr>
-					<td>Translated Global Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Global
+						Recipe ID:</td>
 					<td><input type="text" name="tglrid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Ingredient ID:</td>
+					<td style="background-color: buttonface;">Translated
+						Ingredient ID:</td>
 					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
-					<td>Global Recipe Ingredient Quantity:</td>
+					<td style="background-color: buttonface;">Global Recipe
+						Ingredient Quantity:</td>
 					<td><input type="text" name="glriquan"></td>
 				</tr>
 			</table>
@@ -112,24 +124,31 @@ body {
 		</form>
 		<h4>Rows Affected: ${globalRecipeIngredientsRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_global_recipes_description table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_global_recipes_description table</font><br>
 	</h1>
 	<center>
 		<form action="./insertGlobalRecipeDescription.ds" method="post">
-			<table width="500">
+			<table width="430">
 				<tr>
-					<td>Global Recipe Description ID:</td>
+					<td style="background-color: buttonface;">Global Recipe
+						Description ID:</td>
 					<td><input type="text" name="glrdid"></td>
 				</tr>
 				<tr>
-					<td>Translated Global Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Global
+						Recipe ID:</td>
 					<td><input type="text" name="tglrid3"></td>
 				</tr>
 				<tr>
-					<td>Global Recipe Description:</td>
-					<td><textarea name="glrdesc" rows="10" cols="30"></textarea></td>
+					<td style="background-color: buttonface;">Global Recipe
+						Description:</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><textarea name="glrdesc" rows="10" cols="50"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertGlobalRecipesDescription"
@@ -142,7 +161,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${globalDescriptionRowsAffected}</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

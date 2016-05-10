@@ -17,14 +17,19 @@ body {
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5">Update on app_spanish recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_spanish recipes table</font><br>
 	</h1>
 	<center>
 		<form action="./updateSpanishRecipe.ds" method="get">
-			<table width="280">
+			<table width="700">
 				<tr>
-					<td>Spanish Recipe ID:</td>
-					<td><input type="text" name="sprid1"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe ID:</td>
+					<td><input type="text" name="cursprid1"></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						ID:</td>
+					<td><input type="text" name="newsprid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateSpanishRecipes"
@@ -35,36 +40,63 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishRecipesRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
-		<font size="5">Update on app_spanish_recipes_trans table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
 		<form action="./updateSpanishRecipeTrans.ds">
-			<table width="350">
+			<table width="800">
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" name="tsprid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="curtsprid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="newtsprid"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe ID:</td>
-					<td><input type="text" name="sprid2"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe ID:</td>
+					<td><input type="text" name="cursprid2"></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						ID:</td>
+					<td><input type="text" name="newsprid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Cuisine ID:</td>
-					<td><input type="text" name="tcid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="curtcid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="newtcid"></td>
 				</tr>
 				<tr>
-					<td>Translated Method ID:</td>
-					<td><input type="text" name="tmid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Method ID:</td>
+					<td><input type="text" name="curtmid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Method ID:</td>
+					<td><input type="text" name="newtmid"></td>
 				</tr>
 				<tr>
-					<td>Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td style="background-color: buttonface;">Current Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Name:</td>
-					<td><input type="text" name="sprname"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe Name:</td>
+					<td><input type="text" name="cursprname"></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						Name:</td>
+					<td><input type="text" name="newsprname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateSpanishRecipesTrans"
@@ -75,29 +107,49 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="white">Rows Affected:
+				${TranslatedSpanishRecipesRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Update on app_spanish_recipes_ingredients table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
 		<form action="./updateSpanishRecipeIngredients.ds">
-			<table width="400">
+			<table width="900">
 				<tr>
-					<td>Spanish Ingredient ID:</td>
-					<td><input type="text" name="spiid"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Ingredient ID:</td>
+					<td><input type="text" name="curspiid"></td>
+					<td style="background-color: buttonface;">New Spanish
+						Ingredient ID:</td>
+					<td><input type="text" name="newspiid"></td>
 				</tr>
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" name="tsprid2"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="curtsprid2"></td>
+					<td style="background-color: buttonface;">New Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="newtsprid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Ingredient ID:</td>
+					<td><input type="text" name="curtinid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Ingredient ID:</td>
+					<td><input type="text" name="newtinid"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Ingredient Quantity:</td>
-					<td><input type="text" name="spriquan"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe Ingredient Quantity:</td>
+					<td><input type="text" name="curspriquan"></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						Ingredient Quantity:</td>
+					<td><input type="text" name="newspriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateSpanishRecipesIngredients"
@@ -108,25 +160,46 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishRecipeIngrdientsRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Update on app_spanish_recipes_description table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
 		<form action="./updateSpanishRecipeDescription">
-			<table width="500">
+			<table width="850">
 				<tr>
-					<td>Spanish Recipe Description ID:</td>
-					<td><input type="text" name="sprdid"></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe Description ID:</td>
+					<td><input type="text" name="cursprdid"></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						Description ID:</td>
+					<td><input type="text" name="newsprdid"></td>
 				</tr>
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
-					<td><input type="text" name="tsprid3"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="curtsprid3"></td>
+					<td style="background-color: buttonface;">New Translated
+						Spanish Recipe ID:</td>
+					<td><input type="text" name="newtsprid3"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Description:</td>
-					<td><textarea name="sprdesc" rows="10" cols="30"></textarea></td>
+					<td style="background-color: buttonface;">Current Spanish
+						Recipe Description:</td>
+					<td></td>
+					<td style="background-color: buttonface;">New Spanish Recipe
+						Description:</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><textarea name="cursprdesc" rows="10" cols="50"></textarea></td>
+					<td><textarea name="newsprdesc" rows="10" cols="50"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateSpanishRecipesDescription"
@@ -137,8 +210,11 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishRecipeDescriptionRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

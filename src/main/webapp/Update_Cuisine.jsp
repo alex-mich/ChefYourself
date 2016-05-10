@@ -16,8 +16,6 @@ body {
 </head>
 <body>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_cuisines table</font><br>
@@ -31,7 +29,6 @@ body {
 					<td style="background-color: buttonface;">New Cuisine ID:</td>
 					<td><input type="text" name="newcid1"></td>
 				</tr>
-
 			</table>
 			<br> <input type="submit" id="updateAppCuisines" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
@@ -41,8 +38,10 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>
+			<font color="black">Rows Affected: ${cuisineRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_cuisines_trans table</font><br>
@@ -86,8 +85,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected:
+				${translatedCuisineRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

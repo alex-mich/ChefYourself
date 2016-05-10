@@ -16,8 +16,6 @@ body {
 </head>
 <body>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_ingredients table</font><br>
@@ -42,15 +40,16 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
-		<h4>Rows Affected: ${ingredientRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected: ${ingredientRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_ingredients_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertTranslatedIngredient.ds" method="post"> 
+		<form action="./insertTranslatedIngredient.ds" method="post">
 			<table width="320">
 				<tr>
 					<td style="background-color: buttonface;">Translated
@@ -78,9 +77,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${translatedIngredientRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${translatedIngredientRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

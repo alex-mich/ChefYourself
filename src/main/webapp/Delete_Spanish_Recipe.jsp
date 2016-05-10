@@ -36,9 +36,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedSpanishRecipesRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${deletedSpanishRecipesRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_spanish_recipes_trans table</font><br>
@@ -60,9 +62,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedSpanishTranslatedRecipesRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedSpanishTranslatedRecipesRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_spanish_recipes_ingredients table</font><br>
@@ -84,9 +88,11 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedSpanishRecipeIngredientsRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedSpanishRecipeIngredientsRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_spanish_recipes_description table</font><br>
@@ -108,9 +114,11 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedSpanishRecipeDescriptionRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedSpanishRecipeDescriptionRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

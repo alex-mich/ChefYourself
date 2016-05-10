@@ -38,9 +38,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
-		<h4>Rows Affected: ${deletedCuisineRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${deletedCuisineRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_cuisines_trans table</font><br>
@@ -62,9 +64,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedTranslatedCuisineRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${deletedTranslatedCuisineRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

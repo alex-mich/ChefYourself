@@ -17,13 +17,14 @@ body {
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_spanish recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_spanish recipes table</font><br>
 	</h1>
 	<center>
 		<form action="./insertSpanishRecipe.ds" method="post">
 			<table width="280">
 				<tr>
-					<td>Spanish Recipe ID:</td>
+					<td style="background-color: buttonface;">Spanish Recipe ID:</td>
 					<td><input type="text" name="sprid1"></td>
 				</tr>
 			</table>
@@ -35,36 +36,43 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${spanishRecipesRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishRecipesRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
-		<font size="5">Insert into app_spanish_recipes_trans table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
 		<form action="./insertSpanishRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Spanish
+						Recipe ID:</td>
 					<td><input type="text" name="tsprid"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe ID:</td>
+					<td style="background-color: buttonface;">Spanish Recipe ID:</td>
 					<td><input type="text" name="sprid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Cuisine ID:</td>
+					<td style="background-color: buttonface;">Translated Cuisine
+						ID:</td>
 					<td><input type="text" name="tcid"></td>
 				</tr>
 				<tr>
-					<td>Translated Method ID:</td>
+					<td style="background-color: buttonface;">Translated Method
+						ID:</td>
 					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
-					<td>Locale:</td>
+					<td style="background-color: buttonface;">Locale:</td>
 					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Name:</td>
+					<td style="background-color: buttonface;">Spanish Recipe Name:</td>
 					<td><input type="text" name="sprname"></td>
 				</tr>
 			</table>
@@ -76,30 +84,36 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${spanishTranslatedRecipesRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishTranslatedRecipesRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_spanish_recipes_ingredients
-			table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
 		<form action="./insertSpanishRecipeIngredients.ds" method="post">
 			<table width="400">
 				<tr>
-					<td>Spanish Ingredient ID:</td>
+					<td style="background-color: buttonface;">Spanish Ingredient
+						ID:</td>
 					<td><input type="text" name="spiid"></td>
 				</tr>
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Spanish
+						Recipe ID:</td>
 					<td><input type="text" name="tsprid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Ingredient ID:</td>
+					<td style="background-color: buttonface;">Translated
+						Ingredient ID:</td>
 					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Ingredient Quantity:</td>
+					<td style="background-color: buttonface;">Spanish Recipe
+						Ingredient Quantity:</td>
 					<td><input type="text" name="spriquan"></td>
 				</tr>
 			</table>
@@ -111,27 +125,36 @@ body {
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${spanishRecipeIngredientsRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishRecipeIngredientsRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Insert into app_spanish_recipes_description
-			table</font><br>
+		<font size="5" style="background-color: buttonface;">Insert
+			into app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
 		<form action="./insertSpanishRecipeDescription.ds" method="post">
-			<table width="500">
+			<table width="430">
 				<tr>
-					<td>Spanish Recipe Description ID:</td>
+					<td style="background-color: buttonface;">Spanish Recipe
+						Description ID:</td>
 					<td><input type="text" name="sprdid"></td>
 				</tr>
 				<tr>
-					<td>Translated Spanish Recipe ID:</td>
+					<td style="background-color: buttonface;">Translated Spanish
+						Recipe ID:</td>
 					<td><input type="text" name="tsprid3"></td>
 				</tr>
 				<tr>
-					<td>Spanish Recipe Description:</td>
-					<td><textarea name="sprdesc" rows="10" cols="30"></textarea></td>
+					<td style="background-color: buttonface;">Spanish Recipe
+						Description:</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><textarea name="sprdesc" rows="10" cols="50"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertSpanishRecipesDescription"
@@ -142,9 +165,11 @@ body {
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${spanishDescriptionRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${spanishDescriptionRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

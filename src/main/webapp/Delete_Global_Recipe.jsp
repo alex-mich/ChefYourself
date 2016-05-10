@@ -38,7 +38,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedGlobalRecipesRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_global_recipes_trans table</font><br>
@@ -62,7 +61,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedGlobalTranslatedRecipesRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_global_recipes_ingredients table</font><br>
@@ -86,7 +84,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedGlobalRecipeIngredientsRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_global_recipes_description table</font><br>
@@ -110,7 +107,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedGlobalRecipeDescriptionRowsAffected}</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

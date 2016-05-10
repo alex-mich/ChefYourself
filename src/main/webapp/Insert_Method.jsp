@@ -16,8 +16,6 @@ body {
 </style>
 <body>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_methods table</font><br>
@@ -40,7 +38,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${methodRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
 			into app_methods_trans table</font><br>
@@ -76,7 +73,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${translatedMethodRowsAffected}</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

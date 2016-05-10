@@ -16,8 +16,6 @@ body {
 </head>
 <body>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_ingredients table</font><br>
@@ -26,14 +24,14 @@ body {
 		<form action="./updateIngredient.ds">
 			<table width="650">
 				<tr>
-					<td style="background-color: buttonface;">Curent Ingredient
+					<td style="background-color: buttonface;">Current Ingredient
 						ID:</td>
 					<td><input type="text" name="curinid1"></td>
 					<td style="background-color: buttonface;">New Ingredient ID:</td>
 					<td><input type="text" name="newinid1"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Ingredient
+					<td style="background-color: buttonface;">Current Ingredient
 						Type:</td>
 					<td><input type="text" name="curitype"></td>
 					<td style="background-color: buttonface;">New Ingredient Type:</td>
@@ -48,8 +46,10 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>
+			<font color="white">Rows Affected: ${ingredientRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_ingredients_trans table</font><br>
@@ -58,7 +58,7 @@ body {
 		<form action="./updateIngredientTrans.ds">
 			<table width="750">
 				<tr>
-					<td style="background-color: buttonface;">Curent Translated
+					<td style="background-color: buttonface;">Current Translated
 						Ingredient ID:</td>
 					<td><input type="text" name="curtinid"></td>
 					<td style="background-color: buttonface;">New Translated
@@ -66,20 +66,20 @@ body {
 					<td><input type="text" name="newtinid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Ingredient
+					<td style="background-color: buttonface;">Current Ingredient
 						ID:</td>
 					<td><input type="text" name="curinid2"></td>
 					<td style="background-color: buttonface;">New Ingredient ID:</td>
 					<td><input type="text" name="newinid2"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td style="background-color: buttonface;">Current Locale:</td>
 					<td><input type="text" name="curloc"></td>
 					<td style="background-color: buttonface;">New Locale:</td>
 					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Ingredient
+					<td style="background-color: buttonface;">Current Ingredient
 						Name:</td>
 					<td><input type="text" name="curiname"></td>
 					<td style="background-color: buttonface;">New Ingredient Name:</td>
@@ -94,8 +94,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="white">Rows Affected:
+				${translatedIngredientRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

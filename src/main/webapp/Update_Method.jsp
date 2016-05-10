@@ -16,8 +16,6 @@ body {
 </head>
 <body>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_methods table</font><br>
@@ -26,7 +24,7 @@ body {
 		<form action="./updateMethod.ds">
 			<table width="600">
 				<tr>
-					<td style="background-color: buttonface;">Curent Method ID:</td>
+					<td style="background-color: buttonface;">Current Method ID:</td>
 					<td><input type="text" name="curmid1"></td>
 					<td style="background-color: buttonface;">New Method ID:</td>
 					<td><input type="text" name="newmid1"></td>
@@ -40,8 +38,10 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
+		<h4>
+			<font color=black>Rows Affected: ${methodRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Update on
 			app_methods_trans table</font><br>
@@ -50,7 +50,7 @@ body {
 		<form action="./updateMethodTrans.ds">
 			<table width="750">
 				<tr>
-					<td style="background-color: buttonface;">Curent Translated
+					<td style="background-color: buttonface;">Current Translated
 						Method ID:</td>
 					<td><input type="text" name="curtmid"></td>
 					<td style="background-color: buttonface;">New Translated
@@ -58,19 +58,19 @@ body {
 					<td><input type="text" name="newtmid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Method ID:</td>
+					<td style="background-color: buttonface;">Current Method ID:</td>
 					<td><input type="text" name="curmid2"></td>
 					<td style="background-color: buttonface;">New Method ID:</td>
 					<td><input type="text" name="newmid2"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td style="background-color: buttonface;">Current Locale:</td>
 					<td><input type="text" name="curloc"></td>
 					<td style="background-color: buttonface;">New Locale:</td>
 					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Method Name:</td>
+					<td style="background-color: buttonface;">Current Method Name:</td>
 					<td><input type="text" name="curmname"></td>
 					<td style="background-color: buttonface;">New Method Name:</td>
 					<td><input type="text" name="newmname"></td>
@@ -84,8 +84,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected:
+				${translatedMethodRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

@@ -41,7 +41,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedIngredientRowsAffected}</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_ingredients_trans table</font><br>
@@ -54,10 +53,6 @@ body {
 						Ingredient ID:</td>
 					<td><input type="text" name="tinid"></td>
 				</tr>
-				<!-- <tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid2"></td>
-				</tr> -->
 			</table>
 			<br> <input type="submit" id="deleteAppIngredientsTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
@@ -69,7 +64,6 @@ body {
 		</form>
 		<h4>Rows Affected: ${deletedTranslatedIngredientRowsAffected}</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

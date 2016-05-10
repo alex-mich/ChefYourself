@@ -50,8 +50,10 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
-		<h4>Rows Affected: ${languageRowsAffected}</h4>
-		<br> <input type="button" id="backButton" value="BACK"
+		<h4>
+			<font color="red">Rows Affected: ${languageRowsAffected}</font>
+		</h4>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>

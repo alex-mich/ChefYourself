@@ -15,14 +15,18 @@ body {
 <body>
 	<br>
 	<h1 align="center">
-		<font size="5">Update on app_greek recipes table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_greek recipes table</font><br>
 	</h1>
 	<center>
 		<form action="./updateGreekRecipe.ds">
-			<table width="280">
+			<table width="700">
 				<tr>
-					<td>Greek Recipe ID:</td>
-					<td><input type="text" name="grrid1"></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						ID:</td>
+					<td><input type="text" name="curgrrid1"></td>
+					<td style="background-color: buttonface;">New Greek Recipe ID:</td>
+					<td><input type="text" name="newgrrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipe" value="UPDATE"
@@ -33,36 +37,61 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected: ${greekRecipesRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
-		<font size="5">Update on app_greek_recipes_trans table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
 		<form action="./updateGreekRecipeTrans.ds">
-			<table width="350">
+			<table width="800">
 				<tr>
-					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" name="tgrrid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Greek Recipe ID:</td>
+					<td><input type="text" name="curtgrrid"></td>
+					<td style="background-color: buttonface;">New Translated Greek
+						Recipe ID:</td>
+					<td><input type="text" name="newtgrrid"></td>
 				</tr>
 				<tr>
-					<td>Greek Recipe ID:</td>
-					<td><input type="text" name="grrid2"></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						ID:</td>
+					<td><input type="text" name="curgrrid2"></td>
+					<td style="background-color: buttonface;">New Greek Recipe ID:</td>
+					<td><input type="text" name="newgrrid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Cuisine ID:</td>
-					<td><input type="text" name="tcid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="curtcid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="newtcid"></td>
 				</tr>
 				<tr>
-					<td>Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td style="background-color: buttonface;">Current Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td>Translated Method ID:</td>
-					<td><input type="text" name="tmid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Method ID:</td>
+					<td><input type="text" name="curtmid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Method ID:</td>
+					<td><input type="text" name="newtmid"></td>
 				</tr>
 				<tr>
-					<td>Greek Recipe Name:</td>
-					<td><input type="text" name="grrname"></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						Name:</td>
+					<td><input type="text" name="curgrrname"></td>
+					<td style="background-color: buttonface;">New Greek Recipe
+						Name:</td>
+					<td><input type="text" name="newgrrname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesTrans"
@@ -73,29 +102,49 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected:
+				${TranslatedGreekRecipesRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Update on app_greek_recipes_ingredients table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
 		<form action="./updateGreekRecipeIngredients.ds">
-			<table width="400">
+			<table width="900">
 				<tr>
-					<td>Greek Ingredient ID:</td>
-					<td><input type="text" name="griid"></td>
+					<td style="background-color: buttonface;">Current Greek
+						Ingredient ID:</td>
+					<td><input type="text" name="curgriid"></td>
+					<td style="background-color: buttonface;">New Greek Ingredient
+						ID:</td>
+					<td><input type="text" name="newgriid"></td>
 				</tr>
 				<tr>
-					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" name="tgrrid2"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Greek Recipe ID:</td>
+					<td><input type="text" name="curtgrrid2"></td>
+					<td style="background-color: buttonface;">New Translated Greek
+						Recipe ID:</td>
+					<td><input type="text" name="newtgrrid2"></td>
 				</tr>
 				<tr>
-					<td>Translated Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Ingredient ID:</td>
+					<td><input type="text" name="curtinid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Ingredient ID:</td>
+					<td><input type="text" name="newtinid"></td>
 				</tr>
 				<tr>
-					<td>Greek Recipe Ingredient Quantity:</td>
-					<td><input type="text" name="grriquan"></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						Ingredient Quantity:</td>
+					<td><input type="text" name="curgrriquan"></td>
+					<td style="background-color: buttonface;">New Greek Recipe
+						Ingredient Quantity:</td>
+					<td><input type="text" name="newgrriquan"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesIngredient"
@@ -106,25 +155,46 @@ body {
 				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected:
+				${greekRecipeIngrdientsRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
-		<font size="5">Update on app_greek_recipes_description table</font><br>
+		<font size="5" style="background-color: buttonface;">Update on
+			app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
 		<form action="./updateGreekRecipeDescription.ds">
-			<table width="500">
+			<table width="850">
 				<tr>
-					<td>Greek Recipe Description ID:</td>
-					<td><input type="text" name="grrdid"></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						Description ID:</td>
+					<td><input type="text" name="curgrrdid"></td>
+					<td style="background-color: buttonface;">New Greek Recipe
+						Description ID:</td>
+					<td><input type="text" name="newgrrdid"></td>
 				</tr>
 				<tr>
-					<td>Translated Greek Recipe ID:</td>
-					<td><input type="text" name="tgrrid3"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Greek Recipe ID:</td>
+					<td><input type="text" name="curtgrrid3"></td>
+					<td style="background-color: buttonface;">New Translated Greek
+						Recipe ID:</td>
+					<td><input type="text" name="newtgrrid3"></td>
 				</tr>
 				<tr>
-					<td>Greek Recipe Description:</td>
-					<td><textarea name="grrdesc" rows="10" cols="30"></textarea></td>
+					<td style="background-color: buttonface;">Current Greek Recipe
+						Description:</td>
+					<td></td>
+					<td style="background-color: buttonface;">New Greek Recipe
+						Description:</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><textarea name="curgrrdesc" rows="10" cols="50"></textarea></td>
+					<td><textarea name="newgrrdesc" rows="10" cols="50"></textarea></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateGreekRecipesDescription"
@@ -135,8 +205,11 @@ body {
 				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
+		<h4>
+			<font color="black">Rows Affected:
+				${greekRecipeDescriptionRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"

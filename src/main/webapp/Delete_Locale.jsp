@@ -29,7 +29,7 @@ body {
 	</h1>
 	<center>
 		<form action="./deleteLocale.ds" method="post">
-			<table width="200">
+			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
 					<td><input type="text" name="lid"></td>
@@ -39,12 +39,15 @@ body {
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewAppLocalesTable.ds">
-			<br>
-			<input type="submit" id="viewAppLocalesTable" value="VIEW TABLE"
+			<br> <input type="submit" id="viewAppLocalesTable"
+				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
-		<h4>Rows Affected: ${deletedLanguageRowsAffected}</h4>
-		<br> <input type="button" id="backButton" value="BACK"
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedLanguageRowsAffected}</font>
+		</h4>
+		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">
 	</center>

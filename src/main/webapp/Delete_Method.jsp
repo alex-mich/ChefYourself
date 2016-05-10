@@ -19,8 +19,6 @@ body {
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_methods table</font><br>
@@ -37,13 +35,15 @@ body {
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewAppMethodsTable">
-			<br>
-			<input type="submit" id="viewAppMethodsTable" value="VIEW TABLE"
+			<br> <input type="submit" id="viewAppMethodsTable"
+				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
-		<h4>Rows Affected: ${deletedMethodRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedMethodRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
 			from app_methods_trans table</font><br>
@@ -65,9 +65,11 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedTranslatedMethodRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedTranslatedMethodRowsAffected}</font>
+		</h4>
 	</center>
-	<br>
 	<center>
 		<input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
