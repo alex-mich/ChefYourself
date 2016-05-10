@@ -36,7 +36,7 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 	}
 
 	@Override
-	public int insertLocale(Language locale) throws Exception {
+	public int insertLocale(Language language) throws Exception {
 		final String locSQL = "INSERT INTO app_lang (locale,language,lid) VALUES (?,?,?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -46,9 +46,9 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 		try {
 
 			pstmt = con.prepareStatement(locSQL);
-			pstmt.setString(1, locale.getLoc());
-			pstmt.setString(2, locale.getLanguage());
-			pstmt.setInt(3, locale.getLid());
+			pstmt.setString(1, language.getLoc());
+			pstmt.setString(2, language.getLanguage());
+			pstmt.setInt(3, language.getLid());
 			i = pstmt.executeUpdate();
 			pstmt.close();
 
@@ -63,6 +63,43 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 				}
 			}
 		}
+		return i;
+	}
+
+	@Override
+	public int deleteLocale(Language language) throws Exception {
+		String languageSQL = "DELETE FROM app_lang WHERE lid = (?)";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstm;
+		int i = 0;
+		try {
+			pstm = con.prepareStatement(languageSQL);
+			pstm.setInt(1, language.getLid());
+			i = pstm.executeUpdate();
+			pstm.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return i;
+	}
+	
+	@Override
+	public int updateLocale(Language currentLanguage, Language updatedLanguage) throws Exception {
+		String languageUpdate = "UPDATE app_lang SET ";
+		languageUpdate += constructQuery(currentLanguage,updatedLanguage);
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		Statement stmt;
+		int i = 0;
+		try {
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(languageUpdate);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		return i;
 	}
 
@@ -103,22 +140,34 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 		return localeList;
 	}
 
-	@Override
-	public int deleteLocale(Language language) throws Exception {
-		String languageSQL = "DELETE FROM app_lang WHERE lid = (?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstm;
-		int i = 0;
-		try {
-			pstm = con.prepareStatement(languageSQL);
-			pstm.setInt(1, language.getLid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
+	public String constructQuery(Language currentLanguage,Language updatedLanguage){
+		String query = "";
+		
+		
+		String set= "";
+		if(updatedLanguage.getLid() != 0)
+			set += "lid=" + updatedLanguage.getLid() +", ";
+		if(!updatedLanguage.getLanguage().equals(""))
+			set += "language='" + updatedLanguage.getLanguage() +"', ";
+		if(!updatedLanguage.getLoc().equals(""))
+			set += "locale='" + updatedLanguage.getLoc() +"', ";
+			set = (String) set.substring(0, set.length()-2);
+		
+		String where = " WHERE ";
+		if(currentLanguage.getLid() != 0)
+			where += "lid=" + currentLanguage.getLid() +" AND ";
+		if(!currentLanguage.getLanguage().equals(""))
+			where += "language='" + currentLanguage.getLanguage() +"' AND ";
+		if(!currentLanguage.getLoc().equals(""))
+			where += "locale='" + currentLanguage.getLoc() +"' AND ";
+			where = (String) where.substring(0, where.length()-5);
+		
+		set += where;
+		query += set + ";";
+			
+		return query;
 	}
 
 }
+
+	

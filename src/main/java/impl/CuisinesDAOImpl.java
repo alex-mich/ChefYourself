@@ -48,19 +48,16 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 
 	@Override
 	public int insertCuisine(Cuisine cui) throws Exception {
-		final String cuiSQL = "INSERT INTO app_cuisines" + "(cid) VALUES (?)";
+		final String cuiSQL = "INSERT INTO app_cuisines (cid) VALUES (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
 		int i = 0;
-
 		try {
-
 			pstmt = con.prepareStatement(cuiSQL);
 			pstmt.setInt(1, cui.getCid());
 			i = pstmt.executeUpdate();
 			pstmt.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -77,14 +74,12 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 
 	@Override
 	public int insertTranslatedCuisine(TranslatedCuisine tcui) throws Exception {
-		final String tcuiSQL = "INSERT INTO app_cuisines_trans" + "(tcid,cid,locale,cname) VALUES (?, ?, ?, ?)";
+		final String tcuiSQL = "INSERT INTO app_cuisines_trans (tcid,cid,locale,cname) VALUES (?, ?, ?, ?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
 		int i = 0;
-
 		try {
-
 			pstmt = con.prepareStatement(tcuiSQL);
 			pstmt.setInt(1, tcui.getTcid());
 			pstmt.setInt(2, tcui.getCuisine().getCid());
@@ -92,7 +87,6 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 			pstmt.setString(4, tcui.getCname());
 			i = pstmt.executeUpdate();
 			pstmt.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -112,18 +106,17 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		final String allGrSQL = "SELECT * FROM app_cuisines ORDER BY cid";
 		cuisinesList = new ArrayList<Cuisine>();
 		Connection con = DriverManager.getConnection(url, username, password);
-
+		Statement stmt;
+		ResultSet rs;
 		try {
-
-			Statement ps = con.createStatement();
-			ResultSet rs = ps.executeQuery(allGrSQL);
-
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(allGrSQL);
 			while (rs.next()) {
 				Cuisine c = new Cuisine();
 				c.setCid(rs.getInt(1));
 				cuisinesList.add(c);
 			}
-			ps.close();
+			stmt.close();
 			rs.close();
 
 		} catch (SQLException e) {

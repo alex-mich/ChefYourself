@@ -27,22 +27,22 @@ body {
 			app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./updateLocale.ds">
+		<form action="./updateLocale.ds" method="post">
 			<table width="650">
 				<tr>
-					<td style="background-color: buttonface;">Curent Locale ID:</td>
+					<td style="background-color: buttonface;">Current Locale ID:</td>
 					<td><input type="text" name="curlid"></td>
 					<td style="background-color: buttonface;">New Locale ID:</td>
 					<td><input type="text" name="newlid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Locale:</td>
+					<td style="background-color: buttonface;">Current Locale:</td>
 					<td><input type="text" name="curlocale"></td>
 					<td style="background-color: buttonface;">New Locale:</td>
 					<td><input type="text" name="newlocale"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Curent Language:</td>
+					<td style="background-color: buttonface;">Current Language:</td>
 					<td><input type="text" name="curlang"></td>
 					<td style="background-color: buttonface;">New Language:</td>
 					<td><input type="text" name="newlang"></td>
@@ -56,6 +56,7 @@ body {
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
+		<h4>Rows Affected: ${updatedLanguageRowsAffected}</h4>
 		<br> <input type="button" id="backButton" value="BACK"
 			style="height: 25px; width: 80px; font-size: 15px;"
 			onClick="history.go(-1);return true;">

@@ -26,4 +26,7 @@ public class LanguagesService {
 		return localeDAOImpl.deleteLocale(language);
 	}
 	
+	public int updateLocale(Language currentLanguage, Language updatedLanguage) throws Exception {
+		return localeDAOImpl.updateLocale(currentLanguage,updatedLanguage);
+	}
 }

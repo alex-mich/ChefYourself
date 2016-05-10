@@ -6,10 +6,12 @@ import pojos.Language;
 
 public interface LanguagesDAO {
 
-	public int insertLocale(Language locale) throws Exception;
+	public int insertLocale(Language language) throws Exception;
 
-	public int deleteLocale(Language locale) throws Exception;
+	public int deleteLocale(Language language) throws Exception;
+	
+	public int updateLocale(Language currentLanguage, Language updatedLanguage) throws Exception;
 
 	public List<Language> findLocales() throws Exception;
-
+	
 }
