@@ -24,11 +24,14 @@ body {
 	</h1>
 	<center>
 		<form action="./updateCuisine.ds">
-			<table width="250">
+			<table width="600">
 				<tr>
-					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" name="cid1"></td>
+					<td style="background-color: buttonface;">Current Cuisine ID:</td>
+					<td><input type="text" name="curcid1"></td>
+					<td style="background-color: buttonface;">New Cuisine ID:</td>
+					<td><input type="text" name="newcid1"></td>
 				</tr>
+
 			</table>
 			<br> <input type="submit" id="updateAppCuisines" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
@@ -46,23 +49,33 @@ body {
 	</h1>
 	<center>
 		<form action="./updateCuisineTrans.ds">
-			<table width="300">
+			<table width="750">
 				<tr>
-					<td style="background-color: buttonface;">Translated Cuisine
-						ID:</td>
-					<td><input type="text" name="tcid"></td>
+					<td style="background-color: buttonface;">Current Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="curtcid"></td>
+					<td style="background-color: buttonface;">New Translated
+						Cuisine ID:</td>
+					<td><input type="text" name="newtcid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" name="cid2"></td>
+					<td style="background-color: buttonface;">Current Cuisine ID:</td>
+					<td><input type="text" name="curcid2"></td>
+					<td style="background-color: buttonface;">New Cuisine ID:</td>
+					<td><input type="text" name="newcid2"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td style="background-color: buttonface;">Current Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Cuisine Name:</td>
-					<td><input type="text" name="cname"></td>
+					<td style="background-color: buttonface;">Current Cuisine
+						Name:</td>
+					<td><input type="text" name="curcname"></td>
+					<td style="background-color: buttonface;">New Cuisine Name:</td>
+					<td><input type="text" name="newcname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppCuisinesTrans"
