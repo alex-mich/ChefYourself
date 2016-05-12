@@ -86,8 +86,7 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 	
 	@Override
 	public int updateLocale(Language currentLanguage, Language updatedLanguage) throws Exception {
-		String languageUpdate = "UPDATE app_lang SET ";
-		languageUpdate += constructQuery(currentLanguage,updatedLanguage);
+		String languageUpdate = constructQuery(currentLanguage,updatedLanguage);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -141,10 +140,9 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 	}
 
 	public String constructQuery(Language currentLanguage,Language updatedLanguage){
-		String query = "";
+		String query = "UPDATE app_lang ";
 		
-		
-		String set= "";
+		String set= "SET ";
 		if(updatedLanguage.getLid() != 0)
 			set += "lid=" + updatedLanguage.getLid() +", ";
 		if(!updatedLanguage.getLanguage().equals(""))

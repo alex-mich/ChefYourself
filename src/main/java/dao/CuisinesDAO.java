@@ -7,13 +7,17 @@ import pojos.TranslatedCuisine;
 
 public interface CuisinesDAO {
 
-	public int insertCuisine(Cuisine cui) throws Exception;
+	public int insertCuisine(Cuisine cuisine) throws Exception;
 
-	public int insertTranslatedCuisine(TranslatedCuisine tcui) throws Exception;
+	public int insertTranslatedCuisine(TranslatedCuisine translatedCuisine) throws Exception;
 
-	public int deleteCuisine(Cuisine cui) throws Exception;
+	public int deleteCuisine(Cuisine cuisine) throws Exception;
 
-	public int deleteTranslatedCuisine(TranslatedCuisine tcui) throws Exception;
+	public int deleteTranslatedCuisine(TranslatedCuisine translatedCuisine) throws Exception;
+	
+	public int updateCuisine(Cuisine currentCuisine,Cuisine updatedCuisine) throws Exception;
+
+	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine,TranslatedCuisine updatedTranslatedCuisine) throws Exception;
 
 	public List<Cuisine> findAllCuisines() throws Exception;
 

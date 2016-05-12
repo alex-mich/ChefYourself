@@ -40,7 +40,7 @@ public class MethodsController {
 		try {
 			Method method = new Method(mid);
 			Language locale = new Language(loc);
-			TranslatedMethod translatedMethod = new TranslatedMethod(tmid,locale,method,mname);
+			TranslatedMethod translatedMethod = new TranslatedMethod(tmid,method,locale,mname);
 			success = methodsService.insertTranslatedMethod(translatedMethod);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,6 +76,80 @@ public class MethodsController {
 		}
 		model.addAttribute("deletedTranslatedMethodRowsAffected", success);
 		return "Delete_Method";
+	}
+	
+	@RequestMapping(value = "updateMethod.ds", method = RequestMethod.POST)
+	public String updateMethod(@RequestParam("curmid1") String curmid, @RequestParam("newmid1") String newmid,
+			Model model) throws Exception {
+		int currentMid, updatedMid;
+		int success = 0;
+		try {
+
+			if (curmid.equals("")) {
+				currentMid = 0;
+			} else
+				currentMid = Integer.parseInt(curmid);
+
+			if (newmid.equals("")) {
+				updatedMid = 0;
+			} else
+				updatedMid = Integer.parseInt(newmid);
+
+			Method currentMethod = new Method(currentMid);
+			Method updatedMethod = new Method(updatedMid);
+			success = methodsService.updateMethod(currentMethod, updatedMethod);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedMethodRowsAffected", success);
+		return "Update_Method";
+	}
+
+	@RequestMapping(value = "updateTranslatedMethod.ds", method = RequestMethod.POST)
+	public String updateTranslatedMethod(@RequestParam("curtmid") String curtmid,
+			@RequestParam("curmid2") String curmid, @RequestParam("curloc") String curloc,
+			@RequestParam("curmname") String curmname, @RequestParam("newtmid") String newtmid,
+			@RequestParam("newmid2") String newmid,@RequestParam("newloc") String newloc,
+			@RequestParam("newmname") String newmname, Model model) throws Exception {
+		
+		int currentMid, updatedMid, currentTmid, updatedTmid;
+		int success = 0;
+		try {
+
+			if (curmid.equals("")) {
+				currentMid = 0;
+			} else
+				currentMid = Integer.parseInt(curmid);
+
+			if (newmid.equals("")) {
+				updatedMid = 0;
+			} else
+				updatedMid = Integer.parseInt(newmid);
+			
+			if (curtmid.equals("")) {
+				currentTmid = 0;
+			} else
+				currentTmid = Integer.parseInt(curtmid);
+
+			if (newtmid.equals("")) {
+				updatedTmid = 0;
+			} else
+				updatedTmid = Integer.parseInt(newtmid);
+
+			Method currentMethod = new Method(currentMid);
+			Language currentLocale = new Language(curloc);
+			TranslatedMethod currentTranslatedMethod = new TranslatedMethod(currentTmid,currentMethod,currentLocale,curmname);
+			
+			Method updatedMethod = new Method(updatedMid);
+			Language updatedLocale = new Language(newloc);
+			TranslatedMethod updatedTranslatedMethod = new TranslatedMethod(updatedTmid,updatedMethod,updatedLocale,newmname);
+			
+			success = methodsService.updateTranslatedMethod(currentTranslatedMethod, updatedTranslatedMethod);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedTranslatedMethodRowsAffected", success);
+		return "Update_Method";
 	}
 	
 }

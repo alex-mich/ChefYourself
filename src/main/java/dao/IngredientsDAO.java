@@ -7,13 +7,17 @@ import pojos.TranslatedIngredient;
 
 public interface IngredientsDAO {
 
-	public int insertIngredient(Ingredient ti) throws Exception;
+	public int insertIngredient(Ingredient ingredient) throws Exception;
 
-	public int insertTranslatedIngredient(TranslatedIngredient tin) throws Exception;
+	public int insertTranslatedIngredient(TranslatedIngredient translatedIngredient) throws Exception;
 
-	public int deleteIngredient(Ingredient in) throws Exception;
+	public int deleteIngredient(Ingredient ingredient) throws Exception;
 
-	public int deleteTranslatedIngredient(TranslatedIngredient tin) throws Exception;
+	public int deleteTranslatedIngredient(TranslatedIngredient translatedIngredient) throws Exception;
+	
+	public int updateIngredient(Ingredient currentIngredient, Ingredient updatedIngredient) throws Exception;
+
+	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient, TranslatedIngredient updatedTranslatedIngredient) throws Exception;
 
 	public List<Ingredient> findAllIngredients() throws Exception;
 

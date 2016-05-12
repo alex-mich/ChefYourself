@@ -42,4 +42,13 @@ public class CuisinesService {
 	public int deleteTranslatedCuisine(TranslatedCuisine translatedCuisine) throws Exception {
 		return cuisinesDAOImpl.deleteTranslatedCuisine(translatedCuisine);
 	}
+	
+	public int updateCuisine(Cuisine currentCuisine,Cuisine updatedCuisine) throws Exception {
+		return cuisinesDAOImpl.updateCuisine(currentCuisine,updatedCuisine);
+	}
+	
+	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine, TranslatedCuisine updatedTranslatedCuisine) throws Exception {
+		return cuisinesDAOImpl.updateTranslatedCuisine(currentTranslatedCuisine,updatedTranslatedCuisine);
+	}
+	
 }

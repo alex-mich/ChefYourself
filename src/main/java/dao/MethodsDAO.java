@@ -9,11 +9,15 @@ public interface MethodsDAO {
 
 	public int insertMethod(Method method) throws Exception;
 
-	public int insertTranslatedMethod(TranslatedMethod tMethod) throws Exception;
+	public int insertTranslatedMethod(TranslatedMethod translatedMethod) throws Exception;
 
 	public int deleteMethod(Method method) throws Exception;
 
-	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception;
+	public int deleteTranslatedMethod(TranslatedMethod translatedMethod) throws Exception;
+	
+	public int updateMethod(Method currentMethod, Method updatedMethod) throws Exception;
+
+	public int updateTranslatedMethod(TranslatedMethod currentTranslatedMethod, TranslatedMethod updatedTranslatedMethod) throws Exception;
 
 	public List<Method> findAllMethods() throws Exception;
 

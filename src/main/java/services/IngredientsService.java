@@ -43,4 +43,11 @@ public class IngredientsService {
 		return ingredientsDAOImpl.deleteTranslatedIngredient(translatedIngredient);
 	}
 	
+	public int updateIngredient(Ingredient currentIngredient, Ingredient updatedIngredient) throws Exception {
+		return ingredientsDAOImpl.updateIngredient(currentIngredient,updatedIngredient);
+	}
+	
+	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient,TranslatedIngredient updatedTranslatedIngrediente) throws Exception {
+		return ingredientsDAOImpl.updateTranslatedIngredient(currentTranslatedIngredient,updatedTranslatedIngrediente);
+	}
 }

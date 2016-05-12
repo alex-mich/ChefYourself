@@ -42,4 +42,12 @@ public class MethodsService {
 	public int deleteTranslatedMethod(TranslatedMethod tMethod) throws Exception {
 		return methodsDAOImpl.deleteTranslatedMethod(tMethod);
 	}
+	
+	public int updateMethod(Method currentMethod, Method updatedMethod) throws Exception {
+		return methodsDAOImpl.updateMethod(currentMethod,updatedMethod);
+	}
+	
+	public int updateTranslatedMethod(TranslatedMethod currentTranslatedMethod, TranslatedMethod updatedTranslatedMethod) throws Exception {
+		return methodsDAOImpl.updateTranslatedMethod(currentTranslatedMethod,updatedTranslatedMethod);
+	}
 }

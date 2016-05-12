@@ -269,4 +269,71 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		return i;
 	}
 
+	@Override
+	public int updateCuisine(Cuisine currentCuisine,Cuisine updatedCuisine) throws Exception {
+			String cuisineUpdate = "UPDATE app_cuisines SET cid = (?) WHERE cid = (?)";
+			Class.forName(driver);
+			Connection con = DriverManager.getConnection(url, username, password);
+			PreparedStatement pstmt;
+			int i = 0;
+			try {
+				pstmt = con.prepareStatement(cuisineUpdate);
+				pstmt.setInt(1,updatedCuisine.getCid());
+				pstmt.setInt(2,currentCuisine.getCid());
+				i = pstmt.executeUpdate();
+				pstmt.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return i;
+	}
+
+	@Override
+	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine, TranslatedCuisine updatedTranslatedCuisine) throws Exception {
+		String translatedCuisineUpdate = constructQuery(currentTranslatedCuisine,updatedTranslatedCuisine);
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		Statement stmt;
+		int i = 0;
+		try {
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(translatedCuisineUpdate);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	return i;
+	}
+	
+	public String constructQuery(TranslatedCuisine currentTranslatedCuisine, TranslatedCuisine updatedTranslatedCuisine){
+		String query = "UPDATE app_cuisines_trans ";
+		
+		String set= "SET ";
+		if(updatedTranslatedCuisine.getTcid() != 0)
+			set += "tcid=" + updatedTranslatedCuisine.getTcid() +", ";
+		if(updatedTranslatedCuisine.getCuisine().getCid() != 0)
+			set += "cid=" + updatedTranslatedCuisine.getCuisine().getCid() +", ";
+		if(!updatedTranslatedCuisine.getLocale().getLoc().equals(""))
+			set += "locale='" + updatedTranslatedCuisine.getLocale().getLoc() +"', ";
+		if(!updatedTranslatedCuisine.getCname().equals(""))
+			set += "cname='" + updatedTranslatedCuisine.getCname() +"', ";
+			set = (String) set.substring(0, set.length()-2);
+		
+		String where = "WHERE ";
+		if(currentTranslatedCuisine.getTcid() != 0)
+			where += "tcid=" + currentTranslatedCuisine.getTcid() +" AND ";
+		if(currentTranslatedCuisine.getCuisine().getCid() != 0)
+			where += "cid=" + currentTranslatedCuisine.getCuisine().getCid() +" AND ";
+		if(!currentTranslatedCuisine.getLocale().getLoc().equals(""))
+			where += "locale='" + currentTranslatedCuisine.getLocale().getLoc() +"' AND ";
+		if(!currentTranslatedCuisine.getCname().equals(""))
+			where += "cname='" + currentTranslatedCuisine.getCname() +"' AND ";
+			where = (String) where.substring(0, where.length()-5);
+		
+		set += where;
+		query += set + ";";
+			
+		return query;
+	}
+
 }

@@ -40,7 +40,7 @@ public class CuisinesController {
 		try {
 			Cuisine cuisine = new Cuisine(cid);
 			Language locale = new Language(loc);
-			TranslatedCuisine translatedCuisine = new TranslatedCuisine(tcid,cuisine,locale,cname);
+			TranslatedCuisine translatedCuisine = new TranslatedCuisine(tcid, cuisine, locale, cname);
 			success = cuisinesService.insertTranslatedCuisine(translatedCuisine);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -49,7 +49,7 @@ public class CuisinesController {
 		model.addAttribute("translatedCuisineRowsAffected", success);
 		return "Insert_Cuisine";
 	}
-	
+
 	@RequestMapping(value = "deleteCuisine.ds", method = RequestMethod.POST)
 	public String deleteCuisine(@RequestParam("cid") int cid, Model model) throws Exception {
 
@@ -63,7 +63,7 @@ public class CuisinesController {
 		model.addAttribute("deletedCuisineRowsAffected", success);
 		return "Delete_Cuisine";
 	}
-	
+
 	@RequestMapping(value = "deleteTranslatedCuisine.ds", method = RequestMethod.POST)
 	public String deleteTranslatedCuisine(@RequestParam("tcid") int tcid, Model model) throws Exception {
 
@@ -76,5 +76,79 @@ public class CuisinesController {
 		}
 		model.addAttribute("deletedTranslatedCuisineRowsAffected", success);
 		return "Delete_Cuisine";
+	}
+
+	@RequestMapping(value = "updateCuisine.ds", method = RequestMethod.POST)
+	public String updateCuisine(@RequestParam("curcid1") String curcid, @RequestParam("newcid1") String newcid,
+			Model model) throws Exception {
+		int currentCid, updatedCid;
+		int success = 0;
+		try {
+
+			if (curcid.equals("")) {
+				currentCid = 0;
+			} else
+				currentCid = Integer.parseInt(curcid);
+
+			if (newcid.equals("")) {
+				updatedCid = 0;
+			} else
+				updatedCid = Integer.parseInt(newcid);
+
+			Cuisine currentCuisine = new Cuisine(currentCid);
+			Cuisine updatedCuisine = new Cuisine(updatedCid);
+			success = cuisinesService.updateCuisine(currentCuisine, updatedCuisine);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedCuisineRowsAffected", success);
+		return "Update_Cuisine";
+	}
+
+	@RequestMapping(value = "updateTranslatedCuisine.ds", method = RequestMethod.POST)
+	public String updateTranslatedCuisine(@RequestParam("curtcid") String curtcid,
+			@RequestParam("curcid2") String curcid, @RequestParam("curloc") String curloc,
+			@RequestParam("curcname") String curcname, @RequestParam("newtcid") String newtcid,
+			@RequestParam("newcid2") String newcid,@RequestParam("newloc") String newloc,
+			@RequestParam("newcname") String newcname, Model model) throws Exception {
+		
+		int currentCid, updatedCid, currentTcid, updatedTcid;
+		int success = 0;
+		try {
+
+			if (curcid.equals("")) {
+				currentCid = 0;
+			} else
+				currentCid = Integer.parseInt(curcid);
+
+			if (newcid.equals("")) {
+				updatedCid = 0;
+			} else
+				updatedCid = Integer.parseInt(newcid);
+			
+			if (curtcid.equals("")) {
+				currentTcid = 0;
+			} else
+				currentTcid = Integer.parseInt(curtcid);
+
+			if (newtcid.equals("")) {
+				updatedTcid = 0;
+			} else
+				updatedTcid = Integer.parseInt(newtcid);
+
+			Cuisine currentCuisine = new Cuisine(currentCid);
+			Language currentLocale = new Language(curloc);
+			TranslatedCuisine currentTranslatedCuisine = new TranslatedCuisine(currentTcid,currentCuisine,currentLocale,curcname);
+			
+			Cuisine updatedCuisine = new Cuisine(updatedCid);
+			Language updatedLocale = new Language(newloc);
+			TranslatedCuisine updatedTranslatedCuisine = new TranslatedCuisine(updatedTcid,updatedCuisine,updatedLocale,newcname);
+			
+			success = cuisinesService.updateTranslatedCuisine(currentTranslatedCuisine, updatedTranslatedCuisine);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedTranslatedCuisineRowsAffected", success);
+		return "Update_Cuisine";
 	}
 }

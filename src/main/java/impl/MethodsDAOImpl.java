@@ -272,4 +272,72 @@ public class MethodsDAOImpl implements MethodsDAO {
 		return i;
 	}
 
+	@Override
+	public int updateMethod(Method currentMethod, Method updatedMethod) throws Exception {
+		String methodUpdate = "UPDATE app_methods SET mid = (?) WHERE mid = (?)";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstmt;
+		int i = 0;
+		try {
+			pstmt = con.prepareStatement(methodUpdate);
+			pstmt.setInt(1,updatedMethod.getMid());
+			pstmt.setInt(2,currentMethod.getMid());
+			i = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	return i;
+	}
+
+	@Override
+	public int updateTranslatedMethod(TranslatedMethod currentTranslatedMethod,
+			TranslatedMethod updatedTranslatedMethod) throws Exception {
+		String translatedMethodUpdate = constructQuery(currentTranslatedMethod,updatedTranslatedMethod);
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		Statement stmt;
+		int i = 0;
+		try {
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(translatedMethodUpdate);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	return i;
+	}
+	
+	public String constructQuery(TranslatedMethod currentTranslatedMethod, TranslatedMethod updatedTranslatedMethod){
+		String query = "UPDATE app_methods_trans ";
+		
+		String set= "SET ";
+		if(updatedTranslatedMethod.getTmid() != 0)
+			set += "tmid=" + updatedTranslatedMethod.getTmid() +", ";
+		if(updatedTranslatedMethod.getMethod().getMid() != 0)
+			set += "mid=" + updatedTranslatedMethod.getMethod().getMid() +", ";
+		if(!updatedTranslatedMethod.getLocale().getLoc().equals(""))
+			set += "locale='" + updatedTranslatedMethod.getLocale().getLoc() +"', ";
+		if(!updatedTranslatedMethod.getMname().equals(""))
+			set += "mname='" + updatedTranslatedMethod.getMname() +"', ";
+			set = (String) set.substring(0, set.length()-2);
+		
+		String where = "WHERE ";
+		if(currentTranslatedMethod.getTmid() != 0)
+			where += "tmid=" + currentTranslatedMethod.getTmid() +" AND ";
+		if(currentTranslatedMethod.getMethod().getMid() != 0)
+			where += "mid=" + currentTranslatedMethod.getMethod().getMid() +" AND ";
+		if(!currentTranslatedMethod.getLocale().getLoc().equals(""))
+			where += "locale='" + currentTranslatedMethod.getLocale().getLoc() +"' AND ";
+		if(!currentTranslatedMethod.getMname().equals(""))
+			where += "mname='" + currentTranslatedMethod.getMname() +"' AND ";
+			where = (String) where.substring(0, where.length()-5);
+		
+		set += where;
+		query += set + ";";
+			
+		return query;
+	}
+
 }

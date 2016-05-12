@@ -15,7 +15,7 @@ public class TranslatedMethod {
 		this.tmid = tmid;
 	}
 	
-	public TranslatedMethod(int tmid, Language locale, Method method, String mname) {
+	public TranslatedMethod(int tmid,Method method, Language locale,String mname) {
 		this.tmid = tmid;
 		this.locale = locale;
 		this.mname = mname;
