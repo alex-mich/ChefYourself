@@ -19,7 +19,7 @@ body {
 			app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGreekRecipe.ds">
+		<form action="./updateGreekRecipe.ds" method="post">
 			<table width="700">
 				<tr>
 					<td style="background-color: buttonface;">Current Greek Recipe
@@ -38,7 +38,7 @@ body {
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
 		<h4>
-			<font color="black">Rows Affected: ${greekRecipesRowsAffected}</font>
+			<font color="black">Rows Affected: ${updatedGreekRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -46,7 +46,7 @@ body {
 			app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGreekRecipeTrans.ds">
+		<form action="./updateGreekTranslatedRecipe.ds" method="post">
 			<table width="800">
 				<tr>
 					<td style="background-color: buttonface;">Current Translated
@@ -72,18 +72,18 @@ body {
 					<td><input type="text" name="newtcid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Current Locale:</td>
-					<td><input type="text" name="curloc"></td>
-					<td style="background-color: buttonface;">New Locale:</td>
-					<td><input type="text" name="newloc"></td>
-				</tr>
-				<tr>
 					<td style="background-color: buttonface;">Current Translated
 						Method ID:</td>
 					<td><input type="text" name="curtmid"></td>
 					<td style="background-color: buttonface;">New Translated
 						Method ID:</td>
 					<td><input type="text" name="newtmid"></td>
+				</tr>
+				<tr>
+					<td style="background-color: buttonface;">Current Locale:</td>
+					<td><input type="text" name="curloc"></td>
+					<td style="background-color: buttonface;">New Locale:</td>
+					<td><input type="text" name="newloc"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Current Greek Recipe
@@ -104,7 +104,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${TranslatedGreekRecipesRowsAffected}</font>
+				${updatedTranslatedGreekRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -112,7 +112,7 @@ body {
 			app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGreekRecipeIngredients.ds">
+		<form action="./updateGreekRecipeIngredients.ds" method="post">
 			<table width="900">
 				<tr>
 					<td style="background-color: buttonface;">Current Greek
@@ -157,7 +157,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${greekRecipeIngrdientsRowsAffected}</font>
+				${updatedGreekRecipeIngrdientRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -165,7 +165,7 @@ body {
 			app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGreekRecipeDescription.ds">
+		<form action="./updateGreekRecipeDescription.ds" method="post">
 			<table width="850">
 				<tr>
 					<td style="background-color: buttonface;">Current Greek Recipe
@@ -207,7 +207,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${greekRecipeDescriptionRowsAffected}</font>
+				${updatedGreekRecipeDescriptionRowsAffected}</font>
 		</h4>
 	</center>
 	<center>

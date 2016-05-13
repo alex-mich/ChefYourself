@@ -19,7 +19,7 @@ body {
 			app_global recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGlobalRecipe.ds">
+		<form action="./updateGlobalRecipe.ds" method="post">
 			<table width="700">
 				<tr>
 					<td style="background-color: buttonface;">Current Global
@@ -40,7 +40,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${globalRecipesRowsAffected}</font>
+				${updatedGlobalRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -48,7 +48,7 @@ body {
 			app_global_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGlobalRecipeTrans.ds">
+		<form action="./updateGlobalTranslatedRecipe.ds" method="post">
 			<table width="800">
 				<tr>
 					<td style="background-color: buttonface;">Current Translated
@@ -107,7 +107,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${TranslatedGlobalRecipesRowsAffected}</font>
+				${updatedTranslatedGlobalRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -115,7 +115,7 @@ body {
 			app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGlobalRecipeIngredients.ds">
+		<form action="./updateGlobalRecipeIngredients.ds" method="post">
 			<table width="900">
 				<tr>
 					<td style="background-color: buttonface;">Current Global
@@ -160,7 +160,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${globalRecipeIngrdientsRowsAffected}</font>
+				${updatedGlobalRecipeIngrdientRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -168,7 +168,7 @@ body {
 			app_global_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGlobalRecipeDescription.ds">
+		<form action="./updateGlobalRecipeDescription.ds" method="post">
 			<table width="850">
 				<tr>
 					<td style="background-color: buttonface;">Current Global
@@ -210,7 +210,7 @@ body {
 		</form>
 		<h4>
 			<font color="black">Rows Affected:
-				${globalRecipeDescriptionRowsAffected}</font>
+				${updatedGlobalRecipeDescriptionRowsAffected}</font>
 		</h4>
 	</center>
 	<center>

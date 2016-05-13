@@ -116,25 +116,11 @@ public class CuisinesController {
 		int success = 0;
 		try {
 
-			if (curcid.equals("")) {
-				currentCid = 0;
-			} else
-				currentCid = Integer.parseInt(curcid);
-
-			if (newcid.equals("")) {
-				updatedCid = 0;
-			} else
-				updatedCid = Integer.parseInt(newcid);
+			currentCid = curcid.equals("") ? 0 : Integer.parseInt(curcid);
+			updatedCid = newcid.equals("") ? 0 : Integer.parseInt(newcid);
 			
-			if (curtcid.equals("")) {
-				currentTcid = 0;
-			} else
-				currentTcid = Integer.parseInt(curtcid);
-
-			if (newtcid.equals("")) {
-				updatedTcid = 0;
-			} else
-				updatedTcid = Integer.parseInt(newtcid);
+			currentTcid = curtcid.equals("") ? 0 : Integer.parseInt(curtcid);
+			updatedTcid = newtcid.equals("") ? 0 : Integer.parseInt(newtcid);
 
 			Cuisine currentCuisine = new Cuisine(currentCid);
 			Language currentLocale = new Language(curloc);

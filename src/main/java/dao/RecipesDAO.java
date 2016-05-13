@@ -13,11 +13,11 @@ public interface RecipesDAO {
 
 	public int insertSpanishRecipe(Recipe recipe) throws Exception;
 
-	public int insertGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
-	public int insertGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
-	public int insertSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int insertSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
 	public int deleteGreekRecipe(Recipe recipe) throws Exception;
 
@@ -25,11 +25,15 @@ public interface RecipesDAO {
 
 	public int deleteSpanishRecipe(Recipe recipe) throws Exception;
 
-	public int deleteGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int deleteGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
-	public int deleteGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int deleteGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
-	public int deleteSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception;
+	public int deleteSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
+	
+	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception;
+
+	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe, TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) throws Exception;
 
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception;
 

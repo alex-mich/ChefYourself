@@ -783,9 +783,191 @@ public class RecipesDAOImpl implements RecipesDAO {
 			i = pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {
+			conn.close();
 			e.printStackTrace();
 		}
 		return i;
+	}
+
+	@Override
+	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception {
+		String recipeQuery = constructRecipeQuery(currentRecipe, updatedRecipe, tableIdentifier);
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		Statement stmt;
+		int i = 0;
+		try {
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(recipeQuery);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return i;
+	}
+
+	@Override
+	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe,
+			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) throws Exception {
+		String translatedRecipeQuery = constructTranslatedRecipeQuery(currentTranslatedRecipe, updatedTranslatedRecipe, tableIdentifier);
+		System.out.println(translatedRecipeQuery);
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		Statement stmt;
+		int i = 0;
+		try {
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(translatedRecipeQuery);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return i;
+	}
+
+	public String constructRecipeQuery(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) {
+		String query = "";
+		switch (tableIdentifier) {
+		case 1:
+			query = "UPDATE app_greek_recipes SET grrid = " + updatedRecipe.getRid() + " WHERE grrid = "
+					+ currentRecipe.getRid() + ";";
+			break;
+		case 2:
+			query = "UPDATE app_global_recipes SET glrid = " + updatedRecipe.getRid() + " WHERE glrid = "
+					+ currentRecipe.getRid() + ";";
+			break;
+		case 3:
+			query = "UPDATE app_spanish_recipes SET sprid = " + updatedRecipe.getRid() + " WHERE sprid = "
+					+ currentRecipe.getRid() + ";";
+			break;
+		}
+		return query;
+	}
+
+	public String constructTranslatedRecipeQuery(TranslatedRecipe currentTranslatedRecipe,
+			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) {
+		String query = "";
+		String set, where;
+		switch (tableIdentifier) {
+		case 1:
+			query = "UPDATE app_greek_recipes_trans ";
+			
+			set = "SET ";
+			if (updatedTranslatedRecipe.getTrid() != 0)
+				set += "tgrrid=" + updatedTranslatedRecipe.getTrid() + ", ";
+			if (updatedTranslatedRecipe.getRecipe().getRid() != 0)
+				set += "grrid=" + updatedTranslatedRecipe.getRecipe().getRid() + ", ";
+			if (updatedTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				set += "tcid=" + updatedTranslatedRecipe.getTransCuisine().getTcid() + ", ";
+			if (updatedTranslatedRecipe.getTransMethod().getTmid() != 0)
+				set += "tmid=" + updatedTranslatedRecipe.getTransMethod().getTmid() + ", ";
+			if (!updatedTranslatedRecipe.getLocale().getLoc().equals(""))
+				set += "locale='" + updatedTranslatedRecipe.getLocale().getLoc() + "', ";
+			if (!updatedTranslatedRecipe.getRname().equals(""))
+				set += "grrname='" + updatedTranslatedRecipe.getRname() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentTranslatedRecipe.getTrid() != 0)
+				where += "tgrrid=" + currentTranslatedRecipe.getTrid() + " AND ";
+			if (currentTranslatedRecipe.getRecipe().getRid() != 0)
+				where += "grrid=" + currentTranslatedRecipe.getRecipe().getRid() + " AND ";
+			if (currentTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				where += "tcid=" + currentTranslatedRecipe.getTransCuisine().getTcid() + " AND ";
+			if (currentTranslatedRecipe.getTransMethod().getTmid() != 0)
+				where += "tmid=" + currentTranslatedRecipe.getTransMethod().getTmid() + " AND ";
+			if (!currentTranslatedRecipe.getLocale().getLoc().equals(""))
+				where += "locale='" + currentTranslatedRecipe.getLocale().getLoc() + "' AND ";
+			if (!currentTranslatedRecipe.getRname().equals(""))
+				where += "grrname='" + currentTranslatedRecipe.getRname() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 2:
+			query = "UPDATE app_global_recipes_trans ";
+			set = "SET ";
+			if (updatedTranslatedRecipe.getTrid() != 0)
+				set += "tglrid=" + updatedTranslatedRecipe.getTrid() + ", ";
+			if (updatedTranslatedRecipe.getRecipe().getRid() != 0)
+				set += "glrid=" + updatedTranslatedRecipe.getRecipe().getRid() + ", ";
+			if (updatedTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				set += "tcid=" + updatedTranslatedRecipe.getTransCuisine().getTcid() + ", ";
+			if (updatedTranslatedRecipe.getTransMethod().getTmid() != 0)
+				set += "tmid=" + updatedTranslatedRecipe.getTransMethod().getTmid() + ", ";
+			if (!updatedTranslatedRecipe.getLocale().getLoc().equals(""))
+				set += "locale='" + updatedTranslatedRecipe.getLocale().getLoc() + "', ";
+			if (!updatedTranslatedRecipe.getRname().equals(""))
+				set += "glrname='" + updatedTranslatedRecipe.getRname() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentTranslatedRecipe.getTrid() != 0)
+				where += "tglrid=" + currentTranslatedRecipe.getTrid() + " AND ";
+			if (currentTranslatedRecipe.getRecipe().getRid() != 0)
+				where += "glrid=" + currentTranslatedRecipe.getRecipe().getRid() + " AND ";
+			if (currentTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				where += "tcid=" + currentTranslatedRecipe.getTransCuisine().getTcid() + " AND ";
+			if (currentTranslatedRecipe.getTransMethod().getTmid() != 0)
+				where += "tmid=" + currentTranslatedRecipe.getTransMethod().getTmid() + " AND ";
+			if (!currentTranslatedRecipe.getLocale().getLoc().equals(""))
+				where += "locale='" + currentTranslatedRecipe.getLocale().getLoc() + "' AND ";
+			if (!currentTranslatedRecipe.getRname().equals(""))
+				where += "glrname='" + currentTranslatedRecipe.getRname() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 3:
+			query = "UPDATE app_spanish_recipes_trans ";
+			set = "SET ";
+			if (updatedTranslatedRecipe.getTrid() != 0)
+				set += "tsprid=" + updatedTranslatedRecipe.getTrid() + ", ";
+			if (updatedTranslatedRecipe.getRecipe().getRid() != 0)
+				set += "sprid=" + updatedTranslatedRecipe.getRecipe().getRid() + ", ";
+			if (updatedTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				set += "tcid=" + updatedTranslatedRecipe.getTransCuisine().getTcid() + ", ";
+			if (updatedTranslatedRecipe.getTransMethod().getTmid() != 0)
+				set += "tmid=" + updatedTranslatedRecipe.getTransMethod().getTmid() + ", ";
+			if (!updatedTranslatedRecipe.getLocale().getLoc().equals(""))
+				set += "locale='" + updatedTranslatedRecipe.getLocale().getLoc() + "', ";
+			if (!updatedTranslatedRecipe.getRname().equals(""))
+				set += "sprname='" + updatedTranslatedRecipe.getRname() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentTranslatedRecipe.getTrid() != 0)
+				where += "tsprid=" + currentTranslatedRecipe.getTrid() + " AND ";
+			if (currentTranslatedRecipe.getRecipe().getRid() != 0)
+				where += "sprid=" + currentTranslatedRecipe.getRecipe().getRid() + " AND ";
+			if (currentTranslatedRecipe.getTransCuisine().getTcid() != 0)
+				where += "tcid=" + currentTranslatedRecipe.getTransCuisine().getTcid() + " AND ";
+			if (currentTranslatedRecipe.getTransMethod().getTmid() != 0)
+				where += "tmid=" + currentTranslatedRecipe.getTransMethod().getTmid() + " AND ";
+			if (!currentTranslatedRecipe.getLocale().getLoc().equals(""))
+				where += "locale='" + currentTranslatedRecipe.getLocale().getLoc() + "' AND ";
+			if (!currentTranslatedRecipe.getRname().equals(""))
+				where += "sprname='" + currentTranslatedRecipe.getRname() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		}
+
+		return query;
 	}
 
 }

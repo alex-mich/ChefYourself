@@ -21,7 +21,7 @@ body {
 			app_spanish recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./updateSpanishRecipe.ds" method="get">
+		<form action="./updateSpanishRecipe.ds" method="post">
 			<table width="700">
 				<tr>
 					<td style="background-color: buttonface;">Current Spanish
@@ -42,7 +42,7 @@ body {
 		</form>
 		<h4>
 			<font color="white">Rows Affected:
-				${spanishRecipesRowsAffected}</font>
+				${updatedSpanishRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -50,7 +50,7 @@ body {
 			app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./updateSpanishRecipeTrans.ds">
+		<form action="./updateTranslatedSpanishRecipe.ds" method="post">
 			<table width="800">
 				<tr>
 					<td style="background-color: buttonface;">Current Translated
@@ -109,7 +109,7 @@ body {
 		</form>
 		<h4>
 			<font color="white">Rows Affected:
-				${TranslatedSpanishRecipesRowsAffected}</font>
+				${updatedTranslatedSpanishRecipeRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -162,7 +162,7 @@ body {
 		</form>
 		<h4>
 			<font color="white">Rows Affected:
-				${spanishRecipeIngrdientsRowsAffected}</font>
+				${updatedSpanishRecipeIngrdientRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
@@ -170,7 +170,7 @@ body {
 			app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./updateSpanishRecipeDescription">
+		<form action="./updateSpanishRecipeDescription" method="post">
 			<table width="850">
 				<tr>
 					<td style="background-color: buttonface;">Current Spanish
@@ -212,7 +212,7 @@ body {
 		</form>
 		<h4>
 			<font color="white">Rows Affected:
-				${spanishRecipeDescriptionRowsAffected}</font>
+				${updatedSpanishRecipeDescriptionRowsAffected}</font>
 		</h4>
 	</center>
 	<center>
