@@ -62,5 +62,10 @@ public class RecipeIngredientsService {
 	public int deleteSpanishRecipeIngredient(RecipeIngredient recipeIngredient) throws Exception{
 		return recipeIngredientsDAOImpl.deleteSpanishRecipeIngredient(recipeIngredient);
 	}
+	
+	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient,
+			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) throws Exception{
+		return recipeIngredientsDAOImpl.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient, tableIdentifier);
+	}
 
 }

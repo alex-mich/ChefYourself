@@ -59,90 +59,25 @@ public class RecipesDAOImpl implements RecipesDAO {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	
 
 	@Override
-	public int insertGreekRecipe(Recipe recipe) throws Exception {
-		final String grrSQL = "INSERT INTO app_greek_recipes (grrid) VALUES (?)";
+	public int insertRecipe(Recipe recipe, int tableIdentifier) throws Exception {
+		String insertRecipeQuery = constructRecipeInsertQuery(recipe, tableIdentifier);
 		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
+		Connection con = null;
+		Statement stmt = null;
 		int i = 0;
-
 		try {
-
-			pstmt = con.prepareStatement(grrSQL);
-			pstmt.setInt(1, recipe.getRid());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(insertRecipeQuery);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public int insertGlobalRecipe(Recipe recipe) throws Exception {
-		final String glrSQL = "INSERT INTO app_global_recipes (glrid) VALUES (?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(glrSQL);
-			pstmt.setInt(1, recipe.getRid());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public int insertSpanishRecipe(Recipe recipe) throws Exception {
-		final String sprSQL = "INSERT INTO app_spanish_recipes (sprid) VALUES (?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(sprSQL);
-			pstmt.setInt(1, recipe.getRid());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return i;
 	}
@@ -675,123 +610,48 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int deleteGreekRecipe(Recipe recipe) throws Exception {
-
-		String sql = "DELETE FROM app_greek_recipes WHERE grrid = (?)";
+	public int deleteRecipe(Recipe recipe, int tableIdentifier) throws Exception {
+		String deleteRecipeQuery = constructRecipeDeleteQuery(recipe, tableIdentifier);
 		Class.forName(driver);
-		Connection conn = null;
+		Connection con = null;
+		Statement stmt = null;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, recipe.getRid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(deleteRecipeQuery);
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return i;
 	}
 
 	@Override
-	public int deleteGlobalRecipe(Recipe recipe) throws Exception {
-
-		String sql = "DELETE FROM app_global_recipes WHERE glrid = (?)";
+	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, int tableIdentifier) throws Exception {
+		String deleteTranslatedRecipeQuery = constructTranslatedRecipeDeleteQuery(translatedRecipe, tableIdentifier);
 		Class.forName(driver);
-		Connection conn = null;
+		Connection con = null;
+		Statement stmt = null;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, recipe.getRid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+				i += stmt.executeUpdate(deleteTranslatedRecipeQuery);
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteSpanishRecipe(Recipe recipe) throws Exception {
-
-		String sql = "DELETE FROM app_spanish_recipes WHERE sprid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, recipe.getRid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-
-		String sql = "DELETE FROM app_greek_recipes_trans WHERE tgrrid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, trRecipe.getTrid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-
-		String sql = "DELETE FROM app_global_recipes_trans WHERE tglrid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, trRecipe.getTrid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-
-		String sql = "DELETE FROM app_spanish_recipes_trans WHERE tsprid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, trRecipe.getTrid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			conn.close();
-			e.printStackTrace();
+		} finally {
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return i;
 	}
 
 	@Override
 	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception {
-		String recipeQuery = constructRecipeQuery(currentRecipe, updatedRecipe, tableIdentifier);
+		String recipeQuery = constructRecipeUpdateQuery(currentRecipe, updatedRecipe, tableIdentifier);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -817,31 +677,74 @@ public class RecipesDAOImpl implements RecipesDAO {
 	@Override
 	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe,
 			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) throws Exception {
-		String translatedRecipeQuery = constructTranslatedRecipeQuery(currentTranslatedRecipe, updatedTranslatedRecipe, tableIdentifier);
-		System.out.println(translatedRecipeQuery);
+		String translatedRecipeQuery = constructTranslatedRecipeUpdateQuery(currentTranslatedRecipe, updatedTranslatedRecipe, tableIdentifier);
 		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		Statement stmt;
+		Connection con = null;
+		Statement stmt = null;;
 		int i = 0;
 		try {
+			con = DriverManager.getConnection(url, username, password);
 			stmt = con.createStatement();
 			i = stmt.executeUpdate(translatedRecipeQuery);
 			stmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return i;
 	}
+	
+	public String constructRecipeInsertQuery(Recipe recipe, int tableIdentifier){
+		String query = "";
+		switch(tableIdentifier){
+			case 1:
+				query = "INSERT INTO app_greek_recipes (grrid) VALUES (" + recipe.getRid() + ");";
+				break;
+			case 2:
+				query = "INSERT INTO app_global_recipes (glrid) VALUES (" + recipe.getRid() + ");";
+				break;
+			case 3:
+				query = "INSERT INTO app_spanish_recipes (sprid) VALUES (" + recipe.getRid() + ");";
+				break;
+		}
+		return query;
+	}
+	
+	public String constructRecipeDeleteQuery(Recipe recipe, int tableIdentifier){
+		String query = "";
+		switch(tableIdentifier){
+			case 1:
+				query = "DELETE FROM app_greek_recipes WHERE grrid = " + recipe.getRid() + ";";
+				break;
+			case 2:
+				query = "DELETE FROM app_global_recipes WHERE glrid = " + recipe.getRid() + ";";
+				break;
+			case 3:
+				query = "DELETE FROM app_spanish_recipes WHERE sprid = " + recipe.getRid() + ";";
+				break;
+		}
+		return query;
+	}
+	
+	public String constructTranslatedRecipeDeleteQuery(TranslatedRecipe translatedRecipe, int tableIdentifier){
+		String query = "";
+		switch(tableIdentifier){
+			case 1:
+				query = " DELETE FROM app_greek_recipes_trans WHERE tgrrid = " + translatedRecipe.getTrid() + ";";
+				break;
+			case 2:
+				query = " DELETE FROM app_global_recipes_trans WHERE tglrid = " + translatedRecipe.getTrid() + ";";
+				break;
+			case 3:
+				query = " DELETE FROM app_spanish_recipes_trans WHERE tsprid = " + translatedRecipe.getTrid() + ";";
+				break;
+		}
+		return query;
+	}
 
-	public String constructRecipeQuery(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) {
+	public String constructRecipeUpdateQuery(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) {
 		String query = "";
 		switch (tableIdentifier) {
 		case 1:
@@ -860,7 +763,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		return query;
 	}
 
-	public String constructTranslatedRecipeQuery(TranslatedRecipe currentTranslatedRecipe,
+	public String constructTranslatedRecipeUpdateQuery(TranslatedRecipe currentTranslatedRecipe,
 			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) {
 		String query = "";
 		String set, where;

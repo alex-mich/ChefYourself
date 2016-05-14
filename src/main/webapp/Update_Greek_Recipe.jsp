@@ -112,7 +112,7 @@ body {
 			app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGreekRecipeIngredients.ds" method="post">
+		<form action="./updateGreekRecipeIngredient.ds" method="post">
 			<table width="900">
 				<tr>
 					<td style="background-color: buttonface;">Current Greek

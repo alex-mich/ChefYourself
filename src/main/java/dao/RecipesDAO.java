@@ -7,11 +7,7 @@ import pojos.TranslatedRecipe;
 
 public interface RecipesDAO {
 
-	public int insertGreekRecipe(Recipe recipe) throws Exception;
-
-	public int insertGlobalRecipe(Recipe recipe) throws Exception;
-
-	public int insertSpanishRecipe(Recipe recipe) throws Exception;
+	public int insertRecipe(Recipe recipe, int tableIdentifier) throws Exception;
 
 	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
@@ -19,17 +15,9 @@ public interface RecipesDAO {
 
 	public int insertSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
 
-	public int deleteGreekRecipe(Recipe recipe) throws Exception;
-
-	public int deleteGlobalRecipe(Recipe recipe) throws Exception;
-
-	public int deleteSpanishRecipe(Recipe recipe) throws Exception;
-
-	public int deleteGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
-
-	public int deleteGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
-
-	public int deleteSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
+	public int deleteRecipe(Recipe recipe, int tableIdentifier) throws Exception;
+	
+	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, int tableIdentifier) throws Exception;
 	
 	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception;
 

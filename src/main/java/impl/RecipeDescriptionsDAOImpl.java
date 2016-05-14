@@ -451,4 +451,101 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 		return i;
 	}
 
+	@Override
+	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,
+			RecipeDescription updatedRecipeDescription, int tableIdentifier) throws ClassNotFoundException {
+		String recipeDescriptionQuery = constructRecipeDescriptionUpdateQuery(currentRecipeDescription, updatedRecipeDescription, tableIdentifier);
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		int i = 0;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(recipeDescriptionQuery);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+		}
+		return i;
+	}
+	
+	public String constructRecipeDescriptionUpdateQuery(RecipeDescription currentRecipeDescription,
+			RecipeDescription updatedRecipeDescription, int tableIdentifier) {
+		String query = "";
+		String set, where;
+		switch (tableIdentifier) {
+		case 1:
+
+			query = "UPDATE app_greek_recipes_description ";
+			set = "SET ";
+			if (updatedRecipeDescription.getRdid() != 0)
+				set += "grrdid=" + updatedRecipeDescription.getRdid() + ", ";
+			if (updatedRecipeDescription.getTrRecipe().getTrid() != 0)
+				set += "tgrrid=" + updatedRecipeDescription.getTrRecipe().getTrid() + ", ";
+			if (!updatedRecipeDescription.getDesc().equals(""))
+				set += "grrdesc='" + updatedRecipeDescription.getDesc() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeDescription.getRdid() != 0)
+				where += "grrdid=" + currentRecipeDescription.getRdid() + " AND ";
+			if (currentRecipeDescription.getTrRecipe().getTrid() != 0)
+				where += "tgrrid=" + currentRecipeDescription.getTrRecipe().getTrid() + " AND ";
+			if (!currentRecipeDescription.getDesc().equals(""))
+				where += "grrdesc='" + currentRecipeDescription.getDesc() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 2:
+
+			query = "UPDATE app_global_recipes_description ";
+			set = "SET ";
+			if (updatedRecipeDescription.getRdid() != 0)
+				set += "glrdid=" + updatedRecipeDescription.getRdid() + ", ";
+			if (updatedRecipeDescription.getTrRecipe().getTrid() != 0)
+				set += "tglrid=" + updatedRecipeDescription.getTrRecipe().getTrid() + ", ";
+			if (!updatedRecipeDescription.getDesc().equals(""))
+				set += "glrdesc='" + updatedRecipeDescription.getDesc() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeDescription.getRdid() != 0)
+				where += "glrdid=" + currentRecipeDescription.getRdid() + " AND ";
+			if (currentRecipeDescription.getTrRecipe().getTrid() != 0)
+				where += "tglrid=" + currentRecipeDescription.getTrRecipe().getTrid() + " AND ";
+			if (!currentRecipeDescription.getDesc().equals(""))
+				where += "glrdesc='" + currentRecipeDescription.getDesc() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 3:
+
+			query = "UPDATE app_spanish_recipes_description ";
+			set = "SET ";
+			if (updatedRecipeDescription.getRdid() != 0)
+				set += "sprdid=" + updatedRecipeDescription.getRdid() + ", ";
+			if (updatedRecipeDescription.getTrRecipe().getTrid() != 0)
+				set += "tsprid=" + updatedRecipeDescription.getTrRecipe().getTrid() + ", ";
+			if (!updatedRecipeDescription.getDesc().equals(""))
+				set += "sprdesc='" + updatedRecipeDescription.getDesc() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeDescription.getRdid() != 0)
+				where += "sprdid=" + currentRecipeDescription.getRdid() + " AND ";
+			if (currentRecipeDescription.getTrRecipe().getTrid() != 0)
+				where += "tsprid=" + currentRecipeDescription.getTrRecipe().getTrid() + " AND ";
+			if (!currentRecipeDescription.getDesc().equals(""))
+				where += "sprdesc='" + currentRecipeDescription.getDesc() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		}
+		return query;
+	}
+
 }

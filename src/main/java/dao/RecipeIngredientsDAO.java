@@ -2,7 +2,6 @@
 package dao;
 
 import java.util.List;
-
 import pojos.RecipeIngredient;
 
 public interface RecipeIngredientsDAO {
@@ -18,6 +17,8 @@ public interface RecipeIngredientsDAO {
 	public int deleteGlobalRecipeIngredient(RecipeIngredient ri) throws Exception;
 
 	public int deleteSpanishRecipeIngredient(RecipeIngredient ri) throws Exception;
+	
+	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient, RecipeIngredient updatedRecipeIngredient, int tableIdentifier) throws Exception;
 
 	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception;
 

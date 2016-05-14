@@ -475,4 +475,125 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		return i;
 	}
 
+	@Override
+	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient,
+			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) throws Exception {
+		String updateRecipeIngredientQuery = constructTranslatedRecipeUpdateQuery(currentRecipeIngredient,
+				updatedRecipeIngredient, tableIdentifier);
+		System.out.println(updateRecipeIngredientQuery);
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		int i = 0;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			i = stmt.executeUpdate(updateRecipeIngredientQuery);
+			stmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return i;
+	}
+
+	public String constructTranslatedRecipeUpdateQuery(RecipeIngredient currentRecipeIngredient,
+			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) {
+		String query = "";
+		String set, where;
+		switch (tableIdentifier) {
+		case 1:
+
+			query = "UPDATE app_greek_recipes_ingredients ";
+			set = "SET ";
+			if (updatedRecipeIngredient.getRiid() != 0)
+				set += "griid=" + updatedRecipeIngredient.getRiid() + ", ";
+			if (updatedRecipeIngredient.getTrRecipe().getTrid() != 0)
+				set += "tgrrid=" + updatedRecipeIngredient.getTrRecipe().getTrid() + ", ";
+			if (updatedRecipeIngredient.getTrIngredient().getTinid() != 0)
+				set += "tinid=" + updatedRecipeIngredient.getTrIngredient().getTinid() + ", ";
+			if (!updatedRecipeIngredient.getQuan().equals(""))
+				set += "grquan='" + updatedRecipeIngredient.getQuan() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeIngredient.getRiid() != 0)
+				where += "griid=" + currentRecipeIngredient.getRiid() + " AND ";
+			if (currentRecipeIngredient.getTrRecipe().getTrid() != 0)
+				where += "tgrrid=" + currentRecipeIngredient.getTrRecipe().getTrid() + " AND ";
+			if (currentRecipeIngredient.getTrIngredient().getTinid() != 0)
+				where += "tinid=" + currentRecipeIngredient.getTrIngredient().getTinid() + " AND ";
+			if (!currentRecipeIngredient.getQuan().equals(""))
+				where += "grquan='" + currentRecipeIngredient.getQuan() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 2:
+
+			query = "UPDATE app_global_recipes_ingredients ";
+			set = "SET ";
+			if (updatedRecipeIngredient.getRiid() != 0)
+				set += "gliid=" + updatedRecipeIngredient.getRiid() + ", ";
+			if (updatedRecipeIngredient.getTrRecipe().getTrid() != 0)
+				set += "tglrid=" + updatedRecipeIngredient.getTrRecipe().getTrid() + ", ";
+			if (updatedRecipeIngredient.getTrIngredient().getTinid() != 0)
+				set += "tinid=" + updatedRecipeIngredient.getTrIngredient().getTinid() + ", ";
+			if (!updatedRecipeIngredient.getQuan().equals(""))
+				set += "glquan='" + updatedRecipeIngredient.getQuan() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeIngredient.getRiid() != 0)
+				where += "gliid=" + currentRecipeIngredient.getRiid() + " AND ";
+			if (currentRecipeIngredient.getTrRecipe().getTrid() != 0)
+				where += "tglrid=" + currentRecipeIngredient.getTrRecipe().getTrid() + " AND ";
+			if (currentRecipeIngredient.getTrIngredient().getTinid() != 0)
+				where += "tinid=" + currentRecipeIngredient.getTrIngredient().getTinid() + " AND ";
+			if (!currentRecipeIngredient.getQuan().equals(""))
+				where += "glquan='" + currentRecipeIngredient.getQuan() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		case 3:
+
+			query = "UPDATE app_spanish_recipes_ingredients ";
+			set = "SET ";
+			if (updatedRecipeIngredient.getRiid() != 0)
+				set += "spiid=" + updatedRecipeIngredient.getRiid() + ", ";
+			if (updatedRecipeIngredient.getTrRecipe().getTrid() != 0)
+				set += "tsprid=" + updatedRecipeIngredient.getTrRecipe().getTrid() + ", ";
+			if (updatedRecipeIngredient.getTrIngredient().getTinid() != 0)
+				set += "tinid=" + updatedRecipeIngredient.getTrIngredient().getTinid() + ", ";
+			if (!updatedRecipeIngredient.getQuan().equals(""))
+				set += "srquan='" + updatedRecipeIngredient.getQuan() + "', ";
+			set = (String) set.substring(0, set.length() - 2);
+			query += set;
+			where = " WHERE ";
+			if (currentRecipeIngredient.getRiid() != 0)
+				where += "spiid=" + currentRecipeIngredient.getRiid() + " AND ";
+			if (currentRecipeIngredient.getTrRecipe().getTrid() != 0)
+				where += "tsprid=" + currentRecipeIngredient.getTrRecipe().getTrid() + " AND ";
+			if (currentRecipeIngredient.getTrIngredient().getTinid() != 0)
+				where += "tinid=" + currentRecipeIngredient.getTrIngredient().getTinid() + " AND ";
+			if (!currentRecipeIngredient.getQuan().equals(""))
+				where += "srquan='" + currentRecipeIngredient.getQuan() + "' AND ";
+			where = (String) where.substring(0, where.length() - 5);
+			query += where + ";";
+			break;
+		}
+		return query;
+	}
+
 }

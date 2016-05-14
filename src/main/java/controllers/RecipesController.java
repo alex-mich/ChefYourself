@@ -41,7 +41,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(grrid);
-			success = recipeService.insertGreekRecipe(recipe);
+			success = recipeService.insertRecipe(recipe, GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(glrid);
-			success = recipeService.insertGlobalRecipe(recipe);
+			success = recipeService.insertRecipe(recipe, GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,7 +69,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(sprid);
-			success = recipeService.insertSpanishRecipe(recipe);
+			success = recipeService.insertRecipe(recipe, SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -265,7 +265,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(grrid);
-			success = recipeService.deleteGreekRecipe(recipe);
+			success = recipeService.deleteRecipe(recipe, GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -281,7 +281,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(glrid);
-			success = recipeService.deleteGlobalRecipe(recipe);
+			success = recipeService.deleteRecipe(recipe, GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -297,7 +297,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(sprid);
-			success = recipeService.deleteSpanishRecipe(recipe);
+			success = recipeService.deleteRecipe(recipe, SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -313,7 +313,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tgrrid);
-			success = recipeService.deleteGreekTranslatedRecipe(trRecipe);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -329,7 +329,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tglrid);
-			success = recipeService.deleteGlobalTranslatedRecipe(trRecipe);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -345,7 +345,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tsprid);
-			success = recipeService.deleteSpanishTranslatedRecipe(trRecipe);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -522,7 +522,8 @@ public class RecipesController {
 			@RequestParam("newtmid") String newtmid, @RequestParam("newloc") String newloc,
 			@RequestParam("newgrrname") String newgrrname, Model model) throws Exception {
 
-		int currentTgrrid, updatedTgrrid, currentGrrid, updatedGrrid, currentTmid, updatedTmid, currentTcid, updatedTcid;
+		int currentTgrrid, updatedTgrrid, currentGrrid, updatedGrrid, currentTmid, updatedTmid, currentTcid,
+				updatedTcid;
 		int success = 0;
 		try {
 
@@ -557,7 +558,7 @@ public class RecipesController {
 		model.addAttribute("updatedTranslatedGreekRecipeRowsAffected", success);
 		return "Update_Greek_Recipe";
 	}
-	
+
 	@RequestMapping(value = "updateGlobalTranslatedRecipe.ds", method = RequestMethod.POST)
 	public String updateTranslatedGlobalRecipe(@RequestParam("curtglrid") String curtglrid,
 			@RequestParam("curglrid2") String curglrid, @RequestParam("curtcid") String curtcid,
@@ -567,7 +568,8 @@ public class RecipesController {
 			@RequestParam("newtmid") String newtmid, @RequestParam("newloc") String newloc,
 			@RequestParam("newglrname") String newglrname, Model model) throws Exception {
 
-		int currentTglrid, updatedTglrid, currentGlrid, updatedGlrid, currentTmid, updatedTmid, currentTcid, updatedTcid;
+		int currentTglrid, updatedTglrid, currentGlrid, updatedGlrid, currentTmid, updatedTmid, currentTcid,
+				updatedTcid;
 		int success = 0;
 		try {
 
@@ -602,7 +604,7 @@ public class RecipesController {
 		model.addAttribute("updatedTranslatedGlobalRecipeRowsAffected", success);
 		return "Update_Global_Recipe";
 	}
-	
+
 	@RequestMapping(value = "updateTranslatedSpanishRecipe.ds", method = RequestMethod.POST)
 	public String updateTranslatedSpanishRecipe(@RequestParam("curtsprid") String curtsprid,
 			@RequestParam("cursprid2") String cursprid, @RequestParam("curtcid") String curtcid,
@@ -612,7 +614,8 @@ public class RecipesController {
 			@RequestParam("newtmid") String newtmid, @RequestParam("newloc") String newloc,
 			@RequestParam("newsprname") String newsprname, Model model) throws Exception {
 
-		int currentTsprid, updatedTsprid, currentSprid, updatedSprid, currentTmid, updatedTmid, currentTcid, updatedTcid;
+		int currentTsprid, updatedTsprid, currentSprid, updatedSprid, currentTmid, updatedTmid, currentTcid,
+				updatedTcid;
 		int success = 0;
 		try {
 
@@ -645,6 +648,204 @@ public class RecipesController {
 			e.printStackTrace();
 		}
 		model.addAttribute("updatedTranslatedSpanishRecipeRowsAffected", success);
+		return "Update_Spanish_Recipe";
+	}
+
+	@RequestMapping(value = "updateGreekRecipeIngredient.ds", method = RequestMethod.POST)
+	public String updateGreekRecipeIngredient(@RequestParam("curgriid") String curgriid,
+			@RequestParam("curtgrrid2") String curtgrrid, @RequestParam("curtinid") String curtinid,
+			@RequestParam("curgrriquan") String curgrriquan, @RequestParam("newgriid") String newgriid,
+			@RequestParam("newtgrrid2") String newtgrrid, @RequestParam("newtinid") String newtinid,
+			@RequestParam("newgrriquan") String newgrriquan, Model model) throws Exception {
+
+		int currentGriid, updatedGriid, currentGrrid, updatedGrrid, currentTinid, updatedTinid;
+		int success = 0;
+		try {
+
+			currentGriid = curgriid.equals("") ? 0 : Integer.parseInt(curgriid);
+			updatedGriid = newgriid.equals("") ? 0 : Integer.parseInt(newgriid);
+			currentGrrid = curtgrrid.equals("") ? 0 : Integer.parseInt(curtgrrid);
+			updatedGrrid = newtgrrid.equals("") ? 0 : Integer.parseInt(newtgrrid);
+			currentTinid = curtinid.equals("") ? 0 : Integer.parseInt(curtinid);
+			updatedTinid = newtinid.equals("") ? 0 : Integer.parseInt(newtinid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentGrrid);
+			TranslatedIngredient currentTranslatedIngredient = new TranslatedIngredient(currentTinid);
+			RecipeIngredient currentRecipeIngredient = new RecipeIngredient(currentGriid, currentTranslatedRecipe,
+					currentTranslatedIngredient, curgrriquan);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedGrrid);
+			TranslatedIngredient updatedTranslatedIngredient = new TranslatedIngredient(updatedTinid);
+			RecipeIngredient updatedRecipeIngredient = new RecipeIngredient(updatedGriid, updatedTranslatedRecipe,
+					updatedTranslatedIngredient, newgrriquan);
+
+			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
+					GREEK_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedGreekRecipeIngrdientRowsAffected", success);
+		return "Update_Greek_Recipe";
+	}
+
+	@RequestMapping(value = "updateGlobalRecipeIngredient.ds", method = RequestMethod.POST)
+	public String updateGlobalRecipeIngredient(@RequestParam("curgliid") String curgliid,
+			@RequestParam("curtglrid2") String curtglrid, @RequestParam("curtinid") String curtinid,
+			@RequestParam("curglriquan") String curglriquan, @RequestParam("newgliid") String newgliid,
+			@RequestParam("newtglrid2") String newtglrid, @RequestParam("newtinid") String newtinid,
+			@RequestParam("newglriquan") String newglriquan, Model model) throws Exception {
+
+		int currentGliid, updatedGliid, currentGlrid, updatedGlrid, currentTinid, updatedTinid;
+		int success = 0;
+		try {
+
+			currentGliid = curgliid.equals("") ? 0 : Integer.parseInt(curgliid);
+			updatedGliid = newgliid.equals("") ? 0 : Integer.parseInt(newgliid);
+			currentGlrid = curtglrid.equals("") ? 0 : Integer.parseInt(curtglrid);
+			updatedGlrid = newtglrid.equals("") ? 0 : Integer.parseInt(newtglrid);
+			currentTinid = curtinid.equals("") ? 0 : Integer.parseInt(curtinid);
+			updatedTinid = newtinid.equals("") ? 0 : Integer.parseInt(newtinid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentGlrid);
+			TranslatedIngredient currentTranslatedIngredient = new TranslatedIngredient(currentTinid);
+			RecipeIngredient currentRecipeIngredient = new RecipeIngredient(currentGliid, currentTranslatedRecipe,
+					currentTranslatedIngredient, curglriquan);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedGlrid);
+			TranslatedIngredient updatedTranslatedIngredient = new TranslatedIngredient(updatedTinid);
+			RecipeIngredient updatedRecipeIngredient = new RecipeIngredient(updatedGliid, updatedTranslatedRecipe,
+					updatedTranslatedIngredient, newglriquan);
+
+			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
+					GLOBAL_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedGlobalRecipeIngrdientRowsAffected", success);
+		return "Update_Global_Recipe";
+	}
+
+	@RequestMapping(value = "updateSpanishRecipeIngredient.ds", method = RequestMethod.POST)
+	public String updateSpanishRecipeIngredient(@RequestParam("curspiid") String curspiid,
+			@RequestParam("curtsprid2") String curtsprid, @RequestParam("curtinid") String curtinid,
+			@RequestParam("curspriquan") String curspriquan, @RequestParam("newspiid") String newspiid,
+			@RequestParam("newtsprid2") String newtsprid, @RequestParam("newtinid") String newtinid,
+			@RequestParam("newspriquan") String newspriquan, Model model) throws Exception {
+
+		int currentSpiid, updatedSpiid, currentSprid, updatedSprid, currentTinid, updatedTinid;
+		int success = 0;
+		try {
+
+			currentSpiid = curspiid.equals("") ? 0 : Integer.parseInt(curspiid);
+			updatedSpiid = newspiid.equals("") ? 0 : Integer.parseInt(newspiid);
+			currentSprid = curtsprid.equals("") ? 0 : Integer.parseInt(curtsprid);
+			updatedSprid = newtsprid.equals("") ? 0 : Integer.parseInt(newtsprid);
+			currentTinid = curtinid.equals("") ? 0 : Integer.parseInt(curtinid);
+			updatedTinid = newtinid.equals("") ? 0 : Integer.parseInt(newtinid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentSprid);
+			TranslatedIngredient currentTranslatedIngredient = new TranslatedIngredient(currentTinid);
+			RecipeIngredient currentRecipeIngredient = new RecipeIngredient(currentSpiid, currentTranslatedRecipe,
+					currentTranslatedIngredient, curspriquan);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedSprid);
+			TranslatedIngredient updatedTranslatedIngredient = new TranslatedIngredient(updatedTinid);
+			RecipeIngredient updatedRecipeIngredient = new RecipeIngredient(updatedSpiid, updatedTranslatedRecipe,
+					updatedTranslatedIngredient, newspriquan);
+
+			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
+					SPANISH_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedSpanishRecipeIngrdientRowsAffected", success);
+		return "Update_Spanish_Recipe";
+	}
+
+	@RequestMapping(value = "updateGreekRecipeDescription.ds", method = RequestMethod.POST)
+	public String updateGreekRecipeDescription(@RequestParam("curgrrdid") String curgrrdid,
+			@RequestParam("curtgrrid3") String curtgrrid, @RequestParam("curgrrdesc") String curgrrdesc,
+			@RequestParam("newgrrdid") String newgrrdid, @RequestParam("newtgrrid3") String newtgrrid,
+			@RequestParam("newgrrdesc") String newgrrdesc, Model model) throws Exception {
+
+		int currentGrdid, updatedGrfiid, currentTgrrid, updatedTgrrid;
+		int success = 0;
+		try {
+
+			currentGrdid = curgrrdid.equals("") ? 0 : Integer.parseInt(curgrrdid);
+			updatedGrfiid = newgrrdid.equals("") ? 0 : Integer.parseInt(newgrrdid);
+			currentTgrrid = curtgrrid.equals("") ? 0 : Integer.parseInt(curtgrrid);
+			updatedTgrrid = newtgrrid.equals("") ? 0 : Integer.parseInt(newtgrrid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTgrrid);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGrdid,currentTranslatedRecipe,curgrrdesc);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTgrrid);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGrfiid,updatedTranslatedRecipe,newgrrdesc);
+
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,GREEK_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedGreekRecipeDescriptionRowsAffected", success);
+		return "Update_Greek_Recipe";
+	}
+	
+	@RequestMapping(value = "updateGlobalRecipeDescription.ds", method = RequestMethod.POST)
+	public String updateGlobalRecipeDescription(@RequestParam("curglrdid") String curglrdid,
+			@RequestParam("curtglrid3") String curtglrid, @RequestParam("curglrdesc") String curglrdesc,
+			@RequestParam("newglrdid") String newglrdid, @RequestParam("newtglrid3") String newtglrid,
+			@RequestParam("newglrdesc") String newglrdesc, Model model) throws Exception {
+
+		int currentGldid, updatedGldid, currentTglrid, updatedTglrid;
+		int success = 0;
+		try {
+
+			currentGldid = curglrdid.equals("") ? 0 : Integer.parseInt(curglrdid);
+			updatedGldid = newglrdid.equals("") ? 0 : Integer.parseInt(newglrdid);
+			currentTglrid = curtglrid.equals("") ? 0 : Integer.parseInt(curtglrid);
+			updatedTglrid = newtglrid.equals("") ? 0 : Integer.parseInt(newtglrid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTglrid);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGldid,currentTranslatedRecipe,curglrdesc);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTglrid);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGldid,updatedTranslatedRecipe,newglrdesc);
+
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,GLOBAL_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedGlobalRecipeDescriptionRowsAffected", success);
+		return "Update_Global_Recipe";
+	}
+	
+	@RequestMapping(value = "updateSpanishRecipeDescription.ds", method = RequestMethod.POST)
+	public String updateSpanishRecipeDescription(@RequestParam("cursprdid") String cursprdid,
+			@RequestParam("curtsprid3") String curtsprid, @RequestParam("cursprdesc") String cursprdesc,
+			@RequestParam("newsprdid") String newsprdid, @RequestParam("newtsprid3") String newtsprid,
+			@RequestParam("newsprdesc") String newsprdesc, Model model) throws Exception {
+
+		int currentSprdid, updatedSprdid, currentTsprid, updatedTsprid;
+		int success = 0;
+		try {
+
+			currentSprdid = cursprdid.equals("") ? 0 : Integer.parseInt(cursprdid);
+			updatedSprdid = newsprdid.equals("") ? 0 : Integer.parseInt(newsprdid);
+			currentTsprid = curtsprid.equals("") ? 0 : Integer.parseInt(curtsprid);
+			updatedTsprid = newtsprid.equals("") ? 0 : Integer.parseInt(newtsprid);
+
+			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTsprid);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentSprdid,currentTranslatedRecipe,cursprdesc);
+
+			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTsprid);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedSprdid,updatedTranslatedRecipe,newsprdesc);
+
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,SPANISH_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("updatedSpanishRecipeDescriptionRowsAffected", success);
 		return "Update_Spanish_Recipe";
 	}
 

@@ -60,4 +60,9 @@ public class DescriptionsService {
 	public int deleteSpanishRecipeDescription(RecipeDescription recipeDescription) throws Exception{
 		return recipeDescriptionsDAOImpl.deleteSpanishRecipeDescription(recipeDescription);
 	}
+	
+	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,
+			RecipeDescription updatedRecipeDescription, int tableIdentifier) throws Exception{
+		return recipeDescriptionsDAOImpl.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription, tableIdentifier);
+	}
 }

@@ -15,16 +15,8 @@ public class RecipesService {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 	RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
 
-	public int insertGreekRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.insertGreekRecipe(recipe);
-	}
-
-	public int insertGlobalRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.insertGlobalRecipe(recipe);
-	}
-
-	public int insertSpanishRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.insertSpanishRecipe(recipe);
+	public int insertRecipe(Recipe recipe, int tableIdentifier) throws Exception {
+		return recipesDAOImpl.insertRecipe(recipe, tableIdentifier);
 	}
 
 	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
@@ -71,28 +63,12 @@ public class RecipesService {
 		return recipesDAOImpl.findAllRecipesGr();
 	}
 
-	public int deleteGreekRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.deleteGreekRecipe(recipe);
+	public int deleteRecipe(Recipe recipe, int tableIdentifier) throws Exception {
+		return recipesDAOImpl.deleteRecipe(recipe,tableIdentifier);
 	}
 
-	public int deleteGlobalRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.deleteGlobalRecipe(recipe);
-	}
-
-	public int deleteSpanishRecipe(Recipe recipe) throws Exception {
-		return recipesDAOImpl.deleteSpanishRecipe(recipe);
-	}
-
-	public int deleteGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.deleteGreekTranslatedRecipe(translatedRecipe);
-	}
-
-	public int deleteGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.deleteGlobalTranslatedRecipe(translatedRecipe);
-	}
-
-	public int deleteSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.deleteSpanishTranslatedRecipe(translatedRecipe);
+	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, int tableIdentifier) throws Exception {
+		return recipesDAOImpl.deleteTranslatedRecipe(translatedRecipe, tableIdentifier);
 	}
 
 	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception {

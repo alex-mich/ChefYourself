@@ -117,7 +117,7 @@ body {
 			app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./updateSpanishRecipeIngredients.ds">
+		<form action="./updateSpanishRecipeIngredient.ds" method="post">
 			<table width="900">
 				<tr>
 					<td style="background-color: buttonface;">Current Spanish
@@ -170,7 +170,7 @@ body {
 			app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./updateSpanishRecipeDescription" method="post">
+		<form action="./updateSpanishRecipeDescription.ds" method="post">
 			<table width="850">
 				<tr>
 					<td style="background-color: buttonface;">Current Spanish

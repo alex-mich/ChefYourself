@@ -115,7 +115,7 @@ body {
 			app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./updateGlobalRecipeIngredients.ds" method="post">
+		<form action="./updateGlobalRecipeIngredient.ds" method="post">
 			<table width="900">
 				<tr>
 					<td style="background-color: buttonface;">Current Global
