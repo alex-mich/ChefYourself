@@ -5,7 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert Method</title>
-</head>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+</script>
 <style>
 body {
 	background:
@@ -14,6 +21,7 @@ body {
 	background-size: 100%;
 }
 </style>
+</head>
 <body>
 	<br>
 	<h1 align="center">
@@ -73,10 +81,22 @@ body {
 		</form>
 		<h4>Rows Affected: ${translatedMethodRowsAffected}</h4>
 	</center>
-	<center>
-		<input type="button" id="backButton" value="BACK"
-			style="height: 25px; width: 80px; font-size: 15px;"
-			onClick="history.go(-1);return true;">
-	</center>
+	<form id="GoBack" method="post" name="GoBack"
+		action="Insert_Operations.jsp">
+		<center>
+			<input type="button" id="backButton" value="BACK"
+				style="height: 25px; width: 80px; font-size: 15px;"
+				onClick="javascript: goBack()">
+		</center>
+	</form>
+	<br>
+	<form id="GoHome" method="post" name="GoHome" action="Main.jsp">
+		<center>
+			<input type="button" id="homeButton" value="HOME"
+				style="height: 25px; width: 80px; font-size: 15px;"
+				onClick="javascript: goHome()">
+		</center>
+	</form>
+	<br>
 </body>
 </html>

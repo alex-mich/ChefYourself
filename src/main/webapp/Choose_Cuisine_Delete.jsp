@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Choose Cuisine</title>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+</script>
 <style>
 body {
 	background:
@@ -20,8 +25,8 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="10" style="background-color: buttonface;">Choose from which cuisine you want to delete
-			recipe:</font>
+		<font size="10" style="background-color: buttonface;">Choose
+			from which cuisine you want to delete recipe:</font>
 	</h1>
 	<form id="Main" method="post" name="Main"
 		action="Delete_Global_Recipe.jsp">
@@ -45,10 +50,13 @@ body {
 				style="height: 50px; width: 200px; font-size: 30px;">
 		</center>
 	</form>
-	<center>
-		<br> <input type="button" id="backButton" value="BACK"
-			style="height: 50px; width: 200px; font-size: 30px;"
-			onClick="history.go(-1);return true;">
-	</center>
+	<form id="GoBack" method="post" name="GoBack"
+		action="Delete_Operations.jsp">
+		<center>
+			<br> <input type="button" id="backButton" value="BACK"
+				style="height: 50px; width: 200px; font-size: 30px;"
+				onClick="javascript: goBack()">
+		</center>
+	</form>
 </body>
 </html>

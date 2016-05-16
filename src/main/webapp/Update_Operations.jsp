@@ -24,6 +24,9 @@
 	function updateRecipe() {
 		document.forms["UpdateOperations5"].submit();
 	}
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
 </script>
 <style>
 body {
@@ -41,7 +44,8 @@ body {
 	<br>
 	<br>
 	<h1 align="center">
-		<font size="10" style="background-color: buttonface;">Choose Update Operation</font>
+		<font size="10" style="background-color: buttonface;">Choose
+			Update Operation</font>
 	</h1>
 	<form id="UpdateOperations" method="post" name="UpdateOperations"
 		action="Update_Method.jsp">
@@ -80,7 +84,7 @@ body {
 		</center>
 	</form>
 	<form id="UpdateOperations5" method="post" name="UpdateOperations5"
-		action="Choose_Cuisine2.jsp">
+		action="Choose_Cuisine_Update.jsp">
 		<br>
 		<center>
 			<input type="submit" id="updateRecipe" value="RECIPE"
@@ -89,10 +93,12 @@ body {
 		</center>
 	</form>
 	<br>
-	<center>
-		<input type="button" id="backButton" value="BACK"
-			style="height: 40px; width: 220px; font-size: 20px;"
-			onClick="history.go(-1);return true;">
-	</center>
+	<form id="GoBack" method="post" name="GoBack" action="Main.jsp">
+		<center>
+			<input type="button" id="backButton" value="BACK"
+				style="height: 40px; width: 220px; font-size: 20px;"
+				onClick="javascript: goBack()">
+		</center>
+	</form>
 </body>
 </html>

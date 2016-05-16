@@ -5,6 +5,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Locale</title>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+</script>
 <style>
 body {
 	background: url(http://shaakinternational.com/images/image2.jpg)
@@ -14,7 +22,6 @@ body {
 </style>
 </head>
 <body>
-	<br>
 	<br>
 	<br>
 	<br>
@@ -47,9 +54,20 @@ body {
 			<font color="black">Rows Affected:
 				${deletedLanguageRowsAffected}</font>
 		</h4>
-		<input type="button" id="backButton" value="BACK"
-			style="height: 25px; width: 80px; font-size: 15px;"
-			onClick="history.go(-1);return true;">
+		<form id="GoBack" method="post" name="GoBack"
+			action="Delete_Operations.jsp">
+			<input type="button" id="backButton" value="BACK"
+				style="height: 25px; width: 80px; font-size: 15px;"
+				onClick="javascript: goBack()">
+		</form>
+		<br>
+		<form id="GoHome" method="post" name="GoHome" action="Main.jsp">
+			<center>
+				<input type="button" id="homeButton" value="HOME"
+					style="height: 25px; width: 80px; font-size: 15px;"
+					onClick="javascript: goHome()">
+			</center>
+		</form>
 	</center>
 </body>
 </html>
