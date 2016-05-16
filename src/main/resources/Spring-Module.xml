@@ -10,5 +10,6 @@
 	<import resource="Spring-Recipes.xml"/>
 	<import resource="Spring-RecipeIngredients.xml"/>
 	<import resource="Spring-Descriptions.xml"/>
+	<import resource="Spring-Response.xml"/>
 	
 </beans>

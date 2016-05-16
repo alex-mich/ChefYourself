@@ -239,18 +239,14 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	@Override
 	public int deleteIngredient(Ingredient ingredient) throws Exception {
 		String ingredientSQL = "DELETE FROM app_ingredients WHERE inid = (?)";
-		String translatedSQL = "DELETE FROM app_ingredients_trans WHERE inid = (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstm;
 		int i = 0;
 		try {
-			pstm = con.prepareStatement(translatedSQL);
-			pstm.setInt(1, ingredient.getInid());
-			i = pstm.executeUpdate();
 			pstm = con.prepareStatement(ingredientSQL);
 			pstm.setInt(1, ingredient.getInid());
-			i += pstm.executeUpdate();
+			i = pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {
 			e.printStackTrace();

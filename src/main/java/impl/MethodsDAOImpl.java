@@ -236,18 +236,14 @@ public class MethodsDAOImpl implements MethodsDAO {
 	@Override
 	public int deleteMethod(Method method) throws Exception {
 		String methodSQL = "DELETE FROM app_methods WHERE mid = (?)";
-		String translatedSQL = "DELETE FROM app_methods_trans WHERE mid = (?)";
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstm;
 		int i = 0;
 		try {
-			pstm = con.prepareStatement(translatedSQL);
-			pstm.setInt(1, method.getMid());
-			i = pstm.executeUpdate();
 			pstm = con.prepareStatement(methodSQL);
 			pstm.setInt(1, method.getMid());
-			i += pstm.executeUpdate();
+			i = pstm.executeUpdate();
 			pstm.close();
 		} catch (Exception e) {
 			e.printStackTrace();
