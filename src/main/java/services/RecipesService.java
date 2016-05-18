@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import enumerations.TableType;
 import impl.RecipesDAOImpl;
 import pojos.Recipe;
 import pojos.TranslatedRecipe;
@@ -15,8 +16,8 @@ public class RecipesService {
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 	RecipesDAOImpl recipesDAOImpl = (RecipesDAOImpl) context.getBean("recipesDAOImpl");
 
-	public int insertRecipe(Recipe recipe, int tableIdentifier) throws Exception {
-		return recipesDAOImpl.insertRecipe(recipe, tableIdentifier);
+	public int insertRecipe(Recipe recipe, TableType tableType) throws Exception {
+		return recipesDAOImpl.insertRecipe(recipe, tableType);
 	}
 
 	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
@@ -29,6 +30,10 @@ public class RecipesService {
 
 	public int insertSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
 		return recipesDAOImpl.insertSpanishTranslatedRecipe(translatedRecipe);
+	}
+
+	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
+		return recipesDAOImpl.viewRecipesTable(tableType);
 	}
 
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception {
@@ -63,21 +68,21 @@ public class RecipesService {
 		return recipesDAOImpl.findAllRecipesGr();
 	}
 
-	public int deleteRecipe(Recipe recipe, int tableIdentifier) throws Exception {
-		return recipesDAOImpl.deleteRecipe(recipe,tableIdentifier);
+	public int deleteRecipe(Recipe recipe, TableType tabletype) throws Exception {
+		return recipesDAOImpl.deleteRecipe(recipe, tabletype);
 	}
 
-	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, int tableIdentifier) throws Exception {
-		return recipesDAOImpl.deleteTranslatedRecipe(translatedRecipe, tableIdentifier);
+	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, TableType tabletype) throws Exception {
+		return recipesDAOImpl.deleteTranslatedRecipe(translatedRecipe, tabletype);
 	}
 
-	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception {
-		return recipesDAOImpl.updateRecipe(currentRecipe, updatedRecipe, tableIdentifier);
+	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, TableType tabletype) throws Exception {
+		return recipesDAOImpl.updateRecipe(currentRecipe, updatedRecipe, tabletype);
 	}
 
 	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe,
-			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) throws Exception {
-		return recipesDAOImpl.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe, tableIdentifier);
+			TranslatedRecipe updatedTranslatedRecipe, TableType tabletype) throws Exception {
+		return recipesDAOImpl.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe, tabletype);
 	}
 
 }

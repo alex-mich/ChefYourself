@@ -8,11 +8,6 @@ public class RequestObject {
 	private String locale = "en";
 	private List<String> methodList = new ArrayList<String>();
 	private List<String> cuisineList = new ArrayList<String>();
-	
-	@Override
-	public String toString() {
-		return "DataObject [locale=" + locale + ", methodList=" + methodList + ", cuisineList=" + cuisineList + "]";
-	}
 
 	public String getLocale() {
 		return locale;

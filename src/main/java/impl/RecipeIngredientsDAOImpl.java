@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.RecipeIngredientsDAO;
+import enumerations.TableType;
 import impl.RecipesDAOImpl;
 import pojos.RecipeIngredient;
 import pojos.TranslatedIngredient;
@@ -477,9 +478,9 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 
 	@Override
 	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient,
-			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) throws Exception {
+			RecipeIngredient updatedRecipeIngredient, TableType tableType) throws Exception {
 		String updateRecipeIngredientQuery = constructTranslatedRecipeUpdateQuery(currentRecipeIngredient,
-				updatedRecipeIngredient, tableIdentifier);
+				updatedRecipeIngredient, tableType);
 		System.out.println(updateRecipeIngredientQuery);
 		Class.forName(driver);
 		Connection con = null;
@@ -510,11 +511,11 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	public String constructTranslatedRecipeUpdateQuery(RecipeIngredient currentRecipeIngredient,
-			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) {
+			RecipeIngredient updatedRecipeIngredient, TableType tableType) {
 		String query = "";
 		String set, where;
-		switch (tableIdentifier) {
-		case 1:
+		switch (tableType) {
+		case GREEK_TABLE:
 
 			query = "UPDATE app_greek_recipes_ingredients ";
 			set = "SET ";
@@ -540,7 +541,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 2:
+		case GLOBAL_TABLE:
 
 			query = "UPDATE app_global_recipes_ingredients ";
 			set = "SET ";
@@ -566,7 +567,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 3:
+		case SPANISH_TABLE:
 
 			query = "UPDATE app_spanish_recipes_ingredients ";
 			set = "SET ";

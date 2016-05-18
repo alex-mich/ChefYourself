@@ -41,7 +41,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipe" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesTable.ds">
+		<form action="./viewGlobalRecipesTable.ds">
 			<br> <input type="submit" id="viewAppGlobalRecipesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

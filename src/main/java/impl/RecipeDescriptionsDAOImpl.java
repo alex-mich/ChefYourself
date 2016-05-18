@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.RecipeDescriptionsDAO;
+import enumerations.TableType;
 import pojos.RecipeDescription;
 import pojos.TranslatedRecipe;
 
@@ -453,8 +454,8 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 
 	@Override
 	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,
-			RecipeDescription updatedRecipeDescription, int tableIdentifier) throws ClassNotFoundException {
-		String recipeDescriptionQuery = constructRecipeDescriptionUpdateQuery(currentRecipeDescription, updatedRecipeDescription, tableIdentifier);
+			RecipeDescription updatedRecipeDescription, TableType tableType) throws ClassNotFoundException {
+		String recipeDescriptionQuery = constructRecipeDescriptionUpdateQuery(currentRecipeDescription, updatedRecipeDescription, tableType);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -474,11 +475,11 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 	}
 	
 	public String constructRecipeDescriptionUpdateQuery(RecipeDescription currentRecipeDescription,
-			RecipeDescription updatedRecipeDescription, int tableIdentifier) {
+			RecipeDescription updatedRecipeDescription, TableType tableType) {
 		String query = "";
 		String set, where;
-		switch (tableIdentifier) {
-		case 1:
+		switch (tableType) {
+		case GREEK_TABLE:
 
 			query = "UPDATE app_greek_recipes_description ";
 			set = "SET ";
@@ -500,7 +501,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 2:
+		case GLOBAL_TABLE:
 
 			query = "UPDATE app_global_recipes_description ";
 			set = "SET ";
@@ -522,7 +523,7 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 3:
+		case SPANISH_TABLE:
 
 			query = "UPDATE app_spanish_recipes_description ";
 			set = "SET ";

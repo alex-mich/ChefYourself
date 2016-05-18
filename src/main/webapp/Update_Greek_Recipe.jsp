@@ -40,7 +40,7 @@ body {
 			<br> <input type="submit" id="updateGreekRecipe" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGreekRecipesTable.ds">
+		<form action="./viewGreekRecipesTable.ds">
 			<br> <input type="submit" id="viewAppGreekRecipesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

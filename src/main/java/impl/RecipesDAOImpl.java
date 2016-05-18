@@ -12,6 +12,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.RecipesDAO;
+import enumerations.TableType;
 import pojos.Language;
 import pojos.Recipe;
 import pojos.TranslatedCuisine;
@@ -30,7 +31,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	private List<Language> localeList;
 	private List<TranslatedMethod> transMethodsList;
 	private List<TranslatedCuisine> transCuisinesList;
-	private List<TranslatedRecipe> recipesList;
+	private List<TranslatedRecipe> translatedRecipesList;
 
 	public void setLdi(LanguagesDAOImpl ldi) {
 		this.ldi = ldi;
@@ -63,8 +64,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 	
 
 	@Override
-	public int insertRecipe(Recipe recipe, int tableIdentifier) throws Exception {
-		String insertRecipeQuery = constructRecipeInsertQuery(recipe, tableIdentifier);
+	public int insertRecipe(Recipe recipe, TableType tableType) throws Exception {
+		String insertRecipeQuery = constructRecipeInsertQuery(recipe, tableType);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -183,6 +184,32 @@ public class RecipesDAOImpl implements RecipesDAO {
 		}
 		return i;
 	}
+	
+	@Override
+	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
+		String viewRecipeTableQuery = constructRecipeViewTableQuery(tableType);
+		List<Recipe> recipesList = new ArrayList<Recipe>();
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(viewRecipeTableQuery);
+			while(resultSet.next()){
+				Recipe recipe = new Recipe(resultSet.getInt(1));
+				recipesList.add(recipe);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+		}
+		return recipesList;
+	}
 
 	@Override
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception {
@@ -190,7 +217,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findGrMethods();
 		transCuisinesList = tcdi.findGrCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 
@@ -218,7 +245,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -234,7 +261,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -243,7 +270,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findEnMethods();
 		transCuisinesList = tcdi.findEnCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -272,7 +299,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -288,7 +315,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -300,7 +327,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findGrMethods();
 		transCuisinesList = tcdi.findGrCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -325,7 +352,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -341,7 +368,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -352,7 +379,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		transMethodsList = tmdi.findEnMethods();
 		transCuisinesList = tcdi.findEnCuisines();
 		localeList = ldi.findLocales();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -377,7 +404,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -393,7 +420,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -405,7 +432,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findGrMethods();
 		transCuisinesList = tcdi.findGrCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -430,7 +457,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -446,7 +473,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -457,7 +484,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findEnMethods();
 		transCuisinesList = tcdi.findEnCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -482,7 +509,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -498,7 +525,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -511,7 +538,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findEnMethods();
 		transCuisinesList = tcdi.findEnCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -536,7 +563,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -552,7 +579,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
@@ -565,7 +592,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		localeList = ldi.findLocales();
 		transMethodsList = tmdi.findEnMethods();
 		transCuisinesList = tcdi.findEnCuisines();
-		recipesList = new ArrayList<TranslatedRecipe>();
+		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {
 			Statement ps = con.createStatement();
@@ -590,7 +617,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 						trRecipe.setLocale(localeList.get(i));
 					}
 				trRecipe.setRname(rs.getString(6));
-				recipesList.add(trRecipe);
+				translatedRecipesList.add(trRecipe);
 			}
 			ps.close();
 			rs.close();
@@ -606,12 +633,12 @@ public class RecipesDAOImpl implements RecipesDAO {
 				}
 			}
 		}
-		return recipesList;
+		return translatedRecipesList;
 	}
 
 	@Override
-	public int deleteRecipe(Recipe recipe, int tableIdentifier) throws Exception {
-		String deleteRecipeQuery = constructRecipeDeleteQuery(recipe, tableIdentifier);
+	public int deleteRecipe(Recipe recipe, TableType tabletype) throws Exception {
+		String deleteRecipeQuery = constructRecipeDeleteQuery(recipe, tabletype);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -630,8 +657,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, int tableIdentifier) throws Exception {
-		String deleteTranslatedRecipeQuery = constructTranslatedRecipeDeleteQuery(translatedRecipe, tableIdentifier);
+	public int deleteTranslatedRecipe(TranslatedRecipe translatedRecipe, TableType tabletype) throws Exception {
+		String deleteTranslatedRecipeQuery = constructTranslatedRecipeDeleteQuery(translatedRecipe, tabletype);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -650,8 +677,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) throws Exception {
-		String recipeQuery = constructRecipeUpdateQuery(currentRecipe, updatedRecipe, tableIdentifier);
+	public int updateRecipe(Recipe currentRecipe, Recipe updatedRecipe, TableType tabletype) throws Exception {
+		String recipeQuery = constructRecipeUpdateQuery(currentRecipe, updatedRecipe, tabletype);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -676,8 +703,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 
 	@Override
 	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe,
-			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) throws Exception {
-		String translatedRecipeQuery = constructTranslatedRecipeUpdateQuery(currentTranslatedRecipe, updatedTranslatedRecipe, tableIdentifier);
+			TranslatedRecipe updatedTranslatedRecipe, TableType tabletype) throws Exception {
+		String translatedRecipeQuery = constructTranslatedRecipeUpdateQuery(currentTranslatedRecipe, updatedTranslatedRecipe, tabletype);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;;
@@ -696,79 +723,97 @@ public class RecipesDAOImpl implements RecipesDAO {
 		return i;
 	}
 	
-	public String constructRecipeInsertQuery(Recipe recipe, int tableIdentifier){
+	
+	
+	public String constructRecipeInsertQuery(Recipe recipe, TableType tableType){
 		String query = "";
-		switch(tableIdentifier){
-			case 1:
+		switch(tableType){
+			case GREEK_TABLE:
 				query = "INSERT INTO app_greek_recipes (grrid) VALUES (" + recipe.getRid() + ");";
 				break;
-			case 2:
+			case GLOBAL_TABLE:
 				query = "INSERT INTO app_global_recipes (glrid) VALUES (" + recipe.getRid() + ");";
 				break;
-			case 3:
+			case SPANISH_TABLE:
 				query = "INSERT INTO app_spanish_recipes (sprid) VALUES (" + recipe.getRid() + ");";
 				break;
 		}
 		return query;
 	}
 	
-	public String constructRecipeDeleteQuery(Recipe recipe, int tableIdentifier){
+	public String constructRecipeDeleteQuery(Recipe recipe, TableType tableType){
 		String query = "";
-		switch(tableIdentifier){
-			case 1:
+		switch(tableType){
+			case GREEK_TABLE:
 				query = "DELETE FROM app_greek_recipes WHERE grrid = " + recipe.getRid() + ";";
 				break;
-			case 2:
+			case GLOBAL_TABLE:
 				query = "DELETE FROM app_global_recipes WHERE glrid = " + recipe.getRid() + ";";
 				break;
-			case 3:
+			case SPANISH_TABLE:
 				query = "DELETE FROM app_spanish_recipes WHERE sprid = " + recipe.getRid() + ";";
 				break;
 		}
 		return query;
 	}
 	
-	public String constructTranslatedRecipeDeleteQuery(TranslatedRecipe translatedRecipe, int tableIdentifier){
+	public String constructRecipeUpdateQuery(Recipe currentRecipe, Recipe updatedRecipe, TableType tableType) {
 		String query = "";
-		switch(tableIdentifier){
-			case 1:
-				query = " DELETE FROM app_greek_recipes_trans WHERE tgrrid = " + translatedRecipe.getTrid() + ";";
-				break;
-			case 2:
-				query = " DELETE FROM app_global_recipes_trans WHERE tglrid = " + translatedRecipe.getTrid() + ";";
-				break;
-			case 3:
-				query = " DELETE FROM app_spanish_recipes_trans WHERE tsprid = " + translatedRecipe.getTrid() + ";";
-				break;
-		}
-		return query;
-	}
-
-	public String constructRecipeUpdateQuery(Recipe currentRecipe, Recipe updatedRecipe, int tableIdentifier) {
-		String query = "";
-		switch (tableIdentifier) {
-		case 1:
+		switch (tableType) {
+		case GREEK_TABLE:
 			query = "UPDATE app_greek_recipes SET grrid = " + updatedRecipe.getRid() + " WHERE grrid = "
 					+ currentRecipe.getRid() + ";";
 			break;
-		case 2:
+		case GLOBAL_TABLE:
 			query = "UPDATE app_global_recipes SET glrid = " + updatedRecipe.getRid() + " WHERE glrid = "
 					+ currentRecipe.getRid() + ";";
 			break;
-		case 3:
+		case SPANISH_TABLE:
 			query = "UPDATE app_spanish_recipes SET sprid = " + updatedRecipe.getRid() + " WHERE sprid = "
 					+ currentRecipe.getRid() + ";";
 			break;
 		}
 		return query;
 	}
+	
+	public String constructRecipeViewTableQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "SELECT * FROM app_greek_recipes ORDER BY grrid";
+			break;
+		case GLOBAL_TABLE:
+			query = "SELECT * FROM app_global_recipes ORDER BY glrid";
+			break;
+		case SPANISH_TABLE:
+			query = "SELECT * FROM app_spanish_recipes ORDER BY sprid";
+			break;
+		}
+		return query;
+	}
+	
+	public String constructTranslatedRecipeDeleteQuery(TranslatedRecipe translatedRecipe, TableType tableType){
+		String query = "";
+		switch(tableType){
+			case GREEK_TABLE:
+				query = " DELETE FROM app_greek_recipes_trans WHERE tgrrid = " + translatedRecipe.getTrid() + ";";
+				break;
+			case GLOBAL_TABLE:
+				query = " DELETE FROM app_global_recipes_trans WHERE tglrid = " + translatedRecipe.getTrid() + ";";
+				break;
+			case SPANISH_TABLE:
+				query = " DELETE FROM app_spanish_recipes_trans WHERE tsprid = " + translatedRecipe.getTrid() + ";";
+				break;
+		}
+		return query;
+	}
 
 	public String constructTranslatedRecipeUpdateQuery(TranslatedRecipe currentTranslatedRecipe,
-			TranslatedRecipe updatedTranslatedRecipe, int tableIdentifier) {
+			TranslatedRecipe updatedTranslatedRecipe, TableType tableType) {
 		String query = "";
 		String set, where;
-		switch (tableIdentifier) {
-		case 1:
+		switch (tableType) {
+		case GREEK_TABLE:
 			query = "UPDATE app_greek_recipes_trans ";
 			
 			set = "SET ";
@@ -802,7 +847,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 2:
+		case GLOBAL_TABLE:
 			query = "UPDATE app_global_recipes_trans ";
 			set = "SET ";
 			if (updatedTranslatedRecipe.getTrid() != 0)
@@ -835,7 +880,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
 			break;
-		case 3:
+		case SPANISH_TABLE:
 			query = "UPDATE app_spanish_recipes_trans ";
 			set = "SET ";
 			if (updatedTranslatedRecipe.getTrid() != 0)

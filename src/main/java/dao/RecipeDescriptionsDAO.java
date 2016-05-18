@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import enumerations.TableType;
 import pojos.RecipeDescription;
 
 public interface RecipeDescriptionsDAO {
@@ -18,7 +19,7 @@ public interface RecipeDescriptionsDAO {
 
 	public int deleteSpanishRecipeDescription(RecipeDescription rd) throws Exception;
 	
-	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,RecipeDescription updatedRecipeDescription, int tableIdentifier) throws Exception;
+	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,RecipeDescription updatedRecipeDescription, TableType tableType) throws Exception;
 
 	public List<RecipeDescription> findGreekRecipesDescriptionGr() throws Exception;
 

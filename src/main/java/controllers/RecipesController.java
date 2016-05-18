@@ -1,12 +1,16 @@
 package controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import enumerations.TableType;
 import pojos.Language;
 import pojos.Recipe;
 import pojos.RecipeDescription;
@@ -21,10 +25,6 @@ import services.RecipesService;
 
 @Controller
 public class RecipesController {
-
-	private static final int GREEK_TABLE = 1;
-	private static final int GLOBAL_TABLE = 2;
-	private static final int SPANISH_TABLE = 3;
 
 	@Autowired
 	RecipesService recipeService;
@@ -41,7 +41,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(grrid);
-			success = recipeService.insertRecipe(recipe, GREEK_TABLE);
+			success = recipeService.insertRecipe(recipe, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(glrid);
-			success = recipeService.insertRecipe(recipe, GLOBAL_TABLE);
+			success = recipeService.insertRecipe(recipe, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -69,7 +69,7 @@ public class RecipesController {
 		int success = 0;
 		try {
 			Recipe recipe = new Recipe(sprid);
-			success = recipeService.insertRecipe(recipe, SPANISH_TABLE);
+			success = recipeService.insertRecipe(recipe, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -265,7 +265,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(grrid);
-			success = recipeService.deleteRecipe(recipe, GREEK_TABLE);
+			success = recipeService.deleteRecipe(recipe, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -281,7 +281,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(glrid);
-			success = recipeService.deleteRecipe(recipe, GLOBAL_TABLE);
+			success = recipeService.deleteRecipe(recipe, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -297,7 +297,7 @@ public class RecipesController {
 
 		try {
 			Recipe recipe = new Recipe(sprid);
-			success = recipeService.deleteRecipe(recipe, SPANISH_TABLE);
+			success = recipeService.deleteRecipe(recipe, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -313,7 +313,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tgrrid);
-			success = recipeService.deleteTranslatedRecipe(trRecipe, GREEK_TABLE);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -329,7 +329,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tglrid);
-			success = recipeService.deleteTranslatedRecipe(trRecipe, GLOBAL_TABLE);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -345,7 +345,7 @@ public class RecipesController {
 
 		try {
 			TranslatedRecipe trRecipe = new TranslatedRecipe(tsprid);
-			success = recipeService.deleteTranslatedRecipe(trRecipe, SPANISH_TABLE);
+			success = recipeService.deleteTranslatedRecipe(trRecipe, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -463,7 +463,7 @@ public class RecipesController {
 
 			Recipe currentRecipe = new Recipe(currentGrrid);
 			Recipe updatedRecipe = new Recipe(updatedGrrid);
-			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, GREEK_TABLE);
+			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -484,7 +484,7 @@ public class RecipesController {
 
 			Recipe currentRecipe = new Recipe(currentGlrid);
 			Recipe updatedRecipe = new Recipe(updatedGlrid);
-			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, GLOBAL_TABLE);
+			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -505,7 +505,7 @@ public class RecipesController {
 
 			Recipe currentRecipe = new Recipe(currentSprid);
 			Recipe updatedRecipe = new Recipe(updatedSprid);
-			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, SPANISH_TABLE);
+			success = recipeService.updateRecipe(currentRecipe, updatedRecipe, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -551,7 +551,7 @@ public class RecipesController {
 					updatedTranslatedCuisine, updatedTranslatedMethod, updatedLanguage, newgrrname);
 
 			success = recipeService.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe,
-					GREEK_TABLE);
+					TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -597,7 +597,7 @@ public class RecipesController {
 					updatedTranslatedCuisine, updatedTranslatedMethod, updatedLanguage, newglrname);
 
 			success = recipeService.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe,
-					GLOBAL_TABLE);
+					TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -643,7 +643,7 @@ public class RecipesController {
 					updatedTranslatedCuisine, updatedTranslatedMethod, updatedLanguage, newsprname);
 
 			success = recipeService.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe,
-					SPANISH_TABLE);
+					TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -680,7 +680,7 @@ public class RecipesController {
 					updatedTranslatedIngredient, newgrriquan);
 
 			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
-					GREEK_TABLE);
+					TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -717,7 +717,7 @@ public class RecipesController {
 					updatedTranslatedIngredient, newglriquan);
 
 			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
-					GLOBAL_TABLE);
+					TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -754,7 +754,7 @@ public class RecipesController {
 					updatedTranslatedIngredient, newspriquan);
 
 			success = recipeIngredientsService.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient,
-					SPANISH_TABLE);
+					TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -778,19 +778,22 @@ public class RecipesController {
 			updatedTgrrid = newtgrrid.equals("") ? 0 : Integer.parseInt(newtgrrid);
 
 			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTgrrid);
-			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGrdid,currentTranslatedRecipe,curgrrdesc);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGrdid, currentTranslatedRecipe,
+					curgrrdesc);
 
 			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTgrrid);
-			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGrfiid,updatedTranslatedRecipe,newgrrdesc);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGrfiid, updatedTranslatedRecipe,
+					newgrrdesc);
 
-			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,GREEK_TABLE);
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,
+					TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("updatedGreekRecipeDescriptionRowsAffected", success);
 		return "Update_Greek_Recipe";
 	}
-	
+
 	@RequestMapping(value = "updateGlobalRecipeDescription.ds", method = RequestMethod.POST)
 	public String updateGlobalRecipeDescription(@RequestParam("curglrdid") String curglrdid,
 			@RequestParam("curtglrid3") String curtglrid, @RequestParam("curglrdesc") String curglrdesc,
@@ -807,19 +810,22 @@ public class RecipesController {
 			updatedTglrid = newtglrid.equals("") ? 0 : Integer.parseInt(newtglrid);
 
 			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTglrid);
-			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGldid,currentTranslatedRecipe,curglrdesc);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentGldid, currentTranslatedRecipe,
+					curglrdesc);
 
 			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTglrid);
-			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGldid,updatedTranslatedRecipe,newglrdesc);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedGldid, updatedTranslatedRecipe,
+					newglrdesc);
 
-			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,GLOBAL_TABLE);
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,
+					TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("updatedGlobalRecipeDescriptionRowsAffected", success);
 		return "Update_Global_Recipe";
 	}
-	
+
 	@RequestMapping(value = "updateSpanishRecipeDescription.ds", method = RequestMethod.POST)
 	public String updateSpanishRecipeDescription(@RequestParam("cursprdid") String cursprdid,
 			@RequestParam("curtsprid3") String curtsprid, @RequestParam("cursprdesc") String cursprdesc,
@@ -836,17 +842,59 @@ public class RecipesController {
 			updatedTsprid = newtsprid.equals("") ? 0 : Integer.parseInt(newtsprid);
 
 			TranslatedRecipe currentTranslatedRecipe = new TranslatedRecipe(currentTsprid);
-			RecipeDescription currentRecipeDescription = new RecipeDescription(currentSprdid,currentTranslatedRecipe,cursprdesc);
+			RecipeDescription currentRecipeDescription = new RecipeDescription(currentSprdid, currentTranslatedRecipe,
+					cursprdesc);
 
 			TranslatedRecipe updatedTranslatedRecipe = new TranslatedRecipe(updatedTsprid);
-			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedSprdid,updatedTranslatedRecipe,newsprdesc);
+			RecipeDescription updatedRecipeDescription = new RecipeDescription(updatedSprdid, updatedTranslatedRecipe,
+					newsprdesc);
 
-			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,SPANISH_TABLE);
+			success = descriptionsService.updateRecipeDescription(currentRecipeDescription, updatedRecipeDescription,
+					TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		model.addAttribute("updatedSpanishRecipeDescriptionRowsAffected", success);
 		return "Update_Spanish_Recipe";
+	}
+
+	@RequestMapping("/viewGreekRecipesTable.ds")
+	public ModelAndView viewGreekRecipes(Model model) {
+		List<Recipe> recipes = null;
+		try {
+			recipes = recipeService.viewRecipesTable(TableType.GREEK_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Greek Recipes Table");
+		model.addAttribute("columnName", "Recipe ID");
+		return new ModelAndView("ViewRecipesTable", "recipeList", recipes);
+	}
+	
+	@RequestMapping("/viewGlobalRecipesTable.ds")
+	public ModelAndView viewGlobalRecipes(Model model) {
+		List<Recipe> recipes = null;
+		try {
+			recipes = recipeService.viewRecipesTable(TableType.GLOBAL_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Global Recipes Table");
+		model.addAttribute("columnName", "Recipe ID");
+		return new ModelAndView("ViewRecipesTable", "recipeList", recipes);
+	}
+	
+	@RequestMapping("/viewSpanishRecipesTable.ds")
+	public ModelAndView viewSpanishRecipes(Model model) {
+		List<Recipe> recipes = null;
+		try {
+			recipes = recipeService.viewRecipesTable(TableType.SPANISH_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Spanish Recipes Table");
+		model.addAttribute("columnName", "Recipe ID");
+		return new ModelAndView("ViewRecipesTable", "recipeList", recipes);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
+import enumerations.TableType;
 import impl.RecipeIngredientsDAOImpl;
 import pojos.RecipeIngredient;
 
@@ -64,8 +65,8 @@ public class RecipeIngredientsService {
 	}
 	
 	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient,
-			RecipeIngredient updatedRecipeIngredient, int tableIdentifier) throws Exception{
-		return recipeIngredientsDAOImpl.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient, tableIdentifier);
+			RecipeIngredient updatedRecipeIngredient,  TableType tableType) throws Exception{
+		return recipeIngredientsDAOImpl.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient, tableType);
 	}
 
 }

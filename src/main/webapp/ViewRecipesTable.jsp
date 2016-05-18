@@ -32,7 +32,7 @@ td {
 </head>
 <body>
 	<center>
-		<br /> <br /> <br />
+		<br />
 		<h3>
 			<b>${tableName}</b>
 		</h3>
@@ -41,9 +41,9 @@ td {
 			<tr>
 				<td class="heading"><h3>${columnName}</h3></td>
 			</tr>
-			<c:forEach var="user" items="${userList}">
+			<c:forEach var="recipe" items="${recipeList}">
 				<tr>
-					<td>${user.userId}</td>
+					<td>${recipe.rid}</td>
 				</tr>
 			</c:forEach>
 		</table>
