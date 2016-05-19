@@ -140,6 +140,51 @@ public class MethodsDAOImpl implements MethodsDAO {
 		}
 		return methodsList;
 	}
+	
+	public List<TranslatedMethod> findAllTranslatedMethods() throws Exception {
+		final String allGrSQL = "SELECT * FROM app_methods_trans ORDER BY tmid";
+		Class.forName(driver);
+		methodsList = findAllMethods();
+		localesList = ldi.findLocales();
+		translatedMethodsList = new ArrayList<TranslatedMethod>();
+		Connection con = DriverManager.getConnection(url, username, password);
+
+		try {
+
+			Statement ps = con.createStatement();
+			ResultSet rs = ps.executeQuery(allGrSQL);
+
+			while (rs.next()) {
+				TranslatedMethod tm = new TranslatedMethod();
+				tm.setTmid(rs.getInt(1));
+				for (int i = 0; i < methodsList.size(); i++)
+					if (rs.getInt(2) == methodsList.get(i).getMid()) {
+						tm.setMethod(methodsList.get(i));
+					}
+
+				for (int i = 0; i < localesList.size(); i++)
+					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
+						tm.setLocale(localesList.get(i));
+					}
+				tm.setMname(rs.getString(4));
+				translatedMethodsList.add(tm);
+			}
+			ps.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return translatedMethodsList;
+	}
 
 	public List<TranslatedMethod> findGrMethods() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_methods_trans WHERE locale = 'el' ORDER BY tmid";

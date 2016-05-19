@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import pojos.RequestObject;
 import pojos.TranslatedRecipe;
 import services.ResponseService;
@@ -22,12 +20,13 @@ public class ResponseController {
 	@Autowired
 	ResponseService responseService;
 	
-	 @RequestMapping(value = "test1.ds", method = RequestMethod.POST, produces = {
-             "application/json;charset=UTF-8", "text/xml;charset=UTF-8",
-             "application/x-www-form-urlencoded;charset=UTF-8"})
+	 @RequestMapping(value="/android.ds", method = RequestMethod.POST)
 	 public @ResponseBody List<TranslatedRecipe> recipeResponse(@RequestBody String requestObject) {
 		 Gson gson = new Gson();
 		 RequestObject requestObject1 = gson.fromJson(requestObject, RequestObject.class);
+		 System.out.println(requestObject1.toString());
+		 List<TranslatedRecipe> trans = responseService.recipesResponse(requestObject1);
+		 System.out.println(trans.size());
 		 return responseService.recipesResponse(requestObject1);
 	 }
 		 

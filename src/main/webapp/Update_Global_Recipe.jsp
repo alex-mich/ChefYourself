@@ -108,7 +108,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipesTrans"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesTransTable.ds">
+		<form action="./viewGlobalTranslatedRecipesTable.ds">
 			<br> <input type="submit" id="viewAppGlobalRecipesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

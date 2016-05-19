@@ -896,5 +896,57 @@ public class RecipesController {
 		model.addAttribute("columnName", "Recipe ID");
 		return new ModelAndView("ViewRecipesTable", "recipeList", recipes);
 	}
+	
+	@RequestMapping("/viewGreekTranslatedRecipesTable.ds")
+	public ModelAndView viewGreekTranslatedRecipes(Model model) {
+		List<TranslatedRecipe> recipes = null;
+		try {
+			recipes = recipeService.viewTranslatedRecipesTable(TableType.GREEK_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Greek Translated Recipes Table");model.addAttribute("columnName1", "Translated Recipe ID");
+		model.addAttribute("columnName4", "Recipe ID");
+		model.addAttribute("columnName2", "Translated Cuisine ID");
+		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("columnName5", "Locale");
+		model.addAttribute("columnName6", "Translated Recipe Name");
+		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
+	}
+	
+	@RequestMapping("/viewGlobalTranslatedRecipesTable.ds")
+	public ModelAndView viewGlobalTranslatedRecipes(Model model) {
+		List<TranslatedRecipe> recipes = null;
+		try {
+			recipes = recipeService.viewTranslatedRecipesTable(TableType.GLOBAL_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Global Translated Recipes Table");model.addAttribute("columnName1", "Translated Recipe ID");
+		model.addAttribute("columnName4", "Recipe ID");
+		model.addAttribute("columnName2", "Translated Cuisine ID");
+		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("columnName5", "Locale");
+		model.addAttribute("columnName6", "Translated Recipe Name");
+		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
+	}
+	
+	@RequestMapping("/viewSpanishTranslatedRecipesTable.ds")
+	public ModelAndView viewSpanishTranslatedRecipes(Model model) {
+		List<TranslatedRecipe> recipes = null;
+		try {
+			recipes = recipeService.viewTranslatedRecipesTable(TableType.SPANISH_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Spanish Translated Recipes Table");
+		model.addAttribute("columnName1", "Translated Recipe ID");
+		model.addAttribute("columnName4", "Recipe ID");
+		model.addAttribute("columnName2", "Translated Cuisine ID");
+		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("columnName5", "Locale");
+		model.addAttribute("columnName6", "Translated Recipe Name");
+		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
+	}
 
 }

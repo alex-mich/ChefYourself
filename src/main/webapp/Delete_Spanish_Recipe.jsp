@@ -65,7 +65,7 @@ body {
 			<br> <input type="submit" id="deleteSpanishRecipesTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppSpanishRecipesTransTable.ds">
+		<form action="./viewSpanishTranslatedRecipesTable.ds">
 			<br> <input type="submit" id="viewAppSpanishRecipesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

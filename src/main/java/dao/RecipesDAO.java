@@ -26,6 +26,8 @@ public interface RecipesDAO {
 
 	public List<Recipe> viewRecipesTable(TableType tabletype) throws Exception;
 	
+	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception;
+	
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception;
 
 	public List<TranslatedRecipe> findGreekRecipesEn() throws Exception;

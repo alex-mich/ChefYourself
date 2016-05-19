@@ -132,6 +132,52 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		}
 		return cuisinesList;
 	}
+	
+	public List<TranslatedCuisine> findAllTranslatedCuisines() throws Exception {
+
+		final String allGrSQL = "SELECT * FROM app_cuisines_trans ORDER BY tcid";
+		cuisinesList = findAllCuisines();
+		localesList = ldi.findLocales();
+		translatedCuisinesList = new ArrayList<TranslatedCuisine>();
+		Connection con = DriverManager.getConnection(url, username, password);
+
+		try {
+
+			Statement ps = con.createStatement();
+			ResultSet rs = ps.executeQuery(allGrSQL);
+
+			while (rs.next()) {
+				TranslatedCuisine tc = new TranslatedCuisine();
+				tc.setTcid(rs.getInt(1));
+				for (int i = 0; i < cuisinesList.size(); i++)
+					if (rs.getInt(2) == cuisinesList.get(i).getCid()) {
+						tc.setCuisine(cuisinesList.get(i));
+					}
+
+				for (int i = 0; i < localesList.size(); i++)
+					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
+						tc.setLocale(localesList.get(i));
+					}
+
+				tc.setCname(rs.getString(4));
+				translatedCuisinesList.add(tc);
+			}
+			ps.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return translatedCuisinesList;
+	}
 
 	public List<TranslatedCuisine> findGrCuisines() throws Exception {
 

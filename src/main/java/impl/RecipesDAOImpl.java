@@ -210,6 +210,51 @@ public class RecipesDAOImpl implements RecipesDAO {
 		}
 		return recipesList;
 	}
+	
+	@Override
+	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception {
+		String viewTranslatedRecipeTableQuery = constructTranslatedRecipeViewTableQuery(tableType);
+		List<TranslatedRecipe> translatedRecipesList = new ArrayList<TranslatedRecipe>();
+		List<Language> localeList = ldi.findLocales();
+		List<TranslatedMethod> translatedMethodsList = tmdi.findAllTranslatedMethods();
+		List<TranslatedCuisine> translatedCuisinesList = tcdi.findAllTranslatedCuisines();
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(viewTranslatedRecipeTableQuery);
+			while(resultSet.next()){
+				Recipe recipe = new Recipe(resultSet.getInt(2));
+				TranslatedCuisine translatedCuisine = new TranslatedCuisine();
+				TranslatedMethod translatedMethod = new TranslatedMethod();
+				Language locale = new Language();
+				for (int i = 0; i < translatedCuisinesList.size(); i++)
+					if (resultSet.getInt(3) == translatedCuisinesList.get(i).getTcid()) {
+						translatedCuisine.setTcid(resultSet.getInt(3));
+					}
+				for (int i = 0; i < translatedMethodsList.size(); i++)
+					if (resultSet.getInt(4) == translatedMethodsList.get(i).getTmid()) {
+						translatedMethod.setTmid(resultSet.getInt(4));
+					}
+				for (int i = 0; i < localeList.size(); i++)
+					if (resultSet.getString(5).equals(localeList.get(i).getLoc())) {
+						locale.setLoc(resultSet.getString(5));
+					}
+				TranslatedRecipe translatedRecipe = new TranslatedRecipe(resultSet.getInt(1),recipe,translatedCuisine,translatedMethod,locale,resultSet.getString(6));
+				translatedRecipesList.add(translatedRecipe);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+		}
+		return translatedRecipesList;
+	}
 
 	@Override
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception {
@@ -723,8 +768,6 @@ public class RecipesDAOImpl implements RecipesDAO {
 		return i;
 	}
 	
-	
-	
 	public String constructRecipeInsertQuery(Recipe recipe, TableType tableType){
 		String query = "";
 		switch(tableType){
@@ -918,4 +961,19 @@ public class RecipesDAOImpl implements RecipesDAO {
 		return query;
 	}
 
+	public String constructTranslatedRecipeViewTableQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "SELECT * FROM app_greek_recipes_trans ORDER BY tgrrid";
+			break;
+		case GLOBAL_TABLE:
+			query = "SELECT * FROM app_global_recipes_trans ORDER BY tglrid";
+			break;
+		case SPANISH_TABLE:
+			query = "SELECT * FROM app_spanish_recipes_trans ORDER BY tsprid";
+			break;
+		}
+		return query;
+	}
 }

@@ -35,6 +35,10 @@ public class RecipesService {
 	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
 		return recipesDAOImpl.viewRecipesTable(tableType);
 	}
+	
+	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception {
+		return recipesDAOImpl.viewTranslatedRecipesTable(tableType);
+	}
 
 	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception {
 		return recipesDAOImpl.findGreekRecipesGr();
