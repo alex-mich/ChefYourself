@@ -50,4 +50,8 @@ public class IngredientsService {
 	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient,TranslatedIngredient updatedTranslatedIngrediente) throws Exception {
 		return ingredientsDAOImpl.updateTranslatedIngredient(currentTranslatedIngredient,updatedTranslatedIngrediente);
 	}
+	
+	public List<Ingredient> viewIngredientsTable() throws Exception{
+		return ingredientsDAOImpl.viewIngredientsTable();
+	}
 }

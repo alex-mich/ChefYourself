@@ -109,34 +109,26 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	@Override
 	public List<Method> findAllMethods() throws Exception {
-		final String allSQL = "SELECT * FROM app_methods ORDER BY mid";
-		methodsList = new ArrayList<Method>();
+		String viewMethodsTableQuery = "SELECT * FROM app_methods ORDER BY mid";
+		List<Method> methodsList = new ArrayList<Method>();
 		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
 		try {
-
-			Statement ps = con.createStatement();
-			ResultSet rs = ps.executeQuery(allSQL);
-
-			while (rs.next()) {
-				Method m = new Method();
-				m.setMid(rs.getInt(1));
-				methodsList.add(m);
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(viewMethodsTableQuery);
+			while(resultSet.next()){
+				Method method = new Method(resultSet.getInt(1));
+				methodsList.add(method);
 			}
-			ps.close();
-			rs.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return methodsList;
 	}
@@ -379,6 +371,17 @@ public class MethodsDAOImpl implements MethodsDAO {
 		query += set + ";";
 			
 		return query;
+	}
+
+	@Override
+	public List<Method> viewMethodsTable() throws Exception {
+		return findAllMethods();
+	}
+
+	@Override
+	public List<TranslatedMethod> viewTranslatedMethodsTable() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

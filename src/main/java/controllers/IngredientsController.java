@@ -1,11 +1,15 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import pojos.Ingredient;
 import pojos.Language;
@@ -154,5 +158,19 @@ public class IngredientsController {
 		}
 		model.addAttribute("updatedTranslatedIngredientRowsAffected", success);
 		return "Update_Ingredient";
+	}
+	
+	@RequestMapping("/viewIngredientsTable.ds")
+	public ModelAndView viewIngredientsTable(Model model) {
+		List<Ingredient> ingredientsList = new ArrayList<Ingredient>();
+		try {
+			ingredientsList = ingredientsService.viewIngredientsTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Ingredients Table");
+		model.addAttribute("columnName1", "Ingredient ID");
+		model.addAttribute("columnName2", "Ingredient Type");
+		return new ModelAndView("ViewIngredientsTable", "ingredientsList", ingredientsList);
 	}
 }

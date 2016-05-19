@@ -112,34 +112,26 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 
 	@Override
 	public List<Ingredient> findAllIngredients() throws Exception {
-		final String allSQL = "SELECT * FROM app_ingredients ORDER BY inid";
-		ingredientsList = new ArrayList<Ingredient>();
-		Connection con = DriverManager.getConnection(url, username, password);
-
+		String viewIngredientsTableQuery = "SELECT * FROM app_ingredients ORDER BY inid";
+		List<Ingredient> ingredientsList = new ArrayList<Ingredient>();
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
 		try {
-
-			Statement ps = con.createStatement();
-			ResultSet rs = ps.executeQuery(allSQL);
-
-			while (rs.next()) {
-				Ingredient in = new Ingredient();
-				in.setInid(rs.getInt(1));
-				in.setItype(rs.getString(2));
-				ingredientsList.add(in);
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(viewIngredientsTableQuery);
+			while(resultSet.next()){
+				Ingredient ingredient = new Ingredient(resultSet.getInt(1),resultSet.getString(2));
+				ingredientsList.add(ingredient);
 			}
-			ps.close();
-			rs.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return ingredientsList;
 	}
@@ -307,6 +299,11 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	return i;
 	}
 	
+	@Override
+	public List<Ingredient> viewIngredientsTable() throws Exception {
+			return findAllIngredients();
+		}
+	
 	public String constructIngredientQuery(Ingredient currentIngredient, Ingredient updatedIngredient){
 		String query = "UPDATE app_ingredients ";
 		
@@ -359,6 +356,12 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 		query += set + ";";
 			
 		return query;
+	}
+
+	@Override
+	public List<TranslatedIngredient> viewTranslatedIngredientsTable() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

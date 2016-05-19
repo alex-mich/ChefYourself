@@ -39,7 +39,7 @@ body {
 			<br> <input type="submit" id="insertAppCuisines" value="INSERT"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppCuisinesTable.ds" target="_blank">
+		<form action="./viewCuisinesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppCuisinesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>

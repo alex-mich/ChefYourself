@@ -50,4 +50,9 @@ public class MethodsService {
 	public int updateTranslatedMethod(TranslatedMethod currentTranslatedMethod, TranslatedMethod updatedTranslatedMethod) throws Exception {
 		return methodsDAOImpl.updateTranslatedMethod(currentTranslatedMethod,updatedTranslatedMethod);
 	}
+	
+	public List<Method> viewMethodsTable() throws Exception {
+		return methodsDAOImpl.viewMethodsTable();	
+	}
+	
 }

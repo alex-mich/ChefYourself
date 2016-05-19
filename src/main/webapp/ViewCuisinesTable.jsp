@@ -38,8 +38,7 @@ td {
 		<br>
 		<table border="1">
 			<tr>
-				<td class="heading"><h3>${columnName1}</h3></td>
-				<td class="heading"><h3>${columnName2}</h3></td>
+				<td class="heading"><h3>${columnName}</h3></td>
 			</tr>
 			<c:forEach var="cuisine" items="${cuisinesList}">
 				<tr>

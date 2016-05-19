@@ -19,10 +19,13 @@ public interface MethodsDAO {
 
 	public int updateTranslatedMethod(TranslatedMethod currentTranslatedMethod, TranslatedMethod updatedTranslatedMethod) throws Exception;
 
+	public List<Method> viewMethodsTable() throws Exception;
+	
+	public List<TranslatedMethod> viewTranslatedMethodsTable() throws Exception;
+	
 	public List<Method> findAllMethods() throws Exception;
 
 	public List<TranslatedMethod> findGrMethods() throws Exception;
 
 	public List<TranslatedMethod> findEnMethods() throws Exception;
-
 }

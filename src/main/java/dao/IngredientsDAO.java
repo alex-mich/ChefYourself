@@ -18,11 +18,14 @@ public interface IngredientsDAO {
 	public int updateIngredient(Ingredient currentIngredient, Ingredient updatedIngredient) throws Exception;
 
 	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient, TranslatedIngredient updatedTranslatedIngredient) throws Exception;
-
+	
+	public List<Ingredient> viewIngredientsTable() throws Exception;
+	
+	public List<TranslatedIngredient> viewTranslatedIngredientsTable() throws Exception;
+	
 	public List<Ingredient> findAllIngredients() throws Exception;
 
 	public List<TranslatedIngredient> findGrIngredients() throws Exception;
 
 	public List<TranslatedIngredient> findEnIngredients() throws Exception;
-
 }

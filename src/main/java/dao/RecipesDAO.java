@@ -24,7 +24,7 @@ public interface RecipesDAO {
 
 	public int updateTranslatedRecipe(TranslatedRecipe currentTranslatedRecipe, TranslatedRecipe updatedTranslatedRecipe, TableType tabletype) throws Exception;
 
-	public List<Recipe> viewRecipesTable(TableType tabletype) throws Exception;
+	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception;
 	
 	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception;
 	

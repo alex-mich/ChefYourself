@@ -39,7 +39,7 @@ body {
 			<br> <input type="submit" id="insertAppMethods" value="INSERT"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppMethodsTable" target="_blank">
+		<form action="./viewMethodsTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppMethodsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
@@ -74,7 +74,7 @@ body {
 			<br> <input type="submit" id="insertAppMethodsTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppMethodsTransTable.ds" target="_blank">
+		<form action="./viewMethodsTransTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppMethodsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

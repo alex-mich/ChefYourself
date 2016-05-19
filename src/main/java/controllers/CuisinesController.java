@@ -1,11 +1,15 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import pojos.Cuisine;
 import pojos.Language;
@@ -136,5 +140,18 @@ public class CuisinesController {
 		}
 		model.addAttribute("updatedTranslatedCuisineRowsAffected", success);
 		return "Update_Cuisine";
+	}
+	
+	@RequestMapping("/viewCuisinesTable.ds")
+	public ModelAndView viewCuisinesTable(Model model) {
+		List<Cuisine> cuisinesList = new ArrayList<Cuisine>();
+		try {
+			cuisinesList = cuisinesService.viewCuisinesTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Cuisines Table");
+		model.addAttribute("columnName", "Cuisine ID");
+		return new ModelAndView("ViewCuisinesTable", "cuisinesList", cuisinesList);
 	}
 }

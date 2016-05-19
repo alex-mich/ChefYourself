@@ -41,7 +41,7 @@ body {
 			<br> <input type="submit" id="deleteAppMethods" value="DELETE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppMethodsTable" target="_blank">
+		<form action="./viewMethodsTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppMethodsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>

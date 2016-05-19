@@ -1,11 +1,15 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import pojos.Language;
 import pojos.Method;
@@ -150,6 +154,19 @@ public class MethodsController {
 		}
 		model.addAttribute("updatedTranslatedMethodRowsAffected", success);
 		return "Update_Method";
+	}
+	
+	@RequestMapping("/viewMethodsTable.ds")
+	public ModelAndView viewMethodsTable(Model model) {
+		List<Method> methodsList = new ArrayList<Method>();
+		try {
+			methodsList = methodsService.viewMethodsTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Methods Table");
+		model.addAttribute("columnName", "Method ID");
+		return new ModelAndView("ViewMethodsTable", "methodsList", methodsList);
 	}
 	
 }

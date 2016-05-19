@@ -103,32 +103,26 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 
 	@Override
 	public List<Cuisine> findAllCuisines() throws Exception {
-		final String allGrSQL = "SELECT * FROM app_cuisines ORDER BY cid";
-		cuisinesList = new ArrayList<Cuisine>();
-		Connection con = DriverManager.getConnection(url, username, password);
-		Statement stmt;
-		ResultSet rs;
+		String viewCuisinesTableQuery = "SELECT * FROM app_cuisines ORDER BY cid";
+		List<Cuisine> cuisinesList = new ArrayList<Cuisine>();
+		Class.forName(driver);
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
 		try {
+			con = DriverManager.getConnection(url, username, password);
 			stmt = con.createStatement();
-			rs = stmt.executeQuery(allGrSQL);
-			while (rs.next()) {
-				Cuisine c = new Cuisine();
-				c.setCid(rs.getInt(1));
-				cuisinesList.add(c);
+			resultSet = stmt.executeQuery(viewCuisinesTableQuery);
+			while(resultSet.next()){
+				Cuisine cuisine = new Cuisine(resultSet.getInt(1));
+				cuisinesList.add(cuisine);
 			}
-			stmt.close();
-			rs.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
+			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return cuisinesList;
 	}
@@ -380,6 +374,17 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		query += set + ";";
 			
 		return query;
+	}
+
+	@Override
+	public List<Cuisine> viewCuisinesTable() throws Exception {
+		return findAllCuisines();
+	}
+
+	@Override
+	public List<TranslatedCuisine> viewTranslatedCuisinesTable() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

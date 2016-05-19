@@ -51,4 +51,7 @@ public class CuisinesService {
 		return cuisinesDAOImpl.updateTranslatedCuisine(currentTranslatedCuisine,updatedTranslatedCuisine);
 	}
 	
+	public List<Cuisine> viewCuisinesTable() throws Exception {
+		return cuisinesDAOImpl.viewCuisinesTable();	
+	}
 }

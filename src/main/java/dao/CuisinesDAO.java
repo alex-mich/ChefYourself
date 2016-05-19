@@ -19,10 +19,13 @@ public interface CuisinesDAO {
 
 	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine,TranslatedCuisine updatedTranslatedCuisine) throws Exception;
 
+	public List<Cuisine> viewCuisinesTable() throws Exception;
+	
+	public List<TranslatedCuisine> viewTranslatedCuisinesTable() throws Exception;
+	
 	public List<Cuisine> findAllCuisines() throws Exception;
 
 	public List<TranslatedCuisine> findGrCuisines() throws Exception;
 
 	public List<TranslatedCuisine> findEnCuisines() throws Exception;
-
 }
