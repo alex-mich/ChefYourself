@@ -13,7 +13,7 @@ public class LanguagesService {
 
 	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 	LanguagesDAOImpl localeDAOImpl = (LanguagesDAOImpl) context.getBean("localeDAOImpl");
-	
+
 	public int insertLocale(Language locale) throws Exception {
 		return localeDAOImpl.insertLocale(locale);
 	}
@@ -25,8 +25,12 @@ public class LanguagesService {
 	public int deleteLocale(Language language) throws Exception {
 		return localeDAOImpl.deleteLocale(language);
 	}
-	
+
 	public int updateLocale(Language currentLanguage, Language updatedLanguage) throws Exception {
-		return localeDAOImpl.updateLocale(currentLanguage,updatedLanguage);
+		return localeDAOImpl.updateLocale(currentLanguage, updatedLanguage);
+	}
+
+	public List<Language> viewLanguagesTable() throws Exception {
+		return localeDAOImpl.viewLanguagesTable();
 	}
 }

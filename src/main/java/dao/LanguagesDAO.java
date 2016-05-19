@@ -14,4 +14,6 @@ public interface LanguagesDAO {
 
 	public List<Language> findLocales() throws Exception;
 	
+	public List<Language> viewLanguagesTable() throws Exception;
+	
 }

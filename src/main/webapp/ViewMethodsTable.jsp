@@ -35,7 +35,6 @@ td {
 		<h3>
 			<b>${tableName}</b>
 		</h3>
-		<br>
 		<table border="1">
 			<tr>
 				<td class="heading"><h3>${columnName}</h3></td>

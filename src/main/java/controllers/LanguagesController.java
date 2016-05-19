@@ -1,11 +1,15 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import pojos.Language;
 import services.LanguagesService;
@@ -72,5 +76,20 @@ public class LanguagesController {
 		}
 		model.addAttribute("updatedLanguageRowsAffected", success);
 		return "Update_Locale";
+	}
+
+	@RequestMapping("/viewLanguagesTable.ds")
+	public ModelAndView viewLanguagesTable(Model model) {
+		List<Language> languagesList = new ArrayList<Language>();
+		try {
+			languagesList = languagesService.viewLanguagesTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Cuisines Table");
+		model.addAttribute("columnName1", "Locale ID");
+		model.addAttribute("columnName2", "Locale");
+		model.addAttribute("columnName3", "Language");
+		return new ModelAndView("ViewLanguagesTable", "languagesList", languagesList);
 	}
 }

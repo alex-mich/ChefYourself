@@ -166,6 +166,12 @@ public class LanguagesDAOImpl implements LanguagesDAO {
 		return query;
 	}
 
+	@Override
+	public List<Language> viewLanguagesTable() throws Exception {
+		
+		return findLocales();
+	}
+
 }
 
 	
