@@ -100,8 +100,8 @@ public class IngredientsController {
 			} else
 				updatedInid = Integer.parseInt(newinid);
 
-			Ingredient currentIngredient = new Ingredient(currentInid,curitype);
-			Ingredient updatedIngredient = new Ingredient(updatedInid,newitype);
+			Ingredient currentIngredient = new Ingredient(currentInid, curitype);
+			Ingredient updatedIngredient = new Ingredient(updatedInid, newitype);
 			success = ingredientsService.updateIngredient(currentIngredient, updatedIngredient);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -159,7 +159,7 @@ public class IngredientsController {
 		model.addAttribute("updatedTranslatedIngredientRowsAffected", success);
 		return "Update_Ingredient";
 	}
-	
+
 	@RequestMapping("/viewIngredientsTable.ds")
 	public ModelAndView viewIngredientsTable(Model model) {
 		List<Ingredient> ingredientsList = new ArrayList<Ingredient>();
@@ -172,5 +172,22 @@ public class IngredientsController {
 		model.addAttribute("columnName1", "Ingredient ID");
 		model.addAttribute("columnName2", "Ingredient Type");
 		return new ModelAndView("ViewIngredientsTable", "ingredientsList", ingredientsList);
+	}
+
+	@RequestMapping("/viewTranslatedIngredientsTable.ds")
+	public ModelAndView viewTranslatedIngredientsTable(Model model) {
+		List<TranslatedIngredient> translatedIngredientsList = new ArrayList<TranslatedIngredient>();
+		try {
+			translatedIngredientsList = ingredientsService.viewTranslatedIngredientsTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Translated Ingredients Table");
+		model.addAttribute("columnName1", "Translated Ingredient ID");
+		model.addAttribute("columnName2", "Ingredient ID");
+		model.addAttribute("columnName3", "Locale");
+		model.addAttribute("columnName4", "Ingredient Name");
+		return new ModelAndView("ViewTranslatedIngredientsTable", "translatedIngredientsList",
+				translatedIngredientsList);
 	}
 }

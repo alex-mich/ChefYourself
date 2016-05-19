@@ -122,16 +122,31 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 			con = DriverManager.getConnection(url, username, password);
 			stmt = con.createStatement();
 			resultSet = stmt.executeQuery(viewIngredientsTableQuery);
-			while(resultSet.next()){
-				Ingredient ingredient = new Ingredient(resultSet.getInt(1),resultSet.getString(2));
+			while (resultSet.next()) {
+				Ingredient ingredient = new Ingredient(resultSet.getInt(1), resultSet.getString(2));
 				ingredientsList.add(ingredient);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+			if (resultSet != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 		return ingredientsList;
 	}
@@ -266,7 +281,7 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 
 	@Override
 	public int updateIngredient(Ingredient currentIngredient, Ingredient updatedIngredient) throws Exception {
-		String ingredientUpdate = constructIngredientQuery(currentIngredient,updatedIngredient);
+		String ingredientUpdate = constructIngredientQuery(currentIngredient, updatedIngredient);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -278,13 +293,14 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	return i;
+		return i;
 	}
 
 	@Override
 	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient,
 			TranslatedIngredient updatedTranslatedIngredient) throws Exception {
-		String translatedIngredientUpdate = constructTranslatedIngredientQuery(currentTranslatedIngredient,updatedTranslatedIngredient);
+		String translatedIngredientUpdate = constructTranslatedIngredientQuery(currentTranslatedIngredient,
+				updatedTranslatedIngredient);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -296,72 +312,118 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	return i;
+		return i;
 	}
-	
+
 	@Override
 	public List<Ingredient> viewIngredientsTable() throws Exception {
-			return findAllIngredients();
-		}
-	
-	public String constructIngredientQuery(Ingredient currentIngredient, Ingredient updatedIngredient){
+		return findAllIngredients();
+	}
+
+	public String constructIngredientQuery(Ingredient currentIngredient, Ingredient updatedIngredient) {
 		String query = "UPDATE app_ingredients ";
-		
-		String set= "SET ";
-		if(updatedIngredient.getInid() != 0)
-			set += "inid=" + updatedIngredient.getInid() +", ";
-		if(!updatedIngredient.getItype().equals(""))
-			set += "itype='" + updatedIngredient.getItype() +"', ";
-			set = (String) set.substring(0, set.length()-2);
-		
+
+		String set = "SET ";
+		if (updatedIngredient.getInid() != 0)
+			set += "inid=" + updatedIngredient.getInid() + ", ";
+		if (!updatedIngredient.getItype().equals(""))
+			set += "itype='" + updatedIngredient.getItype() + "', ";
+		set = (String) set.substring(0, set.length() - 2);
+
 		String where = "WHERE ";
-		if(currentIngredient.getInid() != 0)
-			where += "inid=" + currentIngredient.getInid() +" AND ";
-		if(!currentIngredient.getItype().equals(""))
-			where += "itype='" + currentIngredient.getItype() +"' AND ";
-			where = (String) where.substring(0, where.length()-5);
-		
+		if (currentIngredient.getInid() != 0)
+			where += "inid=" + currentIngredient.getInid() + " AND ";
+		if (!currentIngredient.getItype().equals(""))
+			where += "itype='" + currentIngredient.getItype() + "' AND ";
+		where = (String) where.substring(0, where.length() - 5);
+
 		set += where;
 		query += set + ";";
-			
+
 		return query;
 	}
-	
-	public String constructTranslatedIngredientQuery(TranslatedIngredient currentTranslatedIngredient, TranslatedIngredient updatedTranslatedIngredient){
+
+	public String constructTranslatedIngredientQuery(TranslatedIngredient currentTranslatedIngredient,
+			TranslatedIngredient updatedTranslatedIngredient) {
 		String query = "UPDATE app_ingredients_trans ";
-		
-		String set= "SET ";
-		if(updatedTranslatedIngredient.getTinid() != 0)
-			set += "tinid=" + updatedTranslatedIngredient.getTinid() +", ";
-		if(updatedTranslatedIngredient.getIngredient().getInid() != 0)
-			set += "inid=" + updatedTranslatedIngredient.getIngredient().getInid() +", ";
-		if(!updatedTranslatedIngredient.getLocale().getLoc().equals(""))
-			set += "locale='" + updatedTranslatedIngredient.getLocale().getLoc() +"', ";
-		if(!updatedTranslatedIngredient.getIname().equals(""))
-			set += "iname='" + updatedTranslatedIngredient.getIname() +"', ";
-			set = (String) set.substring(0, set.length()-2);
-		
+
+		String set = "SET ";
+		if (updatedTranslatedIngredient.getTinid() != 0)
+			set += "tinid=" + updatedTranslatedIngredient.getTinid() + ", ";
+		if (updatedTranslatedIngredient.getIngredient().getInid() != 0)
+			set += "inid=" + updatedTranslatedIngredient.getIngredient().getInid() + ", ";
+		if (!updatedTranslatedIngredient.getLocale().getLoc().equals(""))
+			set += "locale='" + updatedTranslatedIngredient.getLocale().getLoc() + "', ";
+		if (!updatedTranslatedIngredient.getIname().equals(""))
+			set += "iname='" + updatedTranslatedIngredient.getIname() + "', ";
+		set = (String) set.substring(0, set.length() - 2);
+
 		String where = "WHERE ";
-		if(currentTranslatedIngredient.getTinid() != 0)
-			where += "tinid=" + currentTranslatedIngredient.getTinid() +" AND ";
-		if(currentTranslatedIngredient.getIngredient().getInid() != 0)
-			where += "inid=" + currentTranslatedIngredient.getIngredient().getInid() +" AND ";
-		if(!currentTranslatedIngredient.getLocale().getLoc().equals(""))
-			where += "locale='" + currentTranslatedIngredient.getLocale().getLoc() +"' AND ";
-		if(!currentTranslatedIngredient.getIname().equals(""))
-			where += "iname='" + currentTranslatedIngredient.getIname() +"' AND ";
-			where = (String) where.substring(0, where.length()-5);
-		
+		if (currentTranslatedIngredient.getTinid() != 0)
+			where += "tinid=" + currentTranslatedIngredient.getTinid() + " AND ";
+		if (currentTranslatedIngredient.getIngredient().getInid() != 0)
+			where += "inid=" + currentTranslatedIngredient.getIngredient().getInid() + " AND ";
+		if (!currentTranslatedIngredient.getLocale().getLoc().equals(""))
+			where += "locale='" + currentTranslatedIngredient.getLocale().getLoc() + "' AND ";
+		if (!currentTranslatedIngredient.getIname().equals(""))
+			where += "iname='" + currentTranslatedIngredient.getIname() + "' AND ";
+		where = (String) where.substring(0, where.length() - 5);
+
 		set += where;
 		query += set + ";";
-			
+
 		return query;
 	}
 
 	@Override
 	public List<TranslatedIngredient> viewTranslatedIngredientsTable() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return findAllTranslatedIngredients();
+	}
+
+	@Override
+	public List<TranslatedIngredient> findAllTranslatedIngredients() throws Exception {
+		final String allGrSQL = "SELECT * FROM app_ingredients_trans ORDER BY tinid";
+		Class.forName(driver);
+		ingredientsList = findAllIngredients();
+		localeList = ldi.findLocales();
+		translatedIngredientsList = new ArrayList<TranslatedIngredient>();
+		Connection con = DriverManager.getConnection(url, username, password);
+
+		try {
+
+			Statement ps = con.createStatement();
+			ResultSet rs = ps.executeQuery(allGrSQL);
+
+			while (rs.next()) {
+				TranslatedIngredient ti = new TranslatedIngredient();
+				ti.setTinid(rs.getInt(1));
+				for (int i = 0; i < ingredientsList.size(); i++)
+					if (rs.getInt(2) == ingredientsList.get(i).getInid()) {
+						ti.setIngredient(ingredientsList.get(i));
+					}
+
+				for (int i = 0; i < localeList.size(); i++)
+					if (rs.getString(3).equals(localeList.get(i).getLoc())) {
+						ti.setLocale(localeList.get(i));
+					}
+				ti.setIname(rs.getString(4));
+				translatedIngredientsList.add(ti);
+			}
+			ps.close();
+			rs.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return translatedIngredientsList;
 	}
 
 }

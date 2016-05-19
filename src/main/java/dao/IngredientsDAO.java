@@ -24,6 +24,8 @@ public interface IngredientsDAO {
 	public List<TranslatedIngredient> viewTranslatedIngredientsTable() throws Exception;
 	
 	public List<Ingredient> findAllIngredients() throws Exception;
+	
+	public List<TranslatedIngredient> findAllTranslatedIngredients() throws Exception;
 
 	public List<TranslatedIngredient> findGrIngredients() throws Exception;
 

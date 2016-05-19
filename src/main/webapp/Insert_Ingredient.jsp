@@ -80,7 +80,7 @@ body {
 			<br> <input type="submit" id="insertAppIngredientsTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppIngredientsTransTable.ds" target="_blank">
+		<form action="./viewTranslatedIngredientsTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppIngredientsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
