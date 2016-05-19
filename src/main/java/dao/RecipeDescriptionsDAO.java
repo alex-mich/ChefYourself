@@ -32,4 +32,6 @@ public interface RecipeDescriptionsDAO {
 	public List<RecipeDescription> findSpanishRecipesDescriptionGr() throws Exception;
 
 	public List<RecipeDescription> findSpanishRecipesDescriptionEn() throws Exception;
+	
+	public List<RecipeDescription> viewRecipeDescriptionsTable(TableType tableType) throws Exception;
 }

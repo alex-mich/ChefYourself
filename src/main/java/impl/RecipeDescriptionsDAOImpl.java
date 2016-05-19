@@ -455,7 +455,8 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 	@Override
 	public int updateRecipeDescription(RecipeDescription currentRecipeDescription,
 			RecipeDescription updatedRecipeDescription, TableType tableType) throws ClassNotFoundException {
-		String recipeDescriptionQuery = constructRecipeDescriptionUpdateQuery(currentRecipeDescription, updatedRecipeDescription, tableType);
+		String recipeDescriptionQuery = constructRecipeDescriptionUpdateQuery(currentRecipeDescription,
+				updatedRecipeDescription, tableType);
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -468,12 +469,22 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 		return i;
 	}
-	
+
 	public String constructRecipeDescriptionUpdateQuery(RecipeDescription currentRecipeDescription,
 			RecipeDescription updatedRecipeDescription, TableType tableType) {
 		String query = "";
@@ -547,6 +558,74 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 			break;
 		}
 		return query;
+	}
+
+	public String contstuctRecipeDescriptionsQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "SELECT * FROM app_greek_recipes_description ORDER BY grrdid";
+			break;
+		case GLOBAL_TABLE:
+			query = "SELECT * FROM app_global_recipes_description ORDER BY glrdid";
+			break;
+		case SPANISH_TABLE:
+			query = "SELECT * FROM app_spanish_recipes_description ORDER BY sprdid";
+			break;
+		}
+		return query;
+	}
+
+	@Override
+	public List<RecipeDescription> viewRecipeDescriptionsTable(TableType tableType) throws Exception {
+		final String recipeDescriptionsTableQuery = contstuctRecipeDescriptionsQuery(tableType);
+		List<RecipeDescription> recipeDescriptionList = new ArrayList<RecipeDescription>();
+		List<TranslatedRecipe> translatedRecipesList = trdi.findAllTranslatedRecipesByCuisine(tableType);
+		Connection con = null;
+		Statement stmt = null;
+		ResultSet resultSet = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(recipeDescriptionsTableQuery);
+
+			while (resultSet.next()) {
+				RecipeDescription recipeDescription = new RecipeDescription();
+
+				recipeDescription.setRdid(resultSet.getInt(1));
+				for (int i = 0; i < translatedRecipesList.size(); i++)
+					if (resultSet.getInt(2) == translatedRecipesList.get(i).getTrid()) {
+						recipeDescription.setTrRecipe(translatedRecipesList.get(i));
+					}
+				recipeDescription.setDesc(resultSet.getString(3));
+				recipeDescriptionList.add(recipeDescription);
+			}
+			stmt.close();
+			resultSet.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null)
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return recipeDescriptionList;
 	}
 
 }

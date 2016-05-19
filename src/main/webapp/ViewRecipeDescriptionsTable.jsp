@@ -13,14 +13,6 @@ body {
 	font-family: Calibri;
 }
 
-td {
-	font-size: 15px;
-	color: black;
-	width: 150px;
-	height: 25px;
-	text-align: center;
-}
-
 .heading {
 	font-size: 18px;
 	color: white;
@@ -35,18 +27,22 @@ td {
 		<h3>
 			<b>${tableName}</b>
 		</h3>
-		<br>
 		<table border="1">
 			<tr>
-				<td class="heading"><h3>${columnName1}</h3></td>
-				<td class="heading"><h3>${columnName2}</h3></td>
-				<td class="heading"><h3>${columnName3}</h3></td>
+				<td class="heading"
+					style="font-size: 15px; color: black; width: 150px; height: 25px; text-align: center;"><h3>${columnName1}</h3></td>
+				<td class="heading"
+					style="font-size: 15px; color: black; width: 120px; height: 25px; text-align: center;"><h3>${columnName2}</h3></td>
+				<td class="heading"
+					style="font-size: 15px; color: black; width: 150px; height: 25px; text-align: center;"><h3>${columnName3}</h3></td>
 			</tr>
-			<c:forEach var="recipeDescription" items="${recipeDescriptionsList}">
+			<c:forEach var="RecipeDescription" items="${recipeDescriptionsList}">
 				<tr>
-					<td>${recipeDescription.rdid}</td>
-					<td>${recipeDescription.trRecipe.trid}</td>
-					<td>${recipeDescription.desc}</td>
+					<td
+						style="font-size: 15px; color: black; width: 150px; height: 25px; text-align: center;">${RecipeDescription.rdid}</td>
+					<td
+						style="font-size: 15px; color: black; width: 120px; height: 25px; text-align: center;">${RecipeDescription.trRecipe.trid}</td>
+					<td style="font-size: 15px; color: black; width: 700px; height: 25px; text-align: center;">${RecipeDescription.desc}</td>
 				</tr>
 			</c:forEach>
 		</table>
