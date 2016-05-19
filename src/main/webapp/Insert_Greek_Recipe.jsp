@@ -39,7 +39,7 @@ body {
 			<br> <input type="submit" id="insertGreekRecipe" value="INSERT"
 				style="height: 25px; width: 80px; font-size: 15px;" />
 		</form>
-		<form action="./viewGreekRecipesTable.ds">
+		<form action="./viewGreekRecipesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppGreekRecipesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;" />
@@ -86,7 +86,7 @@ body {
 			<br> <input type="submit" id="insertGreekRecipesTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewGreekTranslatedRecipesTable.ds">
+		<form action="./viewGreekTranslatedRecipesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppGreekRecipesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -126,7 +126,7 @@ body {
 			<br> <input type="submit" id="insertGreekRecipesIngredients"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGreekRecipesIngredients.ds">
+		<form action="./viewAppGreekRecipesIngredients.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -166,7 +166,7 @@ body {
 			<br> <input type="submit" id="insertGreekRecipesDescription"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGreekRecipesDescriptions.ds">
+		<form action="./viewAppGreekRecipesDescriptions.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

@@ -32,11 +32,10 @@ td {
 </head>
 <body>
 	<center>
-		<br />
 		<h3>
 			<b>${tableName}</b>
 		</h3>
-		<br /> <br />
+		<br>
 		<table border="1">
 			<tr>
 				<td class="heading"><h3>${columnName1}</h3></td>
@@ -44,7 +43,8 @@ td {
 				<td class="heading"><h3>${columnName3}</h3></td>
 				<td class="heading"><h3>${columnName4}</h3></td>
 			</tr>
-			<c:forEach var="translatedingredient" items="${translatedIngredientsList}">
+			<c:forEach var="translatedingredient"
+				items="${translatedIngredientsList}">
 				<tr>
 					<td>${translatedIngredient.tinid}</td>
 					<td>${translatedIngredient.ingredient.inid}</td>
@@ -54,5 +54,6 @@ td {
 			</c:forEach>
 		</table>
 	</center>
+	<br>
 </body>
 </html>

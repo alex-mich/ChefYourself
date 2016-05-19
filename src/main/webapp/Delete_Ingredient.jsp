@@ -41,7 +41,7 @@ body {
 			<br> <input type="submit" id="deleteAppIngredient"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppIngredientsTable.ds">
+		<form action="./viewAppIngredientsTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppIngredientsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
@@ -64,7 +64,7 @@ body {
 			<br> <input type="submit" id="deleteAppIngredientsTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppIngredientsTransTable.ds">
+		<form action="./viewAppIngredientsTransTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppIngredientsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

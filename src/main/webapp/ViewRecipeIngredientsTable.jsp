@@ -32,11 +32,10 @@ td {
 </head>
 <body>
 	<center>
-		<br />
 		<h3>
 			<b>${tableName}</b>
 		</h3>
-		<br /> <br />
+		<br>
 		<table border="1">
 			<tr>
 				<td class="heading"><h3>${columnName1}</h3></td>
@@ -54,5 +53,6 @@ td {
 			</c:forEach>
 		</table>
 	</center>
+	<br>
 </body>
 </html>

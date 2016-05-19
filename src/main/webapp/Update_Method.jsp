@@ -41,7 +41,7 @@ body {
 			<br> <input type="submit" id="updateAppMethods" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppMethodsTable">
+		<form action="./viewAppMethodsTable" target="_blank">
 			<br> <input type="submit" id="viewAppSpanishMethodsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
@@ -87,7 +87,7 @@ body {
 			<br> <input type="submit" id="updateAppMethodsTrans"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppMethodsTransTable.ds">
+		<form action="./viewAppMethodsTransTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppMethodsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

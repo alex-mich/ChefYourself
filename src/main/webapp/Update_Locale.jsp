@@ -58,7 +58,7 @@ body {
 			<br> <input type="submit" id="updateAppLocales" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppLocalesTable.ds">
+		<form action="./viewAppLocalesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppLocalesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>

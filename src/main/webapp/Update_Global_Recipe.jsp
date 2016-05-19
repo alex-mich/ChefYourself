@@ -41,7 +41,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipe" value="UPDATE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewGlobalRecipesTable.ds">
+		<form action="./viewGlobalRecipesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppGlobalRecipesTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -108,7 +108,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipesTrans"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewGlobalTranslatedRecipesTable.ds">
+		<form action="./viewGlobalTranslatedRecipesTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppGlobalRecipesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -161,7 +161,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipesIngredient"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesIngredients.ds">
+		<form action="./viewAppGlobalRecipesIngredients.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -211,7 +211,7 @@ body {
 			<br> <input type="submit" id="updateGlobalRecipesDescription"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesDescriptions.ds">
+		<form action="./viewAppGlobalRecipesDescriptions.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
