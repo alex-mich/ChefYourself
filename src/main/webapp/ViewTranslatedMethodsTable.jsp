@@ -43,12 +43,12 @@ td {
 				<td class="heading"><h3>${columnName3}</h3></td>
 				<td class="heading"><h3>${columnName4}</h3></td>
 			</tr>
-			<c:forEach var="translatedmethod" items="${translatedMethodsList}">
+			<c:forEach var="TranslatedMethod" items="${translatedMethodsList}">
 				<tr>
-					<td>${translatedMethod.tmid}</td>
-					<td>${translatedMethod.method.mid}</td>
-					<td>${translatedMethod.locale.loc}</td>
-					<td>${translatedMethod.mname}</td>
+					<td>${TranslatedMethod.tmid}</td>
+					<td>${TranslatedMethod.method.mid}</td>
+					<td>${TranslatedMethod.locale.loc}</td>
+					<td>${TranslatedMethod.mname}</td>
 				</tr>
 			</c:forEach>
 		</table>

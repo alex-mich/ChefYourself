@@ -24,6 +24,8 @@ public interface CuisinesDAO {
 	public List<TranslatedCuisine> viewTranslatedCuisinesTable() throws Exception;
 	
 	public List<Cuisine> findAllCuisines() throws Exception;
+	
+	public List<TranslatedCuisine> findAllTranslatedCuisines() throws Exception;
 
 	public List<TranslatedCuisine> findGrCuisines() throws Exception;
 

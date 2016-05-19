@@ -169,4 +169,20 @@ public class MethodsController {
 		return new ModelAndView("ViewMethodsTable", "methodsList", methodsList);
 	}
 	
+	@RequestMapping("/viewTranslatedMethodsTable.ds")
+	public ModelAndView viewTranslatedCuisinesTable(Model model) {
+		List<TranslatedMethod> translatedMethodsList = new ArrayList<TranslatedMethod>();
+		try {
+			translatedMethodsList = methodsService.viewTranslatedMethodsTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Translated Methods Table");
+		model.addAttribute("columnName1", "Translated Method ID");
+		model.addAttribute("columnName2", "Method ID");
+		model.addAttribute("columnName3", "Locale");
+		model.addAttribute("columnName4", "Method Name");
+		return new ModelAndView("ViewTranslatedMethodsTable", "translatedMethodsList", translatedMethodsList);
+	}
+	
 }

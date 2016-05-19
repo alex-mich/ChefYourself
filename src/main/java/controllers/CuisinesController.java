@@ -154,4 +154,20 @@ public class CuisinesController {
 		model.addAttribute("columnName", "Cuisine ID");
 		return new ModelAndView("ViewCuisinesTable", "cuisinesList", cuisinesList);
 	}
+	
+	@RequestMapping("/viewTranslatedCuisinesTable.ds")
+	public ModelAndView viewTranslatedCuisinesTable(Model model) {
+		List<TranslatedCuisine> translatedCuisinesList = new ArrayList<TranslatedCuisine>();
+		try {
+			translatedCuisinesList = cuisinesService.viewTranslatedCuisinesTable();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Translated Cuisines Table");
+		model.addAttribute("columnName1", "Translated Cuisine ID");
+		model.addAttribute("columnName2", "Cuisine ID");
+		model.addAttribute("columnName3", "Locale");
+		model.addAttribute("columnName4", "Cuisine Name");
+		return new ModelAndView("ViewTranslatedCuisinesTable", "translatedCuisinesList", translatedCuisinesList);
+	}
 }

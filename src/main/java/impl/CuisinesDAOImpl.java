@@ -127,6 +127,7 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		return cuisinesList;
 	}
 	
+	@Override
 	public List<TranslatedCuisine> findAllTranslatedCuisines() throws Exception {
 
 		final String allGrSQL = "SELECT * FROM app_cuisines_trans ORDER BY tcid";
@@ -383,8 +384,7 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 
 	@Override
 	public List<TranslatedCuisine> viewTranslatedCuisinesTable() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return findAllTranslatedCuisines();
 	}
 
 }

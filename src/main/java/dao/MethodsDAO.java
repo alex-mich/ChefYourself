@@ -24,6 +24,8 @@ public interface MethodsDAO {
 	public List<TranslatedMethod> viewTranslatedMethodsTable() throws Exception;
 	
 	public List<Method> findAllMethods() throws Exception;
+	
+	public List<TranslatedMethod> findAllTranslatedMethods() throws Exception;
 
 	public List<TranslatedMethod> findGrMethods() throws Exception;
 

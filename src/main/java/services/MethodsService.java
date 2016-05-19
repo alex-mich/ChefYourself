@@ -55,4 +55,8 @@ public class MethodsService {
 		return methodsDAOImpl.viewMethodsTable();	
 	}
 	
+	public List<TranslatedMethod> viewTranslatedMethodsTable() throws Exception {
+		return methodsDAOImpl.viewTranslatedMethodsTable();	
+	}
+	
 }

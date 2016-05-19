@@ -74,7 +74,7 @@ body {
 			<br> <input type="submit" id="insertAppMethodsTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewMethodsTransTable.ds" target="_blank">
+		<form action="./viewTranslatedMethodsTable.ds" target="_blank">
 			<br> <input type="submit" id="viewAppMethodsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

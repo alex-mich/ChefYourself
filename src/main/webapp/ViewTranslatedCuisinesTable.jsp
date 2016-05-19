@@ -43,7 +43,7 @@ td {
 				<td class="heading"><h3>${columnName3}</h3></td>
 				<td class="heading"><h3>${columnName4}</h3></td>
 			</tr>
-			<c:forEach var="translatedcuisine" items="${translatedCuisinsList}">
+			<c:forEach var="translatedCuisine" items="${translatedCuisinesList}">
 				<tr>
 					<td>${translatedCuisine.tcid}</td>
 					<td>${translatedCuisine.cuisine.cid}</td>

@@ -133,6 +133,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 		return methodsList;
 	}
 	
+	@Override
 	public List<TranslatedMethod> findAllTranslatedMethods() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_methods_trans ORDER BY tmid";
 		Class.forName(driver);
@@ -380,8 +381,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 
 	@Override
 	public List<TranslatedMethod> viewTranslatedMethodsTable() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return findAllTranslatedMethods();
 	}
 
 }
