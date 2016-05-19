@@ -68,5 +68,9 @@ public class RecipeIngredientsService {
 			RecipeIngredient updatedRecipeIngredient,  TableType tableType) throws Exception{
 		return recipeIngredientsDAOImpl.updateRecipeIngredient(currentRecipeIngredient, updatedRecipeIngredient, tableType);
 	}
+	
+	public List<RecipeIngredient> viewRecipeIngredientsTable(TableType tableType) throws Exception{
+		return recipeIngredientsDAOImpl.viewRecipeIngredientsTable(tableType);
+	}
 
 }

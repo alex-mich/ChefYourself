@@ -22,6 +22,8 @@ public interface RecipeIngredientsDAO {
 	
 	public int updateRecipeIngredient(RecipeIngredient currentRecipeIngredient, RecipeIngredient updatedRecipeIngredient, TableType tableType) throws Exception;
 
+	public List<RecipeIngredient> viewRecipeIngredientsTable(TableType tableType) throws Exception;
+	
 	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception;
 
 	public List<RecipeIngredient> findIngredientForGreekRecipesEn() throws Exception;

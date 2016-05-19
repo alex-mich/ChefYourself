@@ -170,7 +170,7 @@ public class MethodsController {
 	}
 	
 	@RequestMapping("/viewTranslatedMethodsTable.ds")
-	public ModelAndView viewTranslatedCuisinesTable(Model model) {
+	public ModelAndView viewTranslatedMethodsTable(Model model) {
 		List<TranslatedMethod> translatedMethodsList = new ArrayList<TranslatedMethod>();
 		try {
 			translatedMethodsList = methodsService.viewTranslatedMethodsTable();

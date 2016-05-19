@@ -27,7 +27,6 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	private String driver, url, username, password;
 	List<TranslatedRecipe> transRecipesList;
 	List<TranslatedIngredient> transIngredientsList;
-	List<RecipeIngredient> recipeIngredientsList;
 
 	public void setTrdi(RecipesDAOImpl trdi) {
 		this.trdi = trdi;
@@ -152,7 +151,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForGreekRecipesGr() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_greek_recipes_ingredients WHERE tgrrid % 2 = 1";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGreekRecipesGr();
 		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -197,7 +196,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForGreekRecipesEn() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_greek_recipes_ingredients WHERE tgrrid % 2 = 0";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGreekRecipesEn();
 		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -242,7 +241,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForGlobalRecipesGr() throws Exception {
 		final String allGlSQL = "SELECT * FROM app_global_recipes_ingredients WHERE tglrid % 2 = 1";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGlobalRecipesGr();
 		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -287,7 +286,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForGlobalRecipesEn() throws Exception {
 		final String allGlSQL = "SELECT * FROM app_global_recipes_ingredients WHERE tglrid % 2 = 0";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient>  recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGlobalRecipesEn();
 		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -332,7 +331,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForSpanishRecipesGr() throws Exception {
 		final String allSpSQL = "SELECT * FROM app_spanish_recipes_ingredients WHERE tsprid % 2 = 1";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findSpanishRecipesGr();
 		transIngredientsList = tidi.findGrIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -377,7 +376,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForSpanishRecipesEn() throws Exception {
 		final String allSpSQL = "SELECT * FROM app_spanish_recipes_ingredients WHERE tsprid % 2 = 0";
-		recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findSpanishRecipesEn();
 		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -415,6 +414,48 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 					e.printStackTrace();
 				}
 			}
+		}
+		return recipeIngredientsList;
+	}
+	
+	@Override
+	public List<RecipeIngredient> viewRecipeIngredientsTable(TableType tableType) throws Exception {
+		final String recipeIngredientsTableQuery = contstuctRecipeIngredientsTable(tableType);
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<TranslatedRecipe> translatedRecipesList = trdi.findAllTranslatedRecipesByCuisine(tableType);
+		List<TranslatedIngredient>  translatedIngredientsList = tidi.findAllTranslatedIngredients();
+		Connection con = null;
+		Statement stmt= null;
+		ResultSet resultSet = null;
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(recipeIngredientsTableQuery);
+
+			while (resultSet.next()) {
+				RecipeIngredient recipeIngredient = new RecipeIngredient();
+
+				recipeIngredient.setRiid(resultSet.getInt(1));
+				for (int i = 0; i < translatedRecipesList.size(); i++)
+					if (resultSet.getInt(2) == translatedRecipesList.get(i).getTrid()) {
+						recipeIngredient.setTrRecipe(translatedRecipesList.get(i));
+					}
+				for (int i = 0; i < translatedIngredientsList.size(); i++)
+					if (resultSet.getInt(3) == (translatedIngredientsList.get(i).getTinid())) {
+						recipeIngredient.setTrIngredient(translatedIngredientsList.get(i));
+					}
+				recipeIngredient.setQuan(resultSet.getString(4));
+				recipeIngredientsList.add(recipeIngredient);
+			}
+			stmt.close();
+			resultSet.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null) try { resultSet.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
+			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
 		}
 		return recipeIngredientsList;
 	}
@@ -508,6 +549,22 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 				}
 		}
 		return i;
+	}
+	
+	public String contstuctRecipeIngredientsTable(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "SELECT * FROM app_greek_recipes_ingredients ORDER BY griid";
+			break;
+		case GLOBAL_TABLE:
+			query = "SELECT * FROM app_global_recipes_ingredients ORDER BY gliid";
+			break;
+		case SPANISH_TABLE:
+			query = "SELECT * FROM app_spanish_recipes_ingredients ORDER BY spiid";
+			break;
+		}
+		return query;
 	}
 
 	public String constructTranslatedRecipeUpdateQuery(RecipeIngredient currentRecipeIngredient,

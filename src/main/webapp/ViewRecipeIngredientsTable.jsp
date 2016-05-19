@@ -43,12 +43,12 @@ td {
 				<td class="heading"><h3>${columnName3}</h3></td>
 				<td class="heading"><h3>${columnName4}</h3></td>
 			</tr>
-			<c:forEach var="recipeingredient" items="${recipeIngredientsList}">
+			<c:forEach var="RecipeIngredient" items="${recipeIngredientsList}">
 				<tr>
-					<td>${recipeIngredient.riid}</td>
-					<td>${recipeIngredient.trRecipe.trid}</td>
-					<td>${recipeIngredient.trIngredient.tinid}</td>
-					<td>${recipeIngredient.trIngredient.quan}</td>
+					<td>${RecipeIngredient.riid}</td>
+					<td>${RecipeIngredient.trRecipe.trid}</td>
+					<td>${RecipeIngredient.trIngredient.tinid}</td>
+					<td>${RecipeIngredient.quan}</td>
 				</tr>
 			</c:forEach>
 		</table>

@@ -905,10 +905,11 @@ public class RecipesController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("tableName", "Greek Translated Recipes Table");model.addAttribute("columnName1", "Translated Recipe ID");
-		model.addAttribute("columnName4", "Recipe ID");
-		model.addAttribute("columnName2", "Translated Cuisine ID");
-		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("tableName", "Greek Translated Recipes Table");
+		model.addAttribute("columnName1", "Translated Recipe ID");
+		model.addAttribute("columnName2", "Recipe ID");
+		model.addAttribute("columnName3", "Translated Cuisine ID");
+		model.addAttribute("columnName4", "Translated Method ID");
 		model.addAttribute("columnName5", "Locale");
 		model.addAttribute("columnName6", "Translated Recipe Name");
 		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
@@ -922,10 +923,11 @@ public class RecipesController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("tableName", "Global Translated Recipes Table");model.addAttribute("columnName1", "Translated Recipe ID");
-		model.addAttribute("columnName4", "Recipe ID");
-		model.addAttribute("columnName2", "Translated Cuisine ID");
-		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("tableName", "Global Translated Recipes Table");
+		model.addAttribute("columnName1", "Translated Recipe ID");
+		model.addAttribute("columnName2", "Recipe ID");
+		model.addAttribute("columnName3", "Translated Cuisine ID");
+		model.addAttribute("columnName4", "Translated Method ID");
 		model.addAttribute("columnName5", "Locale");
 		model.addAttribute("columnName6", "Translated Recipe Name");
 		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
@@ -941,12 +943,60 @@ public class RecipesController {
 		}
 		model.addAttribute("tableName", "Spanish Translated Recipes Table");
 		model.addAttribute("columnName1", "Translated Recipe ID");
-		model.addAttribute("columnName4", "Recipe ID");
-		model.addAttribute("columnName2", "Translated Cuisine ID");
-		model.addAttribute("columnName3", "Translated Method ID");
+		model.addAttribute("columnName2", "Recipe ID");
+		model.addAttribute("columnName3", "Translated Cuisine ID");
+		model.addAttribute("columnName4", "Translated Method ID");
 		model.addAttribute("columnName5", "Locale");
 		model.addAttribute("columnName6", "Translated Recipe Name");
 		return new ModelAndView("ViewTranslatedRecipesTable", "translatedRecipeList", recipes);
 	}
 
+	@RequestMapping("/viewGreekRecipeIngredientsTable.ds")
+	public ModelAndView viewGreekRecipeIngredients(Model model) {
+		List<RecipeIngredient> recipeIngredientsList = null;
+		try {
+			recipeIngredientsList = recipeIngredientsService.viewRecipeIngredientsTable(TableType.GREEK_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Greek Recipe Ingredients Table");
+		model.addAttribute("columnName1", "Greek Recipe Ingredient ID");
+		model.addAttribute("columnName2", "Translated Recipe ID");
+		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName4", "Ingredient Quantity");
+		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
+	}
+	
+	@RequestMapping("/viewGlobalRecipeIngredientsTable.ds")
+	public ModelAndView viewGlobalRecipeIngredients(Model model) {
+		List<RecipeIngredient> recipeIngredientsList = null;
+		try {
+			recipeIngredientsList = recipeIngredientsService.viewRecipeIngredientsTable(TableType.GLOBAL_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Global Recipe Ingredients Table");
+		model.addAttribute("columnName1", "Global Recipe Ingredient ID");
+		model.addAttribute("columnName2", "Translated Recipe ID");
+		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName4", "Ingredient Quantity");
+		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
+	}
+	
+	@RequestMapping("/viewSpanishRecipeIngredientsTable.ds")
+	public ModelAndView viewSpanishRecipeIngredients(Model model) {
+		List<RecipeIngredient> recipeIngredientsList = null;
+		try {
+			recipeIngredientsList = recipeIngredientsService.viewRecipeIngredientsTable(TableType.SPANISH_TABLE);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		model.addAttribute("tableName", "Spanish Recipe Ingredients Table");
+		model.addAttribute("columnName1", "Spanish Recipe Ingredient ID");
+		model.addAttribute("columnName2", "Translated Recipe ID");
+		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName4", "Ingredient Quantity");
+		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
+	}
+	
 }

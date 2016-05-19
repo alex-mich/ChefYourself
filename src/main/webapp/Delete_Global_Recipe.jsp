@@ -85,7 +85,7 @@ body {
 			<br> <input type="submit" id="deleteGlobalRecipesIngredient"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesIngredients.ds" target="_blank">
+		<form action="./viewGlobalRecipeIngredientsTable.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -108,7 +108,7 @@ body {
 			<br> <input type="submit" id="deleteGlobalRecipesDescription"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppGlobalRecipesDescriptions.ds" target="_blank">
+		<form action="./viewGlobalRecipeDescriptionsTable.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">

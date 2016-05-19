@@ -163,7 +163,7 @@ body {
 			<br> <input type="submit" id="updateSpanishRecipesIngredients"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppSpanishRecipesIngredients.ds" target="_blank">
+		<form action="./viewSpanishRecipeIngredientsTable.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppSpanishRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
@@ -213,7 +213,7 @@ body {
 			<br> <input type="submit" id="updateSpanishRecipesDescription"
 				value="UPDATE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewAppSpanishRecipesDescriptions.ds" target="_blank">
+		<form action="./viewSpanishRecipeDescriptionsTable.ds" target="_blank">
 			<br> <input type="submit"
 				id="viewAppSpanishRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
