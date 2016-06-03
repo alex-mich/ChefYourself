@@ -21,7 +21,13 @@ public class TranslatedMethod {
 		this.mname = mname;
 		this.method = method;
 	}
+	
 
+
+	public TranslatedMethod(String mname) {
+		super();
+		this.mname = mname;
+	}
 
 	//Getters & Setters
 	public int getTmid() {

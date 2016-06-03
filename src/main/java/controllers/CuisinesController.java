@@ -24,7 +24,6 @@ public class CuisinesController {
 
 	@RequestMapping(value = "insertCuisine.ds", method = RequestMethod.POST)
 	public String insertCuisine(@RequestParam("cid1") int cid, Model model) throws Exception {
-
 		int success = 0;
 		try {
 			Cuisine cuisine = new Cuisine(cid);

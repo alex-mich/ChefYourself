@@ -20,6 +20,11 @@ public class TranslatedCuisine {
 		this.locale = locale;
 		this.cname = cname;
 	}
+	
+	public TranslatedCuisine(String cname) {
+		super();
+		this.cname = cname;
+	}
 
 	//Getters & Setters
 	public int getTcid() {

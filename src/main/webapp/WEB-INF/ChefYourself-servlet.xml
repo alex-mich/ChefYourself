@@ -18,6 +18,8 @@
 	<bean id="ingredientsController" class="controllers.IngredientsController"/>
  	<bean id="languagesController" class="controllers.LanguagesController"/>
  	<bean id="responseController" class="controllers.ResponseController"/>
+ 	<bean id="descriptionsController" class="controllers.DescriptionsController" />
+ 	<bean id="recipeIngredientsController" class="controllers.RecipeIngredientsController" />
 	
 	<bean id="ingredientsService" class="services.IngredientsService"/>
 	<bean id="languagesService" class="services.LanguagesService"/>

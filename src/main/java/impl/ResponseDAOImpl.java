@@ -42,7 +42,6 @@ public class ResponseDAOImpl implements ResponseDAO {
 
 		List<TranslatedRecipe> thirdStep = new ArrayList<TranslatedRecipe>();
 		for (int j = 0; j < requestObject.getMethodList().size(); j++) {
-			// System.out.println("PP1) " + dobj.getMethodList().get(j));
 			for (int i = 0; i < secondStep.size(); i++) {
 				if (secondStep.get(i).getTransMethod().getMname().equals(requestObject.getMethodList().get(j))) {
 					thirdStep.add(secondStep.get(i));
@@ -52,4 +51,6 @@ public class ResponseDAOImpl implements ResponseDAO {
 
 		return thirdStep;
 	}
+	
+	
 }
