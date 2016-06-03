@@ -53,84 +53,20 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	}
 
 	@Override
-	public int insertGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
-		final String grSQL = "INSERT INTO app_greek_recipes_ingredients (griid,tgrrid,tinid,grquan) VALUES (?,?,?,?)";
+	public int insertRecipeIngredient(RecipeIngredient recipeIngredient, TableType tableType) throws Exception {
+		final String grSQL = constuctInsertRecipeIngredientsQuery(tableType);
 		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
+		Connection con = null;
+		PreparedStatement pstmt = null;
 		int i = 0;
 
 		try {
-
+			con = DriverManager.getConnection(url, username, password);
 			pstmt = con.prepareStatement(grSQL);
-			pstmt.setInt(1, ri.getRiid());
-			pstmt.setInt(2, ri.getTrRecipe().getTrid());
-			pstmt.setInt(3, ri.getTrIngredient().getTinid());
-			pstmt.setString(4, ri.getQuan());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public int insertGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
-		final String glSQL = "INSERT INTO app_global_recipes_ingredients (gliid,tglrid,tinid,glquan) VALUES (?,?,?,?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(glSQL);
-			pstmt.setInt(1, ri.getRiid());
-			pstmt.setInt(2, ri.getTrRecipe().getTrid());
-			pstmt.setInt(3, ri.getTrIngredient().getTinid());
-			pstmt.setString(4, ri.getQuan());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public int insertSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
-		final String spSQL = "INSERT INTO app_spanish_recipes_ingredients (spiid,tsprid,tinid,srquan) VALUES (?,?,?,?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(spSQL);
-			pstmt.setInt(1, ri.getRiid());
-			pstmt.setInt(2, ri.getTrRecipe().getTrid());
-			pstmt.setInt(3, ri.getTrIngredient().getTinid());
-			pstmt.setString(4, ri.getQuan());
+			pstmt.setInt(1, recipeIngredient.getRiid());
+			pstmt.setInt(2, recipeIngredient.getTrRecipe().getTrid());
+			pstmt.setInt(3, recipeIngredient.getTrIngredient().getTinid());
+			pstmt.setString(4, recipeIngredient.getQuan());
 			i = pstmt.executeUpdate();
 			pstmt.close();
 
@@ -286,7 +222,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 	@Override
 	public List<RecipeIngredient> findIngredientForGlobalRecipesEn() throws Exception {
 		final String allGlSQL = "SELECT * FROM app_global_recipes_ingredients WHERE tglrid % 2 = 0";
-		List<RecipeIngredient>  recipeIngredientsList = new ArrayList<RecipeIngredient>();
+		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		transRecipesList = trdi.findGlobalRecipesEn();
 		transIngredientsList = tidi.findEnIngredients();
 		Connection con = DriverManager.getConnection(url, username, password);
@@ -417,15 +353,15 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		}
 		return recipeIngredientsList;
 	}
-	
+
 	@Override
 	public List<RecipeIngredient> viewRecipeIngredientsTable(TableType tableType) throws Exception {
 		final String recipeIngredientsTableQuery = contstuctRecipeIngredientsTable(tableType);
 		List<RecipeIngredient> recipeIngredientsList = new ArrayList<RecipeIngredient>();
 		List<TranslatedRecipe> translatedRecipesList = trdi.findAllTranslatedRecipesByCuisine(tableType);
-		List<TranslatedIngredient>  translatedIngredientsList = tidi.findAllTranslatedIngredients();
+		List<TranslatedIngredient> translatedIngredientsList = tidi.findAllTranslatedIngredients();
 		Connection con = null;
-		Statement stmt= null;
+		Statement stmt = null;
 		ResultSet resultSet = null;
 		try {
 			con = DriverManager.getConnection(url, username, password);
@@ -453,64 +389,41 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (resultSet != null) try { resultSet.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+			if (resultSet != null)
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 		return recipeIngredientsList;
 	}
 
 	@Override
-	public int deleteGreekRecipeIngredient(RecipeIngredient ri) throws Exception {
-
-		String sql = "DELETE FROM app_greek_recipes_ingredients WHERE griid = (?)";
+	public int deleteRecipeIngredient(RecipeIngredient recipeIngredient, TableType tableType) throws Exception {
+		String sql = constructDeleteRecipeIngredientsQuery(tableType);
 		Class.forName(driver);
-		Connection conn = null;
+		Connection con = null;
+		PreparedStatement pstmt = null;
 		int i = 0;
 		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, ri.getRiid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteGlobalRecipeIngredient(RecipeIngredient ri) throws Exception {
-
-		String sql = "DELETE FROM app_global_recipes_ingredients WHERE gliid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, ri.getRiid());
-			i = pstm.executeUpdate();
-			pstm.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return i;
-	}
-
-	@Override
-	public int deleteSpanishRecipeIngredient(RecipeIngredient ri) throws Exception {
-
-		String sql = "DELETE FROM app_spanish_recipes_ingredients WHERE spiid = (?)";
-		Class.forName(driver);
-		Connection conn = null;
-		int i = 0;
-		try {
-			conn = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstm = conn.prepareStatement(sql);
-			pstm.setInt(1, ri.getRiid());
-			i = pstm.executeUpdate();
-			pstm.close();
+			con = DriverManager.getConnection(url, username, password);
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, recipeIngredient.getRiid());
+			i = pstmt.executeUpdate();
+			pstmt.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -550,7 +463,7 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 		}
 		return i;
 	}
-	
+
 	public String contstuctRecipeIngredientsTable(TableType tableType) {
 		String query = "";
 		switch (tableType) {
@@ -649,6 +562,38 @@ public class RecipeIngredientsDAOImpl implements RecipeIngredientsDAO {
 				where += "srquan='" + currentRecipeIngredient.getQuan() + "' AND ";
 			where = (String) where.substring(0, where.length() - 5);
 			query += where + ";";
+			break;
+		}
+		return query;
+	}
+
+	public String constuctInsertRecipeIngredientsQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "INSERT INTO app_greek_recipes_ingredients (griid,tgrrid,tinid,grquan) VALUES (?,?,?,?)";
+			break;
+		case GLOBAL_TABLE:
+			query = "INSERT INTO app_global_recipes_ingredients (gliid,tglrid,tinid,glquan) VALUES (?,?,?,?)";
+			break;
+		case SPANISH_TABLE:
+			query = "INSERT INTO app_spanish_recipes_ingredients (spiid,tsprid,tinid,srquan) VALUES (?,?,?,?)";
+			break;
+		}
+		return query;
+	}
+
+	public String constructDeleteRecipeIngredientsQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "DELETE FROM app_greek_recipes_ingredients WHERE griid = (?)";
+			break;
+		case GLOBAL_TABLE:
+			query = "DELETE FROM app_global_recipes_ingredients WHERE gliid = (?)";
+			break;
+		case SPANISH_TABLE:
+			query = "DELETE FROM app_spanish_recipes_ingredients WHERE spiid = (?)";
 			break;
 		}
 		return query;

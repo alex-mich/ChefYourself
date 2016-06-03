@@ -23,18 +23,6 @@ public class MethodsService {
 		return methodsDAOImpl.insertTranslatedMethod(tMethod);
 	}
 	
-	public List<Method> findAllMethods() throws Exception {
-		return methodsDAOImpl.findAllMethods();
-	}
-	
-	public List<TranslatedMethod> findGrMethods() throws Exception {
-		return methodsDAOImpl.findGrMethods();
-	}
-	
-	public List<TranslatedMethod> findEnMethods() throws Exception {
-		return methodsDAOImpl.findEnMethods();
-	}
-	
 	public int deleteMethod(Method method) throws Exception {
 		return methodsDAOImpl.deleteMethod(method);	
 	}

@@ -17,11 +17,7 @@ public class LanguagesService {
 	public int insertLocale(Language locale) throws Exception {
 		return localeDAOImpl.insertLocale(locale);
 	}
-
-	public List<Language> findLocales() throws Exception {
-		return localeDAOImpl.findLocales();
-	}
-
+	
 	public int deleteLocale(Language language) throws Exception {
 		return localeDAOImpl.deleteLocale(language);
 	}

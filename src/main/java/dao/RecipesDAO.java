@@ -10,11 +10,7 @@ public interface RecipesDAO {
 
 	public int insertRecipe(Recipe recipe, TableType tabletype) throws Exception;
 
-	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
-
-	public int insertGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
-
-	public int insertSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception;
+	public int insertTranslatedRecipe(TranslatedRecipe translatedRecipe, TableType tabletype) throws Exception;
 
 	public int deleteRecipe(Recipe recipe, TableType tabletype) throws Exception;
 	

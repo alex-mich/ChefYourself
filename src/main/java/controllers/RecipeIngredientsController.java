@@ -33,7 +33,7 @@ public class RecipeIngredientsController {
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
 			RecipeIngredient recipeIngredient = new RecipeIngredient(griid, translatedRecipe, translatedIngredient,
 					grriquan);
-			success = recipeIngredientsService.insertGreekRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.insertRecipeIngredient(recipeIngredient, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,7 +53,7 @@ public class RecipeIngredientsController {
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
 			RecipeIngredient recipeIngredient = new RecipeIngredient(gliid, translatedRecipe, translatedIngredient,
 					glriquan);
-			success = recipeIngredientsService.insertGlobalRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.insertRecipeIngredient(recipeIngredient, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,7 +73,7 @@ public class RecipeIngredientsController {
 			TranslatedIngredient translatedIngredient = new TranslatedIngredient(tinid);
 			RecipeIngredient recipeIngredient = new RecipeIngredient(spiid, translatedRecipe, translatedIngredient,
 					spriquan);
-			success = recipeIngredientsService.insertSpanishRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.insertRecipeIngredient(recipeIngredient, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -89,7 +89,7 @@ public class RecipeIngredientsController {
 
 		try {
 			RecipeIngredient recipeIngredient = new RecipeIngredient(griid);
-			success = recipeIngredientsService.deleteGreekRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.deleteRecipeIngredient(recipeIngredient, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -105,7 +105,7 @@ public class RecipeIngredientsController {
 
 		try {
 			RecipeIngredient recipeIngredient = new RecipeIngredient(gliid);
-			success = recipeIngredientsService.deleteGlobalRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.deleteRecipeIngredient(recipeIngredient, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -121,7 +121,7 @@ public class RecipeIngredientsController {
 
 		try {
 			RecipeIngredient recipeIngredient = new RecipeIngredient(spiid);
-			success = recipeIngredientsService.deleteSpanishRecipeIngredient(recipeIngredient);
+			success = recipeIngredientsService.deleteRecipeIngredient(recipeIngredient, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

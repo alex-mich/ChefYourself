@@ -23,22 +23,6 @@ public class IngredientsService {
 		return ingredientsDAOImpl.insertTranslatedIngredient(translatedIngredient);
 	}
 
-	public List<Ingredient> findAllIngredients() throws Exception {
-		return ingredientsDAOImpl.findAllIngredients();
-	}
-
-	public List<TranslatedIngredient> findAllTranslatedIngredients() throws Exception {
-		return ingredientsDAOImpl.findAllTranslatedIngredients();
-	}
-
-	public List<TranslatedIngredient> findGrIngredients() throws Exception {
-		return ingredientsDAOImpl.findGrIngredients();
-	}
-
-	public List<TranslatedIngredient> findEnIngredients() throws Exception {
-		return ingredientsDAOImpl.findEnIngredients();
-	}
-
 	public int deleteIngredient(Ingredient ingredient) throws Exception {
 		return ingredientsDAOImpl.deleteIngredient(ingredient);
 	}
@@ -63,4 +47,5 @@ public class IngredientsService {
 	public List<TranslatedIngredient> viewTranslatedIngredientsTable() throws Exception {
 		return ingredientsDAOImpl.viewTranslatedIngredientsTable();
 	}
+
 }

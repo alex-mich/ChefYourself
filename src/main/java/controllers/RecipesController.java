@@ -80,7 +80,7 @@ public class RecipesController {
 			Language locale = new Language(loc);
 			TranslatedRecipe transRecipe = new TranslatedRecipe(tgrrid, recipe, transCuisine, transMethod, locale,
 					grrname);
-			success = recipeService.insertGreekTranslatedRecipe(transRecipe);
+			success = recipeService.insertTranslatedRecipe(transRecipe, TableType.GREEK_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,7 +102,7 @@ public class RecipesController {
 			Language locale = new Language(loc);
 			TranslatedRecipe transRecipe = new TranslatedRecipe(tglrid, recipe, transCuisine, transMethod, locale,
 					glrname);
-			success = recipeService.insertGlobalTranslatedRecipe(transRecipe);
+			success = recipeService.insertTranslatedRecipe(transRecipe, TableType.GLOBAL_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -124,7 +124,7 @@ public class RecipesController {
 			Language locale = new Language(loc);
 			TranslatedRecipe transRecipe = new TranslatedRecipe(tsprid, recipe, transCuisine, transMethod, locale,
 					sprname);
-			success = recipeService.insertSpanishTranslatedRecipe(transRecipe);
+			success = recipeService.insertTranslatedRecipe(transRecipe, TableType.SPANISH_TABLE);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

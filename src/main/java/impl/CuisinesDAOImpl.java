@@ -113,20 +113,35 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 			con = DriverManager.getConnection(url, username, password);
 			stmt = con.createStatement();
 			resultSet = stmt.executeQuery(viewCuisinesTableQuery);
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				Cuisine cuisine = new Cuisine(resultSet.getInt(1));
 				cuisinesList.add(cuisine);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (resultSet != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (stmt != null) try { stmt.close(); } catch (Exception e) { e.printStackTrace(); }
-			if (con != null) try { con.close(); } catch (SQLException e) { e.printStackTrace(); }
+			if (resultSet != null)
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 		}
 		return cuisinesList;
 	}
-	
+
 	@Override
 	public List<TranslatedCuisine> findAllTranslatedCuisines() throws Exception {
 
@@ -134,42 +149,51 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		cuisinesList = findAllCuisines();
 		localesList = ldi.findLocales();
 		translatedCuisinesList = new ArrayList<TranslatedCuisine>();
-		Connection con = DriverManager.getConnection(url, username, password);
-
+		Connection con = null;
+		ResultSet resultSet = null;
+		Statement stmt = null;
 		try {
+			con = DriverManager.getConnection(url, username, password);
+			stmt = con.createStatement();
+			resultSet = stmt.executeQuery(allGrSQL);
 
-			Statement ps = con.createStatement();
-			ResultSet rs = ps.executeQuery(allGrSQL);
-
-			while (rs.next()) {
-				TranslatedCuisine tc = new TranslatedCuisine();
-				tc.setTcid(rs.getInt(1));
+			while (resultSet.next()) {
+				TranslatedCuisine translatedCuisine = new TranslatedCuisine();
+				translatedCuisine.setTcid(resultSet.getInt(1));
 				for (int i = 0; i < cuisinesList.size(); i++)
-					if (rs.getInt(2) == cuisinesList.get(i).getCid()) {
-						tc.setCuisine(cuisinesList.get(i));
+					if (resultSet.getInt(2) == cuisinesList.get(i).getCid()) {
+						translatedCuisine.setCuisine(cuisinesList.get(i));
 					}
 
 				for (int i = 0; i < localesList.size(); i++)
-					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
-						tc.setLocale(localesList.get(i));
+					if (resultSet.getString(3).equals(localesList.get(i).getLoc())) {
+						translatedCuisine.setLocale(localesList.get(i));
 					}
 
-				tc.setCname(rs.getString(4));
-				translatedCuisinesList.add(tc);
+				translatedCuisine.setCname(resultSet.getString(4));
+				translatedCuisinesList.add(translatedCuisine);
 			}
-			ps.close();
-			rs.close();
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if (con != null) {
+			if (resultSet != null)
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (stmt != null)
+				try {
+					stmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
 				try {
 					con.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-			}
 		}
 		return translatedCuisinesList;
 	}
@@ -311,27 +335,28 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 	}
 
 	@Override
-	public int updateCuisine(Cuisine currentCuisine,Cuisine updatedCuisine) throws Exception {
-			String cuisineUpdate = "UPDATE app_cuisines SET cid = (?) WHERE cid = (?)";
-			Class.forName(driver);
-			Connection con = DriverManager.getConnection(url, username, password);
-			PreparedStatement pstmt;
-			int i = 0;
-			try {
-				pstmt = con.prepareStatement(cuisineUpdate);
-				pstmt.setInt(1,updatedCuisine.getCid());
-				pstmt.setInt(2,currentCuisine.getCid());
-				i = pstmt.executeUpdate();
-				pstmt.close();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public int updateCuisine(Cuisine currentCuisine, Cuisine updatedCuisine) throws Exception {
+		String cuisineUpdate = "UPDATE app_cuisines SET cid = (?) WHERE cid = (?)";
+		Class.forName(driver);
+		Connection con = DriverManager.getConnection(url, username, password);
+		PreparedStatement pstmt;
+		int i = 0;
+		try {
+			pstmt = con.prepareStatement(cuisineUpdate);
+			pstmt.setInt(1, updatedCuisine.getCid());
+			pstmt.setInt(2, currentCuisine.getCid());
+			i = pstmt.executeUpdate();
+			pstmt.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return i;
 	}
 
 	@Override
-	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine, TranslatedCuisine updatedTranslatedCuisine) throws Exception {
-		String translatedCuisineUpdate = constructQuery(currentTranslatedCuisine,updatedTranslatedCuisine);
+	public int updateTranslatedCuisine(TranslatedCuisine currentTranslatedCuisine,
+			TranslatedCuisine updatedTranslatedCuisine) throws Exception {
+		String translatedCuisineUpdate = constructQuery(currentTranslatedCuisine, updatedTranslatedCuisine);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -343,37 +368,38 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	return i;
+		return i;
 	}
-	
-	public String constructQuery(TranslatedCuisine currentTranslatedCuisine, TranslatedCuisine updatedTranslatedCuisine){
+
+	public String constructQuery(TranslatedCuisine currentTranslatedCuisine,
+			TranslatedCuisine updatedTranslatedCuisine) {
 		String query = "UPDATE app_cuisines_trans ";
-		
-		String set= "SET ";
-		if(updatedTranslatedCuisine.getTcid() != 0)
-			set += "tcid=" + updatedTranslatedCuisine.getTcid() +", ";
-		if(updatedTranslatedCuisine.getCuisine().getCid() != 0)
-			set += "cid=" + updatedTranslatedCuisine.getCuisine().getCid() +", ";
-		if(!updatedTranslatedCuisine.getLocale().getLoc().equals(""))
-			set += "locale='" + updatedTranslatedCuisine.getLocale().getLoc() +"', ";
-		if(!updatedTranslatedCuisine.getCname().equals(""))
-			set += "cname='" + updatedTranslatedCuisine.getCname() +"', ";
-			set = (String) set.substring(0, set.length()-2);
-		
+
+		String set = "SET ";
+		if (updatedTranslatedCuisine.getTcid() != 0)
+			set += "tcid=" + updatedTranslatedCuisine.getTcid() + ", ";
+		if (updatedTranslatedCuisine.getCuisine().getCid() != 0)
+			set += "cid=" + updatedTranslatedCuisine.getCuisine().getCid() + ", ";
+		if (!updatedTranslatedCuisine.getLocale().getLoc().equals(""))
+			set += "locale='" + updatedTranslatedCuisine.getLocale().getLoc() + "', ";
+		if (!updatedTranslatedCuisine.getCname().equals(""))
+			set += "cname='" + updatedTranslatedCuisine.getCname() + "', ";
+		set = (String) set.substring(0, set.length() - 2);
+
 		String where = "WHERE ";
-		if(currentTranslatedCuisine.getTcid() != 0)
-			where += "tcid=" + currentTranslatedCuisine.getTcid() +" AND ";
-		if(currentTranslatedCuisine.getCuisine().getCid() != 0)
-			where += "cid=" + currentTranslatedCuisine.getCuisine().getCid() +" AND ";
-		if(!currentTranslatedCuisine.getLocale().getLoc().equals(""))
-			where += "locale='" + currentTranslatedCuisine.getLocale().getLoc() +"' AND ";
-		if(!currentTranslatedCuisine.getCname().equals(""))
-			where += "cname='" + currentTranslatedCuisine.getCname() +"' AND ";
-			where = (String) where.substring(0, where.length()-5);
-		
+		if (currentTranslatedCuisine.getTcid() != 0)
+			where += "tcid=" + currentTranslatedCuisine.getTcid() + " AND ";
+		if (currentTranslatedCuisine.getCuisine().getCid() != 0)
+			where += "cid=" + currentTranslatedCuisine.getCuisine().getCid() + " AND ";
+		if (!currentTranslatedCuisine.getLocale().getLoc().equals(""))
+			where += "locale='" + currentTranslatedCuisine.getLocale().getLoc() + "' AND ";
+		if (!currentTranslatedCuisine.getCname().equals(""))
+			where += "cname='" + currentTranslatedCuisine.getCname() + "' AND ";
+		where = (String) where.substring(0, where.length() - 5);
+
 		set += where;
 		query += set + ";";
-			
+
 		return query;
 	}
 

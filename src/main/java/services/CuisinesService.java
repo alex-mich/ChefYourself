@@ -23,18 +23,6 @@ public class CuisinesService {
 		return cuisinesDAOImpl.insertTranslatedCuisine(translatedCuisine);
 	}
 	
-	public List<Cuisine> findAllCuisines() throws Exception {
-		return cuisinesDAOImpl.findAllCuisines();
-	}
-	
-	public List<TranslatedCuisine> findGrCuisines() throws Exception {
-		return cuisinesDAOImpl.findGrCuisines();
-	}
-	
-	public List<TranslatedCuisine> findEnCuisines() throws Exception {
-		return cuisinesDAOImpl.findEnCuisines();
-	}
-	
 	public int deleteCuisine(Cuisine cuisine) throws Exception {
 		return cuisinesDAOImpl.deleteCuisine(cuisine);
 	}

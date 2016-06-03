@@ -20,56 +20,8 @@ public class RecipesService {
 		return recipesDAOImpl.insertRecipe(recipe, tableType);
 	}
 
-	public int insertGreekTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.insertGreekTranslatedRecipe(translatedRecipe);
-	}
-
-	public int insertGlobalTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.insertGlobalTranslatedRecipe(translatedRecipe);
-	}
-
-	public int insertSpanishTranslatedRecipe(TranslatedRecipe translatedRecipe) throws Exception {
-		return recipesDAOImpl.insertSpanishTranslatedRecipe(translatedRecipe);
-	}
-
-	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
-		return recipesDAOImpl.viewRecipesTable(tableType);
-	}
-	
-	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception {
-		return recipesDAOImpl.viewTranslatedRecipesTable(tableType);
-	}
-
-	public List<TranslatedRecipe> findGreekRecipesGr() throws Exception {
-		return recipesDAOImpl.findGreekRecipesGr();
-	}
-
-	public List<TranslatedRecipe> findGreekRecipesEn() throws Exception {
-		return recipesDAOImpl.findGreekRecipesEn();
-	}
-
-	public List<TranslatedRecipe> findSpanishRecipesGr() throws Exception {
-		return recipesDAOImpl.findSpanishRecipesGr();
-	}
-
-	public List<TranslatedRecipe> findSpanishRecipesEn() throws Exception {
-		return recipesDAOImpl.findSpanishRecipesEn();
-	}
-
-	public List<TranslatedRecipe> findGlobalRecipesGr() throws Exception {
-		return recipesDAOImpl.findGlobalRecipesGr();
-	}
-
-	public List<TranslatedRecipe> findGlobalRecipesEn() throws Exception {
-		return recipesDAOImpl.findGlobalRecipesEn();
-	}
-
-	public List<TranslatedRecipe> findAllRecipesEn() throws Exception {
-		return recipesDAOImpl.findAllRecipesEn();
-	}
-
-	public List<TranslatedRecipe> findAllRecipesGr() throws Exception {
-		return recipesDAOImpl.findAllRecipesGr();
+	public int insertTranslatedRecipe(TranslatedRecipe translatedRecipe, TableType tabletype) throws Exception {
+		return recipesDAOImpl.insertTranslatedRecipe(translatedRecipe, tabletype);
 	}
 
 	public int deleteRecipe(Recipe recipe, TableType tabletype) throws Exception {
@@ -89,4 +41,11 @@ public class RecipesService {
 		return recipesDAOImpl.updateTranslatedRecipe(currentTranslatedRecipe, updatedTranslatedRecipe, tabletype);
 	}
 
+	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
+		return recipesDAOImpl.viewRecipesTable(tableType);
+	}
+
+	public List<TranslatedRecipe> viewTranslatedRecipesTable(TableType tableType) throws Exception {
+		return recipesDAOImpl.viewTranslatedRecipesTable(tableType);
+	}
 }

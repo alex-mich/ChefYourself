@@ -29,6 +29,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 	private String driver, url, username, password;
 
 	private List<Language> localeList;
+	private List<Recipe> recipesList;
 	private List<TranslatedMethod> transMethodsList;
 	private List<TranslatedCuisine> transCuisinesList;
 	private List<TranslatedRecipe> translatedRecipesList;
@@ -84,8 +85,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 	}
 
 	@Override
-	public int insertGreekTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-		final String grSQL = "INSERT INTO app_greek_recipes_trans (tgrrid,grrid,tcid,tmid,locale,grrname) VALUES (?,?,?,?,?,?)";
+	public int insertTranslatedRecipe(TranslatedRecipe trRecipe, TableType tableType) throws Exception {
+		final String grSQL = constructTranslatedRecipeInsertQuery(tableType);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		PreparedStatement pstmt;
@@ -116,79 +117,11 @@ public class RecipesDAOImpl implements RecipesDAO {
 		}
 		return i;
 	}
-
-	@Override
-	public int insertGlobalTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-		final String glSQL = "INSERT INTO app_global_recipes_trans (tglrid,glrid,tcid,tmid,locale,glrname) VALUES (?,?,?,?,?,?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(glSQL);
-			pstmt.setInt(1, trRecipe.getTrid());
-			pstmt.setInt(2, trRecipe.getRecipe().getRid());
-			pstmt.setInt(3, trRecipe.getTransCuisine().getTcid());
-			pstmt.setInt(4, trRecipe.getTransMethod().getTmid());
-			pstmt.setString(5, trRecipe.getLocale().getLoc());
-			pstmt.setString(6, trRecipe.getRname());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
-
-	@Override
-	public int insertSpanishTranslatedRecipe(TranslatedRecipe trRecipe) throws Exception {
-		final String spSQL = "INSERT INTO app_spanish_recipes_trans (tsprid,sprid,tcid,tmid,locale,sprname) VALUES (?,?,?,?,?,?)";
-		Class.forName(driver);
-		Connection con = DriverManager.getConnection(url, username, password);
-		PreparedStatement pstmt;
-		int i = 0;
-
-		try {
-
-			pstmt = con.prepareStatement(spSQL);
-			pstmt.setInt(1, trRecipe.getTrid());
-			pstmt.setInt(2, trRecipe.getRecipe().getRid());
-			pstmt.setInt(3, trRecipe.getTransCuisine().getTcid());
-			pstmt.setInt(4, trRecipe.getTransMethod().getTmid());
-			pstmt.setString(5, trRecipe.getLocale().getLoc());
-			pstmt.setString(6, trRecipe.getRname());
-			i = pstmt.executeUpdate();
-			pstmt.close();
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return i;
-	}
 	
 	@Override
 	public List<Recipe> viewRecipesTable(TableType tableType) throws Exception {
-		String viewRecipeTableQuery = constructRecipeViewTableQuery(tableType);
-		List<Recipe> recipesList = new ArrayList<Recipe>();
+		String viewTranslatedRecipeTableQuery = constructRecipeViewTableQuery(tableType);
+		recipesList = new ArrayList<Recipe>();
 		Class.forName(driver);
 		Connection con = null;
 		Statement stmt = null;
@@ -196,7 +129,7 @@ public class RecipesDAOImpl implements RecipesDAO {
 		try {
 			con = DriverManager.getConnection(url, username, password);
 			stmt = con.createStatement();
-			resultSet = stmt.executeQuery(viewRecipeTableQuery);
+			resultSet = stmt.executeQuery(viewTranslatedRecipeTableQuery);
 			while(resultSet.next()){
 				Recipe recipe = new Recipe(resultSet.getInt(1));
 				recipesList.add(recipe);
@@ -1024,6 +957,22 @@ public class RecipesDAOImpl implements RecipesDAO {
 			break;
 		case SPANISH_TABLE:
 			query = "SELECT * FROM app_spanish_recipes_trans ORDER BY tsprid";
+			break;
+		}
+		return query;
+	}
+	
+	public String constructTranslatedRecipeInsertQuery(TableType tableType) {
+		String query = "";
+		switch (tableType) {
+		case GREEK_TABLE:
+			query = "INSERT INTO app_greek_recipes_trans (tgrrid,grrid,tcid,tmid,locale,grrname) VALUES (?,?,?,?,?,?)";
+			break;
+		case GLOBAL_TABLE:
+			query = "INSERT INTO app_global_recipes_trans (tglrid,glrid,tcid,tmid,locale,glrname) VALUES (?,?,?,?,?,?)";
+			break;
+		case SPANISH_TABLE:
+			query = "INSERT INTO app_spanish_recipes_trans (tsprid,sprid,tcid,tmid,locale,sprname) VALUES (?,?,?,?,?,?)";
 			break;
 		}
 		return query;
