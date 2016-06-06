@@ -1,5 +1,7 @@
 package pojos;
 
+import java.util.List;
+
 public class TranslatedRecipe {
 
 	//Fields
@@ -9,6 +11,11 @@ public class TranslatedRecipe {
 	private TranslatedMethod transMethod;
 	private Language locale;
 	private String rname;
+	
+	//SecondaryFields
+	private double suitability;
+	private List<RecipeIngredient> recipeIngredients;
+	private String description;
 	
 	//Constructor
 	public TranslatedRecipe(){}
@@ -70,6 +77,30 @@ public class TranslatedRecipe {
 	public String toString() {
 		return "TranslatedRecipe [trid=" + trid + ", recipe=" + recipe + ", transCuisine=" + transCuisine
 				+ ", transMethod=" + transMethod + ", locale=" + locale + ", rname=" + rname + "]";
+	}
+
+	public double getSuitability() {
+		return suitability;
+	}
+
+	public void setSuitability(double suitability) {
+		this.suitability = suitability;
+	}
+
+	public List<RecipeIngredient> getRecipeIngredients() {
+		return recipeIngredients;
+	}
+
+	public void setRecipeIngredients(List<RecipeIngredient> recipeIngredients) {
+		this.recipeIngredients = recipeIngredients;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

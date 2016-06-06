@@ -252,7 +252,7 @@ public class RecipeIngredientsController {
 		model.addAttribute("tableName", "Greek Recipe Ingredients Table");
 		model.addAttribute("columnName1", "Greek Recipe Ingredient ID");
 		model.addAttribute("columnName2", "Translated Recipe ID");
-		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName3", "Translated Ingredient ID");
 		model.addAttribute("columnName4", "Ingredient Quantity");
 		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
 	}
@@ -268,7 +268,7 @@ public class RecipeIngredientsController {
 		model.addAttribute("tableName", "Global Recipe Ingredients Table");
 		model.addAttribute("columnName1", "Global Recipe Ingredient ID");
 		model.addAttribute("columnName2", "Translated Recipe ID");
-		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName3", "Translated Ingredient ID");
 		model.addAttribute("columnName4", "Ingredient Quantity");
 		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
 	}
@@ -284,7 +284,7 @@ public class RecipeIngredientsController {
 		model.addAttribute("tableName", "Spanish Recipe Ingredients Table");
 		model.addAttribute("columnName1", "Spanish Recipe Ingredient ID");
 		model.addAttribute("columnName2", "Translated Recipe ID");
-		model.addAttribute("columnName3", "Translated Ingredinet ID");
+		model.addAttribute("columnName3", "Translated Ingredient ID");
 		model.addAttribute("columnName4", "Ingredient Quantity");
 		return new ModelAndView("ViewRecipeIngredientsTable", "recipeIngredientsList", recipeIngredientsList);
 	}

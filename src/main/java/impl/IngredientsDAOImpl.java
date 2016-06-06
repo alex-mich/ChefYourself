@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import Helpers.IngredientsQueryHelper;
 import dao.IngredientsDAO;
 import pojos.Ingredient;
 import pojos.Language;
@@ -281,7 +282,8 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 
 	@Override
 	public int updateIngredient(Ingredient currentIngredient, Ingredient updatedIngredient) throws Exception {
-		String ingredientUpdate = constructIngredientQuery(currentIngredient, updatedIngredient);
+		String ingredientUpdate = IngredientsQueryHelper.constructIngredientUpdateQuery(currentIngredient,
+				updatedIngredient);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -299,8 +301,8 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	@Override
 	public int updateTranslatedIngredient(TranslatedIngredient currentTranslatedIngredient,
 			TranslatedIngredient updatedTranslatedIngredient) throws Exception {
-		String translatedIngredientUpdate = constructTranslatedIngredientQuery(currentTranslatedIngredient,
-				updatedTranslatedIngredient);
+		String translatedIngredientUpdate = IngredientsQueryHelper
+				.constructTranslatedIngredientUpdateQuery(currentTranslatedIngredient, updatedTranslatedIngredient);
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt;
@@ -318,61 +320,6 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 	@Override
 	public List<Ingredient> viewIngredientsTable() throws Exception {
 		return findAllIngredients();
-	}
-
-	public String constructIngredientQuery(Ingredient currentIngredient, Ingredient updatedIngredient) {
-		String query = "UPDATE app_ingredients ";
-
-		String set = "SET ";
-		if (updatedIngredient.getInid() != 0)
-			set += "inid=" + updatedIngredient.getInid() + ", ";
-		if (!updatedIngredient.getItype().equals(""))
-			set += "itype='" + updatedIngredient.getItype() + "', ";
-		set = (String) set.substring(0, set.length() - 2);
-
-		String where = "WHERE ";
-		if (currentIngredient.getInid() != 0)
-			where += "inid=" + currentIngredient.getInid() + " AND ";
-		if (!currentIngredient.getItype().equals(""))
-			where += "itype='" + currentIngredient.getItype() + "' AND ";
-		where = (String) where.substring(0, where.length() - 5);
-
-		set += where;
-		query += set + ";";
-
-		return query;
-	}
-
-	public String constructTranslatedIngredientQuery(TranslatedIngredient currentTranslatedIngredient,
-			TranslatedIngredient updatedTranslatedIngredient) {
-		String query = "UPDATE app_ingredients_trans ";
-
-		String set = "SET ";
-		if (updatedTranslatedIngredient.getTinid() != 0)
-			set += "tinid=" + updatedTranslatedIngredient.getTinid() + ", ";
-		if (updatedTranslatedIngredient.getIngredient().getInid() != 0)
-			set += "inid=" + updatedTranslatedIngredient.getIngredient().getInid() + ", ";
-		if (!updatedTranslatedIngredient.getLocale().getLoc().equals(""))
-			set += "locale='" + updatedTranslatedIngredient.getLocale().getLoc() + "', ";
-		if (!updatedTranslatedIngredient.getIname().equals(""))
-			set += "iname='" + updatedTranslatedIngredient.getIname() + "', ";
-		set = (String) set.substring(0, set.length() - 2);
-
-		String where = "WHERE ";
-		if (currentTranslatedIngredient.getTinid() != 0)
-			where += "tinid=" + currentTranslatedIngredient.getTinid() + " AND ";
-		if (currentTranslatedIngredient.getIngredient().getInid() != 0)
-			where += "inid=" + currentTranslatedIngredient.getIngredient().getInid() + " AND ";
-		if (!currentTranslatedIngredient.getLocale().getLoc().equals(""))
-			where += "locale='" + currentTranslatedIngredient.getLocale().getLoc() + "' AND ";
-		if (!currentTranslatedIngredient.getIname().equals(""))
-			where += "iname='" + currentTranslatedIngredient.getIname() + "' AND ";
-		where = (String) where.substring(0, where.length() - 5);
-
-		set += where;
-		query += set + ";";
-
-		return query;
 	}
 
 	@Override
@@ -426,4 +373,64 @@ public class IngredientsDAOImpl implements IngredientsDAO {
 		return translatedIngredientsList;
 	}
 
+	public List<TranslatedIngredient> findTranslatedIngredientsByLanguage(String language) throws Exception {
+		final String allGrSQL = "SELECT * FROM app_ingredients_trans WHERE locale = (?) ORDER BY tinid";
+		Class.forName(driver);
+		//ingredientsList = findAllIngredients();
+		localeList = ldi.findLocales();
+		translatedIngredientsList = new ArrayList<TranslatedIngredient>();
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet resultSet = null;
+
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			pstmt = con.prepareStatement(allGrSQL);
+			pstmt.setString(1, language);
+			resultSet = pstmt.executeQuery();
+
+			while (resultSet.next()) {
+				TranslatedIngredient ôranslatedIngredient = new TranslatedIngredient();
+				ôranslatedIngredient.setTinid(resultSet.getInt(1));
+				/*for (int i = 0; i < ingredientsList.size(); i++)
+					if (resultSet.getInt(2) == ingredientsList.get(i).getInid()) {
+						ôranslatedIngredient.setIngredient(ingredientsList.get(i));
+					}
+*/
+				for (int i = 0; i < localeList.size(); i++)
+					if (resultSet.getString(3).equals(localeList.get(i).getLoc())) {
+						ôranslatedIngredient.setLocale(localeList.get(i));
+					}
+				ôranslatedIngredient.setIname(resultSet.getString(4));
+				translatedIngredientsList.add(ôranslatedIngredient);
+			}
+			resultSet.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null) {
+				try {
+					resultSet.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return translatedIngredientsList;
+	}
 }

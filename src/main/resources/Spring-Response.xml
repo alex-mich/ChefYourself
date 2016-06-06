@@ -5,6 +5,9 @@
 
 	<bean id="responseDAOImpl" class="impl.ResponseDAOImpl">
 	    <property name="trdi" ref="recipesDAOImpl" />
+	    <property name="tidi" ref="ingredientsDAOImpl" />
+	    <property name="recipeIngredientsDAOImpl" ref="recipeIngredientsDAOImpl" />
+	    <property name="recipeDescriptionsDAOImpl" ref="recipeDescriptionsDAOImpl" />
 	</bean>
     
 </beans>

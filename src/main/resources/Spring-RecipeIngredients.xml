@@ -5,8 +5,7 @@
 
 	<bean id="recipeIngredientsDAOImpl" class="impl.RecipeIngredientsDAOImpl">
 		<property name="driver" value="org.postgresql.Driver" />
-		<property name="url"
-			value="jdbc:postgresql://localhost:5432/ChefYourself" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/ChefYourself" />
 		<property name="username" value="postgres" />
 		<property name="password" value="chefyourself" />
 		<property name="trdi" ref="recipesDAOImpl" />

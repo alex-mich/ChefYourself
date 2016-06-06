@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
+import Helpers.DescriptionsQueryHelper;
 import dao.RecipeDescriptionsDAO;
 import enumerations.TableType;
 import pojos.RecipeDescription;
@@ -628,4 +629,46 @@ public class RecipeDescriptionsDAOImpl implements RecipeDescriptionsDAO {
 		return recipeDescriptionList;
 	}
 
+	public String findRecipeDescriptionByTranslatedRecipe(TranslatedRecipe translatedRecipe) {
+		final String recipeDescriptionTableQuery = DescriptionsQueryHelper.contstuctRecipeDescriptionsByTranslatedRecipeQuery(translatedRecipe);
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet resultSet = null;
+		String description = "";
+		try {
+			con = DriverManager.getConnection(url, username, password);
+			pstmt = con.prepareStatement(recipeDescriptionTableQuery);
+			pstmt.setInt(1, translatedRecipe.getTrid());
+			resultSet = pstmt.executeQuery();
+
+			while (resultSet.next()) {
+				description = resultSet.getString(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (resultSet != null)
+				try {
+					resultSet.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			if (con != null)
+				try {
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return description;
+	}
+	
+	
 }

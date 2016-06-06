@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RequestObject {
-
-	//{"locale":"en","tm":{"tmid":0,"mname":"Fried"},"tc":{"tcid":0,"cname":"Greek Menu"},"methodList":[{"tmid":0,"mname":"Fried"}],"cuisineList":[{"tcid":0,"cname":"Greek Menu"}]}
 	
-	private String locale = "en";
+	private String locale;
 	private List<TranslatedMethod> methodList = new ArrayList<TranslatedMethod>();
 	private List<TranslatedCuisine> cuisineList = new ArrayList<TranslatedCuisine>();
-	/*private List<TranslatedIngredient> ingredientsList = new ArrayList<TranslatedIngredient>();
-	private int suitabilityPercentage;*/
+	private List<TranslatedIngredient> ingredientsList = new ArrayList<TranslatedIngredient>();
+	private double desiredSuitability;
 	
 	public String getLocale() {
 		return locale;
@@ -36,20 +34,21 @@ public class RequestObject {
 	public void setCuisineList(List<TranslatedCuisine> cuisineList) {
 		this.cuisineList = cuisineList;
 	}
-	
-	/*public List<TranslatedIngredient> getIngredientsList() {
+
+	public List<TranslatedIngredient> getIngredientsList() {
 		return ingredientsList;
 	}
+
 	public void setIngredientsList(List<TranslatedIngredient> ingredientsList) {
 		this.ingredientsList = ingredientsList;
 	}
-	public int getSuitabilityPercentage() {
-		return suitabilityPercentage;
+
+	public double getDesiredSuitability() {
+		return desiredSuitability;
 	}
-	public void setSuitabilityPercentage(int suitabilityPercentage) {
-		this.suitabilityPercentage = suitabilityPercentage;
-	}*/
-	
-	
+
+	public void setDesiredSuitability(double desiredSuitability) {
+		this.desiredSuitability = desiredSuitability;
+	}
 	
 }

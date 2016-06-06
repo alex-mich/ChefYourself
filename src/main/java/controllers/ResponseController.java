@@ -24,10 +24,8 @@ public class ResponseController {
 	 public @ResponseBody List<TranslatedRecipe> recipeResponse(@RequestBody String requestObject) {
 		 Gson gson = new Gson();
 		 RequestObject requestObject1 = gson.fromJson(requestObject, RequestObject.class);
-		 System.out.println(requestObject1.toString());
 		 List<TranslatedRecipe> trans = responseService.recipesResponse(requestObject1);
-		 System.out.println(trans.size());
-		 return responseService.recipesResponse(requestObject1);
+		 return trans;
 	 }
 		 
 }
