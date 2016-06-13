@@ -48,7 +48,7 @@ body {
 			Update Operation</font>
 	</h1>
 	<form id="UpdateOperations" method="post" name="UpdateOperations"
-		action="Update_Method.jsp">
+		action="./Update_Method.ds">
 		<br>
 		<center>
 			<br> <input type="submit" id="updateMethod" value="METHOD"
@@ -57,7 +57,7 @@ body {
 		</center>
 	</form>
 	<form id="UpdateOperations2" method="post" name="UpdateOperations2"
-		action="Update_Cuisine.jsp">
+		action="./Update_Cuisine.ds">
 		<br>
 		<center>
 			<input type="submit" id="updateCuisine" value="CUISINE"
@@ -66,7 +66,7 @@ body {
 		</center>
 	</form>
 	<form id="UpdateOperations3" method="post" name="UpdateOperations3"
-		action="Update_Locale.jsp">
+		action="./Update_Locale.ds">
 		<br>
 		<center>
 			<input type="submit" id="updateLocale" value="LOCALE"
@@ -75,7 +75,7 @@ body {
 		</center>
 	</form>
 	<form id="UpdateOperations4" method="post" name="UpdateOperations4"
-		action="Update_Ingredient.jsp">
+		action="./Update_Ingredient.ds">
 		<br>
 		<center>
 			<input type="submit" id="updateIngredient" value="INGREDIENT"
@@ -84,7 +84,7 @@ body {
 		</center>
 	</form>
 	<form id="UpdateOperations5" method="post" name="UpdateOperations5"
-		action="Choose_Cuisine_Update.jsp">
+		action="./Choose_Cuisine_Update.ds">
 		<br>
 		<center>
 			<input type="submit" id="updateRecipe" value="RECIPE"

@@ -109,7 +109,7 @@ body {
 		</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Update_Operations.jsp">
+		action="./Update_Operations.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"

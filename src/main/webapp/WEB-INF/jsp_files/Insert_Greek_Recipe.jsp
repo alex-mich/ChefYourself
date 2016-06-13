@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert Global Recipe</title>
+<title>Insert Greek Recipe</title>
 <script>
 	function goBack() {
 		document.forms["GoBack"].submit();
@@ -16,7 +16,7 @@
 <style>
 body {
 	background:
-		url(http://paulapuffer.net/wp-content/uploads/2014/02/DSC_30381.jpg)
+		url(http://www.hotelcielo.com/wp-content/uploads/2012/04/DSC1916.jpg)
 		no-repeat;
 	background-size: cover;
 }
@@ -26,44 +26,43 @@ body {
 	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_global recipes table</font><br>
+			into app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipe.ds" method="post">
+		<form action="./insertGreekRecipe.ds" method="post">
 			<table width="280">
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe ID:</td>
-					<td><input type="text" name="glrid1"></td>
+					<td style="background-color: buttonface;">Greek Recipe ID:</td>
+					<td><input type="text" name="grrid1"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertGlobalRecipe" value="INSERT"
-				style="height: 25px; width: 80px; font-size: 15px;">
+			<br> <input type="submit" id="insertGreekRecipe" value="INSERT"
+				style="height: 25px; width: 80px; font-size: 15px;" />
 		</form>
-		<form action="./viewGlobalRecipesTable.ds" target="_blank">
-			<br> <input type="submit" id="viewAppGlobalRecipesTable"
+		<form action="./viewGreekRecipesTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppGreekRecipesTable"
 				value="VIEW TABLE"
-				style="height: 25px; width: 100px; font-size: 15px;">
+				style="height: 25px; width: 100px; font-size: 15px;" />
 		</form>
 		<h4>
-			<font color="white">Rows Affected:
-				${globalRecipesRowsAffected}</font>
+			<font color="white">Rows Affected: ${greekRecipesRowsAffected}</font>
 		</h4>
 	</center>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_global_recipes_trans table</font><br>
+			into app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeTrans.ds" method="post">
+		<form action="./insertGreekRecipeTrans.ds" method="post">
 			<table width="350">
 				<tr>
-					<td style="background-color: buttonface;">Translated Global
+					<td style="background-color: buttonface;">Translated Greek
 						Recipe ID:</td>
-					<td><input type="text" name="tglrid"></td>
+					<td><input type="text" name="tgrrid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe ID:</td>
-					<td><input type="text" name="glrid2"></td>
+					<td style="background-color: buttonface;">Greek Recipe ID:</td>
+					<td><input type="text" name="grrid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
@@ -77,39 +76,41 @@ body {
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td><input type="text" name="loc" maxlength="5"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe Name:</td>
-					<td><input type="text" name="glrname"></td>
+					<td style="background-color: buttonface;">Greek Recipe Name:</td>
+					<td><input type="text" name="grrname" maxlength="40"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertGlobalRecipesTrans"
+			<br> <input type="submit" id="insertGreekRecipesTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action=./viewGlobalTranslatedRecipesTable.ds target="_blank">
-			<br> <input type="submit" id="viewAppGlobalRecipesTransTable"
+		<form action="./viewGreekTranslatedRecipesTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppGreekRecipesTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${globalTranslatedRecipesRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${greekTranslatedRecipesRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_global_recipes_ingredients table</font><br>
+			into app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeIngredients.ds" method="post">
+		<form action="./insertGreekRecipeIngredients.ds" method="post">
 			<table width="400">
 				<tr>
-					<td style="background-color: buttonface;">Global Ingredient
-						ID:</td>
-					<td><input type="text" name="gliid"></td>
+					<td style="background-color: buttonface;">Greek Ingredient ID:</td>
+					<td><input type="text" name="griid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Translated Global
+					<td style="background-color: buttonface;">Translated Greek
 						Recipe ID:</td>
-					<td><input type="text" name="tglrid2"></td>
+					<td><input type="text" name="tgrrid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Translated
@@ -117,60 +118,66 @@ body {
 					<td><input type="text" name="tinid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe
+					<td style="background-color: buttonface;">Greek Recipe
 						Ingredient Quantity:</td>
-					<td><input type="text" name="glriquan"></td>
+					<td><input type="text" name="grriquan"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertGlobalRecipesIngredients"
+			<br> <input type="submit" id="insertGreekRecipesIngredients"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewGlobalRecipeIngredientsTable.ds" target="_blank">
+		<form action="./viewGreekRecipeIngredientsTable.ds" target="_blank">
 			<br> <input type="submit"
-				id="viewAppGlobalRecipesIngredientsTable" value="VIEW TABLE"
+				id="viewAppGreekRecipesIngredientsTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${globalRecipeIngredientsRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${greekRecipeIngredientsRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_global_recipes_description table</font><br>
+			into app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./insertGlobalRecipeDescription.ds" method="post">
+		<form action="./insertGreekRecipeDescription.ds" method="post">
 			<table width="430">
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe
+					<td style="background-color: buttonface;">Greek Recipe
 						Description ID:</td>
-					<td><input type="text" name="glrdid"></td>
+					<td><input type="text" name="grrdid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Translated Global
+					<td style="background-color: buttonface;">Translated Greek
 						Recipe ID:</td>
-					<td><input type="text" name="tglrid3"></td>
+					<td><input type="text" name="tgrrid3"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Global Recipe
+					<td style="background-color: buttonface;">Greek Recipe
 						Description:</td>
 				</tr>
 			</table>
 			<table>
 				<tr>
-					<td><textarea name="glrdesc" rows="10" cols="50"></textarea></td>
+					<td><textarea name="grrdesc" rows="10" cols="50"></textarea></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertGlobalRecipesDescription"
+			<br> <input type="submit" id="insertGreekRecipesDescription"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewGlobalRecipeDescriptionsTable.ds" target="_blank">
+		<form action="./viewGreekRecipeDescriptionsTable.ds" target="_blank">
 			<br> <input type="submit"
-				id="viewAppGlobalRecipesDescriptionTable" value="VIEW TABLE"
+				id="viewAppGreekRecipesDescriptionTable" value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${globalDescriptionRowsAffected}</h4>
+		<h4>
+			<font color="white">Rows Affected:
+				${greekDescriptionRowsAffected}</font>
+		</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Choose_Cuisine_Insert.jsp">
+		action="./Choose_Cuisine_Insert.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"

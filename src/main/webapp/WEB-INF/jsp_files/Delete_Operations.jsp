@@ -46,7 +46,7 @@ body {
 			Delete Operation</font>
 	</h1>
 	<form id="DeleteOperations" method="post" name="DeleteOperations"
-		action="Delete_Method.jsp">
+		action="./Delete_Method.ds">
 		<br>
 		<center>
 			<br> <input type="submit" id="deleteMethod" value="METHOD"
@@ -55,7 +55,7 @@ body {
 		</center>
 	</form>
 	<form id="DeleteOperations2" method="post" name="DeleteOperations2"
-		action="Delete_Cuisine.jsp">
+		action="./Delete_Cuisine.ds">
 		<br>
 		<center>
 			<input type="submit" id="deleteCuisine" value="CUISINE"
@@ -64,7 +64,7 @@ body {
 		</center>
 	</form>
 	<form id="DeleteOperations3" method="post" name="DeleteOperations3"
-		action="Delete_Locale.jsp">
+		action="./Delete_Locale.ds">
 		<br>
 		<center>
 			<input type="submit" id="deleteLocale" value="LOCALE"
@@ -73,7 +73,7 @@ body {
 		</center>
 	</form>
 	<form id="DeleteOperations4" method="post" name="DeleteOperations4"
-		action="Delete_Ingredient.jsp">
+		action="./Delete_Ingredient.ds">
 		<br>
 		<center>
 			<input type="submit" id="deleteIngredient" value="INGREDIENT"
@@ -82,7 +82,7 @@ body {
 		</center>
 	</form>
 	<form id="DeleteOperations5" method="post" name="DeleteOperations5"
-		action="Choose_Cuisine_Delete.jsp">
+		action="./Choose_Cuisine_Delete.ds">
 		<br>
 		<center>
 			<input type="submit" id="deleteRecipe" value="RECIPE"

@@ -46,7 +46,7 @@ body {
 			Insert Operation</font>
 	</h1>
 	<form id="InsertOperations" method="post" name="InsertOperations"
-		action="Insert_Method.jsp">
+		action="./Insert_Method.ds">
 		<br>
 		<center>
 			<br> <input type="submit" id="insertMethod" value="METHOD"
@@ -55,7 +55,7 @@ body {
 		</center>
 	</form>
 	<form id="InsertOperations2" method="post" name="InsertOperations2"
-		action="Insert_Cuisine.jsp">
+		action="./Insert_Cuisine.ds">
 		<br>
 		<center>
 			<input type="submit" id="insertCuisine" value="CUISINE"
@@ -64,7 +64,7 @@ body {
 		</center>
 	</form>
 	<form id="InsertOperations3" method="post" name="InsertOperations3"
-		action="Insert_Locale.jsp">
+		action="./Insert_Locale.ds">
 		<br>
 		<center>
 			<input type="submit" id="insertLocale" value="LOCALE"
@@ -73,7 +73,7 @@ body {
 		</center>
 	</form>
 	<form id="InsertOperations4" method="post" name="InsertOperations4"
-		action="Insert_Ingredient.jsp">
+		action="./Insert_Ingredient.ds">
 		<br>
 		<center>
 			<input type="submit" id="insertIngredient" value="INGREDIENT"
@@ -82,7 +82,7 @@ body {
 		</center>
 	</form>
 	<form id="InsertOperations5" method="post" name="InsertOperations5"
-		action="Choose_Cuisine_Insert.jsp">
+		action="./Choose_Cuisine_Insert.ds">
 		<br>
 		<center>
 			<input type="submit" id="insertRecipe" value="RECIPE"

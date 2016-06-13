@@ -29,7 +29,7 @@ body {
 			which cuisine you want to add recipe:</font>
 	</h1>
 	<form id="Main" method="post" name="Main"
-		action="Insert_Global_Recipe.jsp">
+		action="./Insert_Global_Recipe.ds">
 		<br> <br>
 		<center>
 			<br> <input type="submit" id="globalCuisine" value="GLOBAL"
@@ -37,21 +37,21 @@ body {
 		</center>
 	</form>
 	<form id="Main2" method="post" name="Main2"
-		action="Insert_Greek_Recipe.jsp">
+		action="./Insert_Greek_Recipe.ds">
 		<center>
 			<br> <input type="submit" id="greekCuisine" value="GREEK"
 				style="height: 50px; width: 200px; font-size: 30px;">
 		</center>
 	</form>
 	<form id="Main3" method="post" name="Main3"
-		action="Insert_Spanish_Recipe.jsp">
+		action="./Insert_Spanish_Recipe.ds">
 		<center>
 			<br> <input type="submit" id="spanishCuisine" value="SPANISH"
 				style="height: 50px; width: 200px; font-size: 30px;">
 		</center>
 	</form>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Insert_Operations.jsp">
+		action="./Insert_Operations.ds">
 		<center>
 			<br> <input type="button" id="backButton" value="BACK"
 				style="height: 50px; width: 200px; font-size: 30px;"

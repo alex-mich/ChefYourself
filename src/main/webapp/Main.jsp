@@ -38,7 +38,7 @@ body {
 		<font size="10" style="background-color: buttonface;">Choose Operation:</font>
 	</h1>
 	<form id="Main" method="post" name="Main"
-		action="Insert_Operations.jsp">
+		action="./Insert_Operations.ds">
 		<br>
 		<center>
 			<br> <input type="submit" id="insert" value="INSERT"
@@ -47,7 +47,7 @@ body {
 		</center>
 	</form>
 	<form id="Main2" method="post" name="Main2"
-		action="Update_Operations.jsp">
+		action="./Update_Operations.ds">
 		<center>
 			<br> <input type="submit" id="update" value="UPDATE"
 				style="height: 50px; width: 200px; font-size: 30px;"
@@ -55,7 +55,7 @@ body {
 		</center>
 	</form>
 	<form id="Main3" method="post" name="Main3"
-		action="Delete_Operations.jsp">
+		action="./Delete_Operations.ds">
 		<center>
 			<br> <input type="submit" id="delete" value="DELETE"
 				style="height: 50px; width: 200px; font-size: 30px;">

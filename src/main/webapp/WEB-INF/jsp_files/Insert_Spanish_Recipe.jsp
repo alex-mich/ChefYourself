@@ -179,7 +179,7 @@ body {
 		</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Choose_Cuisine_Insert.jsp">
+		action="./Choose_Cuisine_Insert.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"

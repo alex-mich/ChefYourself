@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert Locale</title>
+<title>Delete Locale</title>
 <script>
 	function goBack() {
 		document.forms["GoBack"].submit();
@@ -15,8 +15,7 @@
 </script>
 <style>
 body {
-	background:
-		url(http://photo.elsoar.com/wp-content/images/Spices-and-herbs.-Food-and-cuisine-ingredients.jpg)
+	background: url(http://shaakinternational.com/images/image2.jpg)
 		no-repeat;
 	background-size: 100%;
 }
@@ -29,27 +28,21 @@ body {
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
 	<h1 align="center">
-		<font size="5" style="background-color: buttonface;">Insert
-			into app_locale table</font><br>
+		<font size="5" style="background-color: buttonface;">Delete
+			from app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./insertLocale.ds" method="post">
-			<table width="230">
+		<form action="./deleteLocale.ds" method="post">
+			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
 					<td><input type="text" name="lid"></td>
 				</tr>
-				<tr>
-					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="locale"></td>
-				</tr>
-				<tr>
-					<td style="background-color: buttonface;">Language:</td>
-					<td><input type="text" name="lang"></td>
-				</tr>
 			</table>
-			<br> <input type="submit" id="insertAppLocales" value="INSERT"
+			<br> <input type="submit" id="deleteAppLocale" value="DELETE"
 				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
 		<form action="./viewLanguagesTable.ds" target="_blank">
@@ -58,10 +51,11 @@ body {
 				style="height: 25px; width: 100px; font-size: 15px;"> <br>
 		</form>
 		<h4>
-			<font color="red">Rows Affected: ${languageRowsAffected}</font>
+			<font color="black">Rows Affected:
+				${deletedLanguageRowsAffected}</font>
 		</h4>
 		<form id="GoBack" method="post" name="GoBack"
-			action="Insert_Operations.jsp">
+			action="./Delete_Operations.ds">
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"
 				onClick="javascript: goBack()">

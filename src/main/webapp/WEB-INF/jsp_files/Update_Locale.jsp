@@ -68,7 +68,7 @@ body {
 				${updatedLanguageRowsAffected}</font>
 		</h4>
 		<form id="GoBack" method="post" name="GoBack"
-			action="Update_Operations.jsp">
+			action="./Update_Operations.ds">
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"
 				onClick="javascript: goBack()">

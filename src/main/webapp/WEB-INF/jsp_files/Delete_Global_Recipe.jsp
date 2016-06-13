@@ -116,7 +116,7 @@ body {
 		<h4>Rows Affected: ${deletedGlobalRecipeDescriptionRowsAffected}</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Choose_Cuisine_Delete.jsp">
+		action="./Choose_Cuisine_Delete.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"

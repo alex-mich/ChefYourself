@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert Ingredient</title>
+<title>Insert Method</title>
 <script>
 	function goBack() {
 		document.forms["GoBack"].submit();
@@ -16,7 +16,7 @@
 <style>
 body {
 	background:
-		url(http://media.al-sharq.com/PortalImages/News/Small/174263_0.jpg)
+		url(http://cook-wise.com/wp-content/uploads/parser/italian-food-ingredients-2.jpg)
 		no-repeat;
 	background-size: 100%;
 }
@@ -26,72 +26,63 @@ body {
 	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_ingredients table</font><br>
+			into app_methods table</font><br>
 	</h1>
 	<center>
-		<form action="./insertIngredient.ds" method="post">
-			<table width="280">
+		<form action="./insertMethod.ds" method="post">
+			<table width="300">
 				<tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid1"></td>
-				</tr>
-				<tr>
-					<td style="background-color: buttonface;">Ingredient Type:</td>
-					<td><input type="text" name="itype"></td>
+					<td style="background-color: buttonface;">Method ID:</td>
+					<td><input type="text" name="mid1"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertAppIngredients"
-				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
+			<br> <input type="submit" id="insertAppMethods" value="INSERT"
+				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewIngredientsTable.ds" target="_blank">
-			<br> <input type="submit" id="viewAppIngredientsTable"
+		<form action="./viewMethodsTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppMethodsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
-		<h4>
-			<font color="white">Rows Affected: ${ingredientRowsAffected}</font>
-		</h4>
+		<h4>Rows Affected: ${methodRowsAffected}</h4>
 	</center>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Insert
-			into app_ingredients_trans table</font><br>
+			into app_methods_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertTranslatedIngredient.ds" method="post">
-			<table width="320">
+		<form action="./insertTranslatedMethod.ds" method="post">
+			<table width="300">
 				<tr>
-					<td style="background-color: buttonface;">Translated
-						Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td style="background-color: buttonface;">Translated Method
+						ID:</td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid2"></td>
+					<td style="background-color: buttonface;">Method ID:</td>
+					<td><input type="text" name="mid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
 					<td><input type="text" name="loc"></td>
 				</tr>
 				<tr>
-					<td style="background-color: buttonface;">Ingredient Name:</td>
-					<td><input type="text" name="iname"></td>
+					<td style="background-color: buttonface;">Method Name:</td>
+					<td><input type="text" name="mname"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="insertAppIngredientsTrans"
+			<br> <input type="submit" id="insertAppMethodsTrans"
 				value="INSERT" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewTranslatedIngredientsTable.ds" target="_blank">
-			<br> <input type="submit" id="viewAppIngredientsTransTable"
+		<form action="./viewTranslatedMethodsTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppMethodsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>
-			<font color="white">Rows Affected:
-				${translatedIngredientRowsAffected}</font>
-		</h4>
+		<h4>Rows Affected: ${translatedMethodRowsAffected}</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Insert_Operations.jsp">
+		action="./Insert_Operations.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"

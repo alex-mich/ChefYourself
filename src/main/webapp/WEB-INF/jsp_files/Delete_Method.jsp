@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Delete Ingredient</title>
+<title>Delete Method</title>
 <script>
 	function goBack() {
 		document.forms["GoBack"].submit();
@@ -16,7 +16,7 @@
 <style>
 body {
 	background:
-		url(http://olivethis.com/wp-content/uploads/2012/10/Measured-Ingredients.jpg)
+		url(http://dailystyle.cz/wp-content/uploads/2015/11/ingredients.jpg)
 		no-repeat;
 	background-size: 100%;
 }
@@ -28,51 +28,57 @@ body {
 	<br>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
-			from app_ingredients table</font><br>
+			from app_methods table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteIngredient.ds" method="post">
-			<table width="250">
+		<form action="./deleteMethod.ds" method="post">
+			<table width="230">
 				<tr>
-					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid"></td>
+					<td style="background-color: buttonface;">Method ID:</td>
+					<td><input type="text" name="mid"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="deleteAppIngredient"
-				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
+			<br> <input type="submit" id="deleteAppMethods" value="DELETE"
+				style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewIngredientsTable.ds" target="_blank">
-			<br> <input type="submit" id="viewAppIngredientsTable"
+		<form action="./viewMethodsTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppMethodsTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;"><br>
 		</form>
-		<h4>Rows Affected: ${deletedIngredientRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedMethodRowsAffected}</font>
+		</h4>
 	</center>
 	<h1 align="center">
 		<font size="5" style="background-color: buttonface;">Delete
-			from app_ingredients_trans table</font><br>
+			from app_methods_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteTranslatedIngredient.ds" method="post">
-			<table width="320">
+		<form action="./deleteTranslatedMethod.ds" method="post">
+			<table width="300">
 				<tr>
-					<td style="background-color: buttonface;">Translated
-						Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td style="background-color: buttonface;">Translated Method
+						ID:</td>
+					<td><input type="text" name="tmid"></td>
 				</tr>
 			</table>
-			<br> <input type="submit" id="deleteAppIngredientsTrans"
+			<br> <input type="submit" id="deleteAppMethodsTrans"
 				value="DELETE" style="height: 25px; width: 80px; font-size: 15px;">
 		</form>
-		<form action="./viewTranslatedIngredientsTable.ds" target="_blank">
-			<br> <input type="submit" id="viewAppIngredientsTransTable"
+		<form action="./viewTranslatedMethodsTable.ds" target="_blank">
+			<br> <input type="submit" id="viewAppMethodsTransTable"
 				value="VIEW TABLE"
 				style="height: 25px; width: 100px; font-size: 15px;">
 		</form>
-		<h4>Rows Affected: ${deletedTranslatedIngredientRowsAffected}</h4>
+		<h4>
+			<font color="black">Rows Affected:
+				${deletedTranslatedMethodRowsAffected}</font>
+		</h4>
 	</center>
 	<form id="GoBack" method="post" name="GoBack"
-		action="Delete_Operations.jsp">
+		action="./Delete_Operations.ds">
 		<center>
 			<input type="button" id="backButton" value="BACK"
 				style="height: 25px; width: 80px; font-size: 15px;"
