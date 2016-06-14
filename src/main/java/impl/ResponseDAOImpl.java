@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import dao.ResponseDAO;
 import pojos.RecipeIngredient;
 import pojos.RequestObject;
+import pojos.ResponseObject;
 import pojos.TranslatedIngredient;
 import pojos.TranslatedRecipe;
 
@@ -38,10 +39,9 @@ public class ResponseDAOImpl implements ResponseDAO {
 		this.trdi = trdi;
 	}
 
-	// {"locale":"en","methodList":[{"tmid":0,"mname":"Fried"}],"cuisineList":[{"tcid":0,"cname":"Greek
-	// Menu"},{"tcid":0,"cname":"Spanish
-	// Menu"}],"ingredientsList":[{"tinid":0,"iname":"Salt"},{"tinid":0,"iname":"Oregano"},{"tinid":0,"iname":"Egg"},{"tinid":0,"iname":"Tomato"}],"desiredSuitability":"30"}
+	// {"locale":"en","methodList":[{"tmid":0,"mname":"Fried"}],"cuisineList":[{"tcid":0,"cname":"Greek Menu"},{"tcid":0,"cname":"Spanish Menu"}],"ingredientsList":[{"tinid":0,"iname":"Salt"},{"tinid":0,"iname":"Oregano"},{"tinid":0,"iname":"Egg"},{"tinid":0,"iname":"Tomato"}],"desiredSuitability":"30"}
 
+	//{"cuisineList":["Fried"],"ingredientsList":["Salt","Oregano","Egg"],"methodList":["Greek Menu","Spanish Menu"],"desiredSuitability":30,"locale":"en"}
 	public IngredientsDAOImpl getTidi() {
 		return tidi;
 	}
@@ -51,8 +51,8 @@ public class ResponseDAOImpl implements ResponseDAO {
 	}
 
 	@Override
-	public List<TranslatedRecipe> recipesResponse(RequestObject requestObject) {
-
+	public ResponseObject recipesResponse(RequestObject requestObject) {
+		
 		List<TranslatedRecipe> firstStep = new ArrayList<TranslatedRecipe>();
 		try {
 			if (requestObject.getLocale().equals(requestObject.getLocale()))
@@ -105,13 +105,15 @@ public class ResponseDAOImpl implements ResponseDAO {
 			}
 		}
 		
-		List<TranslatedRecipe> finalList = new ArrayList<TranslatedRecipe>();
+		ArrayList<TranslatedRecipe> finalList = new ArrayList<TranslatedRecipe>();
 		finalList = ingredientsSuitability(thirdStep, requestObject.getDesiredSuitability(),
 				requestObject.getLocale(), requestObject.getIngredientsList());
-		return finalList;
+		ResponseObject responseObject = new ResponseObject();
+		responseObject.setRecipesList(finalList);
+		return responseObject;
 	}
 
-	public List<TranslatedRecipe> ingredientsSuitability(List<TranslatedRecipe> recipesList,
+	public ArrayList<TranslatedRecipe> ingredientsSuitability(List<TranslatedRecipe> recipesList,
 			double desiredSuitabilityPercentage, String locale, List<TranslatedIngredient> ingredientsList) {
 		for (int i = 0; i < recipesList.size(); i++) {
 			TranslatedRecipe translatedRecipe = recipesList.get(i);
@@ -131,7 +133,7 @@ public class ResponseDAOImpl implements ResponseDAO {
 			translatedRecipe.setSuitability(suitabilityPercentage);
 		}
 
-		List<TranslatedRecipe> tobereturned = new ArrayList<>();
+		ArrayList<TranslatedRecipe> tobereturned = new ArrayList<>();
 		for (int i = 0; i < recipesList.size(); i++) {
 			if (recipesList.get(i).getSuitability() > desiredSuitabilityPercentage) {
 				tobereturned.add(recipesList.get(i));

@@ -1,11 +1,9 @@
 package dao;
 
-import java.util.List;
-
 import pojos.RequestObject;
-import pojos.TranslatedRecipe;
+import pojos.ResponseObject;
 
 public interface ResponseDAO {
 
-	public List<TranslatedRecipe> recipesResponse(RequestObject requestObject);
+	public ResponseObject recipesResponse(RequestObject requestObject);
 }
