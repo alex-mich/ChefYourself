@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Update Locale</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,61 @@ body {
 	background-size: 100%;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var curlid = document.getElementById("curlid");
+		var newlid = document.getElementById("newlid");
+		var curlocale = document.getElementById("curlocale");
+		var newlocale = document.getElementById("newlocale");
+		var curlang = document.getElementById("curlang");
+		var newlang = document.getElementById("newlang");
+		var valid = true;
+
+		if (curlid.value.length <= 0 && curlocale.value.length <= 0
+				&& curlang.value.length <= 0 && newlid.value.length <= 0
+				&& newlocale.value.length <= 0 && newlang.value.length <= 0) {
+			alert("You should choose to fill at least one field between the 'current' fields and one between the 'new' fields!");
+			valid = false;
+		} else if ((curlid.value.length > 0 || curlocale.value.length > 0 || curlang.value.length > 0)
+				&& (newlid.value.length <= 0 && newlocale.value.length <= 0 && newlang.value.length <= 0)) {
+			alert("You should choose to fill at least one field between the 'current' fields and one between the 'new' fields!");
+			valid = false;
+		} else if ((newlang.value.length <= 0 && curlocale.value.length <= 0 && curlang.value.length <= 0)
+				&& (newlid.value.length > 0 || newlocale.value.length > 0 || newlang.value.length > 0)) {
+			alert("You should choose to fill at least one field between the 'current' fields and one between the 'new' fields!");
+			valid = false;
+		} else if (curlid.value.length > 0 && isNaN(curlid.value)) {
+			alert("Current Locale ID must be filled with valid number, please check the table!");
+			valid = false;
+		} else if (curlocale.value.length > 0 && !isNaN(curlocale.value)) {
+			alert("Current Locale field must be filled with valid letters, please check the table!");
+			valid = false;
+		} else if (curlang.value.length > 0 && !isNaN(curlang.value)) {
+			alert("Current Language field must be filled with valid letters, please check the table");
+			valid = false;
+		} else if (newlid.value.length > 0 && isNaN(newlid.value)) {
+			alert("New New Locale ID field must be filled with number!");
+			valid = false;
+		} else if (newlocale.value.length > 0 && !isNaN(newlocale.value)) {
+			alert("New Language field must be filled with letters!");
+			valid = false;
+		} else if (newlang.value.length > 0 && !isNaN(newlang.value)) {
+			alert("New Locale field must be filled with letters!");
+			valid = false;
+		} else
+			alert("Update Completed!")
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -34,25 +81,26 @@ body {
 			app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./updateLocale.ds" method="post">
+		<form action="./updateLocale.ds" method="post"
+			onsubmit="return validate();">
 			<table width="650">
 				<tr>
 					<td style="background-color: buttonface;">Current Locale ID:</td>
-					<td><input type="text" name="curlid"></td>
+					<td><input type="text" name="curlid" id="curlid"></td>
 					<td style="background-color: buttonface;">New Locale ID:</td>
-					<td><input type="text" name="newlid"></td>
+					<td><input type="text" name="newlid" id="newlid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Current Locale:</td>
-					<td><input type="text" name="curlocale"></td>
+					<td><input type="text" name="curlocale" id="curlocale"></td>
 					<td style="background-color: buttonface;">New Locale:</td>
-					<td><input type="text" name="newlocale"></td>
+					<td><input type="text" name="newlocale" id="newlocale"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Current Language:</td>
-					<td><input type="text" name="curlang"></td>
+					<td><input type="text" name="curlang" id="curlang"></td>
 					<td style="background-color: buttonface;">New Language:</td>
-					<td><input type="text" name="newlang"></td>
+					<td><input type="text" name="newlang" id="newlang"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="updateAppLocales" value="UPDATE"

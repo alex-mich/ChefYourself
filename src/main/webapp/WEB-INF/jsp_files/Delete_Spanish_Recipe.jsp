@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Spanish Recipe</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,75 @@ body {
 	background-size: cover;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var sprid1 = document.getElementById("sprid1");
+		var valid = true;
+
+		if (sprid1.value.length <= 0) {
+			alert("Spanish Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(sprid1.value)) {
+			alert("Spanish Recipe ID field must be filled with numbers!");
+			valid = false;
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tsprid = document.getElementById("tsprid");
+		var valid = true;
+
+		if (tsprid.value.length <= 0) {
+			alert("Translated Spanish Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(tsprid.value)) {
+			alert("Translated Spanish Recipe ID field must be filled with numbers!");
+			valid = false;
+		}
+		return valid;
+	};
+
+	function validate3() {
+
+		var spiid = document.getElementById("spiid");
+		var valid = true;
+
+		if (spiid.value.length <= 0) {
+			alert("Spanish Ingredient ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(spiid.value)) {
+			alert("Spanish Ingredient ID field must be filled with numbers!");
+			valid = false;
+		}
+		return valid;
+	};
+
+	function validate4() {
+
+		var sprdid = document.getElementById("sprdid");
+		var valid = true;
+
+		if (sprdid.value.length <= 0) {
+			alert("Spanish Recipe Description ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(sprdid.value)) {
+			alert("Spanish Recipe Description ID field must be filled with numbers!");
+			valid = false;
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -29,11 +90,12 @@ body {
 			from app_spanish recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipe.ds" method="post">
+		<form action="./deleteSpanishRecipe.ds" method="post"
+			onsubmit="return validate();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Recipe ID:</td>
-					<td><input type="text" name="sprid1"></td>
+					<td><input type="text" name="sprid1" id="sprid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteSpanishRecipe"
@@ -54,12 +116,13 @@ body {
 			from app_spanish_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeTrans.ds" method="post">
+		<form action="./deleteSpanishRecipeTrans.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Spanish
 						Recipe ID:</td>
-					<td><input type="text" name="tsprid"></td>
+					<td><input type="text" name="tsprid" id="tsprid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteSpanishRecipesTrans"
@@ -80,12 +143,13 @@ body {
 			from app_spanish_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeIngredient.ds" method="post">
+		<form action="./deleteSpanishRecipeIngredient.ds" method="post"
+			onsubmit="return validate3();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Ingredient
 						ID:</td>
-					<td><input type="text" name="spiid"></td>
+					<td><input type="text" name="spiid" id="spiid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteSpanishRecipesIngredient"
@@ -106,12 +170,13 @@ body {
 			from app_spanish_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteSpanishRecipeDescription.ds" method="post">
+		<form action="./deleteSpanishRecipeDescription.ds" method="post"
+			onsubmit="return validate4();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Spanish Recipe
 						Description ID:</td>
-					<td><input type="text" name="sprdid"></td>
+					<td><input type="text" name="sprdid" id="sprdid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteSpanishRecipesDescription"

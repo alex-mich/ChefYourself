@@ -5,13 +5,93 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert Cuisine</title>
-<script>
+<script type="text/javascript">
 	function goBack() {
 		document.forms["GoBack"].submit();
 	}
+	
 	function goHome() {
 		document.forms["GoHome"].submit();
 	}
+
+	function validate() {
+
+		var cid1 = document.getElementById("cid1");
+		var valid = true;
+
+		if (cid1.value.length <= 0) {
+			alert("Cusine ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(cid1.value)) {
+			alert("Cuisine ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Insertion Completed!");
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tcid = document.getElementById("tcid");
+		var cid2 = document.getElementById("cid2");
+		var loc = document.getElementById("loc");
+		var cname = document.getElementById("cname");
+		var valid = true;
+
+		if (tcid.value.length <= 0 && cid2.value.length <= 0
+				&& loc.value.length <= 0) {
+			alert("Translated Cusine ID, Cusine ID and Locale fields must not be empty!");
+			valid = false;
+		} else if (tcid.value.length <= 0 && cid2.value.length <= 0) {
+			alert("Translated Cusine ID and Cusine ID fields must not be empty!");
+			valid = false;
+		} else if (cid2.value.length <= 0 && loc.value.length <= 0) {
+			alert("Cusine ID and Locale fields must not be empty!");
+			valid = false;
+		} else if (tcid.value.length <= 0 && loc.value.length <= 0) {
+			alert("Translated Cusine ID and Locale fields must not be empty!");
+			valid = false;
+		} else if (tcid.value.length <= 0) {
+			alert("Translated Cusine ID field must not be empty!");
+			valid = false;
+		} else if (cid2.value.length <= 0) {
+			alert("Cusine ID field must not be empty!");
+			valid = false;
+		} else if (loc.value.length <= 0) {
+			alert("Locale field must not be empty!");
+			valid = false;
+		} else if (isNaN(tcid.value) && isNaN(cid2.value) && !isNaN(loc.value)) {
+			alert("Translated Cusine ID and Cusine ID fields must be filled with numbers and Locale field must be filled with valid letters!");
+			valid = false;
+		} else if (!isNaN(tcid.value) && isNaN(cid2.value) && !isNaN(loc.value)) {
+			alert("Cusine ID field must be filled with numbers and Locale field must be filled with valid letters!");
+			valid = false;
+		} else if (!isNaN(tcid.value) && !isNaN(cid2.value) && !isNaN(loc.value)) {
+			alert("Locale field must be filled with lvalid etters!");
+			valid = false;
+		} else if (!isNaN(tcid.value) && isNaN(cid2.value) && isNaN(loc.value)) {
+			alert("Cusine ID field must be filled with numbers!");
+			valid = false;
+		} else if (isNaN(tcid.value) && !isNaN(cid2.value) && isNaN(loc.value)) {
+			alert("Translated Cusine ID field must be filled with numbers!");
+			valid = false;
+		} else if (isNaN(tcid.value) && isNaN(cid2.value) && isNaN(loc.value)) {
+			alert("Translated Cusine ID and Cusine ID fields must be filled with numbers!");
+			valid = false;
+		} else if (isNaN(tcid.value) && !isNaN(cid2.value) && !isNaN(loc.value)) {
+			alert("Translated Cusine ID field must be filled with numbers and Locale field must be filled with valid letters!");
+			valid = false;
+		} else if ((tcid.value.length > 0 && cid2.value.length > 0
+				&& loc.value.length > 0) && (isNaN(cname.vlaue) || cname.value.length <= 0)) {
+			alert("Insertion Completed!");
+			valid = true;
+		} else if (!isNaN(cname.value)){
+			alert("Cuisine Name field must be filled with letters!");
+			valid = false;
+		}
+		return valid;
+	};
 </script>
 <style>
 body {
@@ -29,11 +109,11 @@ body {
 			into app_cuisines table</font><br>
 	</h1>
 	<center>
-		<form action="./insertCuisine.ds" method="post">
+		<form action="./insertCuisine.ds" method="post" onsubmit="return validate();">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" name="cid1"></td>
+					<td><input type="text" name="cid1" id="cid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppCuisines" value="INSERT"
@@ -51,24 +131,24 @@ body {
 			into app_cuisines_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertTranslatedCuisine.ds" method="post">
+		<form action="./insertTranslatedCuisine.ds" method="post" onsubmit="return validate2();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine
 						ID:</td>
-					<td><input type="text" name="tcid"></td>
+					<td><input type="text" name="tcid" id="tcid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
-					<td><input type="text" name="cid2"></td>
+					<td><input type="text" name="cid2" id="cid2"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="loc"></td>
+					<td><input type="text" name="loc" id="loc"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Cuisine Name:</td>
-					<td><input type="text" name="cname"></td>
+					<td><input type="text" name="cname" id="cname"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppCuisinesTrans"

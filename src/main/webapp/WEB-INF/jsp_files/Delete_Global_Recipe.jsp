@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Global Recipe</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,83 @@ body {
 	background-size: cover;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var glrid1 = document.getElementById("glrid1");
+		var valid = true;
+
+		if (glrid1.value.length <= 0) {
+			alert("Global Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(glrid1.value)) {
+			alert("Global Recipe ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tglrid = document.getElementById("tglrid");
+		var valid = true;
+
+		if (tglrid.value.length <= 0) {
+			alert("Translated Global Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(tglrid.value)) {
+			alert("Translated Global Recipe ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate3() {
+
+		var gliid = document.getElementById("gliid");
+		var valid = true;
+
+		if (gliid.value.length <= 0) {
+			alert("Global Ingredient ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(gliid.value)) {
+			alert("Global Ingredient ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate4() {
+
+		var glrdid = document.getElementById("glrdid");
+		var valid = true;
+
+		if (glrdid.value.length <= 0) {
+			alert("Global Recipe Description ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(glrdid.value)) {
+			alert("Global Recipe Description ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -29,11 +98,12 @@ body {
 			from app_global recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipe.ds" method="post">
+		<form action="./deleteGlobalRecipe.ds" method="post"
+			onsubmit="return validate();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe ID:</td>
-					<td><input type="text" name="glrid1"></td>
+					<td><input type="text" name="glrid1" id="glrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipe" value="DELETE"
@@ -51,12 +121,13 @@ body {
 			from app_global_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeTrans.ds" method="post">
+		<form action="./deleteGlobalRecipeTrans.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Global
 						Recipe ID:</td>
-					<td><input type="text" name="tglrid"></td>
+					<td><input type="text" name="tglrid" id="tglrid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesTrans"
@@ -74,12 +145,13 @@ body {
 			from app_global_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeIngredient.ds" method="post">
+		<form action="./deleteGlobalRecipeIngredient.ds" method="post"
+			onsubmit="return validate3();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Global Ingredient
 						ID:</td>
-					<td><input type="text" name="gliid"></td>
+					<td><input type="text" name="gliid" id="gliid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesIngredient"
@@ -97,12 +169,13 @@ body {
 			from app_global_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGlobalRecipeDescription.ds" method="post">
+		<form action="./deleteGlobalRecipeDescription.ds" method="post"
+			onsubmit="return validate4();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Global Recipe
 						Description ID:</td>
-					<td><input type="text" name="glrdid"></td>
+					<td><input type="text" name="glrdid" id="glrdid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGlobalRecipesDescription"

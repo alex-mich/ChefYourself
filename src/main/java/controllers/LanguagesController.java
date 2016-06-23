@@ -86,7 +86,7 @@ public class LanguagesController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		model.addAttribute("tableName", "Cuisines Table");
+		model.addAttribute("tableName", "Locales Table");
 		model.addAttribute("columnName1", "Locale ID");
 		model.addAttribute("columnName2", "Locale");
 		model.addAttribute("columnName3", "Language");

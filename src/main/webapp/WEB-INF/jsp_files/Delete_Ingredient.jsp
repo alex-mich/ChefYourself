@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Ingredient</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,49 @@ body {
 	background-size: 100%;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var inid = document.getElementById("inid");
+		var valid = true;
+
+		if (inid.value.length <= 0) {
+			alert("Ingredient ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(inid.value)) {
+			alert("Ingredient ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tinid = document.getElementById("tinid");
+		var valid = true;
+
+		if (tinid.value.length <= 0) {
+			alert("Translated Ingredient ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(tinid.value)) {
+			alert("Translated Ingredient ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -31,11 +66,12 @@ body {
 			from app_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteIngredient.ds" method="post">
+		<form action="./deleteIngredient.ds" method="post"
+			onsubmit="return validate();">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Ingredient ID:</td>
-					<td><input type="text" name="inid"></td>
+					<td><input type="text" name="inid" id="inid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppIngredient"
@@ -53,12 +89,13 @@ body {
 			from app_ingredients_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteTranslatedIngredient.ds" method="post">
+		<form action="./deleteTranslatedIngredient.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="320">
 				<tr>
 					<td style="background-color: buttonface;">Translated
 						Ingredient ID:</td>
-					<td><input type="text" name="tinid"></td>
+					<td><input type="text" name="tinid" id="tinid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppIngredientsTrans"

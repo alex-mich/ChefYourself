@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Greek Recipe</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,83 @@ body {
 	background-size: cover;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var grrid1 = document.getElementById("grrid1");
+		var valid = true;
+
+		if (grrid1.value.length <= 0) {
+			alert("Greek Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(grrid1.value)) {
+			alert("Greek Recipe ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tgrrid = document.getElementById("tgrrid");
+		var valid = true;
+
+		if (tgrrid.value.length <= 0) {
+			alert("Translated Greek Recipe ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(tgrrid.value)) {
+			alert("Translated Greek Recipe ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate3() {
+
+		var griid = document.getElementById("griid");
+		var valid = true;
+
+		if (griid.value.length <= 0) {
+			alert("Greek Ingredient ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(griid.value)) {
+			alert("Greek Ingredient ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate4() {
+
+		var grrdid = document.getElementById("grrdid");
+		var valid = true;
+
+		if (grrdid.value.length <= 0) {
+			alert("Greek Recipe Description ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(grrdid.value)) {
+			alert("Greek Recipe Description ID fixeld must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -29,11 +98,12 @@ body {
 			from app_greek recipes table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipe.ds" method="post">
+		<form action="./deleteGreekRecipe.ds" method="post"
+			onsubmit="return validate();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe ID:</td>
-					<td><input type="text" name="grrid1"></td>
+					<td><input type="text" name="grrid1" id="grrid1"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipe" value="DELETE"
@@ -54,12 +124,13 @@ body {
 			from app_greek_recipes_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipeTrans.ds" method="post">
+		<form action="./deleteGreekRecipeTrans.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Translated Greek
 						Recipe ID:</td>
-					<td><input type="text" name="tgrrid"></td>
+					<td><input type="text" name="tgrrid" id="tgrrid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesTrans"
@@ -80,11 +151,12 @@ body {
 			from app_greek_recipes_ingredients table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipeIngredient.ds" method="post">
+		<form action="./deleteGreekRecipeIngredient.ds" method="post"
+			onsubmit="return validate3();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Greek Ingredient ID:</td>
-					<td><input type="text" name="griid"></td>
+					<td><input type="text" name="griid" id="griid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesIngredient"
@@ -105,12 +177,13 @@ body {
 			from app_greek_recipes_description table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteGreekRecipeDescription.ds" method="post">
+		<form action="./deleteGreekRecipeDescription.ds" method="post"
+			onsubmit="return validate4();">
 			<table width="350">
 				<tr>
 					<td style="background-color: buttonface;">Greek Recipe
 						Description ID:</td>
-					<td><input type="text" name="grrdid"></td>
+					<td><input type="text" name="grrdid" id="grrdid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteGreekRecipesDescription"

@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert Locale</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,50 @@ body {
 	background-size: 100%;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var lid = document.getElementById("lid");
+		var locale = document.getElementById("locale");
+		var lang = document.getElementById("lang");
+		var valid = true;
+
+		if (lid.value.length <= 0 && locale.value.length <= 0) {
+			alert("Locale ID and Locale fields must not be empty!");
+			valid = false;
+		} else if (lid.value.length <= 0) {
+			alert("Locale ID field must not be empty!");
+			valid = false;
+		} else if (locale.value.length <= 0) {
+			alert("Locale field must not be empty!");
+			valid = false;
+		} else if (isNaN(lid.value) && !isNaN(locale.value)) {
+			alert("Locale ID field must be filled with numbers and Locale field must be filled with letters!");
+			valid = false;
+		} else if (!isNaN(lid.value) && !isNaN(locale.vlaue)) {
+			alert("Locale field must be filled with letters!");
+			valid = false;
+		} else if (isNaN(lid.value) && isNaN(locale.value)) {
+			alert("Locale ID field must be filled with numbers!");
+			valid = false;
+		} else if (lid.value.length > 0 && locale.value.length > 0 && (isNaN(lang.value) || lang.value.length <= 0)) {
+			alert("Insertion Completed!");
+			valid = true;
+		} else if (!isNaN(lang.value)) {
+			alert("Language field must be filled with letters!")
+			valid = false;
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -34,19 +70,20 @@ body {
 			into app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./insertLocale.ds" method="post">
+		<form action="./insertLocale.ds" method="post"
+			onsubmit="return validate();">
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
-					<td><input type="text" name="lid"></td>
+					<td><input type="text" name="lid" id="lid"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Locale:</td>
-					<td><input type="text" name="locale"></td>
+					<td><input type="text" name="locale" id="locale"></td>
 				</tr>
 				<tr>
 					<td style="background-color: buttonface;">Language:</td>
-					<td><input type="text" name="lang"></td>
+					<td><input type="text" name="lang" id="lang"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="insertAppLocales" value="INSERT"

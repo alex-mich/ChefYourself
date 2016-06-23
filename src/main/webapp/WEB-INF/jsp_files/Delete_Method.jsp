@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Method</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background:
@@ -21,6 +13,49 @@ body {
 	background-size: 100%;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var mid = document.getElementById("mid");
+		var valid = true;
+
+		if (mid.value.length <= 0) {
+			alert("Method ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(mid.value)) {
+			alert("Method ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+
+	function validate2() {
+
+		var tmid = document.getElementById("tmid");
+		var valid = true;
+
+		if (tmid.value.length <= 0) {
+			alert("Translated Method ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(tmid.value)) {
+			alert("Translated Method ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -31,11 +66,12 @@ body {
 			from app_methods table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteMethod.ds" method="post">
+		<form action="./deleteMethod.ds" method="post"
+			onsubmit="return validate();">
 			<table width="230">
 				<tr>
 					<td style="background-color: buttonface;">Method ID:</td>
-					<td><input type="text" name="mid"></td>
+					<td><input type="text" name="mid" id="mid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppMethods" value="DELETE"
@@ -56,12 +92,13 @@ body {
 			from app_methods_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteTranslatedMethod.ds" method="post">
+		<form action="./deleteTranslatedMethod.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Method
 						ID:</td>
-					<td><input type="text" name="tmid"></td>
+					<td><input type="text" name="tmid" id="tmid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppMethodsTrans"

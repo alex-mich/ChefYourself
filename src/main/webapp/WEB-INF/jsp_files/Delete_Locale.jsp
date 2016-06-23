@@ -5,14 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Delete Locale</title>
-<script>
-	function goBack() {
-		document.forms["GoBack"].submit();
-	}
-	function goHome() {
-		document.forms["GoHome"].submit();
-	}
-</script>
 <style>
 body {
 	background: url(http://shaakinternational.com/images/image2.jpg)
@@ -20,6 +12,32 @@ body {
 	background-size: 100%;
 }
 </style>
+<script>
+	function goBack() {
+		document.forms["GoBack"].submit();
+	}
+
+	function goHome() {
+		document.forms["GoHome"].submit();
+	}
+
+	function validate() {
+
+		var lid = document.getElementById("lid");
+		var valid = true;
+
+		if (lid.value.length <= 0) {
+			alert("Locale ID field cannot be empty!");
+			valid = false;
+		} else if (isNaN(lid.value)) {
+			alert("Locale ID field must be filled with numbers!");
+			valid = false;
+		} else {
+			alert("Deletion Completed!");
+		}
+		return valid;
+	};
+</script>
 </head>
 <body>
 	<br>
@@ -35,11 +53,12 @@ body {
 			from app_locale table</font><br>
 	</h1>
 	<center>
-		<form action="./deleteLocale.ds" method="post">
+		<form action="./deleteLocale.ds" method="post"
+			onsubmit="return validate();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Locale ID:</td>
-					<td><input type="text" name="lid"></td>
+					<td><input type="text" name="lid" id="lid"></td>
 				</tr>
 			</table>
 			<br> <input type="submit" id="deleteAppLocale" value="DELETE"
