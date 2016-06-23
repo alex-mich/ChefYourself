@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import dao.ResponseDAO;
+import pojos.Language;
 import pojos.RecipeIngredient;
 import pojos.RequestObject;
 import pojos.ResponseObject;
@@ -40,7 +41,7 @@ public class ResponseDAOImpl implements ResponseDAO {
 	}
 
 	// {"locale":"en","methodList":[{"tmid":0,"mname":"Fried"}],"cuisineList":[{"tcid":0,"cname":"Greek Menu"},{"tcid":0,"cname":"Spanish Menu"}],"ingredientsList":[{"tinid":0,"iname":"Salt"},{"tinid":0,"iname":"Oregano"},{"tinid":0,"iname":"Egg"},{"tinid":0,"iname":"Tomato"}],"desiredSuitability":"30"}
-
+	// {"locale":"en"}
 	//{"cuisineList":["Fried"],"ingredientsList":["Salt","Oregano","Egg"],"methodList":["Greek Menu","Spanish Menu"],"desiredSuitability":30,"locale":"en"}
 	public IngredientsDAOImpl getTidi() {
 		return tidi;
@@ -140,6 +141,20 @@ public class ResponseDAOImpl implements ResponseDAO {
 			}
 		}
 		return tobereturned;
+	}
+
+	public List<TranslatedIngredient> ingredientsResponse(Language language) {
+		List<TranslatedIngredient> ingredientsList = new ArrayList<>();
+		try {
+			
+			if (language.getLoc().equalsIgnoreCase("en"))
+				ingredientsList = tidi.findTranslatedIngredientsByLanguage("en");
+			else
+				ingredientsList = tidi.findTranslatedIngredientsByLanguage("el");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ingredientsList;
 	}
 
 }
