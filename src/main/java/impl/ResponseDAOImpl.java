@@ -111,6 +111,11 @@ public class ResponseDAOImpl implements ResponseDAO {
 				requestObject.getLocale(), requestObject.getIngredientsList());
 		ResponseObject responseObject = new ResponseObject();
 		responseObject.setRecipesList(finalList);
+		
+		for(TranslatedRecipe t: finalList){
+			System.out.println(t.toString());
+		}
+		
 		return responseObject;
 	}
 
@@ -129,7 +134,7 @@ public class ResponseDAOImpl implements ResponseDAO {
 				}
 
 			}
-			suitabilityPercentage = (double) suitableIngredientsCounter / translatedRecipe.getRecipeIngredients().size()
+			suitabilityPercentage = (double) suitableIngredientsCounter / ingredientsList.size()
 					* 100;
 			translatedRecipe.setSuitability(suitabilityPercentage);
 		}
