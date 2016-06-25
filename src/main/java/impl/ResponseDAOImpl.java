@@ -89,18 +89,10 @@ public class ResponseDAOImpl implements ResponseDAO {
 				TranslatedRecipe translatedRecipe = thirdStep.get(i);
 				List<RecipeIngredient> recipeIngredientsList = recipeIngredientsDAOImpl
 						.findRecipeIngredientsByTranslatedRecipe(translatedRecipe);
-				translatedRecipe.setRecipeIngredients(recipeIngredientsList);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
-		for (int i = 0; i < thirdStep.size(); i++) {
-			try {
-				TranslatedRecipe translatedRecipe = thirdStep.get(i);
 				String recipeDescription = recipeDescriptionsDAOImpl
 						.findRecipeDescriptionByTranslatedRecipe(translatedRecipe);
 				translatedRecipe.setDescription(recipeDescription);
+				translatedRecipe.setRecipeIngredients(recipeIngredientsList);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -111,10 +103,6 @@ public class ResponseDAOImpl implements ResponseDAO {
 				requestObject.getLocale(), requestObject.getIngredientsList());
 		ResponseObject responseObject = new ResponseObject();
 		responseObject.setRecipesList(finalList);
-		
-		for(TranslatedRecipe t: finalList){
-			System.out.println(t.toString());
-		}
 		
 		return responseObject;
 	}
