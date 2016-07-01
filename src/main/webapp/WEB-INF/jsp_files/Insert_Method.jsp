@@ -33,9 +33,7 @@ body {
 		} else if (isNaN(mid1.value)) {
 			alert("Method ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Insertion Completed!");
-		}
+		} 
 		return valid;
 	};
 
@@ -47,8 +45,7 @@ body {
 		var mname = document.getElementById("mname");
 		var valid = true;
 
-		if (tmid.value.length <= 0 && mid2.value.length <= 0
-				&& loc.value.length <= 0) {
+		if (tmid.value.length <= 0 && mid2.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Method ID, Method ID and Locale fields must not be empty!");
 			valid = false;
 		} else if (tmid.value.length <= 0 && mid2.value.length <= 0) {
@@ -75,8 +72,7 @@ body {
 		} else if (!isNaN(tmid.value) && isNaN(mid2.value) && !isNaN(loc.value)) {
 			alert("Method ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
-		} else if (!isNaN(tmid.value) && !isNaN(mid2.value)
-				&& !isNaN(loc.value)) {
+		} else if (!isNaN(tmid.value) && !isNaN(mid2.value) && !isNaN(loc.value)) {
 			alert("Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tmid.value) && isNaN(mid2.value) && isNaN(loc.value)) {
@@ -92,9 +88,7 @@ body {
 			alert("Translated Method ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (tmid.value.length > 0 && mid2.value.length > 0
-				&& loc.value.length > 0
-				&& (isNaN(mname.value) || mname.value.length <= 0)) {
-			alert("Insertion Completed!");
+				&& loc.value.length > 0 && (isNaN(mname.value) || mname.value.length <= 0)) {
 			valid = true;
 		} else if (!isNaN(mname.value)) {
 			alert("Method Name field must be filled with letters!");

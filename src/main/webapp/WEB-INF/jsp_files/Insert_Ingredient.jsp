@@ -53,8 +53,7 @@ body {
 		var iname = document.getElementById("iname");
 		var valid = true;
 
-		if (tinid.value.length <= 0 && inid2.value.length <= 0
-				&& loc.value.length <= 0) {
+		if (tinid.value.length <= 0 && inid2.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Ingredient ID, Ingredient ID and Locale fields must not be empty!");
 			valid = false;
 		} else if (tinid.value.length <= 0 && inid2.value.length <= 0) {
@@ -75,38 +74,30 @@ body {
 		} else if (loc.value.length <= 0) {
 			alert("Locale field must not be empty!");
 			valid = false;
-		} else if (isNaN(tinid.value) && isNaN(inid2.value)
-				&& !isNaN(loc.value)) {
+		} else if (isNaN(tinid.value) && isNaN(inid2.value) && !isNaN(loc.value)) {
 			alert("Translated Ingredient ID and Ingredient ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
-		} else if (!isNaN(tinid.value) && isNaN(inid2.value)
-				&& !isNaN(loc.value)) {
+		} else if (!isNaN(tinid.value) && isNaN(inid2.value) && !isNaN(loc.value)) {
 			alert("Ingredient ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
-		} else if (!isNaN(tinid.value) && !isNaN(inid2.value)
-				&& !isNaN(loc.value)) {
+		} else if (!isNaN(tinid.value) && !isNaN(inid2.value) && !isNaN(loc.value)) {
 			alert("Locale field must be filled with valid letters!");
 			valid = false;
-		} else if (!isNaN(tinid.value) && isNaN(inid2.value)
-				&& isNaN(loc.value)) {
+		} else if (!isNaN(tinid.value) && isNaN(inid2.value) && isNaN(loc.value)) {
 			alert("Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else if (isNaN(tinid.value) && !isNaN(inid2.value)
-				&& isNaN(loc.value)) {
+		} else if (isNaN(tinid.value) && !isNaN(inid2.value) && isNaN(loc.value)) {
 			alert("Translated Ingredient ID field must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tinid.value) && isNaN(inid2.value) && isNaN(loc.value)) {
 			alert("Translated Ingredient ID and Ingredient ID fields must be filled with numbers!");
 			valid = false;
-		} else if (isNaN(tinid.value) && !isNaN(inid2.value)
-				&& !isNaN(loc.value)) {
+		} else if (isNaN(tinid.value) && !isNaN(inid2.value) && !isNaN(loc.value)) {
 			alert("Translated Ingredient ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (tinid.value.length > 0 && inid2.value.length > 0
-				&& loc.value.length > 0
-				&& (isNaN(iname.value) || iname.value.length <= 0)) {
+				&& loc.value.length > 0 && (isNaN(iname.value) || iname.value.length <= 0)) {
 			valid = true;
-			alert("Insertion Completed!");
 		} else if (!isNaN(iname.value)) {
 			alert("Ingredient Name field must be filled with letters!");
 			valid = false;

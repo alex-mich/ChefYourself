@@ -63,8 +63,7 @@ body {
 		} else if (newlang.value.length > 0 && !isNaN(newlang.value)) {
 			alert("New Locale field must be filled with letters!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 </script>

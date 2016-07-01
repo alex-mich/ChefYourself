@@ -32,8 +32,6 @@ body {
 		} else if (isNaN(cid.value)) {
 			alert("Cuisine ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -49,8 +47,6 @@ body {
 		} else if (isNaN(tcid.value)) {
 			alert("Translated Cuisine ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

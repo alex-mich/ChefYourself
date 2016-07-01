@@ -33,8 +33,6 @@ body {
 		} else if (isNaN(mid.value)) {
 			alert("Method ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -50,8 +48,6 @@ body {
 		} else if (isNaN(tmid.value)) {
 			alert("Translated Method ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

@@ -44,9 +44,7 @@ body {
 		} else if (!isNaN(curglrid1.value) && isNaN(newglrid1.value)) {
 			alert("New Global Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Update Completed!");
-		}
+		} 
 		return valid;
 	};
 	
@@ -120,8 +118,7 @@ body {
 		} else if (newglrname.value.length > 0 && !isNaN(newglrname.value)){
 			alert("New Global Recipe Name field must be filled with letters!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 	
@@ -172,8 +169,7 @@ body {
 		} else if (newtinid.value.length > 0 && isNaN(newtinid.value)){
 			alert("New Translated Ingredient ID field must be filled with number!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 	
@@ -211,8 +207,7 @@ body {
 		} else if (newtglrid3.value.length > 0 && isNaN(newtglrid3.value)){
 			alert("New Translated Global Recipe ID field must be filled with number!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 </script>

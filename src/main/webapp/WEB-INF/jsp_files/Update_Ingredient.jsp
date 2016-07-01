@@ -54,8 +54,7 @@ body {
 		} else if (newitype.value.length > 0 && !isNaN(newitype.value)) {
 			alert("Current Ingredient Name must be filled with valid letters, please check the table!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 
@@ -112,8 +111,7 @@ body {
 		} else if (newiname.value.length > 0 && !isNaN(newiname.value)){
 			alert("New Ingredient Name field must be filled with letters!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 </script>

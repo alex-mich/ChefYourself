@@ -45,9 +45,7 @@ body {
 		} else if (!isNaN(curmid1.value) && isNaN(newmid1.value)) {
 			alert("New Method ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Update Completed!");
-		}
+		} 
 		return valid;
 	};
 	
@@ -104,8 +102,7 @@ body {
 	} else if (newmname.value.length > 0 && !isNaN(newmname.value)){
 		alert("New Method Name field must be filled with letters!");
 		valid = false;
-	} else
-		alert("Update Completed!")
+	} 
 	return valid;
 };
 </script>

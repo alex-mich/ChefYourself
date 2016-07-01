@@ -33,8 +33,6 @@ body {
 		} else if (isNaN(glrid1.value)) {
 			alert("Global Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -50,8 +48,6 @@ body {
 		} else if (isNaN(tglrid.value)) {
 			alert("Translated Global Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -67,8 +63,6 @@ body {
 		} else if (isNaN(gliid.value)) {
 			alert("Global Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -84,8 +78,6 @@ body {
 		} else if (isNaN(glrdid.value)) {
 			alert("Global Recipe Description ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

@@ -120,8 +120,7 @@ body {
 		} else if (newsprname.value.length > 0 && !isNaN(newsprname.value)){
 			alert("New Spanish Recipe Name field must be filled with letters!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 	
@@ -172,8 +171,7 @@ body {
 		} else if (newtinid.value.length > 0 && isNaN(newtinid.value)){
 			alert("New Translated Ingredient ID field must be filled with number!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 	
@@ -211,8 +209,7 @@ body {
 		} else if (newtsprid3.value.length > 0 && isNaN(newtsprid3.value)){
 			alert("New Translated Global Recipe ID field must be filled with number!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 </script>

@@ -32,8 +32,6 @@ body {
 		} else if (isNaN(lid.value)) {
 			alert("Locale ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

@@ -9,7 +9,7 @@
 	function goBack() {
 		document.forms["GoBack"].submit();
 	}
-	
+
 	function goHome() {
 		document.forms["GoHome"].submit();
 	}
@@ -25,8 +25,6 @@
 		} else if (isNaN(cid1.value)) {
 			alert("Cuisine ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Insertion Completed!");
 		}
 		return valid;
 	};
@@ -39,8 +37,7 @@
 		var cname = document.getElementById("cname");
 		var valid = true;
 
-		if (tcid.value.length <= 0 && cid2.value.length <= 0
-				&& loc.value.length <= 0) {
+		if (tcid.value.length <= 0 && cid2.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Cusine ID, Cusine ID and Locale fields must not be empty!");
 			valid = false;
 		} else if (tcid.value.length <= 0 && cid2.value.length <= 0) {
@@ -82,11 +79,10 @@
 		} else if (isNaN(tcid.value) && !isNaN(cid2.value) && !isNaN(loc.value)) {
 			alert("Translated Cusine ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
-		} else if ((tcid.value.length > 0 && cid2.value.length > 0
-				&& loc.value.length > 0) && (isNaN(cname.vlaue) || cname.value.length <= 0)) {
-			alert("Insertion Completed!");
+		} else if ((tcid.value.length > 0 && cid2.value.length > 0 && loc.value.length > 0)
+				&& (isNaN(cname.vlaue) || cname.value.length <= 0)) {
 			valid = true;
-		} else if (!isNaN(cname.value)){
+		} else if (!isNaN(cname.value)) {
 			alert("Cuisine Name field must be filled with letters!");
 			valid = false;
 		}
@@ -109,7 +105,8 @@ body {
 			into app_cuisines table</font><br>
 	</h1>
 	<center>
-		<form action="./insertCuisine.ds" method="post" onsubmit="return validate();">
+		<form action="./insertCuisine.ds" method="post"
+			onsubmit="return validate();">
 			<table width="250">
 				<tr>
 					<td style="background-color: buttonface;">Cuisine ID:</td>
@@ -131,7 +128,8 @@ body {
 			into app_cuisines_trans table</font><br>
 	</h1>
 	<center>
-		<form action="./insertTranslatedCuisine.ds" method="post" onsubmit="return validate2();">
+		<form action="./insertTranslatedCuisine.ds" method="post"
+			onsubmit="return validate2();">
 			<table width="300">
 				<tr>
 					<td style="background-color: buttonface;">Translated Cuisine

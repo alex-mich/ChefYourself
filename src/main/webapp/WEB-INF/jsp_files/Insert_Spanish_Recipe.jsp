@@ -33,9 +33,7 @@ body {
 		} else if (isNaN(sprid1.value)) {
 			alert("Spanish Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Insertion Completed!");
-		}
+		} 
 		return valid;
 	};
 
@@ -50,8 +48,7 @@ body {
 		var valid = true;
 
 		if (tsprid.value.length <= 0 && sprid2.value.length <= 0
-				&& tcid.value.length <= 0 && tmid.value.length <= 0
-				&& loc.value.length <= 0) {
+				&& tcid.value.length <= 0 && tmid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID, Translated Cuisine ID, Translated Method ID and Locale fields must not be empty!");
 			valid = false;
 		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0
@@ -74,44 +71,34 @@ body {
 				&& tmid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Spanish Recipe ID, Translated Cuisine ID, Translated Method ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0
-				&& tcid.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0 && tcid.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Cuisine ID fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0
-				&& tmid.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0 && tmid.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Method ID fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && tcid.value.length <= 0
-				&& tmid.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && tcid.value.length <= 0 && tmid.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && tcid.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && tcid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Translated Cuisine ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (tsprid.value.length <= 0 && tmid.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (tsprid.value.length <= 0 && tmid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Spanish Recipe ID, Translated Method ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (sprid2.value.length <= 0 && tcid.value.length <= 0
-				&& tmid.value.length <= 0) {
+		} else if (sprid2.value.length <= 0 && tcid.value.length <= 0 && tmid.value.length <= 0) {
 			alert("Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must not be empty!");
 			valid = false;
-		} else if (sprid2.value.length <= 0 && tcid.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (sprid2.value.length <= 0 && tcid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Spanish Recipe ID, Translated Cuisine ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (sprid2.value.length <= 0 && tmid.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (sprid2.value.length <= 0 && tmid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Spanish Recipe ID, Translated Method ID and Locale fields must not be empty!");
 			valid = false;
-		} else if (tcid.value.length <= 0 && tmid.value.length <= 0
-				&& loc.value.length <= 0) {
+		} else if (tcid.value.length <= 0 && tmid.value.length <= 0 && loc.value.length <= 0) {
 			alert("Translated Cuisine ID, Translated Method ID and Locale fields must not be empty!");
 			valid = false;
 		} else if (tsprid.value.length <= 0 && sprid2.value.length <= 0) {
@@ -164,8 +151,7 @@ body {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -173,8 +159,7 @@ body {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -182,8 +167,7 @@ body {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID, Spanish Recipe ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -191,8 +175,7 @@ body {
 			alert("Translated Spanish Recipe ID and Spanish Recipe ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID and Spanish Recipe ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -200,8 +183,7 @@ body {
 			alert("Translated Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -209,8 +191,7 @@ body {
 			alert("Translated Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -218,8 +199,7 @@ body {
 			alert("Translated Spanish Recipe ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -227,8 +207,7 @@ body {
 			alert("Translated Spanish Recipe ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Spanish Recipe ID field must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -236,8 +215,7 @@ body {
 			alert("Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Spanish Recipe ID, Translated Cuisine ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -245,8 +223,7 @@ body {
 			alert("Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Spanish Recipe ID and Translated Cuisine ID fields must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -254,8 +231,7 @@ body {
 			alert("Spanish Recipe ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Spanish Recipe ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
@@ -263,8 +239,7 @@ body {
 			alert("Spanish Recipe ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Spanish Recipe ID field must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -272,8 +247,7 @@ body {
 			alert("Translated Cuisine ID and Translated Method ID fields must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Cuisine ID and Translated Method ID fields must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -281,8 +255,7 @@ body {
 			alert("Translated Cuisine ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& isNaN(tcid.value) && !isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& isNaN(tcid.value) && !isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Cuisine ID field must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -290,8 +263,7 @@ body {
 			alert("Translated Method ID field must be filled with numbers and Locale field must be filled with valid letters!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
-				&& !isNaN(tcid.value) && isNaN(tmid.value)
-				&& isNaN(loc.value)) {
+				&& !isNaN(tcid.value) && isNaN(tmid.value) && isNaN(loc.value)) {
 			alert("Translated Method ID field must be filled with numbers!");
 			valid = false;
 		} else if (!isNaN(tsprid.value) && !isNaN(sprid2.value)
@@ -301,7 +273,6 @@ body {
 		} else if (tsprid.value.length > 0 && sprid2.value.length > 0
 				&& tcid.value.length > 0 && tmid.value.length > 0
 				&& loc.value.length > 0 && (isNaN(sprname.value) || sprname.value.length <= 0)) {
-			alert("Insertion Completed!");
 			valid = true;
 		} else if (!isNaN(sprname.value)){
 			alert("Spanish Recipe Name field must be filled with letters!");
@@ -317,65 +288,49 @@ body {
 		var tinid = document.getElementById("tinid");
 		var valid = true;
 
-		if (spiid.value.length <= 0 && tsprid2.value.length <= 0
-				&& tinid.value.length <= 0) {
+		if (spiid.value.length <= 0 && tsprid2.value.length <= 0 && tinid.value.length <= 0) {
 			alert("Spanish Ingredient ID, Translated Spanish Recipe ID and Translated Ingredient ID fields must not be empty!");
 			valid = false;
-		} else if (spiid.value.length <= 0 && tsprid2.value.length <= 0
-				&& tinid.value.length > 0){
+		} else if (spiid.value.length <= 0 && tsprid2.value.length <= 0 && tinid.value.length > 0){
 			alert("Spanish Ingredient ID and Translated Spanish Recipe ID fields must not be empty!");
 			valid = false;			
-		} else if (spiid.value.length <= 0 && tsprid2.value.length > 0
-				&& tinid.value.length <= 0){
+		} else if (spiid.value.length <= 0 && tsprid2.value.length > 0 && tinid.value.length <= 0){
 			alert("Spanish Ingredient ID and Translated Ingredient ID fields must not be empty!");
 			valid = false;
-		} else if (spiid.value.length <= 0 && tsprid2.value.length > 0
-				&& tinid.value.length > 0){
+		} else if (spiid.value.length <= 0 && tsprid2.value.length > 0 && tinid.value.length > 0){
 			alert("Spanish Ingredient ID field must not be empty!");
 			valid = false;
-		} else if (spiid.value.length > 0 && tsprid2.value.length <= 0
-				&& tinid.value.length <= 0){
+		} else if (spiid.value.length > 0 && tsprid2.value.length <= 0 && tinid.value.length <= 0){
 			alert("Translated Spanish Recipe ID and Translated Ingredient ID fields must not be empty!");
 			valid = false;
-		} else if (spiid.value.length > 0 && tsprid2.value.length <= 0
-				&& tinid.value.length > 0){
+		} else if (spiid.value.length > 0 && tsprid2.value.length <= 0 && tinid.value.length > 0){
 			alert("Translated Spanish Recipe ID field must not be empty!");
 			valid = false;
-		} else if (spiid.value.length > 0 && tsprid2.value.length > 0
-				&& tinid.value.length <= 0){
+		} else if (spiid.value.length > 0 && tsprid2.value.length > 0 && tinid.value.length <= 0){
 			alert("Translated Ingredient ID field must not be empty!");
 			valid = false;
-		} else if (isNaN(spiid.value) && isNaN(tsprid2.value)
-				&& isNaN(tinid.value)){
+		} else if (isNaN(spiid.value) && isNaN(tsprid2.value) && isNaN(tinid.value)){
 			alert("Spanish Ingredient ID, Translated Spanish Recipe ID and Translated Ingredient ID fields must be filled with numbers!");
 			valid = false;
-		} else if (isNaN(spiid.value) && isNaN(tsprid2.value)
-				&& !isNaN(tinid.value)){
+		} else if (isNaN(spiid.value) && isNaN(tsprid2.value) && !isNaN(tinid.value)){
 			alert("Spanish Ingredient ID and Translated Spanish Recipe ID fields must be filled with numbers!");
 			valid = false;
-		} else if (isNaN(spiid.value) && !isNaN(tsprid2.value)
-				&& isNaN(tinid.value)){
+		} else if (isNaN(spiid.value) && !isNaN(tsprid2.value) && isNaN(tinid.value)){
 			alert("Spanish Ingredient ID and Translated Ingredient ID fields must be filled with numbers!");
 			valid = false;
-		} else if (isNaN(spiid.value) && !isNaN(tsprid2.value)
-				&& !isNaN(tinid.value)){
+		} else if (isNaN(spiid.value) && !isNaN(tsprid2.value) && !isNaN(tinid.value)){
 			alert("Spanish Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else if (!isNaN(spiid.value) && isNaN(tsprid2.value)
-				&& isNaN(tinid.value)){
+		} else if (!isNaN(spiid.value) && isNaN(tsprid2.value) && isNaN(tinid.value)){
 			alert("Translated Spanish Recipe ID and Translated Ingredient ID fields must be filled with numbers!");
 			valid = false;
-		} else if (!isNaN(spiid.value) && isNaN(tsprid2.value)
-				&& !isNaN(tinid.value)){
+		} else if (!isNaN(spiid.value) && isNaN(tsprid2.value) && !isNaN(tinid.value)){
 			alert("Translated Spanish Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else if (!isNaN(spiid.value) && !isNaN(tsprid2.value)
-				&& isNaN(tinid.value)){
+		} else if (!isNaN(spiid.value) && !isNaN(tsprid2.value) && isNaN(tinid.value)){
 			alert("Translated Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Insertion Completed!");
-		}
+		} 
 		return valid;
 	};
 
@@ -403,9 +358,7 @@ body {
 		} else if (!isNaN(sprdid.value) && isNaN(tsprid3.value)){
 			alert("Translated Spanish Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Insertion Completed!");
-		}
+		} 
 		return valid;
 	};
 </script>

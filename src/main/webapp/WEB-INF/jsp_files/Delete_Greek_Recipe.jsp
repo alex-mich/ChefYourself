@@ -33,8 +33,6 @@ body {
 		} else if (isNaN(grrid1.value)) {
 			alert("Greek Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -50,8 +48,6 @@ body {
 		} else if (isNaN(tgrrid.value)) {
 			alert("Translated Greek Recipe ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -67,8 +63,6 @@ body {
 		} else if (isNaN(griid.value)) {
 			alert("Greek Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -84,8 +78,6 @@ body {
 		} else if (isNaN(grrdid.value)) {
 			alert("Greek Recipe Description ID fixeld must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

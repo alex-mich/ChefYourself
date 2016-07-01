@@ -47,8 +47,8 @@ body {
 		} else if (isNaN(lid.value) && isNaN(locale.value)) {
 			alert("Locale ID field must be filled with numbers!");
 			valid = false;
-		} else if (lid.value.length > 0 && locale.value.length > 0 && (isNaN(lang.value) || lang.value.length <= 0)) {
-			alert("Insertion Completed!");
+		} else if (lid.value.length > 0 && locale.value.length > 0
+				&& (isNaN(lang.value) || lang.value.length <= 0)) {
 			valid = true;
 		} else if (!isNaN(lang.value)) {
 			alert("Language field must be filled with letters!")

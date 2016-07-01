@@ -33,8 +33,6 @@ body {
 		} else if (isNaN(inid.value)) {
 			alert("Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};
@@ -50,8 +48,6 @@ body {
 		} else if (isNaN(tinid.value)) {
 			alert("Translated Ingredient ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Deletion Completed!");
 		}
 		return valid;
 	};

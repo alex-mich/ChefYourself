@@ -46,8 +46,6 @@ body {
 		} else if (!isNaN(curcid1.value) && isNaN(newcid1.value)) {
 			alert("New Cuisine ID field must be filled with numbers!");
 			valid = false;
-		} else {
-			alert("Update Completed!");
 		}
 		return valid;
 	};
@@ -105,8 +103,7 @@ function validate2(){
 		} else if (newcname.value.length > 0 && !isNaN(newcname.value)){
 			alert("New Cuisine Name field must be filled with letters!");
 			valid = false;
-		} else
-			alert("Update Completed!")
+		} 
 		return valid;
 	};
 </script>
