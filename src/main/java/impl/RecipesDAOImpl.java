@@ -608,8 +608,8 @@ public class RecipesDAOImpl implements RecipesDAO {
 		Class.forName(driver);
 		Connection con = DriverManager.getConnection(url, username, password);
 		localeList = ldi.findLocales();
-		transMethodsList = tmdi.findEnMethods();
-		transCuisinesList = tcdi.findEnCuisines();
+		transMethodsList = tmdi.findGrMethods();
+		transCuisinesList = tcdi.findGrCuisines();
 		translatedRecipesList = new ArrayList<TranslatedRecipe>();
 
 		try {

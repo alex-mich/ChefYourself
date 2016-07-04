@@ -179,6 +179,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 		return translatedMethodsList;
 	}
 
+	@Override
 	public List<TranslatedMethod> findGrMethods() throws Exception {
 		final String allGrSQL = "SELECT * FROM app_methods_trans WHERE locale = 'el' ORDER BY tmid";
 		Class.forName(driver);
@@ -204,6 +205,7 @@ public class MethodsDAOImpl implements MethodsDAO {
 					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
 						tm.setLocale(localesList.get(i));
 					}
+				tm.setMname(rs.getString(4));
 				tm.setMname(rs.getString(4));
 				translatedMethodsList.add(tm);
 			}

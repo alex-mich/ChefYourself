@@ -56,14 +56,15 @@ public class ResponseDAOImpl implements ResponseDAO {
 		
 		List<TranslatedRecipe> firstStep = new ArrayList<TranslatedRecipe>();
 		try {
-			if (requestObject.getLocale().equals(requestObject.getLocale()))
+			if (requestObject.getLocale().equalsIgnoreCase("en"))
 				firstStep = trdi.findAllRecipesEn();
 			else
 				firstStep = trdi.findAllRecipesGr();
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		List<TranslatedRecipe> secondStep = new ArrayList<TranslatedRecipe>();
 		for (int j = 0; j < requestObject.getCuisineList().size(); j++) {
 			for (int i = 0; i < firstStep.size(); i++) {

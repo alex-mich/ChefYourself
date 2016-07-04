@@ -197,9 +197,9 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 		}
 		return translatedCuisinesList;
 	}
-
+	
+	@Override
 	public List<TranslatedCuisine> findGrCuisines() throws Exception {
-
 		final String allGrSQL = "SELECT * FROM app_cuisines_trans WHERE locale = 'el' ORDER BY tcid";
 		cuisinesList = findAllCuisines();
 		localesList = ldi.findLocales();
@@ -212,18 +212,23 @@ public class CuisinesDAOImpl implements CuisinesDAO {
 			ResultSet rs = ps.executeQuery(allGrSQL);
 
 			while (rs.next()) {
+				Cuisine c = new Cuisine();
+				Language loc = new Language();
 				TranslatedCuisine tc = new TranslatedCuisine();
+
 				tc.setTcid(rs.getInt(1));
 				for (int i = 0; i < cuisinesList.size(); i++)
 					if (rs.getInt(2) == cuisinesList.get(i).getCid()) {
-						tc.setCuisine(cuisinesList.get(i));
+						c.setCid(cuisinesList.get(i).getCid());
 					}
-
+				tc.setCuisine(c);
 				for (int i = 0; i < localesList.size(); i++)
 					if (rs.getString(3).equals(localesList.get(i).getLoc())) {
-						tc.setLocale(localesList.get(i));
+						loc.setLoc(localesList.get(i).getLoc());
+						loc.setLanguage(localesList.get(i).getLanguage());
+						loc.setLid(localesList.get(i).getLid());
 					}
-
+				tc.setLocale(loc);
 				tc.setCname(rs.getString(4));
 				translatedCuisinesList.add(tc);
 			}
